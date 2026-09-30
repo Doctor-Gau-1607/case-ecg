@@ -4523,100 +4523,110 @@
 "nhan": "#410",
 "slug": "case-410",
 "url": "https://www.ekgblog.com/2023/12/ecg-blog-410-how-tall-are-t-waves.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #410 — How Tall are the T Waves?",
+"tieu_de_vi": "ECG Blog #410 — Sóng T cao đến mức nào?",
+"trang_thai": "xong",
+"tu_khoa": "ST chênh lên vây cá mập, shark fin ST elevation, điện giật, electrocution, ngừng tim, cardiac arrest, tổn thương cơ tim, myocardial injury, thiếu máu cục bộ xuyên thành, transmural ischemia, kiểu hình sao chép Brugada, Brugada phenocopy, QRS giả rộng, PMcardio",
+"ngay": "2026-09-30"
 },
 {
 "stt": 414,
 "nhan": "#411",
 "slug": "case-411",
 "url": "https://www.ekgblog.com/2024/01/ecg-blog-411-is-it-wenckebach.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #411 — Is it Wenckebach?",
+"tieu_de_vi": "ECG Blog #411 — Có phải là Wenckebach?",
+"trang_thai": "xong",
+"tu_khoa": "Wenckebach AV, AV Wenckebach, blốc AV độ 2 Mobitz loại I, 2nd-degree AV block Mobitz I, nhịp theo nhóm, group beating, phân ly nhĩ thất thoáng qua, transient AV dissociation, nhát thoát bộ nối gia tốc, accelerated junctional escape, giản đồ bậc thang, laddergram, Ps Qs 3R, cách tiếp cận hệ thống",
+"ngay": "2026-09-30"
 },
 {
 "stt": 415,
 "nhan": "#412",
 "slug": "case-412",
 "url": "https://www.ekgblog.com/2024/01/ecg-blog-412-is-cardiac-cath-indicated.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #412 — Is Cardiac Cath Indicated?",
+"tieu_de_vi": "ECG Blog #412 — Có chỉ định thông tim không?",
+"trang_thai": "xong",
+"tu_khoa": "bệnh cơ tim phì đại mỏm, apical HCM, Yamaguchi, phì đại thất trái, LVH, tăng gánh thất trái, LV strain, ST dạng vòm, ST coving, sóng T đảo ngược, sóng T khổng lồ, giant T waves, thông tim, cardiac cath, OMI, thiếu máu cục bộ, so sánh điện tâm đồ cũ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 416,
 "nhan": "#413",
 "slug": "case-413",
 "url": "https://www.ekgblog.com/2024/01/ecg-413-pre-op-ecg-in-asx-patient.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG #413 — A Pre-Op ECG in an ASx Patient",
+"tieu_de_vi": "ECG #413 — Điện tâm đồ trước mổ ở một bệnh nhân không triệu chứng",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV hoàn toàn, complete AV block, blốc AV độ 3, 3rd-degree AV block, nhịp chậm, bradycardia, nhịp thoát bộ nối, junctional escape rhythm, OMI thành sau, posterior OMI, nhồi máu cơ tim thầm lặng, silent MI, động mạch mũ trái, LCx, loạn nhịp xoang theo pha thất, ventriculophasic sinus arrhythmia, điện tâm đồ trước mổ, pre-op ECG, giản đồ bậc thang, laddergram",
+"ngay": "2026-09-30"
 },
 {
 "stt": 417,
 "nhan": "#414",
 "slug": "case-414",
 "url": "https://www.ekgblog.com/2024/01/ecg-blog-414-what-kind-of-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #414 — What Kind of AV Block?",
+"tieu_de_vi": "ECG Blog #414 — Blốc AV loại gì?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, phân ly nhĩ thất, AV dissociation, nhát thoát bộ nối, junctional escape beat, loạn nhịp xoang, sinus arrhythmia, PAC, giản đồ bậc thang, laddergram, trương lực phế vị, vagotonic block",
+"ngay": "2026-09-30"
 },
 {
 "stt": 418,
 "nhan": "#415",
 "slug": "case-415",
 "url": "https://www.ekgblog.com/2024/02/ecg-blog-415-cath-showed-no-occlusion.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #415 — The Cath showed NO Occlusion!",
+"tieu_de_vi": "ECG Blog #415 — Thông tim KHÔNG thấy tắc!",
+"trang_thai": "xong",
+"tu_khoa": "STEMI trước-bên, anterolateral STEMI, MINOCA, OMI, T-QRS-D, biến dạng phần cuối QRS, terminal QRS distortion, ngừng tim, cardiac arrest, ngất, syncope, nhồi máu cơ tim thầm lặng, silent MI, tái tưới máu tự phát, LAHB, MRI tim",
+"ngay": "2026-09-30"
 },
 {
 "stt": 419,
 "nhan": "#416",
 "slug": "case-416",
 "url": "https://www.ekgblog.com/2024/02/ecg-blog-416-is-rhythm-and-ecg-related.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #416 — Is the Rhythm and ECG related?",
+"tieu_de_vi": "ECG Blog #416 — Nhịp tim và điện tâm đồ có liên quan với nhau không?",
+"trang_thai": "xong",
+"tu_khoa": "OMI dưới-sau cấp, infero-posterior OMI, OMI thành sau, posterior OMI, tắc RCA, blốc AV độ 2, 2nd-degree AV block, Wenckebach AV hai tầng, dual-level AV Wenckebach, Mobitz I, giản đồ bậc thang, laddergram, ST chênh xuống dạng bậc thềm, shelf-like ST, sóng T tối cấp, hyperacute T wave, thay đổi soi gương, reciprocal change, đau ngực, chest pain",
+"ngay": "2026-09-30"
 },
 {
 "stt": 420,
 "nhan": "#417",
 "slug": "case-417",
 "url": "https://www.ekgblog.com/2024/02/ecg-blog-417-afib-with-aberrancy.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #417 — AFib with Aberrancy?",
+"tieu_de_vi": "ECG Blog #417 — AFib kèm dẫn truyền lệch hướng?",
+"trang_thai": "xong",
+"tu_khoa": "VT không đều, irregular VT, VT đơn dạng, monomorphic VT, nhát hỗn hợp, fusion beat, sóng P ngược dòng, retrograde P wave, AFib dẫn truyền lệch hướng, AFib with aberrancy, PVC, cặp đôi thất, giản đồ bậc thang, laddergram, sóng T tái tưới máu, reperfusion T waves, tắc LAD, LAHB, nhịp nhanh QRS rộng, WCT",
+"ngay": "2026-09-30"
 },
 {
 "stt": 421,
 "nhan": "#418",
 "slug": "case-418",
 "url": "https://www.ekgblog.com/2024/02/ecg-blog-418-single-lead-tells-tale.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #418 — A Single Lead Tells the Tale ...",
+"tieu_de_vi": "ECG Blog #418 — Chỉ một chuyển đạo nói lên tất cả ...",
+"trang_thai": "xong",
+"tu_khoa": "OMI, nhồi máu cơ tim do tắc, OMI LAD cấp, acute LAD OMI, sóng T tối cấp, hyperacute T waves, ST thẳng đuỗn, ST straightening, chuyển đạo V3, thay đổi ST-T động, dynamic ST-T changes, giả bình thường hóa, pseudonormalization, mất sóng R, sóng T tái tưới máu, reperfusion T waves, Streptokinase, tiêu sợi huyết",
+"ngay": "2026-09-30"
 },
 {
 "stt": 422,
 "nhan": "#419",
 "slug": "case-419",
 "url": "https://www.ekgblog.com/2024/02/ecg-blog-419-cause-of-ecg-1.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790795468
+"tieu_de_en": "ECG Blog #419 — The Cause of ECG #1?",
+"tieu_de_vi": "ECG Blog #419 — Nguyên nhân của điện tâm đồ #1?",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhĩ thất kịch phát, paroxysmal AV block, PAVB, PD-PAVB, blốc pha 4, Phase 4 block, ngưng thất, ventricular standstill, blốc AV hoàn toàn, blốc nhánh ngụy trang, masquerading BBB, MBBB, IVCD, hệ thống His-Purkinje, blốc AV do cường phế vị, máy tạo nhịp vĩnh viễn, tụt huyết áp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 423,
