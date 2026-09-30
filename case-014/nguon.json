@@ -1,12 +1,13 @@
 {
  "url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-14-pause-av.html",
  "loi": [],
+ "phien": 2,
  "trich": [
   "URL gốc: https://www.ekgblog.com/2011/01/ecg-interpretation-review-14-pause-av.html",
   "Khối: 24  p=14, list=6, fig=4",
-  "Media gốc cần có: 5 tệp khác nhau (ảnh 4 vị trí / 4 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
-  "Lô dịch: 2 tệp trong /tmp/tmpo77vb3db/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
+  "Media gốc cần có: 4 tệp khác nhau (ảnh 4 vị trí / 4 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
+  "Lô dịch: 2 tệp trong /tmp/tmp4wdc1kg3/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
  ],
- "so_media": 5,
- "luc": "2026-09-30 07:23:18"
+ "so_media": 4,
+ "luc": "2026-09-30 08:49:07"
 }
