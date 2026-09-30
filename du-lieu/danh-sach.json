@@ -70,10 +70,11 @@
 "nhan": "#7",
 "slug": "case-007",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-7-acute-mi.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790766547
+"tieu_de_en": "ECG Interpretation Review - #7 (Infarction, ECG Changes, Inferior, Posterior, Lateral, Anterior MI)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 7 (Nhồi máu, thay đổi điện tâm đồ, nhồi máu cơ tim thành dưới, thành sau, thành bên, thành trước)",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim cấp thành dưới, acute inferior MI, ST chênh lên tối cấp, hyperacute ST elevation, thay đổi soi gương, reciprocal changes, sóng Q, Q waves, nhồi máu cơ tim thành sau, posterior MI, ST chênh xuống thành trước, anterior ST depression, mất sóng R, loss of R wave, STEMI",
+"ngay": "2026-09-30"
 },
 {
 "stt": 8,
@@ -135,20 +136,22 @@
 "nhan": "#13",
 "slug": "case-013",
 "url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-13-bbb-wide.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790766547
+"tieu_de_en": "ECG Interpretation Review #13 (BBB, Wide QRS, Is this LBBB vs RBBB vs IVCD)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 13 (Blốc nhánh, QRS rộng, đây là LBBB, RBBB hay IVCD)",
+"trang_thai": "xong",
+"tu_khoa": "chậm dẫn truyền trong thất, IVCD, intraventricular conduction delay, QRS giãn rộng, wide QRS, blốc nhánh trái, LBBB, blốc nhánh phải, RBBB, blốc nhánh, bundle branch block, ngoại tâm thu nhĩ, PAC, phức bộ QS, rối loạn dẫn truyền, conduction defect",
+"ngay": "2026-09-30"
 },
 {
 "stt": 14,
 "nhan": "#14",
 "slug": "case-014",
 "url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-14-pause-av.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790766547
+"tieu_de_en": "ECG Blog #14 — The Cause of the Pause?",
+"tieu_de_vi": "ECG Blog #14 — Nguyên nhân của khoảng ngưng?",
+"trang_thai": "xong",
+"tu_khoa": "ngoại tâm thu nhĩ bị blốc, blocked PAC, non-conducted PAC, khoảng ngưng, pause, nhịp theo nhóm, group beating, thời kỳ trơ tuyệt đối, absolute refractory period, dẫn truyền lệch hướng, aberrant conduction, nhát thoát bộ nối, junctional escape beat, blốc AV, AV block, MCL-1",
+"ngay": "2026-09-30"
 },
 {
 "stt": 15,
