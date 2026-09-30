@@ -575,20 +575,22 @@
 "nhan": "#53",
 "slug": "case-053",
 "url": "https://www.ekgblog.com/2012/11/ecg-interpretation-review-53-peaked-t.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Interpretation Review #53 (Peaked T - Hyperacute - DeWinter - Wellens - aVR)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 53 (Sóng T nhọn - Tối cấp - DeWinter - Wellens - aVR)",
+"trang_thai": "xong",
+"tu_khoa": "sóng T DeWinter, de Winter T waves, sóng T tối cấp, hyperacute T waves, tắc LAD đoạn gần, proximal LAD occlusion, OMI, STEMI, hội chứng Wellens, ST chênh lên aVR, RBBB không hoàn toàn, ST chênh xuống soi gương, nhồi máu thành trước",
+"ngay": "2026-09-30"
 },
 {
 "stt": 55,
 "nhan": "#54",
 "slug": "case-054",
 "url": "https://www.ekgblog.com/2012/11/ecg-interpretation-review-54-acute-mi.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #54 — Acute MI in a Cancer Patient?",
+"tieu_de_vi": "ECG Blog #54 — Nhồi máu cơ tim cấp ở bệnh nhân ung thư?",
+"trang_thai": "xong",
+"tu_khoa": "tăng calci máu, hypercalcemia, giả STEMI, STEMI mimic, ST chênh lên dạng vòm, coved ST elevation, QT ngắn, short QT, ung thư phổi, rối loạn điện giải, ST chênh xuống soi gương, sóng T đảo ngược",
+"ngay": "2026-09-30"
 },
 {
 "stt": 56,
@@ -622,60 +624,66 @@
 "nhan": "#58",
 "slug": "case-058",
 "url": "https://www.ekgblog.com/2013/01/ecg-interpretation-review-58-2nd-degree.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #58 — AV Dissociation vs Block?",
+"tieu_de_vi": "ECG Blog #58 — Phân ly nhĩ thất hay blốc?",
+"trang_thai": "xong",
+"tu_khoa": "phân ly nhĩ thất, AV dissociation, blốc AV độ 3, complete AV block, 3rd degree AV block, nhịp bộ nối, junctional rhythm, nhịp thoát, escape rhythm, chiếm quyền, usurpation, mặc định, default, nhịp chậm xoang, sinus bradycardia",
+"ngay": "2026-09-30"
 },
 {
 "stt": 60,
 "nhan": "#59",
 "slug": "case-059",
 "url": "https://www.ekgblog.com/2013/01/ecg-interpretation-review-59-t-wave.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #59 — Giant T - Ischemia -Yamaguchi",
+"tieu_de_vi": "ECG Blog #59 — Sóng T khổng lồ - Thiếu máu cục bộ - Yamaguchi",
+"trang_thai": "xong",
+"tu_khoa": "sóng T khổng lồ, giant T waves, sóng T đảo ngược, T wave inversion, bệnh cơ tim mỏm, apical cardiomyopathy, Yamaguchi, Takotsubo, thiếu máu cục bộ, ischemia, LVH, phì đại thất trái, hội chứng sau nhịp nhanh, cardiac memory, thuyên tắc phổi, pulmonary embolism, CNS",
+"ngay": "2026-09-30"
 },
 {
 "stt": 61,
 "nhan": "#60",
 "slug": "case-060",
 "url": "https://www.ekgblog.com/2013/02/ecg-interpretation-review-60-st-t-wave.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #60 — LVH/Acute MI vs Normal Variant?",
+"tieu_de_vi": "ECG Blog #60 — LVH/Nhồi máu cấp hay biến thể bình thường?",
+"trang_thai": "xong",
+"tu_khoa": "LVH, phì đại thất trái, nhồi máu cơ tim cấp, acute MI, STEMI, biến thể tái cực bình thường, normal repolarization variant, ST dạng vòm, ST coving, sóng T đảo ngược, T wave inversion, chuẩn hóa một nửa, half standardization, LAHB, vận động viên, athlete",
+"ngay": "2026-09-30"
 },
 {
 "stt": 62,
 "nhan": "#61",
 "slug": "case-061",
 "url": "https://www.ekgblog.com/2013/02/ecg-interpretation-review-61-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #61 — What is Vagotonic Block?",
+"tieu_de_vi": "ECG Blog #61 — Blốc do cường phế vị là gì?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV do cường phế vị, vagotonic AV block, blốc AV độ 2, Mobitz I, Wenckebach AV, Mobitz II, blốc AV mức độ cao, phân ly nhĩ thất, AV dissociation, loạn nhịp xoang, sinus arrhythmia, trương lực phế vị, vagal tone, Holter, AFib do cường phế vị, vagotonic AFib, nhát thoát bộ nối",
+"ngay": "2026-09-30"
 },
 {
 "stt": 63,
 "nhan": "#62",
 "slug": "case-062",
 "url": "https://www.ekgblog.com/2013/03/ecg-interpretation-review-62-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Interpretation Review #62 (AV Block - Mobitz I - AV Wenckebach - Mobitz II - 2-to-1 AV Block)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 62 (Blốc AV – Mobitz I – Wenckebach AV – Mobitz II – Blốc AV 2:1)",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhĩ thất, blốc AV độ 2, AV block, Mobitz I, Mobitz II, Wenckebach AV, AV Wenckebach, blốc AV 2:1, 2:1 AV block, nhịp theo nhóm, group beating, loạn nhịp xoang liên quan thất, ventriculophasic sinus arrhythmia, Atropine, ngất, syncope, compa đo, calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 64,
 "nhan": "#63",
 "slug": "case-063",
 "url": "https://www.ekgblog.com/2013/03/ecg-interpretation-review-63-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #63 — Escape from Mobitz I",
+"tieu_de_vi": "ECG Blog #63 — Nhát thoát trong Mobitz I",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2, second degree AV block, Mobitz I, Wenckebach AV, AV Wenckebach, nhịp theo nhóm, group beating, nhát thoát bộ nối, junctional escape beat, nhồi máu thành dưới, inferior infarction, blốc AV độ 1, giản đồ bậc thang, laddergram, loạn nhịp xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 65,
@@ -691,20 +699,22 @@
 "nhan": "#65",
 "slug": "case-065",
 "url": "https://www.ekgblog.com/2013/04/ecg-interpretation-review-65-svt-rvh.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Blog #65 (AFib - RVH - Wandering - MAT)",
+"tieu_de_vi": "ECG Blog #65 (AFib - RVH - ổ tạo nhịp lang thang - nhịp nhanh nhĩ đa ổ (MAT))",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh nhĩ đa ổ, MAT, multifocal atrial tachycardia, rung nhĩ, AFib, phì đại thất phải, RVH, bất thường nhĩ phải, RAA, ổ tạo nhịp lang thang, wandering pacemaker, COPD, bệnh phổi, dấu hiệu Schamroth, Schamroth sign, nhịp nhanh xoang kèm PAC, trục thẳng đứng",
+"ngay": "2026-09-30"
 },
 {
 "stt": 67,
 "nhan": "#66",
 "slug": "case-066",
 "url": "https://www.ekgblog.com/2013/05/ecg-interpretation-review-66-2nd-degree.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770700
+"tieu_de_en": "ECG Interpretation Review #66 (2nd Degree AV Block – PACs – Blocked PACs – Mobitz I – AV Wenckebach – Group Beating)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 66 (Blốc AV độ 2 – PAC – PAC bị blốc – Mobitz I – Wenckebach AV – Nhịp theo nhóm)",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2, 2nd degree AV block, Mobitz I, Wenckebach AV, AV Wenckebach, nhịp theo nhóm, group beating, PAC bị blốc, blocked PAC, ngoại tâm thu nhĩ, PAC, dẫn truyền lệch hướng, aberrant conduction, loạn nhịp xoang, sinus arrhythmia, khoảng ngưng, pause",
+"ngay": "2026-09-30"
 },
 {
 "stt": 68,
