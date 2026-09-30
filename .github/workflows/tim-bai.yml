@@ -1,0 +1,44 @@
+name: Tìm bài blog (tạm)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tim-bai.yml']
+permissions:
+  contents: write
+jobs:
+  tim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: du-lieu
+      - name: Lấy toàn bộ danh sách bài từ feed Blogger
+        run: |
+          python3 - <<'PY'
+          import json, time, urllib.request
+          UA={'User-Agent':'Mozilla/5.0 (compatible; MEDGUIDE-CaseECG/1.0)'}
+          out=[]; i=1
+          while True:
+              u=f'https://www.ekgblog.com/feeds/posts/summary?alt=json&max-results=150&start-index={i}'
+              for t in range(5):
+                  try:
+                      d=json.load(urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=60)); break
+                  except Exception as e:
+                      print('retry',i,e); time.sleep(30*(t+1))
+              es=d['feed'].get('entry',[])
+              for e in es:
+                  link=[l['href'] for l in e['link'] if l['rel']=='alternate']
+                  out.append({'title':e['title']['$t'],'url':link[0] if link else '','ngay':e['published']['$t'][:10]})
+              print(i,len(es))
+              if len(es)<150: break
+              i+=150; time.sleep(3)
+          json.dump(out,open('du-lieu/tat-ca-bai-blog.json','w'),ensure_ascii=False,indent=1)
+          print('tong',len(out))
+          PY
+      - name: Đẩy kết quả
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add du-lieu/tat-ca-bai-blog.json
+          git commit -m "Danh sách toàn bộ bài trên ekgblog (feed)" || exit 0
+          for t in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
