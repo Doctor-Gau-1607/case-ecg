@@ -1149,9 +1149,10 @@
 "slug": "case-104",
 "url": "https://www.ekgblog.com/2015/01/ecg-blog-104-my-ecg-guru-comments-2-av.html",
 "tieu_de_en": "ECG Blog #104 (My ECG Guru Comments-2) - AV Blocks/AV Dissociation",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_vi": "ECG Blog #104 (My ECG Guru Comments-2) — Blốc AV/Phân ly nhĩ thất",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, blốc AV hoàn toàn, complete AV block, phân ly nhĩ thất, AV dissociation, ngất, syncope, máy tạo nhịp, pacemaker, nhịp không đều, thay đổi hình dạng QRS, ECG Guru",
+"ngay": "2026-09-30"
 },
 {
 "stt": 106,
@@ -1170,9 +1171,10 @@
 "slug": "case-106",
 "url": "https://www.ekgblog.com/2015/02/ecg-interpretation-review-106-sinus.html",
 "tieu_de_en": "ECG Blog #106 (Sinus Tachycardia - Hyperkalemia - DeWinter T Waves - Heart Rate)",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_vi": "ECG Blog #106 (Nhịp nhanh xoang - Tăng kali máu - Sóng T de Winter - Tần số tim)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh xoang, sinus tachycardia, tăng kali máu, hyperkalemia, sóng T de Winter, DeWinter T waves, sóng T nhọn, peaked T waves, nghiệm pháp gắng sức, exercise stress test, ST chênh xuống dốc lên, upsloping ST depression, tắc đoạn gần LAD, bối cảnh lâm sàng",
+"ngay": "2026-09-30"
 },
 {
 "stt": 108,
@@ -1202,9 +1204,10 @@
 "slug": "case-109",
 "url": "https://www.ekgblog.com/2015/04/ecg-blog-109-interesting-tachycardia.html",
 "tieu_de_en": "ECG Blog #109 (Interesting Tachycardia - Video)",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_vi": "ECG Blog #109 (Một nhịp nhanh thú vị - Video)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh trên thất, SVT, supraventricular tachycardia, ngoại tâm thu nhĩ, PAC, nhiễu, artifact, hoạt động nhĩ, atrial activity, cơ chế nhịp nhanh, huyết động ổn định, video",
+"ngay": "2026-09-30"
 },
 {
 "stt": 111,
@@ -1861,9 +1864,10 @@
 "slug": "case-169",
 "url": "https://www.ekgblog.com/2019/11/ecg-blog-169-tachycardia-regular-svt.html",
 "tieu_de_en": "ECG Blog #169 (Tachycardia - Regular SVT - Calipers)",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_vi": "ECG Blog #169 (Nhịp nhanh - SVT đều - Compa đo)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh, tachycardia, SVT đều, regular SVT, nhịp nhanh trên thất, supraventricular tachycardia, nhịp nhanh QRS hẹp, narrow complex tachycardia, chẩn đoán phân biệt, differential diagnosis, compa đo, calipers, huyết động ổn định",
+"ngay": "2026-09-30"
 },
 {
 "stt": 171,
@@ -2507,50 +2511,55 @@
 "nhan": "#227",
 "slug": "case-227",
 "url": "https://www.ekgblog.com/2021/05/ecg-blog-227-43-sinus-tach-and-1st.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_en": "ECG Blog #227 — Sinus Tach and 1st-Degree?",
+"tieu_de_vi": "ECG Blog #227 — Nhịp nhanh xoang và blốc AV độ 1?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh xoang, sinus tachycardia, blốc AV độ 1, 1st-degree AV block, Quy tắc Bix, Bix Rule, dẫn truyền AV 2:1, 2:1 AV conduction, nhịp nhanh nhĩ, atrial tachycardia, cuồng nhĩ, atrial flutter, chuyển đạo Lewis, Lewis lead, LVH, LBBB không hoàn toàn, incomplete LBBB, tiêu chuẩn Sgarbossa",
+"ngay": "2026-09-30"
 },
 {
 "stt": 230,
 "nhan": "#228",
 "slug": "case-228",
 "url": "https://www.ekgblog.com/2021/05/ecg-blog-228-44-what-is-main-problem.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_en": "ECG Blog #228 — What is the Main Problem?",
+"tieu_de_vi": "ECG Blog #228 — Vấn đề chính là gì?",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim thầm lặng, silent MI, nhịp đôi thất, ventricular bigeminy, PVC, nhồi máu dưới-sau, infero-postero MI, nhồi máu thất phải, RV MI, nghiệm pháp soi gương, Mirror Test, động mạch thủ phạm, RCA, Covid-19, thay đổi soi gương, ST chênh xuống dạng bậc thềm",
+"ngay": "2026-09-30"
 },
 {
 "stt": 231,
 "nhan": "#229",
 "slug": "case-229",
 "url": "https://www.ekgblog.com/2021/05/ecg-blog-229-45-is-this-vt-or-something.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_en": "ECG Blog #229 — VT or Something Else?",
+"tieu_de_vi": "ECG Blog #229 — VT hay là một nhịp khác?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, WCT, cuồng nhĩ, atrial flutter, dẫn truyền 2:1, 2:1 AV conduction, RBBB, VT, SVT, VT phân nhánh, fascicular VT, nhịp nhanh nhĩ, ATach, thay đổi ST-T tái tưới máu, reperfusion, thuyên tắc phổi, PE, S1Q3T3, Covid",
+"ngay": "2026-09-30"
 },
 {
 "stt": 232,
 "nhan": "#230",
 "slug": "case-230",
 "url": "https://www.ekgblog.com/2021/06/ecg-blog-230-46-are-there-serial-ecg.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_en": "ECG Blog #230 — Are there Serial ECG Changes?",
+"tieu_de_vi": "ECG Blog #230 — Có thay đổi điện tâm đồ liên tiếp không?",
+"trang_thai": "xong",
+"tu_khoa": "thay đổi điện tâm đồ liên tiếp, serial ECG changes, thay đổi ST-T động học, dynamic ST-T changes, sóng T tái tưới máu, reperfusion T waves, sóng T đảo ngược đối xứng, tắc mạch vành thoáng qua, transient coronary occlusion, OMI, đặt sai vị trí điện cực, lead misplacement, dịch chuyển trục, giả bình thường hóa, pseudonormalization, nhồi máu trước vách cũ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 233,
 "nhan": "#231",
 "slug": "case-231",
 "url": "https://www.ekgblog.com/2021/06/ecg-blog-231-what-is-this-bizarre.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790781589
+"tieu_de_en": "ECG Blog #231 — A Bizarre, Irregular Tachycardia ...",
+"tieu_de_vi": "ECG Blog #231 — Một nhịp nhanh không đều, kỳ lạ ...",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh thất đa dạng, polymorphic VT, PMVT, xoắn đỉnh, Torsades de Pointes, VT đa hình thái, pleomorphic VT, VT hai chiều, bidirectional VT, VT đơn dạng, monomorphic VT, nhịp nhanh QRS rộng không đều, irregular wide tachycardia, QT kéo dài, CPVT, VT vô căn, idiopathic VT",
+"ngay": "2026-09-30"
 },
 {
 "stt": 234,
