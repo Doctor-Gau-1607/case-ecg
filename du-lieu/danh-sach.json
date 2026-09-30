@@ -994,30 +994,33 @@
 "nhan": "#90",
 "slug": "case-090",
 "url": "https://www.ekgblog.com/2014/06/ecg-blog-90-basic-concepts-3.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #90 (Basic Concepts-3) – AXIS",
+"tieu_de_vi": "ECG Blog #90 (Basic Concepts-3) – TRỤC",
+"trang_thai": "xong",
+"tu_khoa": "trục điện tim, QRS axis, trục mặt phẳng trán, frontal plane axis, cách tiếp cận góc phần tư, quadrant approach, trục lệch trái, LAD, trục lệch phải, RAD, trục không xác định, indeterminate axis, hệ thống chuyển đạo sáu trục, hexaxial, độ lệch QRS thực, net QRS deflection, LAHB, khái niệm cơ bản",
+"ngay": "2026-09-30"
 },
 {
 "stt": 92,
 "nhan": "#91",
 "slug": "case-091",
 "url": "https://www.ekgblog.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #91 (Basic Concepts-4) – Lead Groupings",
+"tieu_de_vi": "ECG Blog #91 (Basic Concepts-4) — Các nhóm chuyển đạo",
+"trang_thai": "xong",
+"tu_khoa": "nhóm chuyển đạo, lead groupings, chuyển đạo vách, septal leads, chuyển đạo trước tim, precordial leads, nhồi máu trước vách, anteroseptal MI, nhồi máu thành trước, anterior MI, tăng tiến sóng R, R wave progression, sóng q vách, septal q waves, chuyển đạo bên cao, high-lateral leads, thành sau, posterior wall, định khu nhồi máu",
+"ngay": "2026-09-30"
 },
 {
 "stt": 93,
 "nhan": "#92",
 "slug": "case-092",
 "url": "https://www.ekgblog.com/2014/06/ecg-blog-92-basic-concepts-5-lvh.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #92 (Basic Concepts-5) – LVH",
+"tieu_de_vi": "ECG Blog #92 (Basic Concepts-5) – LVH",
+"trang_thai": "xong",
+"tu_khoa": "phì đại thất trái, LVH, left ventricular hypertrophy, tiêu chuẩn điện thế, voltage criteria, tăng gánh thất trái, LV strain, lớn các buồng tim, chamber enlargement, sóng R aVL, ST-T chênh xuống không đối xứng, thiếu máu cục bộ, ischemia, chuẩn hoá điện thế, standardization mark",
+"ngay": "2026-09-30"
 },
 {
 "stt": 94,
@@ -1035,10 +1038,11 @@
 "nhan": "#94",
 "slug": "case-094",
 "url": "https://www.ekgblog.com/2014/07/ecg-blog-94-basic-concepts-7-qrst.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #94 (Basic Concepts-7) – QRST Changes",
+"tieu_de_vi": "ECG Blog #94 (Basic Concepts-7) – Thay đổi QRST",
+"trang_thai": "xong",
+"tu_khoa": "thay đổi QRST, Q-R-S-T changes, sóng Q, Q wave, sóng Q bệnh lý, pathologic Q wave, phức bộ QS, QS complex, nhồi máu cơ tim cũ, prior MI, tăng tiến sóng R, R wave progression, vùng chuyển tiếp, transition, chuyển tiếp muộn, late transition, khử cực vách, septal depolarization, cách tiếp cận hệ thống, systematic approach",
+"ngay": "2026-09-30"
 },
 {
 "stt": 96,

@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #92 (Basic Concepts-5) – LVH</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #92 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #92 (Basic Concepts-5) – LVH</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<figure><a class="o-anh" href="case-092_anh/0--Basic-ECG-Concepts-USE-f3cfbbca71b9.png"><img src="case-092_anh/0--Basic-ECG-Concepts-USE-f3cfbbca71b9.png" alt="" width="679" height="85" loading="lazy" decoding="async"></a></figure>
+<p>--------------------------------</p>
+<p>Đây là kỳ thứ 5 trong loạt bài <b><i><span class="c-do">B</span>asic</i> <span class="c-do">E</span>CG <span class="c-do">C</span>oncepts</b> (Các khái niệm cơ bản về điện tâm đồ) của tôi. Thay vì các ca bệnh cụ thể — mục tiêu của loạt <i>Basic</i> ECG Concepts này là ôn tập ngắn gọn một số chủ đề ít chuyên sâu hơn, vốn tạo nên <i>nền tảng</i> của việc đọc điện tâm đồ. Tài liệu này được trích, có chỉnh sửa, từ cuốn sách <i>nhập môn</i>
+mới của tôi về đọc điện tâm đồ = <b><i>“A 1st Book on ECGs-2014”</i></b> và/hoặc
+<b><i><u><span class="c-do">p</span>hiên bản mở rộng</u></i></b> <b><a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">1st-ECG-Book-ePub</a> <span class="c-do">d</span>ạng sách điện tử (</b><i>đã phát hành trên kindle-nook-kobo-ibooks</i><b>)</b>. Rất HOAN NGHÊNH
+ý kiến phản hồi của bạn về loạt bài này!</p>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">L</span></u></b><b><u>ƯU Ý<span class="c-do">:</span></u></b><b> </b>Để tăng tính thiết thực —
+một số <b>điểm <i>nâng cao</i></b> đã được thêm vào nhằm minh hoạ một số khái niệm chọn lọc về chẩn đoán <b>LVH</b> trên điện tâm đồ (<i>phần nội dung nâng cao hơn này được trích từ cuốn</i> <b><a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014-ePub</a></b> của chúng tôi). Bằng cách
+này — chúng tôi hy vọng bài viết sẽ thú vị và hữu ích cho người đọc điện tâm đồ ở <i>mọi</i> trình độ.</p>
+<p>--------------------------------</p>
+<p><b><span class="c-do">L</span></b><b>IÊN KẾT tới các bài <span class="c-do">B</span>asic <span class="c-do">E</span>CG <span class="c-do">C</span>oncepts <i><span class="c-do">t</span>rước đây</i><span class="c-do">:</span></b></p>
+<ul><li><b><a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-88-basic-concepts-1-qrs.html" rel="noopener" target="_blank">Basic Concepts #1</a></b>
+— Thuật ngữ QRS</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-89-basic-concepts-2-intervals.html" rel="noopener" target="_blank">Basic Concepts #2</a></b>
+— Các khoảng (<i>PR/QRS/QT</i> )</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-90-basic-concepts-3.html" rel="noopener" target="_blank">Basic Concepts #3</a></b>
+—<i> </i>Trục</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html" rel="noopener" target="_blank">Basic Concepts #4</a></b>
+—<i> </i>Các nhóm chuyển đạo</li>
+<li><b>Basic Concepts #5<span class="c-do"> (</span></b><i>chính là bài này!</i> <b><span class="c-do">)</span></b> — LVH</li><li><br></li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-93-basic-concepts-6-systematic.html" rel="noopener" target="_blank">Basic Concepts #6</a></b> —<i> </i>Cách tiếp cận <i>hệ thống</i></li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/07/ecg-blog-94-basic-concepts-7-qrst.html" rel="noopener" target="_blank">Basic Concepts #7</a></b> —<i> </i>Thay đổi Q-R-S-T</li></ul>
+<p>--------------------------------</p>
+<figure><a class="o-anh" href="case-092_anh/09.0-LVH---Title-d6562b24e9df.jpg"><img src="case-092_anh/09.0-LVH---Title-d6562b24e9df.jpg" alt="" width="1098" height="141" loading="lazy" decoding="async"></a></figure>
+<p>--------------------------------</p>
+<p><b>Thông số thứ 5</b> trong <b>Cách tiếp cận</b> <b><i>hệ thống</i></b> của chúng tôi để <b>đọc điện tâm đồ (</b><i>sau khi đánh giá
+Tần số – Nhịp – Các khoảng – Trục</i><b>)</b>
+— là xác định <b>Lớn các buồng tim (</b><i>Phì đại</i><b>).</b></p>
+<ul><li>Lý do để việc đánh giá Lớn các buồng tim lùi đến thời điểm này trong quy trình (tức là <i>cho đến</i> <i><u>sau khi</u> đã đánh giá
+các khoảng</i>) — là vì tiêu chuẩn lớn thất sẽ <i>khác đi</i> <u>NẾU</u> khoảng QRS
+kéo dài và bệnh nhân có blốc nhánh.</li>
+<li><b><u>LƯU Ý:</u></b> Ở đây chúng tôi <i>không</i> bàn đến chẩn đoán LVH trên điện tâm đồ trong tình huống đặc biệt
+có LBBB nền — vì đây là một khái niệm <i>nâng cao</i>
+hơn. (<i>Với những ai quan tâm đến khái niệm
+nâng cao này — Xem bài</i> <a href="http://ecg-interpretation.blogspot.com/2010/12/ecg-interpretation-review-11-bbb-wide.html" rel="noopener" target="_blank">ECG Blog<span class="c-do"> </span>#11</a> của chúng tôi).</li></ul>
+<p>--------------------------------<br><b><i><span class="c-do">T</span>ỔNG QUAN</i> về <i><span class="c-do">L</span>ớn</i>
+<span class="c-do">c</span>ác buồng tim<span class="c-do">:</span></b></p>
+<p>Với
+thông số <b><i>“Phì đại” </i></b>— chúng tôi đánh giá điện tâm đồ để tìm dấu hiệu <b><i>Lớn các buồng tim</i></b>. Điều này có thể bao gồm tăng <i>độ dày</i> thành buồng tim
+— tăng <i>kích thước</i> buồng tim (<i>thể tích</i>) — <u>hoặc</u> <i>kết hợp</i>
+cả hai.</p>
+<ul><li>Có <b>4 buồng <i>tim</i> </b>(<b><u>Hình 1</u></b>).
+Do đó — việc đánh giá <i>hệ thống</i>
+về lớn buồng tim nên xem xét tình trạng lớn của <i>từng</i> buồng trong 4 buồng này. Dù vậy — ở đây chúng tôi
+cố ý <b><i>giới hạn</i></b> <b>phần bàn luận</b>
+ở việc ôn lại các tiêu chuẩn <b><i>chẩn đoán</i></b>
+<b>LVH </b>(<i>phì đại thất trái – <u>L</u>eft <u>V</u>entricular
+<u>H</u>ypertrophy</i>) trên <b>điện tâm đồ</b>. Đây là
+dạng lớn buồng tim thường gặp nhất — <u>và</u> cũng là dạng bạn
+sẽ gặp nhiều nhất trên lâm sàng.</li>
+<li>Với những ai quan tâm — chúng tôi ôn lại chẩn đoán
+<b><i><span class="c-do">l</span>ớn</i></b> <b><span class="c-do">n</span>hĩ</b> trên điện tâm đồ trong <b><a href="http://ecg-interpretation.blogspot.com/2013/09/ecg-interpretation-review-75-chamber.html" rel="noopener" target="_blank">ECG Blog #75</a></b> — <u>và</u> chẩn đoán <b><span class="c-do">R</span>VH (</b><i>phì đại thất phải – <u>R</u>ight <u>V</u>entricular <u>H</u>ypertrophy</i><b>)</b> trong <b><a href="http://ecg-interpretation.blogspot.com/2013/10/ecg-interpretation-review-77-chamber.html" rel="noopener" target="_blank">ECG Blog #77</a></b>.</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-1---09.1-1-Cham-3fe3f6dd0179.jpg"><img src="case-092_anh/Blog-92--Fig-1---09.1-1-Cham-3fe3f6dd0179.jpg" alt="" width="758" height="442" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 1:</u></b><b> </b>Có <b>4 buồng <i>tim</i></b>. Đó là — <b>RA</b> (<i>nhĩ phải – <u>R</u>ight <u>A</u>trium</i>); — <b>LA</b> (<i>nhĩ trái – <u>L</u>eft <u>A</u>trium</i>); — <b>RV</b> (<i>thất phải – <u>R</u>ight <u>V</u>entricle</i>); <u>và</u> — <b>LV</b> (<i>thất trái – <u>L</u>eft <u>V</u>entricle</i>). Trong bài Blog này, chúng tôi giới hạn phần bàn luận về Lớn các buồng tim ở các <b>Tiêu chuẩn điện tâm đồ</b> của <b>LVH</b> (<i>phì đại thất trái – <u>L</u>eft <u>V</u>entricular <u>H</u>ypertrophy</i>). Các <b>con số</b> <b><i>MẤU CHỐT</i></b> cần nhớ = <b>35</b> &amp; <b>12</b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">C</span>ơ sở</i></b><b>
+của <span class="c-do">T</span>iêu chuẩn điện tâm đồ cho <span class="c-do">L</span>VH</b></p>
+<p>Lý thuyết của chẩn đoán LVH trên điện tâm đồ
+rất đơn giản: Một <b>LV </b>(<i>thất trái – <u>L</u>eft <u>V</u>entricle</i>) <i>dày hơn</i> và <i>lớn hơn</i> thì có khối lượng <i>lớn hơn</i>. Do đó, trên điện tâm đồ sẽ tạo ra <b>độ lệch QRS</b> <b><i>lớn hơn</i></b>. Chúng tôi minh hoạ điều này bằng sơ đồ ở <u>Hình 2</u>:</p>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-2-09.2-1-Reason-948be75b2b8f.jpg"><img src="case-092_anh/Blog-92--Fig-2-09.2-1-Reason-948be75b2b8f.jpg" alt="" width="910" height="504" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 2:</u></b><b> </b>Minh hoạ <i>dạng sơ đồ</i> cách <b><i>hình thành</i></b> tiêu chuẩn <b>điện thế của LVH </b>. <b><u>Ô A</u></b> — mô tả độ dày thành <b>LV</b> (<i>thất trái – <u>L</u>eft <u>V</u>entricular</i>) và <b>RV</b> (<i>thất phải – <u>R</u>ight <u>V</u>entricular</i>) <b><i>bình thường</i></b>. <b><u>Ô B</u></b> — Khi có <b><u>LVH</u></b>, <b>khối lượng LV</b> <b><i>tăng lên</i></b> (<i>mũi tên đỏ ở B lớn hơn so với ở A</i>). Điều này làm sóng S <i>sâu hơn</i> ở các chuyển đạo <i>bên phải</i> (<i>V1,V2</i>) — <u>và</u>/<u>hoặc</u> làm <i>tăng</i> biên độ sóng R ở các chuyển đạo <i>bên trái</i> (<i>V5,V6,aVL</i>).</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><i><span class="c-do">Đ</span>iều gì <span class="c-do">X</span>ảy ra</i> với <span class="c-do">Đ</span>iện tâm đồ khi có <span class="c-do">L</span>VH<span class="c-do">?</span></u></b><b>
+</b>Có thể hiểu rõ nhất
+cơ sở của các thay đổi điện tâm đồ trong LVH bằng cách ghi nhớ
+các điểm sau khi xem <b><u>Hình 2:</u></b></p>
+<ul><li>Trong <b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html" rel="noopener" target="_blank">Basic ECG Concepts #4</a></b> — chúng tôi đã ôn lại
+các vùng giải phẫu được đánh giá bởi từng chuyển đạo trong 12 chuyển đạo chuẩn của một
+điện tâm đồ. Qua đó cho thấy các <b><i>chuyển đạo “bên trái” </i></b>(<i>hay chuyển đạo bên</i>)<b> </b>
+trên điện tâm đồ — nên được hiểu là <b>các chuyển đạo I, aVL, V5 </b>và<b> V6 </b>(<i>Xem Hình 1,2,3
+và 6 trong </i><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html" rel="noopener" target="_blank">Basic Concepts<span class="c-do"> </span>#4</a>).</li>
+<li>Ngoài vai trò là chuyển đạo <i>trước vách</i> — <b>các chuyển đạo V1</b> và <b>V2</b> còn là <b>chuyển đạo <i>“bên phải” </i></b>. Vị trí giải phẫu
+của các điện cực ghi chuyển đạo V1 và V2 rõ ràng nằm <b><i>lệch về bên phải</i></b> so với
+vị trí của 4 chuyển đạo ngực <i>còn lại</i><b>
+</b>(<i>Xem Hình 2 trong </i><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html" rel="noopener" target="_blank">Basic Concepts<span class="c-do"> </span>#4</a>).</li>
+<li><b>Hoạt hoá</b> <b><i>bình thường</i></b> của <b>LV</b> <b><i>hướng
+sang </i>trái </b>— vì đó là nơi thất trái nằm trong
+lồng ngực (<i>mũi tên đỏ nhỏ
+ở</i> <b><u>Ô A</u></b> <i>của</i> <u>Hình 2</u>).</li>
+<li>Cùng với sự <b><i>gia tăng</i></b> <b>khối lượng LV</b> xảy ra khi hình thành
+<b>LVH</b> — các lực hướng về phía LV tăng lên (<i>mũi tên đỏ lớn hơn ở </i><b><u>Ô B</u></b>). Kết quả là — các <b>chuyển đạo </b><b><i>bên trái</i></b>
+(<i>V5,V6,aVL</i>) cho thấy <b><i>tăng</i></b> <b>biên độ</b>
+(<i>sóng R cao hơn</i>) — <u>và</u> các <b>chuyển đạo </b><b><i>bên phải</i></b>
+(<i>V1,V2</i>) biểu hiện <b>sóng
+S</b> <b><i>sâu hơn</i></b> (<i>do có nhiều hoạt động điện đi <u>ra xa</u> bên phải hơn</i>). Như
+chúng ta sẽ thấy ngay sau đây — các <b><i>“con số kỳ diệu”</i></b> cần nhớ là <b>“35”
+</b>và <b>“12”</b>.</li></ul>
+<p>--------------------------------<br><b><span class="c-do">L</span>VH<span class="c-do">:</span> <i><span class="c-do">T</span>iêu chuẩn <span class="c-do">Đ</span>iện tâm đồ để <span class="c-do">C</span>hẩn đoán là gì<span class="c-do">?</span></i></b></p>
+<p>Thực tế lâm sàng là <b>điện tâm đồ</b>
+<i><u>không</u></i> nhạy lắm trong việc phát hiện LVH. Nghĩa là — nhiều bệnh nhân
+có <i>hoặc</i> thành LV dày <i>và/hoặc</i> buồng LV giãn lớn lại <i><u>không</u></i> biểu hiện bất kỳ dấu hiệu LVH nào trên điện tâm đồ.</p>
+<ul><li>Vì vậy, điện tâm đồ là một <b>công cụ</b>
+<b><i>không hoàn hảo</i></b> để đánh giá tình trạng lớn LV.
+Điện tâm đồ <i><u>có</u></i> phát hiện được nhiều
+bệnh nhân mắc các dạng LVH nặng hơn — nhưng rõ ràng <i><u>không</u></i> phát hiện được mọi trường hợp.</li>
+<li><b>Siêu âm tim </b>(<i>Echo – Echocardiogram</i>)
+là xét nghiệm tốt hơn nhiều (<i>dù đắt tiền hơn</i>) — để phát hiện <u>và</u>
+<i>định lượng</i> độ dày thành LV <u>và</u> mức tăng kích thước buồng LV. Siêu âm tim cũng chính xác hơn nhiều khi đánh giá tình trạng lớn của 3 buồng <i>còn lại</i>
+(<i>các buồng RA, LA và RV</i>). Dù vậy, nếu <i>một số</i>
+tiêu chuẩn <u>được</u> thoả mãn — điện tâm đồ có thể gợi ý <i>mạnh mẽ</i>
+sự hiện diện của LVH <i>đáng kể</i>.</li></ul>
+<p>--------------------------------<br><b><u><span class="c-do">T</span>iêu chuẩn <span class="c-do">Đ</span>iện tâm đồ<span class="c-do">:</span></u></b> Y văn điện tâm đồ có <b><i>rất nhiều</i> tiêu chuẩn</b>
+để chẩn đoán <b>LVH</b>. <i>Không tiêu chuẩn nào hoàn hảo</i>. Theo
+kinh nghiệm của chúng tôi — các <b>con số <i>hữu ích nhất</i><i> </i></b>cần nhớ là
+<b>“35” </b><u>và</u> <b>“12” </b>— như được minh hoạ bằng hình ở <b><u>Hình 3</u></b>. Như vậy — <b><i>Tiêu chuẩn</i></b>
+<b>LVH</b> được thoả mãn ở người lớn <i>trên</i> <b>35</b> tuổi <u>NẾU:</u></p>
+<ul><li><b><i>Tổng</i></b>
+của sóng S <i>sâu nhất</i> ở V1 <u>hoặc</u> V2 + sóng R <i>cao nhất</i> ở
+V5 <u>hoặc</u> V6 là <b>≥ 35 mm.</b></li>
+<li><u>HOẶC</u> — sóng R ở <b>chuyển đạo
+aVL</b> có biên độ <b>≥ 12 mm </b>.</li>
+<li><u>VÀ</u> —<b> “tăng gánh” thất trái (LV “strain”) </b>cũng hiện diện
+ở <i>ít nhất </i>1<i> <b>chuyển đạo bên </b></i><b>
+</b>(<i>Xem các đoạn ST-T được đánh dấu đỏ-xanh lá ở </i><u>Hình 3</u>).</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-3-09.3-1-Criteria-11294daf5999.jpg"><img src="case-092_anh/Blog-92--Fig-3-09.3-1-Criteria-11294daf5999.jpg" alt="" width="1014" height="525" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3:</u></b><b> </b>Minh hoạ <i>dạng sơ đồ</i> các <b>Tiêu chuẩn điện tâm đồ</b> của <b>LVH</b>. Cần ghi nhớ các lưu ý sau: <b>i)</b> Bệnh nhân phải <i>ít nhất</i> 35 tuổi; <b>ii)</b> Chỉ cần 1 tiêu chuẩn điện thế để chẩn đoán (tức là <i>35 </i><u>hoặc</u><i> 12</i>); <u>và</u> <b>iii)</b> Thay đổi ST-T kiểu <b>“tăng gánh” LV</b> (<i>các đoạn đỏ-xanh lá</i>) phải thấy ở <i>ít nhất</i> 1 trong các chuyển đạo <i>bên</i>. <b><u>LƯU Ý:</u></b> Mỗi <b>ô</b> <b><i>nhỏ</i></b> trên giấy kẻ ô điện tâm đồ tương ứng với <b>1 mm</b> điện thế khi đếm theo chiều <i>dọc</i>. Vì mỗi ô <i>lớn</i> có 5 ô <i>nhỏ</i> —<b> mỗi</b> <b>ô <i>lớn </i></b> tương ứng với <b>5 mm </b>điện thế — điều này sẽ trở nên rõ ràng ở <u>Hình 5</u> và <u>Hình 6</u> khi chúng tôi minh hoạ cách đếm điện thế.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">C</span>ẢNH BÁO khi <span class="c-do">C</span>hẩn đoán bằng <span class="c-do">Đ</span>iện tâm đồ<span class="c-do">:</span></u></b> Bạn sẽ <i><u>không</u></i> phải lúc nào cũng
+có thể biết có LVH hay không chỉ bằng cách nhìn điện tâm đồ. Có thể cần đến X-quang ngực hoặc
+siêu âm tim.</p>
+<ul><li><b>Người</b> <b><i>trẻ tuổi</i></b>
+(<i>những người <b>chưa</b> đủ </i><b>35
+</b><i> <b>tuổi</b></i>) —
+thường có biên độ tăng <i><u>mà không</u></i> phải do thất trái lớn. Do đó — bệnh nhân phải <i>ít nhất </i>35 tuổi thì
+tiêu chuẩn điện thế ở <u>Hình 3</u> mới có giá trị. <b><u>LƯU Ý:</u></b> Chúng tôi nhấn mạnh rằng “ngưỡng” tuổi 35 còn xa mới là chính xác. Chúng tôi dùng con số này chủ yếu để nhớ rằng người lớn <i>trẻ tuổi</i> thường có biên độ phức bộ QRS tăng trên
+điện tâm đồ <i><u>mà không</u></i> phải do lớn buồng tim <i>thật sự</i>. <u>Thật tiện lợi</u>
+— con số <b>“35”</b> tương ứng với <i><u>cả</u></i> tiêu chuẩn <b>tuổi</b> <u>lẫn</u> <b>tiêu chuẩn</b> <b><i>điện thế</i></b> của LVH.</li>
+<li><b><i>Chỉ</i></b><b> cần 1 tiêu chuẩn <i>điện thế</i> </b>(<i>35 </i><u>hoặc</u><i> 12</i>)<b> là đủ </b>để chẩn đoán <b>LVH.</b></li>
+<li><u>Về lâm sàng</u> — khả năng lớn LV <i>thật sự</i>
+tăng lên <i>rõ rệt</i> <u>NẾU</u> trên điện tâm đồ có thay đổi ST-T kiểu <b><i>“tăng gánh”</i></b>
+ở <i>ít nhất</i> 1 trong các <b>chuyển đạo</b> <b><i>bên</i></b>. Chúng tôi làm nổi bật <i>bằng sơ đồ</i>
+hình dạng “tăng gánh” ở <i>từng</i>
+chuyển đạo trong 5 chuyển đạo bên, bên trong các khung <i>đỏ-xanh lá</i>
+ở <u>Hình 3</u> (tức là <i>ở các chuyển đạo
+I,aVL; V4,V5,V6</i>).</li></ul>
+<p>--------------------------------<br><b><i><span class="c-do">T</span>hế nào
+là </i></b><b><span class="c-do">“T</span>ăng gánh” <span class="c-do">L</span>V<span class="c-do">?</span></b></p>
+<p>Rất
+khó định nghĩa <b>“tăng gánh”</b>.<b> </b>Trên điện tâm đồ — có <b>ST-T chênh xuống <i>không đối xứng</i>
+</b>— như gợi ý bởi <b>mũi tên</b><i> </i><b><i>đỏ</i></b><i> </i>ở<i> </i><b><u>Ô C</u></b> của <b><u>Hình 4</u></b>. Có lẽ
+điều này tương ứng với một LV <i>dày lên</i> nay đã vượt quá khả năng cấp máu của nó. <i>Cũng có thể không phải</i>. Điều quan trọng — là những thay đổi giải phẫu rõ rệt hơn của LVH thường tạo ra hình dạng ST-T như
+thấy ở <u>Ô C</u> (<i>mũi tên đỏ</i>).</p>
+<ul><li><b><u><span class="c-do">Đ</span>IỂM THEN CHỐT (PEARL)<span class="c-do">:</span></u></b> Việc sử dụng <b><i><span class="c-do">B</span>ệnh sử</i></b> có thể
+<b>hỗ trợ</b> <b><i>vô giá</i></b> cho việc đọc điện tâm đồ. Ví
+dụ, xác suất thống kê có LVH tăng lên <i>rõ rệt </i>— <u>NẾU</u>
+bệnh nhân là người lớn <i>lớn tuổi</i> có tăng huyết áp <i>lâu năm</i> <u>và</u>/<u>hoặc</u>
+bệnh tim. Ngược lại — khả năng lớn buồng tim <i>thật sự</i>
+thấp hơn <i>nhiều</i> <u>NẾU</u> bệnh nhân là người lớn <i>trẻ tuổi</i>
+trước đó vẫn khoẻ mạnh (<i>và không có tăng huyết áp hay
+bất kỳ bệnh tim nào khác</i>).</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-4-09.4-1-Strain-386b693db08e.jpg"><img src="case-092_anh/Blog-92--Fig-4-09.4-1-Strain-386b693db08e.jpg" alt="" width="932" height="444" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 4:</u></b><b> </b>Hình dạng ST-T của một đoạn ST <i>bình thường</i> (<b><u>Ô A</u></b>) — so với thay đổi ST-T của <b>“tăng gánh” LV</b> (<i>mũi tên đỏ ở</i> <b><u>Ô C</u></b>). Như sẽ thấy ngay ở <u>Hình 5</u> và <u>Hình 6</u> — việc có hay không có “tăng gánh” giúp ích rất nhiều trong việc xác định khả năng lớn buồng LV <i>thật sự</i>. <b><u>LƯU Ý:</u></b> Khi lần theo tiến trình từ sóng ST-T <i>bình thường</i> (<u>Ô A</u>) — đến sóng ST-T <i>không đối xứng</i> đặc trưng của “tăng gánh” LV (<i>thấy ở</i> <u>Ô C</u>) — ta sẽ đi qua một giai đoạn <b><i>“trung gian”</i></b> (<b><u>Ô B</u></b>), trong đó đoạn ST dẹt xuống nhưng <i>chưa</i> thấy ST chênh xuống <i>không đối xứng</i> rõ ràng. Dù mối tương quan không hoàn hảo — bệnh nhân có hình ảnh “trung gian” như ở <u>Ô B</u> có nhiều khả năng bị lớn buồng LV thật sự hơn so với bệnh nhân có sóng ST-T bình thường (<i>tương ứng với</i> <u>Ô A</u>) ở các chuyển đạo bên. Trái với <b>ST-T chênh xuống</b> <b><i>không đối xứng</i></b> của <b><i>“tăng gánh”</i></b> thấy ở <b><u>Ô C</u></b> — <b>sóng T đảo ngược</b> <b><i>đối xứng</i></b> ở <b><u>Ô D</u></b> gợi ý nhiều hơn đến <b>thiếu máu cục bộ.</b></figcaption></figure>
+<p>--------------------------------</p>
+<p><b><span class="c-do">P</span>hân biệt <i><span class="c-do">g</span>iữa</i> <span class="c-do">T</span>hay đổi <span class="c-do">Đ</span>iện tâm đồ của “<span class="c-do">T</span>ăng gánh” <u><span class="c-do">v</span>ới</u>
+<span class="c-do">T</span>hiếu máu cục bộ</b></p>
+<p>So sánh hình dạng sóng ST-T ở <u>Ô
+C</u> với <u>Ô D</u> trong <b><u>Hình 4:</u></b></p>
+<ul><li>Chúng tôi mô tả <b>ST-T chênh xuống <i>võng xuống</i></b>
+ở <b><u>Ô C</u></b> (<i>mũi tên đỏ</i>) — là phù hợp với <b>“tăng gánh” LV</b> ở bệnh nhân có <b>LVH.</b></li>
+<li>Ngược lại — đoạn ST ở <b><u>Ô D</u></b> <i>không</i> chênh xuống, <u>và</u> sóng T đảo ngược đối xứng (tức là <i>độ dốc của nhánh xuống sóng T xấp xỉ
+bằng độ dốc của nhánh lên sóng T</i>). <u>Về lâm sàng</u> — <b>T đảo ngược</b> <b><i>đối xứng</i></b>
+gợi ý <b>thiếu máu cục bộ</b> nhiều hơn hẳn so với “tăng gánh”.</li></ul>
+<p><b><u>ĐIỀU CỐT LÕI:</u></b> Các mô tả về nhận dạng hình ảnh
+ở trên <i>không</i> hoàn hảo. Vì
+vậy — <b><i>Cần đối chiếu lâm sàng</i></b>. Ví dụ — một số bệnh nhân có thể
+có <i><u>cả</u></i> thiếu máu cục bộ <u>và</u>
+“tăng gánh” LV, khi đó <i>hình dạng</i>
+của thay đổi ST-T có thể không có giá trị dự báo tối ưu.</p>
+<ul><li><b><u>LƯU Ý:</u></b> Hiểu biết về những khái niệm tinh tế hơn này
+trong chẩn đoán LVH trên điện tâm đồ sẽ trở nên rõ ràng khi xem lại các
+bản ghi chúng tôi trình bày bên dưới ở Hình 5, 6, 7 và 9.</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>ỔNG <span class="c-do">H</span>ỢP <span class="c-do">L</span>ẠI<span class="c-do">:</span> <i><span class="c-do">C</span>ó <span class="c-do">L</span>VH không<span class="c-do">?</span></i></b></p>
+<p>Hãy xem bản ghi dưới đây:</p>
+<ul><li><i>Có LVH không</i> trên điện tâm đồ 12 chuyển đạo ở <u>Hình 5</u>?</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-5-09.5-1-Test-1-4d991ec04a0f.jpg"><img src="case-092_anh/Blog-92--Fig-5-09.5-1-Test-1-4d991ec04a0f.jpg" alt="" width="978" height="562" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 5:</u></b><b> </b>Có LVH trên điện tâm đồ 12 chuyển đạo này không?</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u>TRẢ LỜI cho Hình 5:</u></b> Mặc dù không có dải nhịp dài chuyển đạo II — Chúng ta vẫn có thể nói rằng nhịp ít nhất là <i>khá</i> đều.
+Sóng P <i>dương</i> với khoảng PR <i>cố định</i> ở chuyển đạo II (<b>mũi tên</b><i> </i><b><i>xanh lá</i></b>)
+xác định <b><i>cơ chế</i></b> của nhịp là <b>Xoang</b>. Chúng tôi chấp nhận <i><u>hoặc</u></i> <b><i>Nhịp</i>
+xoang </b><u>hoặc</u><b> <i>Loạn nhịp</i> xoang </b>(<i>vì tần số có dao động nhẹ</i>).</p>
+<ul><li>Khoảng R-R là ~4 ô lớn. Do đó <b><i>tần số</i></b>
+= 300/4 ~<b>75/phút.</b></li>
+<li>Cả <b>3 khoảng
+trên điện tâm đồ</b> đều <b><i>bình thường</i></b>. Tức là — <b>khoảng
+PR</b> rõ ràng <i>không</i> dài quá
+<b>1</b> ô <i>lớn</i>; <b>thời gian QRS</b>
+<i>không</i> rộng quá <b>1/2</b> ô <i>lớn</i>; <u>và</u>, <b>khoảng
+QT</b> <i>không</i> dài quá <b>1/2</b> khoảng R-R. (<i>Để ôn lại các khoảng</i> — <i>Xem</i> <a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-89-basic-concepts-2-intervals.html" rel="noopener" target="_blank">Basic ECG Concepts<span class="c-do"> </span>#2</a>).</li>
+<li><b>Trục</b> <b><i>bình thường</i></b> — vì độ lệch QRS “thực” (net)
+ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo
+aVF đều dương. Vì biên độ QRS “thực” ở chuyển đạo I có vẻ <i>lớn hơn</i> một chút so với biên độ “thực” ở chuyển đạo aVF
+— Chúng tôi ước tính <b>Trục</b> nằm
+<i>gần</i> chuyển đạo I hơn một chút (<i>ở</i> <b><i>khoảng</i></b> <b>+30-40
+độ</b>). Với mục đích của phần “cơ bản” — Chúng tôi hài lòng nếu bạn chỉ nói
+trục “bình thường”. (<i>Để ôn lại về Trục</i>
+— Xem <a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-90-basic-concepts-3.html" rel="noopener" target="_blank">Basic ECG Concepts #3</a>).</li>
+<li><b><i><u>ĐIỂM</u></i></b><b><u>
+CHÍNH:</u></b> <b><span class="c-do">T</span>uổi</b> của
+bệnh nhân này <b><i><u>không</u></i></b> <b>được cho biết</b>.
+Dù bệnh nhân bao nhiêu tuổi — Điện thế ở <b>chuyển đạo aVL</b> vẫn bình thường (tức là &lt;<i>12 mm</i>). Tuy nhiên, <u>NẾU</u> bệnh nhân này
+≥35 tuổi — bệnh nhân sẽ có <b><i><span class="c-do">đ</span>iện thế</i></b>
+đạt tiêu chuẩn <b><span class="c-do">L</span>VH </b>(<i>20 +23 &gt;35 mm</i>).
+Biên độ QRS sẽ là bình thường nếu bệnh nhân là người trưởng thành <i>trẻ tuổi</i>. <b><u>LƯU Ý:</u></b>
+Không có chuyển đạo <i>bên</i> nào (<i>các chuyển đạo I,aVL,V4,V5,V6</i>) biểu hiện thay đổi sóng ST-T
+kiểu “tăng gánh” (<i>như đã minh hoạ ở</i> <u>Ô
+C</u> <i>của</i> <u>Hình 4</u>). Thay vào đó —
+không có ST dẹt <u>và</u> sóng T dương ở mọi chuyển đạo <i>bên</i>.</li></ul>
+<p><b><i><u><span class="c-do">L</span></u></i></b><b><i><u>ƯU Ý</u></i></b><b><u>
+<span class="c-do">N</span>ÂNG CAO<span class="c-do">:</span></u></b> Có sự khác biệt giữa việc nói một
+bệnh nhân có <b><i>“điện thế đạt tiêu chuẩn LVH”</i></b> với nói <b>LVH</b>
+<u>kèm</u> <b><i>“tăng gánh”</i></b>. Ngay cả khi bệnh nhân có điện tâm đồ ở <u>Hình 5</u>
+trên 35 tuổi — việc không có “tăng gánh” có nghĩa là <i>độ đặc hiệu</i> đối với lớn buồng tim <i>thật sự</i>
+là thấp. Điều này trái ngược với tình huống chúng tôi mô tả trong
+ví dụ tiếp theo (<u>Hình 6</u>).</p>
+<p>--------------------------------<br><b><u><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA<span class="c-do">:</span></u></b><b>
+<i>Có <span class="c-do">L</span>VH không<span class="c-do">?</span>  </i></b><b>—</b> <b><i>Có “<span class="c-do">T</span>ăng gánh” không<span class="c-do">?</span></i></b></p>
+<p>Hãy đọc điện tâm đồ 12 chuyển đạo ở <b><u>Hình 6.</u></b></p>
+<ul><li>Bệnh nhân này <b>60 tuổi</b> <u>và</u> có tiền sử lâu năm <b>tăng huyết áp <i>nặng</i></b>. Thông tin này ảnh hưởng thế nào
+đến việc đọc điện tâm đồ của bạn?</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-6-09.6-1-Test-2-c17057c78486.jpg"><img src="case-092_anh/Blog-92--Fig-6-09.6-1-Test-2-c17057c78486.jpg" alt="" width="900" height="624" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 6:</u></b><b> </b>Điện tâm đồ này được ghi ở một bệnh nhân 60 tuổi <u>có</u> tiền sử lâu năm tăng huyết áp <i>nặng</i>. <b><u>LƯU Ý:</u></b> Một lần nữa — <b>mỗi</b> <b>ô</b> <b><i>lớn</i></b> trên giấy ghi điện tâm đồ tương ứng với <b>5 mm</b> về điện thế.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u>TRẢ LỜI cho Hình 6:</u></b> 
+<b><i>Nhịp</i></b> là <b>Xoang</b> với tần số <i>ngay dưới </i>100/phút
+(<i>mũi tên xanh lá chỉ sóng P dương ở chuyển đạo II</i>). Tất cả các <b><i>Khoảng</i></b>
+đều bình thường. <b>Trục</b> bình thường, ở <b><i>khoảng</i></b> <b>+70-80
+độ</b>. <i>Gần như chắc chắn</i> có <b>LVH</b> vì: <b>i)</b>
+Sóng S <i>sâu nhất</i> ở V1,V2 + sóng R <i>cao nhất</i> ở V5,V6 <i>lớn hơn nhiều</i>
+so với 35 mm; <b>ii)</b> <u>có</u> thay đổi sóng ST-T kiểu <b>“tăng gánh” <i>thất trái </i></b>;
+<u>và</u> <b>iii)</b> Bệnh sử phù hợp với chẩn đoán
+LVH.</p>
+<ul><li><b><i><u>LƯU Ý</u></i></b><b><u> LÂM SÀNG:</u></b> Mặc dù chúng tôi đã nhấn mạnh rằng
+điện tâm đồ là một xét nghiệm <i>không hoàn hảo</i> để
+chẩn đoán LVH — <b><i>gần như</i></b>
+<b>chắc chắn</b> có <b>LVH</b> <b><i>nặng</i></b> ở <u>Hình 6</u>
+vì: <b>i)</b> bệnh nhân là người trưởng thành
+ở độ tuổi <i>nhất định</i> (<i>60 tuổi</i>) — <u>và</u> bệnh nhân
+có tăng huyết áp <i>nặng</i> lâu năm;
+<b>ii)</b> biên độ QRS tăng <i>rất mạnh</i> (tức là <i>35 mm của sóng S ở chuyển đạo V2 + 27 mm của
+sóng R ở chuyển đạo V6 cộng lại <u>vượt</u> <u>xa</u> tiêu chuẩn 35 mm cần có
+để chẩn đoán LVH</i>); <u>và</u> iii) Các thay đổi <i>điển hình</i>
+của <b>“tăng gánh” thất trái</b> <u>có</u>
+ở chuyển đạo V5,V6 (<i>với đoạn ST
+ở các chuyển đạo này rất giống hình ở</i> <u>Ô C</u> <i>của</i> <u>Hình 4</u>).</li></ul>
+<p><b><i><u>ĐIỀU</u></i></b><b><u>
+CỐT LÕI:</u></b> Đọc điện tâm đồ
+là một “nghệ thuật” kết hợp <i><u>cả</u></i> việc nhận ra các dấu hiệu trên điện tâm đồ — <u>lẫn</u> việc tích hợp
+các dấu hiệu này <i><u>với</u></i>
+bệnh sử lâm sàng. Mặc dù đây là một khái niệm <i>nâng cao</i> — Chúng tôi hy vọng những bản ghi như ở <u>Hình 6</u>
+giúp bạn hiểu rõ hơn <i>cách</i> các dấu hiệu
+điện tâm đồ có thể được sử dụng trên lâm sàng.</p>
+<p>--------------------------------</p>
+<p><b><i><u><span class="c-do">K</span>hái niệm</u></i></b><b><u>
+<span class="c-do">N</span>âng cao<span class="c-do">:</span></u></b><b> <i>Chẩn đoán
+<span class="c-do">L</span>VH bằng <span class="c-do">C</span>huyển đạo <span class="c-do">a</span>VL</i></b></p>
+<p>Như được minh hoạ <i>dạng sơ đồ</i>
+ở <u>Hình 3</u> — các tiêu chuẩn điện thế mà chúng tôi ưa dùng để chẩn đoán <b>LVH</b> trên điện tâm đồ bao gồm có <b>sóng R ≥12</b> ở <b>chuyển đạo aVL</b>. Ở <b><u>Hình 7</u></b>,
+được ghi ở một bệnh nhân lớn tuổi bị tăng huyết áp — Chúng tôi minh hoạ cách
+chuyển đạo aVL có thể được dùng để nhận ra điện thế đạt tiêu chuẩn LVH khi các chuyển đạo ngực không
+đáp ứng được tiêu chuẩn điện thế cần thiết.</p>
+<ul><li><b>Biên độ
+sóng R</b> ở <b>chuyển đạo aVL</b> của <u>Hình 7</u> — rõ ràng
+tăng <i>vượt</i> mức
+<b>12 mm</b> cần thiết. Tức là, sóng R ở chuyển đạo
+aVL cao <i>hơn</i> 3 ô lớn
+(= <i>hơn 15 mm</i>). Điều này
+đáp ứng tiêu chuẩn điện thế của LVH.</li>
+<li>Tuy nhiên — <i>hoàn toàn không</i> có dấu hiệu điện thế đạt tiêu chuẩn LVH khi đánh giá biên độ
+QRS ở các chuyển đạo <i>trước tim</i> trong <u>Hình 7</u>
+(tức là <i>S sâu nhất ở V1,V2 + R cao nhất ở
+V5,V6 nhỏ hơn rất nhiều so với 35 mm</i>).</li>
+<li>Vì <i>chỉ cần</i> 1 tiêu chuẩn điện thế để chẩn đoán — việc có
+sóng R <i>cao</i> ở chuyển đạo aVL (≥<i>12 mm</i>) trong <u>Hình 7</u> đã đáp ứng <b>tiêu chuẩn</b>
+<b><i>điện thế</i></b> của <b>LVH</b>.</li></ul>
+<p><b><i><u><span class="c-do">Đ</span>iểm</u></i></b><b><u>
+<span class="c-do">N</span>âng cao<span class="c-do">:</span></u></b> Có
+LAD (<i>trục lệch trái — <u>L</u>eft <u>A</u>xis <u>D</u>eviation</i>)
+ở <u>Hình 7</u> — thể hiện rõ qua QRS chủ yếu <i>âm</i> ở chuyển đạo aVF cùng với QRS <i>dương</i>
+ở chuyển đạo I. Điều này ủng hộ nhận định rằng chuyển đạo aVL thường hữu ích nhất
+khi dùng làm tiêu chuẩn điện thế cho LVH trong trường hợp trục lệch <i>về bên trái</i>.</p>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-7-08.3-1--aVL-0191501adaf6.jpg"><img src="case-092_anh/Blog-92--Fig-7-08.3-1--aVL-0191501adaf6.jpg" alt="" width="791" height="409" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 7:</u></b> Điện tâm đồ ghi ở một người trưởng thành lớn tuổi bị tăng huyết áp. Tiêu chuẩn điện thế của LVH <i><u>được</u></i> đáp ứng nhờ sóng R <i>cao</i> ở chuyển đạo aVL (≥<i>12 mm</i>) — <u>mặc dù</u> điện thế ở các chuyển đạo trước tim tương đối thấp.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">L</span>ƯU Ý<span class="c-do">:</span></u></b><b>
+<i>Đừng quên kiểm tra <span class="c-do">X</span>ung chuẩn
+(<span class="c-do">s</span>tandardization mark)!</i></b></p>
+<p>Phần lớn thời gian — máy điện tâm đồ được cài ở mức <b>chuẩn hoá</b>
+<b><i>bình thường</i></b>. Việc xác nhận
+điều này rất dễ thực hiện nhờ nhận ra <b>xung</b> <b><i>chuẩn</i></b> ở ngay đầu hoặc cuối
+bản ghi 12 chuyển đạo (<i>mũi tên đen ở
+đầu chuyển đạo III trong</i> <u>Hình 8</u>).</p>
+<ul><li><b>Chuẩn hoá</b> <b><i>bình thường</i></b>
+được thể hiện bằng một xung chuẩn <i>hình chữ nhật</i>
+<b>cao 10 mm </b>(=<i>2 ô lớn</i>)<b>.</b></li>
+<li>Đôi khi — các phức bộ điện tâm đồ có thể
+rất lớn và vượt <i>ra ngoài</i>
+khoảng dành cho một hoặc nhiều chuyển đạo trên bản ghi. Chọn <b><i><span class="c-do">C</span>huẩn hoá</i></b>
+<b><span class="c-do">m</span>ột nửa</b> (half standardization) sẽ giảm biên độ sóng
+đi một nửa — nhờ đó <i>toàn bộ</i>
+phức bộ ở mỗi chuyển đạo lại nằm vừa trên giấy ghi điện tâm đồ và được nhìn thấy.</li>
+<li>Những khái niệm này được minh hoạ ở <b><u>Hình 8</u></b> — trong đó <b><u>Ô</u><i><u>
+trên</u></i></b> là hình <i>phóng to</i> chuyển đạo
+III và aVF ghi ở chuẩn hoá
+<i>bình thường</i>.</li>
+<li><u>NẾU</u> thay vào đó, các chuyển đạo này được ghi ở <b>chuẩn hoá</b>
+<b><i>một nửa</i></b> — biên độ QRS <i>thực tế</i> sẽ <i>gấp đôi</i> mức hiển thị = 10 <i><u>so với</u></i> 5 ở chuyển đạo III; <u>và</u> 26 <i><u>so với</u></i> 13 ở chuyển đạo aVF (<b><u>Ô</u><i><u>
+dưới</u></i></b> <i>trong</i> <u>Hình 8</u>).</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-8-08.5-1-Stand-30b9907394a3.jpg"><img src="case-092_anh/Blog-92--Fig-8-08.5-1-Stand-30b9907394a3.jpg" alt="" width="532" height="439" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 8:</u></b> Hình <i>phóng to</i> chuyển đạo III và aVF minh hoạ hình dạng <b>xung</b> <b><i>chuẩn</i></b> ở chuẩn hoá <b>bình thường</b> (<i>trên</i>) <u>và</u> <b>một nửa</b> (<i>dưới</i>). Điện thế thực tế <i>gấp đôi</i> mức hiển thị khi điện tâm đồ được ghi ở chuẩn hoá <i>một nửa</i>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u>LƯU Ý:</u></b> Trong những trường hợp hiếm —
+Bạn có thể gặp <b>chuẩn hoá</b> <b><i>gấp đôi</i></b> (double standardization),
+trong đó biên độ QRS <i>thực tế</i> chỉ bằng <i>một nửa</i> mức hiển thị. Cách này có thể được
+dùng khi biên độ QRS giảm rất nhiều (<i>như có thể gặp trong tràn dịch màng ngoài tim
+lượng lớn</i>). Chuẩn hoá gấp đôi được nhận ra nhờ một xung chuẩn <i>hình chữ nhật</i> <b>cao 20 mm </b>(=<i>4 ô lớn</i>)<b>.</b> Như đã nói — Việc dùng chuẩn hoá <i>gấp đôi</i> là hiếm.</p>
+<p>--------------------------------</p>
+<p><b><i><u><span class="c-do">Đ</span>iểm</u></i></b><b><u>
+<span class="c-do">N</span>âng cao<span class="c-do">:</span></u></b><b> <i>“<span class="c-do">T</span>ăng gánh”
+thất trái<span class="c-do">?</span>  </i></b><b>—</b><b><i> <span class="c-do">T</span>hiếu máu cục bộ<span class="c-do">?</span>  </i></b><b>—</b><b><i> </i><u>hay</u><i> <span class="c-do">c</span>ả hai<span class="c-do">?</span></i></b></p>
+<p>Như đã đề cập ở trên — Thường có sự nhầm lẫn về việc
+liệu các thay đổi sóng ST-T đi kèm ở bệnh nhân có biên độ
+QRS tăng là biểu hiện của thiếu máu cục bộ <u>hay</u> “tăng gánh” — <u>hay</u> cả hai? Cách tốt nhất
+để tìm hiểu khái niệm này là so sánh <i>song song</i>
+một ví dụ lâm sàng (<b><u>Hình 9</u></b>):</p>
+<ul><li>Ở <i><u>cả</u></i> <b>Ô A</b> <i><u>và</u></i> <b>Ô B</b> của <u>Hình 9</u>
+— sóng S <i>sâu nhất</i> ở V1,V2 + sóng R <i>cao nhất</i> ở V5,V6 <i>dễ dàng</i> đáp ứng <b>tiêu chuẩn <i>điện thế</i></b> của <b>LVH.</b></li>
+<li>Ở <b><u>Ô A</u></b>
+— hình dạng sóng ST-T ở chuyển đạo V5,V6 gợi ý mạnh <b>“tăng gánh”</b> <b>thất trái</b> (<i>có ST chênh xuống không đối xứng với đoạn dốc xuống võng chậm</i>). Dù không thể loại trừ khả năng thiếu máu cục bộ
+(<i>xét cho cùng, vẫn có điểm J
+chênh xuống — đặc biệt ở chuyển đạo V4</i>) — khi không có tiền sử đau
+ngực, chúng tôi nghi ngờ các thay đổi ở <u>Ô A</u> chủ yếu biểu hiện
+LVH kèm “tăng gánh”.</li>
+<li>Ngược lại, ở <b><u>Ô
+B</u></b> — đoạn ST có <i>dạng vòm</i> (coving) từ V3 đến V6.
+Ngoài ra, có điểm J chênh xuống 1-2 mm (<i>dưới đường nền đoạn PR</i>) ở chuyển đạo V4,V5,V6 — kèm <b>sóng T đảo ngược</b> <b><i>sâu</i></b>
+<u>và</u> có vẻ <b>đối xứng </b><b><i>hơn</i></b> nhiều (<i>đặc biệt ở
+chuyển đạo V4,V5</i>). Hình ảnh này gợi ý <i>nhiều hơn</i>
+đến <b>thiếu máu cục bộ.</b></li>
+<li>Đặc biệt — <b>chuyển đạo
+V3</b> ở <b><u>Ô B</u></b> trông có vẻ <b>thiếu máu cục bộ</b> (<i>“tăng gánh” thất trái đơn thuần hầu như <u>không bao giờ</u> tạo ra ST dạng vòm và
+sóng T đảo ngược đối xứng ở vị trí phía trước như thế này</i>).</li>
+<li><b>Chuyển đạo V6</b> ở <u>Ô B</u> — có hình ảnh <i>trung gian</i> giữa “tăng gánh”
+<i>và/hoặc</i> thiếu máu cục bộ.  Do bệnh nhân này “lớn tuổi” <u>và</u>
+có tiền sử bệnh tim <u>và</u> <i>rõ ràng</i>
+đáp ứng tiêu chuẩn điện thế của LVH — Chúng tôi sẽ đọc bản ghi này là <b>“LVH <i><u>và</u></i>
+“tăng gánh” <i><u>và</u></i>/<i><u>hoặc</u></i> thiếu máu cục bộ.”</b> Cần đối chiếu <i>lâm sàng</i> <u>và</u> <i>so sánh</i> với các bản ghi trước
+để xác định <u>LIỆU</u> có đang diễn ra một quá trình thiếu máu cục bộ <i>cấp</i> hay không.</li></ul>
+<figure><a class="o-anh" href="case-092_anh/Blog-92--Fig-9-08.12-2-isch-5b6df2848213.jpg"><img src="case-092_anh/Blog-92--Fig-9-08.12-2-isch-5b6df2848213.jpg" alt="" width="1048" height="620" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 9:</u></b> So sánh chuỗi chuyển đạo trước tim của 2 bệnh nhân lớn tuổi có bệnh tim <u>và</u> điện thế đạt tiêu chuẩn LVH <i>rõ ràng</i>. Tiêu chuẩn điện thế của LVH dễ dàng được đáp ứng ở mỗi bản ghi. Thay đổi sóng ST-T ở <b><u>Ô A</u></b> trông giống “tăng gánh” thất trái hơn. Mặt khác — thay đổi sóng ST-T ở <b><u>Ô B</u></b> gợi ý nhiều hơn đến LVH <i><u>kèm</u></i> khả năng thiếu máu cục bộ <i>cũng như</i> “tăng gánh”.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><i><u><span class="c-do">L</span>ƯU Ý</u></i></b><b><u>
+<span class="c-do">C</span>UỐI CÙNG<span class="c-do">:</span></u></b>
+Dành cho độc giả muốn tìm hiểu thêm — Chúng tôi tiếp cận chẩn đoán LVH trên điện tâm đồ từ một góc nhìn hơi
+khác trong <b><a href="http://ecg-interpretation.blogspot.com/2013/08/ecg-interpretation-review-73-lvh.html" rel="noopener" target="_blank">ECG Blog #73</a>:</b></p>
+<ul><li>Chúng tôi cũng nêu một số <b><span class="c-do">t</span>iêu chuẩn <span class="c-do">đ</span>iện thế</b>
+<b><i><span class="c-do">b</span>ổ sung</i></b> cho LVH trong Blog #73. Tuy vậy — trong ~90%
+trường hợp có thể chẩn đoán LVH bằng điện tâm đồ, việc dùng các con số “12”
+và “35” như mô tả trong bài <i>Basic</i>
+ECG Concepts #5 này là tất cả những gì bạn cần.</li></ul>
+<p>--------------------------------</p>
+<p>—
+Để biết thêm thông tin — TRUY CẬP —</p>
+<figure><a class="o-anh" href="case-092_anh/References--ICON-6b9746e3bf92.png"><img src="case-092_anh/References--ICON-6b9746e3bf92.png" alt="" width="442" height="107" loading="lazy" decoding="async"></a></figure>
+<ul><li>Nội dung và các Hình #1-thru-6 được trích từ
+ấn phẩm <i>mới nhất</i> của chúng tôi = <b>“<a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">A 1st Book on ECGs-2014</a>”</b> <i>và/hoặc</i> từ <b><span class="c-do">p</span>hiên bản e<span class="c-do">P</span>ub <i><span class="c-do">m</span>ở rộng</i>
+của <a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">1st Book</a>
+(</b><i>có trên kindle-kobo-nook-ibooks</i><b>).</b></li></ul>
+<figure><a class="o-anh" href="case-092_anh/ECG-1st-Book-6-3.1-2014--USE-BLOG-8debebb9aebc.png"><img src="case-092_anh/ECG-1st-Book-6-3.1-2014--USE-BLOG-8debebb9aebc.png" alt="" width="1082" height="730" loading="lazy" decoding="async"></a></figure>
+<p>-  -</p>
+<ul><li>Nội dung nâng cao hơn và các Hình #7,8,9 được
+trích từ <b><a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014-Pocket Brain</a></b>
+<i>và/hoặc</i> từ <b><span class="c-do">p</span>hiên bản e<span class="c-do">P</span>ub <i><span class="c-do">m</span>ở rộng</i>
+của <a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014</a>
+(</b><i>có trên kindle-kobo-nook-ibooks</i><b>).</b></li></ul>
+<figure><a class="o-anh" href="case-092_anh/ECG-2014-ePub-PB-6-3.1-14--USE-BLOG-baee7a1ba97c.png"><img src="case-092_anh/ECG-2014-ePub-PB-6-3.1-14--USE-BLOG-baee7a1ba97c.png" alt="" width="1108" height="746" loading="lazy" decoding="async"></a></figure>
+<p>-  -</p>
+<ul><li>Mời bạn Tải Miễn phí <b><a href="http://www.ecgglossary.com/" rel="noopener" target="_blank">GLOSSARY</a></b> (bảng chú giải) <i>mở rộng</i> của chúng tôi về các <b>thuật ngữ</b>
+<b><i>liên quan đến điện tâm đồ</i></b>.<b> </b></li></ul>
+<figure><a class="o-anh" href="case-092_anh/ECG-GLOSSARY-6a2c7f446274.png"><img src="case-092_anh/ECG-GLOSSARY-6a2c7f446274.png" alt="" width="214" height="70" loading="lazy" decoding="async"></a></figure>
+<p>- -</p>
+<p>--------------------------------------------------------------</p>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>

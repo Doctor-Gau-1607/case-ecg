@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #90 (Basic Concepts-3) – TRỤC</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #90 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #90 (Basic Concepts-3) – TRỤC</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<figure><a class="o-anh" href="case-090_anh/0--Basic-ECG-Concepts-USE-c75ce75984d5.png"><img src="case-090_anh/0--Basic-ECG-Concepts-USE-c75ce75984d5.png" alt="" width="679" height="85" loading="lazy" decoding="async"></a></figure>
+<p>--------------------------------</p>
+<p>Đây là phần thứ 3 trong loạt bài <b><span class="c-do">K</span>hái niệm <i><span class="c-do">C</span>ơ bản</i> về <span class="c-do">Đ</span>iện tâm đồ</b>. Thay vì các ca bệnh cụ thể — mục tiêu của loạt <i>Khái niệm Cơ bản</i> về điện tâm đồ này là ôn tập ngắn gọn một số chủ đề ít chuyên sâu hơn, vốn tạo nên <i>nền tảng</i> của việc đọc điện tâm đồ. Tư liệu này được trích (có chỉnh sửa) từ cuốn sách <i>nhập môn</i> mới của tôi về đọc điện tâm đồ = <b><i>“<a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">A 1st Book on ECGs-2014</a>”</i></b> và/hoặc <b><i><u><span class="c-do">p</span>hiên bản</u></i></b> <b><a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">1st-ECG-Book-ePub</a> <span class="c-do">m</span>ở rộng (</b><i>đã phát hành trên kindle-nook-kobo-ibooks</i><b>)</b>. Rất MONG nhận được góp ý của các bạn về loạt bài này!</p>
+<p>--------------------------------</p>
+<ul><li><b><u><span class="c-do">L</span>ƯU Ý<span class="c-do">:</span></u></b><b> </b>Để tăng tính thực tiễn — Chúng tôi bổ sung thêm một số <b>khái niệm <i>nâng cao</i> hơn</b> minh họa <b><i>Ứng dụng</i> lâm sàng</b> của <b>Trục</b> ở gần cuối bài này (<i>phần nội dung nâng cao hơn này được trích từ</i> <b><a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014-ePub</a></b>).</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">L</span>IÊN KẾT tới các <span class="c-do">K</span>hái niệm <span class="c-do">C</span>ơ bản về <span class="c-do">Đ</span>iện tâm đồ <i><span class="c-do">T</span>rước đây</i><span class="c-do">:</span></b></p>
+<ul><li><b><a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-88-basic-concepts-1-qrs.html" rel="noopener" target="_blank">Basic Concepts #1</a></b>
+— Thuật ngữ QRS</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-89-basic-concepts-2-intervals.html" rel="noopener" target="_blank">Basic Concepts #2</a></b>
+— Các khoảng (<i>PR/QRS/QT</i> )</li>
+<li><b>Basic Concepts #3<span class="c-do"> (</span></b><i>bài này!</i> <b><span class="c-do">)</span></b> — Trục</li>
+<li><b><br></b></li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html" rel="noopener" target="_blank">Basic Concepts #4</a></b> — Các nhóm chuyển đạo</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-92-basic-concepts-5-lvh.html" rel="noopener" target="_blank">Basic Concepts #5</a></b> —<i> </i>LVH</li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/06/ecg-blog-93-basic-concepts-6-systematic.html" rel="noopener" target="_blank">Basic Concepts #6</a></b> —<i> </i>Cách tiếp cận <i>hệ thống</i></li>
+<li><b><a href="http://ecg-interpretation.blogspot.com/2014/07/ecg-blog-94-basic-concepts-7-qrst.html" rel="noopener" target="_blank">Basic Concepts #7</a></b> —<i> </i>Thay đổi Q-R-S-T</li></ul>
+<p>--------------------------------</p>
+<figure><a class="o-anh" href="case-090_anh/08.0-AXIS---Title-1d3533acc28b.jpg"><img src="case-090_anh/08.0-AXIS---Title-1d3533acc28b.jpg" alt="" width="1098" height="140" loading="lazy" decoding="async"></a></figure>
+<p>--------------------------------</p>
+<p><b>Thông số thứ 4</b> trong <b><i><span class="c-do">C</span>ách tiếp cận</i></b> <b><span class="c-do">H</span>ệ thống</b> khi <b>đọc điện tâm đồ (</b><i>sau khi đánh giá Tần số – Nhịp – Các khoảng</i><b>)</b> — là xác định <b><span class="c-do">T</span>RỤC</b>. “Tin vui” — là việc ước lượng chính xác Trục trên mặt phẳng trán rất <b><i>dễ</i></b> thực hiện <u>và</u> có thể làm trong <i>không quá</i> vài giây.</p>
+<ul><li><b><u>Điểm MẤU CHỐT:</u></b> Để có cái nhìn đúng mức — tốt nhất là <i><u>không</u></i> nên quá bận tâm về Trục. Thông tin lâm sàng mà Trục cung cấp có giới hạn — <u>và</u> thường chỉ cần <i>ước lượng</i> trục là đủ. <i>Hiếm khi</i> cần chính xác hơn mức sai lệch khoảng 30 độ so với Trục thực.</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">Đ</span>ỊNH NGHĨA<span class="c-do">:</span> <span class="c-do">T</span>rục <i>“<span class="c-do">đ</span>iện”</i> là gì?</b></p>
+<p>Vậy thuật ngữ “Trục” trong đọc điện tâm đồ có nghĩa là gì?</p>
+<ul><li><b>Trục QRS</b> <b><i>trung bình</i></b> — có thể được định nghĩa là <b>hướng <i>trung bình</i></b> của <b>hoạt động <i>điện</i></b> của tim trên <b>mặt phẳng <i><u>trán</u></i></b>. Sự lan truyền hoạt động <i>điện</i> của tim thực ra diễn ra trong 3 chiều — bao gồm các mặt phẳng <i>nằm ngang</i> — <i>thẳng đứng</i> — <u>và</u> <i>ngang (transverse)</i> (<b><u>Hình 1</u></b>). <b>“Trục”</b> mà chúng ta quan tâm khi đánh giá thông số thứ 4 này trong Cách tiếp cận <i>hệ thống</i> là <b>Trục <i>mặt phẳng trán</i>.</b></li>
+<li>Hoạt động điện trên <b>mặt phẳng</b> <b><i><u>ngang</u></i></b> — được đánh giá bằng 6 chuyển đạo ngực (<i>hay chuyển đạo trước tim</i>) (<u>Hình 1</u>). Dù các dấu hiệu như tăng tiến sóng R có phù hợp hay không là những thành phần quan trọng của việc đọc điện tâm đồ — các đặc điểm này không tham gia vào việc đánh giá “Trục”.</li>
+<li>Thay vào đó — chính <b>3 <i>chuyển đạo chi chuẩn</i></b> <u>và</u> <b>3 <i>chuyển đạo tăng thế</i></b>, tạo nên <b><i>Hệ thống</i> chuyển đạo sáu trục (Hexaxial)</b> — mới là các chuyển đạo nhìn hoạt động điện của tim trên <b>mặt phẳng</b> <b><i><u>trán</u></i></b>. Như chúng ta sẽ thấy trong phần này — thường chỉ cần chú ý tới 3 trong 6 chuyển đạo của hệ sáu trục (<i>chuyển đạo I,II,aVF</i>) là đủ để biết những gì cần biết về Trục.</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-1--03.8-1-Hexax-038818d966d6.jpg"><img src="case-090_anh/Blog-90-Fig-1--03.8-1-Hexax-038818d966d6.jpg" alt="" width="1356" height="650" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 1:</u></b><b> </b>Hoạt động điện của tim diễn ra trong 3 chiều. Chính 6 chuyển đạo trong <b>Hệ thống chuyển đạo</b> <b><i>sáu trục</i></b> được dùng để đánh giá <b>Trục</b> <b>mặt phẳng</b> <b><i><u>trán</u></i></b>. Thường chỉ cần chú ý tới các sóng ở chuyển đạo I, II và aVF là đủ. Hoạt động điện trên <b>mặt phẳng</b> <b><i><u>ngang</u></i></b> được đánh giá bằng 6 chuyển đạo ngực (<i>chuyển đạo V1 đến V6</i>). <b>Mũi tên</b> <b><i>đỏ</i></b> hướng sang trái và ra sau phản ánh hướng chủ đạo của hoạt động điện trên mặt phẳng <i>ngang</i>. Dù vậy — các sóng ở 6 chuyển đạo ngực <i><u>không</u></i> ảnh hưởng tới Trục mặt phẳng <i>trán</i>.</figcaption></figure>
+<p>--------------------------------<br><b><i><span class="c-do">N</span>guyên lý</i></b><b> <span class="c-do">N</span>ền tảng<span class="c-do">:</span> <i>3 <span class="c-do">Đ</span>ịnh luật của <span class="c-do">Đ</span>iện tâm đồ học</i></b><br>Nguyên lý xác định <b>Trục </b>mặt phẳng <i>trán</i> dựa trên <b>3 Định luật của Điện tâm đồ học </b>(<i>trình bày trong</i> <b><u>Hình 2</u></b>).</p>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-2--08.1-1-3-Laws-5b4c95ad3659.jpg"><img src="case-090_anh/Blog-90-Fig-2--08.1-1-3-Laws-5b4c95ad3659.jpg" alt="" width="912" height="704" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 2:</u></b><b> </b>Minh họa <b>3 Định luật <i>của</i> Điện tâm đồ học</b> — quyết định <i>hướng</i> <u>và</u> kích thước <i>tương đối</i> của dạng sóng điện tâm đồ ở <i>mỗi</i> chuyển đạo trong 12 chuyển đạo. <b><u>LƯU Ý:</u></b> Theo quy ước — cực của điện cực được chọn sao cho <i>đa số</i> phức bộ QRS ở <i>đa số</i> chuyển đạo của <i>đa số</i> bệnh nhân sẽ dương.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b>3 <span class="c-do">Đ</span>ịnh luật <i>của</i> <span class="c-do">Đ</span>iện tâm đồ học</b> được trình bày dạng <i>sơ đồ</i> ở <u>Hình 2</u> minh họa những điều sau:</p>
+<ul><li><b><u>Định luật số 1:</u></b> — một sóng hoạt động điện di chuyển <i><u>về phía</u></i> điện cực ghi sẽ tạo ra một <b>sóng <i>dương</i></b> trên điện tâm đồ (<b><u>Ô A</u></b>).</li>
+<li><b><u>Định luật số 2:</u></b> — một sóng hoạt động điện di chuyển <i><u>ra xa</u> </i>khỏi<i> </i>điện cực ghi sẽ tạo ra một <b>sóng <i>âm</i></b> trên điện tâm đồ (<b><u>Ô B</u></b>).</li>
+<li><b><u>Định luật số 3:</u></b> — NẾU điện cực ghi được đặt <b><i>vuông góc </i>với </b>(tức là<i>, lệch 90 độ so với</i>) hướng của sóng khử cực — thì một <b>phức bộ</b> <b><i>đẳng điện</i></b> hay <b><i>“đẳng pha”</i></b> (tức là, <i>phức bộ QRS có</i> <i>phần lên và phần xuống bằng nhau</i>) — sẽ được ghi trên điện tâm đồ (<b><u>Ô C</u></b>).</li></ul>
+<p><b><u>LƯU Ý </u></b><b><i><u>lâm sàng:</u></i></b> Sở dĩ ước lượng Trục dễ dàng — là nhờ 2 tiền đề sau đây, được rút ra từ 3 Định luật của Điện tâm đồ học:</p>
+<ul><li><u>Tiền đề số 1:</u><b> </b><b>Trục </b>sẽ <b><i>gần nhất</i></b> <b>với</b> <b>chuyển đạo</b> mặt phẳng trán nào có <b>độ lệch QRS <i>“thực”</i></b> <b>dương</b> <b><i>nhất</i></b>.</li>
+<li><u>Tiền đề số 2:</u> Trục sẽ <b><i>vuông góc</i></b> <b>với </b>(<i>tức là </i><i>— lệch khoảng 90 độ so với</i>) bất kỳ chuyển đạo chi nào có phức bộ QRS <b><i>đẳng điện</i></b> (<i>tương ứng với</i> <u>Ô C</u> <i>trong</i> <u>Hình 2</u>).</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">Đ</span>ỊNH NGHĨA<span class="c-do">:</span> <i><span class="c-do">Đ</span>ộ lệch <span class="c-do">Q</span>RS “<span class="c-do">T</span>hực” là gì?</i></b></p>
+<p>Như đã nhấn mạnh trong <b><i>Basic</i> ECG <a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-88-basic-concepts-1-qrs.html" rel="noopener" target="_blank">Concepts #1</a></b> — phức bộ QRS thường <i><u>không</u></i> hoàn toàn dương hay hoàn toàn âm. Thay vào đó — <b>phức bộ “QRS”</b> thường là tổ hợp của các <b>sóng</b> <b><i>dương</i></b> (<i>sóng R và R’</i>) <u>và</u> các <b>sóng</b> <b><i>âm</i></b> (<i>sóng Q và S</i>).</p>
+<ul><li>Để ước lượng Trục — Chúng ta cần thành thạo việc xác định <b>độ lệch QRS</b> <b><i>“thực”</i></b> (net QRS deflection). Đây đơn giản là <b>lượng</b> <b><i>tương đối</i></b> của phần <b><i>dương</i></b> <u>so với</u> phần <b><i>âm</i></b> trong <b>độ lệch QRS</b>. Một <i>hình minh họa</i> sẽ làm rõ khái niệm này (<b><u>Hình 3</u></b>).</li><li><br></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-3--08.2.1-Net-Deflection-c18602ea395f.jpg"><img src="case-090_anh/Blog-90-Fig-3--08.2.1-Net-Deflection-c18602ea395f.jpg" alt="" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3:</u></b><b> </b>Xác định <b>độ lệch QRS <i>“thực”</i></b>. Độ lệch “thực” ở <b><u>Ô A</u></b> hiển nhiên là dương — vì QRS chỉ gồm duy nhất một <b>sóng R</b> dương. Ngược lại, ở <b><u>Ô B</u></b> — có <b>sóng RS</b> với phần <i>âm</i> rõ ràng lớn hơn. Do đó — độ lệch QRS <i>“thực”</i> ở <u>Ô B</u> sẽ âm. <b><u>Ô C</u></b> — biểu hiện một <b>phức bộ qRs</b>. Dù có 2 thành phần âm (<i>sóng q và sóng s</i>) — độ lệch <i>“thực”</i> ở <u>Ô C</u> vẫn dương nhờ sóng R rất cao. <b><u>Ô D</u></b> — cũng biểu hiện độ lệch<i> “thực”</i> dương — vì sóng duy nhất hiện diện là sóng hướng lên. Dù vậy — biên độ của sóng R dương này ở <u>Ô D</u> rõ ràng khá nhỏ.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u>LƯU Ý </u></b><b><i><u>lâm sàng:</u></i></b> <i><u>Không</u></i> cần đếm số ô nhỏ trong từng sóng của mỗi phức bộ để xác định độ lệch <i>“thực”</i> tương đối. Đó là lý do chúng tôi cố ý <i>bỏ</i> lưới điện tâm đồ trong <u>Hình 3.</u></p>
+<ul><li>Như chúng ta sẽ thấy ngay sau đây — Xác định <b>Trục</b> nên là một <b>phép tính</b> <b><i>nhanh</i></b>, <b><i>dễ</i></b> <b>thực hiện</b>. <i><u>Không</u></i> nên mất quá <b>1 giây liếc nhìn</b> <b><u>Ô B</u></b> ở <u>Hình 3</u> để nhận ra độ lệch <i>“thực”</i> là âm — <u>hoặc</u> độ lệch “thực” ở <u>Ô C</u> là dương.</li>
+<li><b><u>Điểm </u></b><b><i><u>nâng cao:</u></i></b> Về mặt kỹ thuật — chính <i>“diện tích dưới đường cong”</i> mới là thứ được dùng để xác định độ lệch QRS “thực”. Ví dụ — sóng s ở <u>Ô C</u> của <u>Hình 3</u> rất hẹp — nên diện tích bên trong sóng âm này rất nhỏ. Dù vậy — Bạn <i><u>không</u></i> cần bận tâm về diện tích! Xác định trục nên là một <b>ước lượng</b> <b><i>nhanh</i></b> mà bạn làm ngay <i>khi nhìn</i> <u>mà không</u> phải đo độ rộng hay chiều cao của các sóng.</li></ul>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">X</span>ác định</i> <span class="c-do">T</span>RỤC<span class="c-do">:</span> <i><span class="c-do">C</span>ách tiếp cận theo <span class="c-do">G</span>óc phần tư</i></b></p>
+<p>Với các nguyên lý trên trong đầu — Chúng ta đã sẵn sàng bắt đầu xác định Trục. Ước lượng nhanh <b>Trục </b>dễ nhất là bằng <b>Cách tiếp cận theo <i>Góc phần tư</i></b> (Quadrant Approach), giúp khu trú Trục vào một trong bốn <b>phân đoạn</b> <b><i>90 độ</i></b>. Như trình bày ở <b><u>Hình 4</u></b> — <b><i>Chỉ cần 2 chuyển đạo</i></b> để xác định Góc phần tư chứa Trục. 2 chuyển đạo này là <b>chuyển đạo I </b>(<i>ở 0 độ</i>) — <i><u>và</u></i> <b>chuyển đạo aVF </b>(<i>ở +90 độ</i>):</p>
+<ul><li><b><span class="c-do">T</span>rục</b> <b><i><span class="c-do">B</span>ình thường</i></b> — được định nghĩa là nằm <i>trong khoảng</i> 0 đến +90 độ.</li>
+<li><b><span class="c-do">L</span>AD </b>(<i><u>L</u></i><i>eft <u>A</u>xis <u>D</u>eviation — trục lệch trái</i>) — nằm <i>trong khoảng</i> -1 đến -90 độ.</li>
+<li><b><span class="c-do">R</span>AD </b>(<i><u>R</u></i><i>ight <u>A</u>xis <u>D</u>eviation — trục lệch phải</i>) — nằm <i>trong khoảng</i> +91 đến +180 độ.</li>
+<li><b><span class="c-do">T</span>rục</b> <b><i><span class="c-do">K</span>hông xác định</i></b> – nằm <i>trong khoảng</i> +180 đến +270 độ.</li></ul>
+<p><b><u>LƯU Ý </u></b><b><i><u>lâm sàng:</u></i></b> Mặc dù theo Cách tiếp cận theo Góc phần tư, chúng ta mô tả Trục +95 độ là “RAD” <u>và</u> Trục -10 độ là “LAD” — cần nhấn mạnh rằng những mức “lệch trục” tối thiểu này <i><u>không</u></i> có ý nghĩa lâm sàng.</p>
+<ul><li><b>Tất cả những gì chúng ta làm chỉ là <i>ước lượng gần đúng.</i></b></li>
+<li><u>Về lâm sàng</u> — <i>Hiếm khi</i> cần tính Trục chính xác. Thường chỉ cần xác định Góc phần tư chứa Trục là đủ (<u>Hình 4</u>).</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-4--08.3-1-Quad-5bed472836ce.jpg"><img src="case-090_anh/Blog-90-Fig-4--08.3-1-Quad-5bed472836ce.jpg" alt="" width="1026" height="564" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 4:</u></b><b> </b><b>Cách tiếp cận</b> theo <b><i>Góc phần tư</i></b> để <b>Xác định</b> <b><i>Trục</i></b>. Dễ nhất là xác định Trục nằm trong một trong bốn Góc phần tư <i>90 độ</i>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">Á</span>p dụng</i></b><b> <i><span class="c-do">C</span>ách tiếp cận </i>theo <span class="c-do">G</span>óc phần tư <span class="c-do">(</span><i>Ví dụ A</i><span class="c-do">)</span></b></p>
+<p>Xác định <b><i>Góc phần tư</i></b> chứa <b>Trục</b> rất dễ — <u>và</u> <b>chỉ mất</b> <b><i>chưa</i></b> <b><i>đến</i></b> <b>5 giây</b>. Chỉ cần dùng <b><u>Bảng</u></b> trong <u>Hình 4</u>. Chỉ cần luyện tập <i>một chút</i> — bạn sẽ thấy mình không cần tra Bảng này nữa.</p>
+<ul><li><b><u>LƯU Ý:</u></b> Theo định nghĩa, <b>Trục</b> sẽ <b>“bình thường”</b> (tức là, <i>trong khoảng 0 đến +90 độ</i>) — <u>NẾU</u> độ lệch QRS <i>“thực”</i> dương ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF.</li>
+<li>Nhưng, <u>NẾU</u> <i>hoặc</i> chuyển đạo I <i>hoặc</i> chuyển đạo aVF <i><u>không</u></i> có độ lệch <i>“thực”</i> dương — thì sẽ có <b><i>“lệch”</i></b> <b>Trục</b> sang một trong 3 Góc phần tư còn lại (<i>hoặc RAD, LAD </i><u>hoặc</u><i> trục không xác định</i>).</li></ul>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">V</span>í dụ <span class="c-do">A</span>:</u></b> Hãy xem ví dụ lâm sàng ở <b><u>Hình 5</u></b>. Xác định <i>Góc phần tư</i> chứa Trục. Thử xem bạn có ước lượng được số độ <i>gần đúng</i> của Trục không.</p>
+<ul><li><b><u>LƯU Ý:</u></b> Vì <i>chỉ</i> cần 2 chuyển đạo để xác định Góc phần tư của Trục — nên chúng tôi chỉ đưa 2 chuyển đạo này trong ví dụ này <u>và</u> trong các ví dụ <i>sơ đồ</i> tiếp theo.</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-5-08.4-1-Axis-A-e421f0ee301e.jpg"><img src="case-090_anh/Blog-90-Fig-5-08.4-1-Axis-A-e421f0ee301e.jpg" alt="" width="1018" height="532" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 5:</u></b><b> </b><i>Áp dụng</i> <b>Cách tiếp cận</b> theo <b><i>Góc phần tư</i></b>. Trục ở <b><u>Ví dụ A</u></b> nằm ở Góc phần tư nào? Ước lượng số độ của Trục.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ A<span class="c-do">:</span></u></b> <b>Trục</b> <b>bình thường</b> (tức là, <i>trong khoảng 0 đến +90 độ</i>). Chúng ta biết điều này <i>ngay lập tức</i> — vì độ lệch QRS <i>“thực”</i> ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF trong <b><u>Hình 5</u></b> đều hiển nhiên dương (<i>Xem</i> <u>Bảng</u> <i>trong</i> <u>Hình 4</u>).</p>
+<ul><li>Để dễ hình dung vị trí của Trục — Chúng tôi vẽ <i>dạng sơ đồ</i> các <b>mũi tên</b> <b><i>màu</i></b> trên <b>Sơ đồ</b> <b><i>Góc phần tư Trục</i></b> ở <u>Hình 5</u>, biểu thị <b>chuyển đạo I</b> (<i>ở 0 độ</i>) <u>và</u> <b>chuyển đạo aVF</b> (<i>ở +90 độ</i>). <b>Mũi tên</b> <b><i>đen</i></b> biểu thị ước lượng của chúng tôi cho Trục <i>tổng thể</i>.</li>
+<li>Lưu ý rằng phức bộ QRS ở <u>Hình 5</u> — <i>hoàn toàn</i> dương ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF. <u>NẾU</u> sóng R cao bằng nhau ở 2 chuyển đạo này — thì Trục sẽ nằm chính giữa chúng (<i>tức khoảng +45 độ</i>).</li>
+<li>Vì sóng R ở chuyển đạo I của <u>Hình 5</u> trông <i>hơi</i> cao hơn sóng R ở chuyển đạo aVF (<i>mũi tên đỏ so với mũi tên xanh lá</i>) — Chúng tôi ước lượng trục <b><i>trong khoảng</i></b> <b>+30 đến 40 độ</b> (<i>mũi tên đen trong Hình</i>). <u>Về lâm sàng</u> — Có lẽ chỉ cần nói Trục ở <u>Hình 5</u> là “bình thường” là đủ.</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA <span class="c-do">(</span><i>Ví dụ B</i><span class="c-do">)</span>:<i> Trục là bao nhiêu?</i></b></p>
+<p>Xác định Góc phần tư chứa Trục ở <b><u>Ví dụ B</u></b> (<i>trong</i> <b><u>Hình 6</u></b>).</p>
+<ul><li>Ước lượng số độ của Trục. <i>Trục có bình thường không?</i></li><li><i><br></i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-6-08.5-1-Axis-B-1b732b6defe8.jpg"><img src="case-090_anh/Blog-90-Fig-6-08.5-1-Axis-B-1b732b6defe8.jpg" alt="" width="800" height="602" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 6:</u></b><b> </b>Xác định Trục ở <b><u>Ví dụ B</u></b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ B<span class="c-do">:</span></u></b> <b>Trục</b> ở <u>Hình 6</u> một lần nữa <b>bình thường</b> (tức là, <i>trong khoảng 0 đến +90 độ</i>) — vì QRS <i>hoàn toàn</i> dương ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF.</p>
+<ul><li>Vì độ lệch QRS ở chuyển đạo aVF rõ ràng dương <i>hơn</i> — trục nằm <i>gần</i> aVF hơn (<i>khoảng +60-75 độ</i>). <u>Về lâm sàng</u> — chỉ cần nói Trục “bình thường” là đủ.</li>
+<li><u>Hãy nhớ</u> — <b><i>Tất cả những gì bạn làm chỉ là ước lượng gần đúng!</i></b> Việc tính trục <i><u>không</u></i> cần chính xác — miễn là ước lượng của bạn nằm <i>trong phạm vi</i> 20 đến 30 độ so với trục thực. Với mục đích của cuốn 1st Book on ECGs này — Chúng tôi hài lòng nếu bạn làm được <i>không gì hơn</i> ngoài việc xác định đúng Góc phần tư của Trục.</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA <span class="c-do">(</span><i>Ví dụ C</i><span class="c-do">)</span>:<i> Trục là bao nhiêu?</i></b></p>
+<p>Xác định Góc phần tư chứa Trục ở <b><u>Ví dụ C</u></b> (<i>trong</i> <b><u>Hình 7</u></b>).</p>
+<ul><li>Ước lượng số độ của Trục. <i>Trục có bình thường không?</i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-7-08.6-1-Axis-C-11af8e97a324.jpg"><img src="case-090_anh/Blog-90-Fig-7-08.6-1-Axis-C-11af8e97a324.jpg" alt="" width="960" height="628" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 7:</u></b><b> </b>Xác định Trục ở <b><u>Ví dụ C</u></b>.</figcaption></figure>
+<p>-------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ C<span class="c-do">:</span></u></b> <b>Trục</b> ở <u>Hình 7</u> cũng <b>bình thường</b> (tức là, <i>trong khoảng 0 đến +90 độ</i>). Chúng ta <i>biết</i> ngay điều này — vì phức bộ QRS <i>hoàn toàn</i> dương ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF.</p>
+<ul><li>Vì sóng R ở chuyển đạo I dương hơn nhiều so với sóng R ở chuyển đạo aVF (<i>mũi tên đỏ so với mũi tên xanh lá</i>) — Chúng tôi ước lượng trục <b><i>trong khoảng</i></b> <b>+10-30 độ</b>.</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA <span class="c-do">(</span><i>Ví dụ D</i><span class="c-do">)</span>:<i> Trục là bao nhiêu?</i></b></p>
+<p>Xác định Góc phần tư chứa Trục ở <b><u>Ví dụ D</u></b> (<i>trong</i> <b><u>Hình 8</u></b>).</p>
+<ul><li>Ước lượng số độ của Trục. <i>Trục có bình thường không?</i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-8-08.7-1-Axis-D-67a79d8b80c7.jpg"><img src="case-090_anh/Blog-90-Fig-8-08.7-1-Axis-D-67a79d8b80c7.jpg" alt="" width="962" height="632" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 8:</u></b><b> </b>Xác định Trục ở <b><u>Ví dụ D</u></b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ D<span class="c-do">:</span></u></b> <b>Trục</b> ở <u>Hình 8</u> <i><u>không</u></i> <b>“bình thường”</b>. Chúng tôi nói vậy — vì độ lệch QRS <i>“thực”</i> <i>âm</i> nhiều hơn dương ở một trong 2 chuyển đạo chính dùng để xác định trục.</p>
+<ul><li>Cụ thể — <b>phức bộ RS</b> ở <b>chuyển đạo aVF</b> có sóng S <b>âm</b> <b><i>sâu hơn</i></b> so với chiều cao sóng R ở chuyển đạo này. Điều này đặt Trục vào bán cầu <b><i>trên</i></b> (<b>mũi tên</b> <b><i>xanh lá</i></b> <i>trong</i> <u>Hình 8</u>).</li>
+<li>Mặt khác — phức bộ QRS ở chuyển đạo I của <u>Hình 8</u> <i>hoàn toàn</i> dương, với sóng R tương đối cao. Điều này đặt Trục vào bán cầu <b><i>trái</i></b> (<b>mũi tên</b> <b><i>đỏ</i></b> <i>trong</i> <u>Hình 8</u>).</li>
+<li>Sự hiện diện của <b>độ lệch</b> “thực” <b><i>dương</i></b> ở <b>chuyển đạo I</b> <i><u>cùng với</u></i> <b>độ lệch</b> “thực” <b><i>âm</i></b> ở <b>chuyển đạo aVF</b> — xác định Trục là <b>LAD</b> (<i><u>L</u>eft <u>A</u>xis <u>D</u>eviation — trục lệch trái </i>— <i>như thấy rõ trong Bảng ở</i> <b><u>Hình 4</u></b>). Dù vậy — sóng S ở chuyển đạo aVF <i>không</i> sâu hơn chiều cao sóng R là bao nhiêu. Vì vậy chúng tôi ước lượng LAD ở mức tương đối <i>nhẹ</i> (<i>tức Trục</i> <i><b>trong khoảng</b></i> <b>-10 đến -20 độ</b>).</li>
+<li><u>Về lâm sàng</u> — Khi LAD nặng (tức là, <i>âm rõ rệt hơn mức thấy ở</i> <u>Hình 8</u>) — điều này có thể chỉ ra một rối loạn dẫn truyền gọi là <b>LAHB</b> (<i><u>L</u>eft <u>A</u>nterior <u>H</u>emi<u>B</u>lock — blốc phân nhánh trái trước</i>). Trước mắt — Chúng tôi hài lòng nếu bạn chỉ cần nhận ra có LAD. (<i>Chúng tôi bàn về LAHB ở phần dưới, bắt đầu từ</i> <u>Hình 11</u>).</li></ul>
+<p><b><u>LƯU Ý lâm sàng:</u></b> “Cái hay” của <b>Cách tiếp cận</b> theo <b><i>Góc phần tư</i></b> (<i>như trình bày ở</i> <u>Hình 4</u>) — là bạn có thể biết <b><i>trong vòng</i></b> <b>vài giây</b> <u>LIỆU</u> trục có bình thường hay không.</p>
+<ul><li><u>NẾU</u> độ lệch QRS <i>“thực”</i> <i>không</i> dương ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF — thì Góc phần tư của Trục là <i><u>không</u></i> bình thường!</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA <span class="c-do">(</span><i>Ví dụ E</i><span class="c-do">)</span>:<i> Trục là bao nhiêu?</i></b></p>
+<p>Xác định Góc phần tư chứa Trục ở <b><u>Ví dụ E</u></b> (<i>trong</i> <b><u>Hình 9</u></b>).</p>
+<ul><li>Ước lượng số độ của Trục. <i>Trục có bình thường không?</i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-9-08.8-1-Axis-E-7aa1fb58ca61.jpg"><img src="case-090_anh/Blog-90-Fig-9-08.8-1-Axis-E-7aa1fb58ca61.jpg" alt="" width="952" height="632" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 9:</u></b><b> </b>Xác định Trục ở <b><u>Ví dụ E</u></b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ E<span class="c-do">:</span></u></b> <b>Trục</b> ở <u>Hình 8</u> <i><u>không</u></i> <b>“bình thường”</b> — vì độ lệch QRS <i>“thực”</i> <i>âm</i> nhiều hơn dương ở một trong 2 chuyển đạo chính.</p>
+<ul><li>Cụ thể — <b>phức bộ RS</b> ở <b>chuyển đạo I</b> có sóng S <b>âm</b> <b><i>sâu hơn</i></b> so với chiều cao sóng R ở chuyển đạo này. Điều này đặt Trục vào bán cầu <b><i>phải</i></b> (<b>mũi tên</b> <b><i>đỏ</i></b> <i>trong</i> <u>Hình 9</u>).</li>
+<li>Mặt khác — phức bộ QRS ở chuyển đạo aVF của <u>Hình 9</u> có độ lệch <i>“thực”</i> dương, với sóng R rõ ràng cao hơn độ sâu của sóng s ở chuyển đạo này. Điều này đặt Trục vào bán cầu <b><i>dưới</i></b> (<b>mũi tên</b> <b><i>xanh lá</i></b> <i>trong</i> <u>Hình 9</u>).</li>
+<li>Sự hiện diện của <b>độ lệch</b> “thực” <b><i>âm</i></b> ở <b>chuyển đạo I</b> <i><u>cùng với</u></i> <b>độ lệch</b> “thực” <b><i>dương</i></b> ở <b>chuyển đạo aVF</b> — xác định Trục là <b>RAD</b> (<i><u>R</u>ight <u>A</u>xis <u>D</u>eviation — trục lệch phải </i>— <i>như minh họa ở</i> <b><u>Hình 4</u></b>). Chúng tôi ước lượng Trục<b><i> trong khoảng</i></b> <b>+100 </b>đến<b> +120 độ</b>).</li>
+<li><u>Về lâm sàng</u> — RAD ở mức này thường gặp nhất trong bệnh phổi <i>và/hoặc</i> khi thất phải lớn (<i>Để biết thêm về RVH </i>— <i>Xem</i> <u>Hình 15</u>).</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA <span class="c-do">(</span><i>Ví dụ F</i><span class="c-do">)</span>:<i> Trục là bao nhiêu?</i></b></p>
+<p>Xác định Góc phần tư chứa Trục ở <b><u>Ví dụ F</u></b> (<i>trong</i> <b><u>Hình 10</u></b>).</p>
+<ul><li>Ước lượng số độ của Trục. <i>Trục có bình thường không?</i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-10-08.9-1-Axis-F-63a9dd8b6c4b.jpg"><img src="case-090_anh/Blog-90-Fig-10-08.9-1-Axis-F-63a9dd8b6c4b.jpg" alt="" width="952" height="632" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 10:</u></b><b> </b>Xác định Trục ở <b><u>Ví dụ F</u></b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI cho <span class="c-do">V</span>í dụ F<span class="c-do">:</span></u></b> <b>Trục</b> ở <u>Hình 10</u> <i><u>không</u></i> <b>“bình thường”</b>. Chúng ta <i>biết</i> điều này — vì độ lệch QRS <i>“thực”</i> <i>âm</i> ở <i>ít nhất</i> một trong 2 chuyển đạo chính dùng để xác định trục.</p>
+<ul><li>Thực tế — độ lệch QRS <i>“thực”</i>
+là <b><i>âm</i></b> ở <b><i><u>cả hai</u></i></b> <b>chuyển đạo I</b> và <b>chuyển đạo aVF</b>.
+Điều này đặt Trục vào bán cầu <b><i>phải </i></b>và<b><i> trên</i></b> (<b>mũi tên</b> <b><i>đỏ </i></b><i>và<b>
+xanh lá</b></i>, <i>tương ứng, trong</i> <u>Hình 10</u>).</li>
+<li>Theo <u>Hình 4</u> — sự hiện diện của độ lệch “thực” <i>âm</i> ở <i><u>cả</u></i> chuyển đạo I <u>và</u> chuyển đạo aVF
+xác định <b>Trục</b> là <b><i>“không xác định”</i></b>
+(tức là <i>nằm ở Góc phần tư trên phải</i>).
+<b><u>LƯU Ý:</u></b> <i>Không cần</i> cố ước lượng số độ
+khi Trục là “không xác định”. Như chính tên gọi đã ngụ ý — hầu như
+<i>không thể</i> “xác định”
+số độ cụ thể của một Trục <i>“không xác định”</i>.</li>
+<li>Về <u>lâm sàng</u> — Bệnh nhân COPD (<i>bệnh phổi tắc nghẽn mạn tính – <u>C</u>hronic <u>O</u>bstructive <u>P</u>ulmonary
+<u>D</u>isease</i>) dễ có trục <i>không xác định</i> (<i>do khoang lồng ngực giãn rộng vì khí phế thũng
+của bệnh nhân COPD</i>).</li></ul>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">Ứ</span>NG DỤNG</i></b><b>
+<span class="c-do">L</span>ÂM SÀNG của việc <span class="c-do">X</span>ÁC ĐỊNH <span class="c-do">T</span>RỤC</b></p>
+<p>Hãy áp dụng những gì đã học để
+xác định Trục cho điện tâm đồ 12 chuyển đạo trong <b><u>Hình 11</u></b>.</p>
+<ul><li><i>Trục
+có bình thường không?</i></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-11-07.14-1-LAHB-143724d7411d.jpg"><img src="case-090_anh/Blog-90-Fig-11-07.14-1-LAHB-143724d7411d.jpg" alt="" width="875" height="360" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 11:</u></b><b> </b>Xác định Trục cho điện tâm đồ 12 chuyển đạo này. Trục có bình thường không?</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI
+cho Hình 11<span class="c-do">:</span></u></b>
+Dù <u>Hình 11</u> có 12 chuyển đạo — <i><u>chỉ</u></i> cần 2 trong số đó (<i>I,aVF</i>)
+để xác định Góc phần tư của Trục. Vì độ lệch QRS “thực” ở
+một trong 2 chuyển đạo này rõ ràng là âm (<i>ở
+chuyển đạo aVF</i>) — Chúng ta biết <i>ngay khi nhìn qua</i>
+rằng Trục <i><u>không</u></i> “bình thường”.</p>
+<ul><li>Thực tế, độ lệch QRS ở chuyển đạo aVF <i>gần như</i> âm hoàn toàn. Điều này cho biết
+có <b>LAD (</b><i>trục lệch trái – <u>L</u>eft <u>A</u>xis <u>D</u>eviation</i><b>)</b> <b><i>rõ rệt</i></b> trong ví dụ này — dẫn đến
+phần bàn luận về Blốc phân nhánh ...</li></ul>
+<p>--------------------------------</p>
+<p><b><span class="c-do">B</span>LỐC PHÂN NHÁNH<span class="c-do">:</span> <i><span class="c-do">H</span>ệ thống <span class="c-do">D</span>ẫn truyền <span class="c-do">T</span>hất</i></b></p>
+<p>Chúng tôi minh họa <i>dạng sơ đồ</i>
+hệ thống dẫn truyền thất trong <b><u>Hình 12</u></b>. Lưu ý rằng <i><u>sau</u></i>
+nút AV và bó His — hệ thống dẫn truyền thất chia thành <b>3 <i>phân nhánh</i>
+dẫn truyền chính</b>. Đó là: <b>i<span class="c-do">)</span></b>
+<b>nhánh <i>phải</i>
+</b> mảnh; <b>ii<span class="c-do">)</span></b>
+<b>phân nhánh trái <i>trước</i></b> tương đối mảnh, xuất phát
+từ đoạn <b>nhánh trái</b>
+<b><i>chung</i></b> ngắn; <u>và</u> <b>iii<span class="c-do">)</span></b>
+<b>phân nhánh <i>sau</i></b> dày hơn và trải rộng hơn nhiều, là
+nhánh còn lại xuất phát từ đoạn nhánh trái chung ngắn.</p>
+<ul><li>Dẫn truyền thất bại ở nhánh <i>phải</i> gây ra <b>RBBB
+(</b><i>blốc nhánh phải – <u>R</u>ight <u>B</u>undle <u>B</u>ranch
+<u>B</u>lock</i><b>).</b></li>
+<li>Dẫn truyền thất bại ở nhánh <i>trái</i> chung gây ra <b>LBBB
+(</b><i>blốc nhánh trái – <u>L</u>eft <u>B</u>undle <u>B</u>ranch
+<u>B</u>lock</i><b>).</b></li>
+<li>Dẫn truyền thất bại ở một trong các phân nhánh — gây ra
+<b>Blốc phân nhánh (</b><i>trước hoặc sau, tùy phân nhánh nào bị hỏng</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-12-07.10-1-USE-720603445fca.jpg"><img src="case-090_anh/Blog-90-Fig-12-07.10-1-USE-720603445fca.jpg" alt="" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 12:</u></b><b> </b>Hệ thống dẫn truyền thất. Lưu ý phân nhánh trái <i>sau</i> <i>dày hơn</i> bao nhiêu so với phân nhánh <i>trước</i> và nhánh phải.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">C</span>hẩn đoán</i></b><b> <span class="c-do">N</span>hanh các <span class="c-do">B</span>LỐC PHÂN NHÁNH <span class="c-do">(</span><i>LAHB &amp; LPHB</i><span class="c-do">)</span></b></p>
+<p>Cần
+hiểu rằng hình minh họa hệ thống dẫn truyền trong <u>Hình 12</u>
+chỉ là sơ đồ. Trên thực tế — có <i>hàng triệu</i>
+sợi trong hệ thống dẫn truyền với nhiều biến thể giải phẫu có thể có so với
+cách sắp xếp được vẽ. Tuy vậy — cách sắp xếp <i>đơn giản hóa</i>
+này giúp việc bàn luận dễ dàng hơn.</p>
+<ul><li>Như đã nói — có 2 phân nhánh chính. Dẫn truyền
+thất bại ở phân nhánh này hay phân nhánh kia tạo ra một trong <b>2 <i>loại</i></b> <b>Blốc phân nhánh</b> = i) <b>LAHB (</b><i>blốc phân nhánh trái trước – <u>L</u>eft <u>A</u>nterior
+<u>H</u>emi<u>B</u>lock</i><b>) </b>— <u>hoặc</u>
+ii) <b>LPHB (</b><i>blốc phân nhánh trái sau – <u>L</u>eft <u>P</u>osterior <u>H</u>emi<u>B</u>lock</i><b>)</b>.</li>
+<li><b>L<span class="c-do">P</span>HB</b> <i>rất
+hiếm</i>. Theo kinh nghiệm của chúng tôi — 98-99% blốc phân nhánh là LAHB. Lý do LPHB
+hiếm là: <b>i)</b> phân nhánh sau
+về giải phẫu dày hơn nhiều (<u>Hình 12</u>) — do đó khó
+bị tổn thương hơn; <u>và</u> <b>ii)</b>
+khác với phân nhánh trước, phân nhánh sau được cấp máu kép từ động mạch vành phải và
+trái. Khi LPHB <i>có</i>
+xảy ra — nó thường đi kèm RBBB, <u>và</u> cho thấy tổn thương <i>lan rộng</i> (<i>Xem</i> <b><a href="http://ecg-interpretation.blogspot.com/2011/10/ecg-interpretation-review-30-bundle.html" rel="noopener" target="_blank">ECG Blog #30</a></b><span class="c-do"> </span>— <i>để xem một ví dụ LPHB/RBBB kèm bàn luận
+thêm</i>).</li>
+<li>Vì vậy (<i>do
+~98-99% blốc phân nhánh là phân nhánh trước</i>) — <u>NẾU</u> có blốc phân nhánh, thì
+<i>hầu như luôn luôn</i> đó là <b>L<span class="c-do">A</span>HB</b>!</li></ul>
+<p><b><u>LƯU Ý:</u></b> Ngay cả các chuyên gia
+điện tâm đồ cũng <i><u>không</u></i>
+thống nhất cách định nghĩa LAHB. Do <i>thiếu</i>
+đồng thuận như vậy — <b><i>mọi việc sẽ</i></b> <b>đơn giản hơn (</b><i>mà chính xác không kém</i><b>)</b> — <u>NẾU</u> bạn <b>coi <span class="c-do">L</span>AD (</b><i>trục lệch trái – <u>L</u>eft <u>A</u>xis <u>D</u>eviation</i><b>) <i><u><span class="c-do">b</span>ệnh lý</u></i> = <span class="c-do">L</span>AHB</b>. Hãy xem xét những điều sau:</p>
+<ul><li>LAD <i>nhẹ</i> (tức là <i>-10 đến -20 độ</i>) — thường gặp và <i><u>không</u></i> nhất thiết bất thường.</li>
+<li>Chúng tôi định nghĩa <b>LAD</b> <b><i><u>bệnh lý</u></i></b> — là trục trái <i>âm hơn</i> -30 độ. Trong <b><u>Hình 13</u></b> — chúng tôi minh họa việc nhận biết <u>CÓ</u>
+LAD bệnh lý hay không <i><u>dễ</u></i> như thế nào. Việc này chỉ mất vài giây — <b><i>Bạn <u>chỉ</u> cần nhìn
+chuyển đạo II.</i></b></li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-13-Fig-07.13-1-818a0eaf602b.jpg"><img src="case-090_anh/Blog-90-Fig-13-Fig-07.13-1-818a0eaf602b.jpg" alt="" width="964" height="590" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 13:</u></b><b> </b>Chẩn đoán blốc phân nhánh được <i>đơn giản hóa</i> bằng cách <b><i>định nghĩa</i></b> <b>LAHB</b> là trục trái <i>“bệnh lý”</i>. Giả sử tim nằm ở bên <i>trái</i> lồng ngực — thì <u>NẾU</u> <b>chuyển đạo II</b> (<i>ở +60 độ</i>) <b><i>đẳng điện</i></b> (<i>phần dương và phần âm bằng nhau</i>) — Trục nằm cách 90 độ (<i>tức là ở -30 độ</i>). <u>NẾU</u> chuyển đạo II dương <i>hơn</i> một chút — thì Trục cách chuyển đạo II <i>dưới</i> 90 độ (tức là <i>ít âm hơn -30 độ</i>). Nhưng <u>NẾU</u> chuyển đạo II <i>âm nhiều hơn</i> dương — Trục phải nằm cách chuyển đạo II <i>hơn</i> 90 độ (tức là <i>âm hơn -30 độ</i>) — thỏa tiêu chuẩn <i>đơn giản hóa</i> của chúng tôi cho <b>LAHB</b>.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">T</span>óm tắt</i></b><b>
+<span class="c-do">K</span>hái niệm<span class="c-do">:</span> <i><span class="c-do">C</span>hẩn đoán nhanh <span class="c-do">L</span>AHB</i></b></p>
+<p>Chúng tôi đã nhấn mạnh rằng Góc phần tư của Trục có thể được
+xác định <i>trong vài giây</i> bằng cách
+nhìn độ lệch QRS <i><u>thực</u></i>
+ở 2 chuyển đạo (<i>chuyển đạo I và aVF</i>).</p>
+<ul><li>Dùng thêm <b>chuyển đạo <i>thứ 3</i></b> <b>= chuyển đạo II</b> — cho phép xác định tiếp <u>NẾU</u> bệnh nhân có LAD
+có trục lệch trái đủ mức để được xếp là <b>LAHB.</b></li>
+<li>Trên thực hành — Cần <i>không quá</i> 3 chuyển đạo này khi đánh giá Trục theo Cách tiếp cận <i>hệ thống</i> của chúng tôi (<b><u>Hình 14</u></b>).</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-14-Fig-07.15-1-b4e41e867678.jpg"><img src="case-090_anh/Blog-90-Fig-14-Fig-07.15-1-b4e41e867678.jpg" alt="" width="726" height="394" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 14:</u></b><b> </b>Dùng <b>chuyển đạo II</b> để <b><i>chẩn đoán</i></b> <b>LAHB</b>. Ô G và H <i><u>đều</u></i> có <b>LAD</b> (<i>vì độ lệch QRS thực dương ở chuyển đạo I </i><u>và</u><i> âm ở chuyển đạo aVF trong mỗi ví dụ</i>). Có <b>LAHB</b> ở <b><u>Ô H</u></b> nhưng <i><u>không</u></i> có ở <b><u>Ô G</u></b> — vì độ lệch QRS <i>thực</i> ở chuyển đạo II là <i>âm</i> ở H, nhưng <i><u>không</u></i> âm ở G.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><span class="c-do">T</span>Ự <span class="c-do">K</span>IỂM TRA<span class="c-do">:</span> <i>Có LAD không<span class="c-do">?</span> </i>Nếu có </b>— <b><i>Có LAHB không<span class="c-do">?</span></i></b></p>
+<p>Hãy kết hợp các khái niệm này khi đánh giá Trục của
+6 chuyển đạo trong <b><u>Hình 15</u></b>.
+Chúng ta <i>đã</i> gặp bản ghi này (<i>ở</i> <u>Hình 11</u>) — và đã xác định
+rằng có <b>LAD (</b><i>độ lệch QRS thực dương ở chuyển đạo I</i>
+<u>nhưng</u> <i>rất</i> <i>âm ở chuyển đạo aVF</i><b>)</b> <b><i>rõ rệt</i></b>.</p>
+<ul><li>Làm sao nhận biết <i>chỉ bằng
+một cái nhìn</i> <u>LIỆU</u> <i>mức độ</i>
+LAD trong <u>Hình 11</u> có đủ để xếp là LAHB?</li>
+<li><b><u>GỢI Ý:</u></b> <i>Nên nhìn
+chuyển đạo nào</i> để trả lời câu hỏi này?</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-15-LAHB-d7e9d5eece05.jpg"><img src="case-090_anh/Blog-90-Fig-15-LAHB-d7e9d5eece05.jpg" alt="" width="963" height="390" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 15:</u></b><b> </b>Mức độ LAD có đủ để xếp là LAHB không? <i>Xem Trả lời</i> bên dưới.</figcaption></figure>
+<p>--------------------------------</p>
+<p><b><u><span class="c-do">T</span>RẢ LỜI
+cho <span class="c-do">H</span>ình 15<span class="c-do">:</span></u></b> Như
+đã nhấn mạnh trong <u>Hình 13</u> và <u>Hình 14</u> — chỉ cần <i>liếc</i> <b>chuyển đạo II</b> là
+đủ để <b><i>khẳng định</i></b> <u>có</u> <b>LAHB</b>
+trong <u>Hình 15</u>:</p>
+<ul><li><b><u>Chuyển đạo II</u></b> — chủ yếu <i>âm</i> trong <u>Hình 15</u>. Do đó —
+Trục nằm <i>cách</i> chuyển đạo II <i>hơn</i> 90 độ (tức là <i>âm hơn -30 độ</i>) — vì vậy là
+<b>LAHB.</b></li></ul>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">Ứ</span>ng dụng</i></b><b>
+<span class="c-do">L</span>âm sàng của <span class="c-do">T</span>RỤC<span class="c-do">: </span><i>Có <span class="c-do">R</span>VH không<span class="c-do">?</span></i></b></p>
+<p>Chúng tôi khép lại phần 3 này của loạt bài Khái niệm <i>Cơ bản</i> về điện tâm đồ — bằng việc minh họa thêm 2
+cách xác định Trục được dùng trên lâm sàng. Trước hết hãy xem
+điện tâm đồ 12 chuyển đạo trong <b><u>Hình 16</u></b>
+— ghi ở một người lớn tuổi bị suy tim. Có nhịp xoang. Các
+khoảng PR, QRS và QT đều bình thường.</p>
+<ul><li>Trục có bình thường không? Nếu không — <i>Tại sao?</i></li>
+<li>Về <u>lâm sàng</u> — Việc xác định Trục giúp gì
+cho việc diễn giải của chúng ta?</li></ul>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-16-08.25-1-RVH-80ecc238660e.jpg"><img src="case-090_anh/Blog-90-Fig-16-08.25-1-RVH-80ecc238660e.jpg" alt="" width="1426" height="782" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 16:</u></b><b> </b>Điện tâm đồ ghi ở một người lớn tuổi bị suy tim. Việc xác định Trục giúp gì cho việc diễn giải của chúng ta?</figcaption></figure>
+<p>--------------------------------<br><b><u><span class="c-do">T</span>RẢ LỜI
+cho <span class="c-do">H</span>ình 16<span class="c-do">:</span></u></b> Như
+đã nói — nhịp là nhịp xoang <u>và</u> mọi khoảng đều bình thường. Ngoài ra —
+có <b>lớn <i>ít nhất</i> 3 buồng tim</b> vì: <b>i)</b> Sóng P cao, nhọn và <i>đỉnh nhọn</i>
+ở chuyển đạo II = <b>RAA (</b><i>bất thường nhĩ phải – <u>R</u>ight <u>A</u>trial <u>A</u>bnormality</i><b>)</b>; <b>ii)</b>
+Thành phần <i>âm</i> sâu của sóng P
+ở chuyển đạo V1 = <b>LAA (</b><i>bất thường nhĩ trái – <u>L</u>eft <u>A</u>trial <u>A</u>bnormality</i><b>)</b>; <u>và</u> <b>iii)</b> Tiêu chuẩn điện thế của <b>LVH</b>
+dễ dàng được thỏa. Sóng ST-T phù hợp với thiếu máu cục bộ <i>và/hoặc</i> “tăng gánh” (<i>Xem</i> <b><a href="http://ecg-interpretation.blogspot.com/2013/08/ecg-interpretation-review-73-lvh.html" rel="noopener" target="_blank">ECG Blog #73</a>, <a href="http://ecg-interpretation.blogspot.com/2013/09/ecg-interpretation-review-75-chamber.html" rel="noopener" target="_blank">Blog #75</a><span class="c-do"> </span></b><i>và</i><b> <a href="http://ecg-interpretation.blogspot.com/2013/10/ecg-interpretation-review-77-chamber.html" rel="noopener" target="_blank">Blog #77</a></b><span class="c-do"> </span><i>để
+ôn lại tiêu chuẩn LVH; RAA/LAA; và RVH</i>).</p>
+<ul><li>Có <b>RAD (</b><i>trục lệch phải – <u>R</u>ight <u>A</u>xis
+<u>D</u>eviation</i><b>)</b> <b><i>rõ rệt</i></b> — được
+xác định bởi phức bộ QRS dương ở chuyển đạo aVF đi kèm <u>với</u>
+QRS chủ yếu <i>âm</i> ở
+chuyển đạo I.</li>
+<li>Trong bối cảnh một người lớn tuổi bị suy tim <u>và</u>
+lớn <i>ít nhất</i> 3 buồng tim trên điện tâm đồ
+— dấu hiệu <b>RAD</b> <b><i>rõ rệt</i></b> <b>+ RAA</b> gần như chắc chắn cho thấy
+<b><i>còn</i></b> có <b>RVH (</b><i>phì đại thất phải – <u>R</u>ight <u>V</u>entricular <u>H</u>ypertrophy</i><b>)</b>. Thay đổi sóng ST-T ở các chuyển đạo <i>thành dưới</i> thực ra có thể phản ánh <b>“tăng gánh”</b> <b><i>thất
+phải</i></b> do
+RVH.</li>
+<li>Tiền sử <b>suy</b> <b><i>tim</i></b> <u>kèm</u> bằng chứng <b>lớn</b> <b><i>nhiều buồng tim</i></b> <b>(</b><i>trong ca này là cả 4
+buồng tim</i><b>)</b> trên điện tâm đồ — hầu như
+<b><i>chẩn đoán xác định</i></b> <b>bệnh cơ tim</b>.</li></ul>
+<p>--------------------------------</p>
+<p><b><i><span class="c-do">Ứ</span>ng dụng</i></b><b> <span class="c-do">L</span>ÂM SÀNG của <span class="c-do">T</span>RỤC<span class="c-do">: </span></b><b><i>Có <span class="c-do">V</span>T không<span class="c-do">?</span></i></b></p>
+<p>Chúng tôi kết thúc bằng một ví dụ cho thấy việc xác định Trục có thể
+hỗ trợ chẩn đoán phân biệt một <b>WCT (</b><i>nhịp nhanh QRS rộng – <u>W</u>ide-<u>C</u>omplex
+<u>T</u>achycardia</i><b>)</b> <b><i><u>đều</u></i></b> mà
+không có hoạt động nhĩ bình thường. Chúng tôi bàn luận đầy đủ chủ đề phức tạp này
+ở nơi khác — <i>Xem pdf </i><b><a href="https://www.dropbox.com/s/8bc9h5cumo7e4vy/8.0%2C9.0%2C10.0-%20ACLS-2013-e-PUB-WCT-Criteria-%2810-13.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">Sections 08.0,09.0</a> (</b><i>trích từ ACLS-2013-ePub của chúng tôi</i><b>)</b>.
+Ở đây chúng tôi chỉ nêu <b><i>“câu trả lời ngắn gọn”</i></b> qua các điểm lâm sàng dưới đây:</p>
+<ul><li><b><i>Luôn
+</i></b><b>coi</b>
+một nhịp <b>WCT</b> <b><i><u>đều</u></i></b>
+<i><u>không</u></i> có sóng P bình thường là<b> VT</b> <i><u>cho đến khi</u></i> chứng minh
+được điều ngược lại. Bạn sẽ đúng &gt;80% trường hợp (<i>&gt;90% trường hợp nếu bệnh nhân trung niên hoặc lớn tuổi hơn và có
+bệnh tim nền</i>).</li>
+<li><i>Điều trị</i> bệnh nhân như thể nhịp là VT <i><u>cho đến khi</u></i> chứng minh được điều ngược lại.</li>
+<li>Bàn luận <i>đầy đủ </i>về các tiêu chuẩn
+chẩn đoán mà chúng tôi thấy hữu ích nhất để phân biệt SVT kèm <i>hoặc</i> blốc nhánh <i>hoặc</i> dẫn truyền lệch hướng <u>với</u> VT có trong pdf <b><a href="https://www.dropbox.com/s/8bc9h5cumo7e4vy/8.0%2C9.0%2C10.0-%20ACLS-2013-e-PUB-WCT-Criteria-%2810-13.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">Sections 08.0,09.0</a> (</b><i>trong ACLS-2013-ePub</i><b>)</b> của chúng tôi. Theo kinh nghiệm của chúng tôi — <b>3 <span class="c-do">Q</span>uy tắc <i><span class="c-do">Đ</span>ơn giản</i></b> giúp
+quá trình chẩn đoán dễ dàng hơn rất nhiều. Khả năng là VT vượt quá 90-95% — <u>NẾU</u><b> i<span class="c-do">)</span></b> phức bộ QRS giãn rộng <i>rõ rệt</i> và không có hình dạng rõ ràng; <i>và/hoặc</i> <b>ii<span class="c-do">)</span></b> phức bộ QRS <i>hoàn toàn</i>
+âm (<i>hoặc gần như hoàn toàn âm</i>) ở chuyển đạo <i>bên trái</i> V6; <i>và/hoặc</i> <b>iii<span class="c-do">)</span></b> có <b>trục lệch</b> <b><i>cực độ</i></b>
+trên mặt phẳng trán
+(tức là <i>nếu phức bộ QRS hoàn toàn âm
+ở chuyển đạo I hoặc chuyển đạo aVF</i>).</li></ul>
+<p><b><u><span class="c-do">C</span>ÂU HỎI<span class="c-do">:</span></u></b> <i>“Quy tắc Đơn giản”</i> nào trong 3 quy tắc trên có mặt ở
+điện tâm đồ 12 chuyển đạo trong <b><u>Hình 17</u></b>?
+Giả sử bệnh nhân là người lớn tuổi có tiền sử bệnh tim — <u>và</u>
+bệnh nhân ổn định huyết động <i>mặc dù</i>
+đang có nhịp này.</p>
+<figure><a class="o-anh" href="case-090_anh/Blog-90-Fig-17-02.49-1-VT-cc7e2c7d2534.JPG"><img src="case-090_anh/Blog-90-Fig-17-02.49-1-VT-cc7e2c7d2534.JPG" alt="" width="1444" height="620" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 17:</u></b><b> </b>Nhịp WCT đều — ghi ở một người lớn tuổi có bệnh tim. Bệnh nhân ổn định huyết động. Việc xác định Trục trong cơn nhịp nhanh này có giúp chẩn đoán nhịp không?</figcaption></figure>
+<p>--------------------------------</p>
+<ul><li><b><u><span class="c-do">T</span>RẢ LỜI
+cho <span class="c-do">H</span>ình 17<span class="c-do">:</span></u></b> Hãy nhận ra rằng
+<b>xác suất</b> <b><i>thống kê</i></b>
+để WCT <i>đều</i> này là <b>VT</b> ở
+người lớn tuổi có bệnh tim này — đã <b><i>vượt quá</i></b> <b>90%</b> ngay cả <i><u>trước khi</u></i>
+xem kỹ bản ghi! Dù vậy — chúng ta có thể nâng
+khả năng là VT lên <i>gần</i> 100% khi nhận thấy <b><i>cả</i></b> <b>3</b> <b>Quy tắc</b> <b><i>Đơn giản</i></b> trên đều có mặt!</li>
+<li>QRS <b>giãn rộng (</b><i>tới ít nhất 0.16
+giây ở một số chuyển đạo</i><b>)</b> <b><i>rõ rệt</i></b> — <u>và</u>
+có hình dạng
+<b><i>“xấu xí”</i></b> (<i>do đó ít có khả năng
+phản ánh blốc nhánh hay dẫn truyền lệch hướng hơn nhiều</i>).</li>
+<li>Phức bộ QRS ở <b>chuyển đạo
+V6</b> <b>âm</b> <b><i>hoàn toàn</i></b> — điều
+<i>tự nó</i> đã làm khả năng VT
+gần 100%!</li>
+<li>Có <b>trục lệch (</b><i>QRS hoàn toàn âm
+ở chuyển đạo I</i><b>)</b> <b><i><u>cực độ</u></i></b> — điều này cũng
+gần như <i>tự nó</i> đã làm khả năng
+VT gần 100%!</li></ul>
+<p>--------------------------------<br>—
+Để biết thêm thông tin — TRUY CẬP —</p>
+<figure><a class="o-anh" href="case-090_anh/References--ICON-copy-5d77af928789.png"><img src="case-090_anh/References--ICON-copy-5d77af928789.png" alt="" width="442" height="107" loading="lazy" decoding="async"></a></figure>
+<p><b>============================================</b></p>
+<ul><li><i>Để tìm hiểu thêm về</i> <b><span class="c-do">T</span>rục/ <span class="c-do">B</span>lốc phân nhánh</b> — Mời xem <b><a href="https://youtu.be/MNICO61peBQ" rel="noopener" target="_blank">ECG Video #13</a></b> dài 42 phút của chúng tôi</li></ul>
+<p><b>============================================</b></p>
+<ul><li>Tư liệu
+cho 10 Hình đầu tiên được trích từ ấn phẩm <i>mới nhất</i>
+của chúng tôi = <b>“<a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">A 1st Book on ECGs-2014</a>” </b><i>và/hoặc</i> từ<b> <i><span class="c-do">p</span>hiên bản mở rộng </i><a href="http://www.ecg1stbook.com/" rel="noopener" target="_blank">1st Book</a><i> </i>e<span class="c-do">P</span>ub <span class="c-do">(</span></b><i>có trên kindle-kobo-nook-ibooks</i>).</li></ul>
+<figure><a class="o-anh" href="case-090_anh/ECG-1st-Book-6-3.1-2014-copy-25af8be49e03.png"><img src="case-090_anh/ECG-1st-Book-6-3.1-2014-copy-25af8be49e03.png" alt="" width="1082" height="730" loading="lazy" decoding="async"></a></figure>
+<p>--</p>
+<ul><li>Tư liệu <i>nâng cao</i> hơn cho 7 Hình cuối minh họa ứng dụng lâm sàng của Trục được trích từ <b><a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014-Pocket Brain</a></b> và/hoặc từ <b><i><span class="c-do">p</span>hiên bản</i></b> <b><a href="http://www.ecg2014.com/" rel="noopener" target="_blank">ECG-2014 </a></b> <b><b>e<span class="c-do">P</span>ub </b><span class="c-do">m</span>ở rộng (</b><i>có trên kindle-kobo-nook-ibooks</i><b>).</b></li></ul>
+<figure><a class="o-anh" href="case-090_anh/ECG-2014-ePub-PB-6-3.1-14-copy-a87d141dfb84.png"><img src="case-090_anh/ECG-2014-ePub-PB-6-3.1-14-copy-a87d141dfb84.png" alt="" width="1108" height="746" loading="lazy" decoding="async"></a></figure>
+<p>--</p>
+<ul><li>Mời tải miễn phí <b><a href="http://www.ecgglossary.com/" rel="noopener" target="_blank">GLOSSARY</a></b> (bảng thuật ngữ) <i>mở rộng</i> của chúng tôi về <b>các thuật ngữ</b> <b><i>liên quan đến điện tâm đồ</i> -</b></li></ul>
+<figure><a class="o-anh" href="case-090_anh/ECG-GLOSSARY-3071596c25da.png"><img src="case-090_anh/ECG-GLOSSARY-3071596c25da.png" alt="" width="214" height="70" loading="lazy" decoding="async"></a></figure>
+<p>-  -</p>
+<p>--------------------------------------------------------------</p>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
