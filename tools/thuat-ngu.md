@@ -28,3 +28,10 @@ COMMENT → BÌNH LUẬN | BOTTOM Line → ĐIỀU CỐT LÕI | NOTE → LƯU Ý
 Chamber Enlargement → Lớn các buồng tim | Q-R-S-T Changes → Thay đổi Q-R-S-T | Returning to Our Systematic Approach → Quay lại với cách tiếp cận hệ thống của chúng tôi
 "ECG" trong câu văn → "điện tâm đồ"; giữ "ECG" trong tên riêng (ECG Blog #N, ECG-2014-ePub, ECG Video)
 Tiêu đề "ECG Interpretation Review - #N (…)" → "Ôn tập đọc điện tâm đồ – Số N (…)"; "ECG Blog #N — …" giữ "ECG Blog #N — " rồi dịch phần sau
+WCT (wide complex tachycardia) → nhịp nhanh QRS rộng (WCT) | cardioversion → sốc điện chuyển nhịp | vagal maneuver → nghiệm pháp cường phế vị | carotid sinus pressure (CSP) → xoa xoang cảnh (CSP)
+1st/2nd/3rd degree AV block → blốc AV độ 1/2/3 | 2:1 (2-to-1) AV block → blốc AV 2:1 | high-grade AV block → blốc AV mức độ cao | Mobitz I / II → giữ nguyên, "type" → "loại" | AV Wenckebach → Wenckebach AV
+group beating → nhịp theo nhóm (group beating) | dropped beat → nhát bị rớt | non-conducted/blocked PAC → PAC bị blốc (không dẫn truyền) | pause → khoảng ngưng | junctional escape beat → nhát thoát bộ nối
+absolute / relative refractory period (ARP/RRP) → thời kỳ trơ tuyệt đối / tương đối | IVCD → chậm dẫn truyền trong thất (IVCD) | accessory pathway → đường phụ | orthodromic / antidromic → xuôi chiều / ngược chiều
+pacemaker → máy tạo nhịp | sensing / pacing → nhận cảm / tạo nhịp | pacer spike → gai tạo nhịp | concordance (precordial) → QRS đồng hướng ở chuyển đạo trước tim | sawtooth flutter waves → sóng cuồng nhĩ hình răng cưa
+sinus arrhythmia → loạn nhịp xoang | U wave → sóng U | hypomagnesemia → hạ magnesi máu | PR segment depression → đoạn PR chênh xuống | baseline wander → trôi đường nền | Panel A/B/C → Ô A/B/C
+IMPRESSION → NHẬN ĐỊNH | DISCUSSION → BÀN LUẬN | CONCLUSION → KẾT LUẬN | ADDENDUM → PHẦN BỔ SUNG | ANSWER → TRẢ LỜI | HINT → GỢI Ý | ADDITIONAL POINTS → CÁC ĐIỂM BỔ SUNG | KEY Points → Những điểm CHÍNH | CAVEAT → CẢNH BÁO
