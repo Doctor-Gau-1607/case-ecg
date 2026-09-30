@@ -77,7 +77,8 @@ def nguon_san_sang():
         sh('git', 'sparse-checkout', 'set', '--no-cone', '/*/nguon.json', cwd=NG)
         sh('git', 'checkout', '-q', 'nguon', cwd=NG)
     else:
-        sh('git', 'pull', '-q', '--depth', '1', 'origin', 'nguon', cwd=NG, check=False)
+        sh('git', 'fetch', '-q', '--depth', '1', 'origin', 'nguon', cwd=NG)
+        sh('git', 'reset', '-q', '--hard', 'FETCH_HEAD', cwd=NG)
     ok = set()
     for s in os.listdir(NG):
         f = os.path.join(NG, s, 'nguon.json')
