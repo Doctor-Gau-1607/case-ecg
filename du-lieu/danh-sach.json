@@ -80,7 +80,7 @@
 "slug": "case-008",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-8-tachycardia.html",
 "tieu_de_en": "ECG Interpretation Review - #8 (Tachycardia, Acute Changes)",
-"tieu_de_vi": "ECG Interpretation Review #8 — Nhịp nhanh, thay đổi cấp",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 8 (Nhịp nhanh, thay đổi cấp)",
 "trang_thai": "xong",
 "tu_khoa": "rung nhĩ, atrial fibrillation, AFib đáp ứng thất nhanh, nhồi máu cơ tim thầm lặng, silent MI, ST chênh lên hình bia mộ, tombstone ST elevation, sóng T tối cấp, hyperacute T waves, khó thở, dyspnea, dẫn truyền lệch hướng, aberrant conduction",
 "ngay": "2026-09-30"
@@ -91,7 +91,7 @@
 "slug": "case-009",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-9-hemiblock.html",
 "tieu_de_en": "ECG Interpretation Review - #9 (Hemiblock, Axis, Ischemia vs Normal T Wave Inversion)",
-"tieu_de_vi": "ECG Interpretation Review #9 — Blốc phân nhánh, trục, thiếu máu cục bộ hay sóng T đảo ngược bình thường",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 9 (Blốc phân nhánh, trục, thiếu máu cục bộ hay sóng T đảo ngược bình thường)",
 "trang_thai": "xong",
 "tu_khoa": "blốc phân nhánh trái trước, LAHB, hemiblock, LPHB, trục lệch trái, LAD bệnh lý, left axis deviation, chuyển đạo II, sóng T đảo ngược, T wave inversion, sóng Q bình thường, chữ Z ngược, thiếu máu cục bộ thành dưới",
 "ngay": "2026-09-30"
@@ -101,30 +101,33 @@
 "nhan": "#10",
 "slug": "case-010",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-10-peaked-t.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790762925
+"tieu_de_en": "ECG Interpretation Review #10 (Peaked T Waves, Ischemia vs Hyperkalemia vs Normal Variant)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 10 (Sóng T nhọn: thiếu máu cục bộ, tăng kali máu hay biến thể bình thường)",
+"trang_thai": "xong",
+"tu_khoa": "sóng T nhọn, peaked T waves, tăng kali máu, hyperkalemia, hiệu ứng tháp Eiffel, biến thể tái cực bình thường, thiếu máu cục bộ thành sau, trục lệch phải RAD, QT kéo dài, QRS hình sin, điện giải",
+"ngay": "2026-09-30"
 },
 {
 "stt": 11,
 "nhan": "#11",
 "slug": "case-011",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-11-bbb-wide.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790762925
+"tieu_de_en": "ECG Interpretation Review #11 (BBB, Wide QRS, ST Changes with BBB, LBBB vs RBBB, LVH)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 11 (Blốc nhánh, QRS rộng, thay đổi ST khi có blốc nhánh, LBBB hay RBBB, LVH)",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhánh trái, LBBB, blốc nhánh phải, RBBB, bundle branch block, QRS rộng, wide QRS, thay đổi ST-T thứ phát, secondary ST-T changes, quy tắc hướng ST-T, phì đại thất trái LVH, nhịp nhanh xoang, IVCD",
+"ngay": "2026-09-30"
 },
 {
 "stt": 12,
 "nhan": "#12",
 "slug": "case-012",
 "url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-12.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790762925
+"tieu_de_en": "ECG Interpretation Review #12 (Computerized ECG Interpretation, Normal Variant vs ST Elevation)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 12 (Kết quả đọc ECG bằng máy tính, biến thể bình thường hay ST chênh lên)",
+"trang_thai": "xong",
+"tu_khoa": "đọc ECG bằng máy tính, computerized ECG interpretation, ST chênh lên lan toả, diffuse ST elevation, viêm màng ngoài tim cấp, acute pericarditis, PR chênh xuống, tái cực sớm, early repolarization, biến thể bình thường, nhồi máu cơ tim cấp, đoạn PR đường nền",
+"ngay": "2026-09-30"
 },
 {
 "stt": 13,
