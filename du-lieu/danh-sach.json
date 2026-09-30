@@ -3339,30 +3339,33 @@
 "nhan": "#303",
 "slug": "case-303",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-303-eqc-patient-fainted.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #303 (EQC) — The Patient Fainted",
+"tieu_de_vi": "ECG Blog #303 (EQC) — Bệnh nhân bị ngất",
+"trang_thai": "xong",
+"tu_khoa": "ngất syncope blốc AV độ 2 2:1 AV block blốc hai phân nhánh bifascicular block RBBB LAHB nhồi máu cũ prior infarction phân mảnh QRS fragmentation Mobitz II loạn nhịp xoang theo pha thất ventriculophasic máy tạo nhịp pacemaker",
+"ngay": "2026-09-30"
 },
 {
 "stt": 306,
 "nhan": "#304",
 "slug": "case-304",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-304-what-kind-of-rhythm.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #304 — What Kind of Rhythm?",
+"tieu_de_vi": "ECG Blog #304 — Đây là loại nhịp gì?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2 2nd-degree AV block Mobitz I Wenckebach phân ly nhĩ thất AV dissociation nhịp thoát bộ nối junctional escape STEMI thành dưới inferior STEMI nhồi máu thành sau posterior MI sóng T tái tưới máu reperfusion T waves RBBB giản đồ bậc thang laddergram ghi đồng thời simultaneous leads",
+"ngay": "2026-09-30"
 },
 {
 "stt": 307,
 "nhan": "#305",
 "slug": "case-305",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-305-cause-of-palpitations.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #305 — The Cause of Palpitations?",
+"tieu_de_vi": "ECG Blog #305 — Nguyên nhân gây hồi hộp đánh trống ngực?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh nhĩ ATach atrial tachycardia MAT nhịp nhanh nhĩ đa ổ multifocal atrial tachycardia PAC bị blốc blocked PAC dẫn truyền Wenckebach hồi hộp palpitations ổ tạo nhịp nhĩ lang thang wandering pacemaker nhịp trên thất không đều SVT warm-up",
+"ngay": "2026-09-30"
 },
 {
 "stt": 308,
@@ -3379,140 +3382,154 @@
 "nhan": "#307",
 "slug": "case-307",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-307-no-symptoms-but-slow-rate.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #307 — No Symptoms, But a Slow Rate",
+"tieu_de_vi": "ECG Blog #307 — Không triệu chứng, nhưng nhịp chậm",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2 Mobitz I Wenckebach blốc AV độ 1 nhịp chậm xoang bradycardia nhát thoát escape beats bó His phân ly nhĩ thất AV dissociation giản đồ bậc thang laddergram sóng P compa calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 310,
 "nhan": "#308",
 "slug": "case-308",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-308-funny-p-waves-acute-inf.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #308: Funny P Waves & Acute Inf. STEMI",
+"tieu_de_vi": "ECG Blog #308 — Sóng P \"lạ\" & STEMI thành dưới cấp",
+"trang_thai": "xong",
+"tu_khoa": "hiện tượng Emery Emery phenomenon sóng Ta sóng Tp tái cực nhĩ atrial repolarization giả ST chênh lên pseudo-STEMI nhịp nhĩ thấp low atrial rhythm nhịp bộ nối junctional rhythm STEMI thành dưới inferior STEMI sóng P âm PR ngắn",
+"ngay": "2026-09-30"
 },
 {
 "stt": 311,
 "nhan": "#309",
 "slug": "case-309",
 "url": "https://www.ekgblog.com/2022/05/ecg-blog-309-syncope-and-wellens.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #309 — Syncope and Wellens?",
+"tieu_de_vi": "ECG Blog #309 — Ngất và Wellens?",
+"trang_thai": "xong",
+"tu_khoa": "ngất syncope sóng T khổng lồ Giant T waves hội chứng Wellens Wellens syndrome bệnh cơ tim phì đại mỏm AHC Yamaguchi LVH phì đại thất trái sóng T đảo ngược ST dạng vòm HCM",
+"ngay": "2026-09-30"
 },
 {
 "stt": 312,
 "nhan": "#310",
 "slug": "case-310",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-310-special-hat-sign.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789505
+"tieu_de_en": "ECG Blog #310: A Special Hat Sign?",
+"tieu_de_vi": "ECG Blog #310 — Một dấu hiệu \"mũ\" đặc biệt?",
+"trang_thai": "xong",
+"tu_khoa": "Spiked Helmet Sign mũ chóp nhọn SHS Takotsubo catecholamine QTc kéo dài sóng T đảo ngược ST coving hyperadrenergic giả STEMI",
+"ngay": "2026-09-30"
 },
 {
 "stt": 313,
 "nhan": "#311",
 "slug": "case-311",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-311-culprit-of-rhythm.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #311: The Culprit of the Rhythm?",
+"tieu_de_vi": "ECG Blog #311 — Thủ phạm gây ra nhịp này?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2 Mobitz I Wenckebach nhịp theo nhóm group beating nhồi máu cơ tim dưới-sau inferior posterior MI sóng T tái tưới máu reperfusion T waves deWinter đường dẫn truyền kép dual AV nodal pathways nhát thoát bộ nối junctional escape giản đồ bậc thang laddergram điện thế thấp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 314,
 "nhan": "#312",
 "slug": "case-312",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-312-bigeminy-but-not-mobitz-i.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #312 — Bigeminy but Not Mobitz I",
+"tieu_de_vi": "ECG Blog #312 — Nhịp đôi nhưng không phải Mobitz I",
+"trang_thai": "xong",
+"tu_khoa": "blốc xoang nhĩ blốc SA SA block Wenckebach SA nhịp đôi bigeminy nhịp theo nhóm group beating PAC bị blốc blocked PAC Mobitz I blốc AV độ 2 giản đồ bậc thang laddergram hội chứng suy nút xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 315,
 "nhan": "#313",
 "slug": "case-313",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-313-acute-post-partum-mi.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #313 — Acute Post-Partum MI?",
+"tieu_de_vi": "ECG Blog #313 — Nhồi máu cơ tim cấp sau sinh?",
+"trang_thai": "xong",
+"tu_khoa": "thuyên tắc phổi cấp acute PE pulmonary embolism sau sinh post-partum S1Q3T3 tăng gánh thất phải RV strain sóng T đảo ngược T wave inversion RBBB không hoàn toàn incomplete RBBB điện thế thấp low voltage",
+"ngay": "2026-09-30"
 },
 {
 "stt": 316,
 "nhan": "#314",
 "slug": "case-314",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-314-79yo-with-palpitations.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #314 — A 79yo with Palpitations",
+"tieu_de_vi": "ECG Blog #314 — Bệnh nhân 79 tuổi bị hồi hộp đánh trống ngực",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh thất VT phân nhánh fascicular VT nhịp nhanh QRS rộng WCT phân ly nhĩ thất AV dissociation điện thế luân phiên electrical alternans nhát bắt được capture beat nhát hỗn hợp fusion beat Amiodarone sốc điện chuyển nhịp đồng bộ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 317,
 "nhan": "#315",
 "slug": "case-315",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-315-bradycardia-and-abdominal.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #315 — Bradycardia and Abdominal Pain",
+"tieu_de_vi": "ECG Blog #315 — Nhịp chậm và đau bụng",
+"trang_thai": "xong",
+"tu_khoa": "nhịp chậm xoang sinus bradycardia nhịp thoát bộ nối junctional escape nhịp đôi thoát–bắt được escape-capture bigeminy nhịp đôi bigeminal rhythm dẫn truyền lệch hướng aberrant conduction RBBB LPHB giản đồ bậc thang laddergram compa đo calipers hội chứng suy nút xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 318,
 "nhan": "#316",
 "slug": "case-316",
 "url": "https://www.ekgblog.com/2022/06/ecg-blog-316-what-when-was-culprit-done.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #316 — What & When was the \"Culprit\"?",
+"tieu_de_vi": "ECG Blog #316 — \"Thủ phạm\" là gì và xảy ra khi nào?",
+"trang_thai": "xong",
+"tu_khoa": "STEMI tắc LAD đoạn gần proximal LAD occlusion tắc thân chung LMain occlusion wraparound LAD vỡ vách liên thất ventricular septal rupture VSR RBBB sóng Q ST chênh lên aVL cancellation động mạch thủ phạm culprit artery sốc tim",
+"ngay": "2026-09-30"
 },
 {
 "stt": 319,
 "nhan": "#317",
 "slug": "case-317",
 "url": "https://www.ekgblog.com/2022/07/ecg-blog-317-80yo-man-cp-culprit.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #317 — 80yo man-CP- The Culprit?",
+"tieu_de_vi": "ECG Blog #317 — Nam 80 tuổi, đau ngực – Động mạch thủ phạm?",
+"trang_thai": "xong",
+"tu_khoa": "STEMI sau-bên posterolateral STEMI nhồi máu cơ tim thành sau posterior MI nghiệm pháp soi gương Mirror Test động mạch thủ phạm culprit artery LCx động mạch mũ trái chuyển đạo thành sau V7 V8 V9 điện thế thấp low voltage sóng T tái tưới máu reperfusion T waves",
+"ngay": "2026-09-30"
 },
 {
 "stt": 320,
 "nhan": "#318",
 "slug": "case-318",
 "url": "https://www.ekgblog.com/2022/07/ecg-blog-318-stroke-but-no-chest-pain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #318: Stroke but No Chest Pain (TQRSD)",
+"tieu_de_vi": "ECG Blog #318 — Đột quỵ nhưng không đau ngực (TQRSD)",
+"trang_thai": "xong",
+"tu_khoa": "biến dạng phần cuối QRS T-QRS-D terminal QRS distortion sóng T kiểu de Winter deWinter-like T waves nhồi máu cơ tim thầm lặng silent MI OMI tắc LAD đột quỵ stroke tái tưới máu tự phát spontaneous reperfusion ST chênh lên",
+"ngay": "2026-09-30"
 },
 {
 "stt": 321,
 "nhan": "#319",
 "slug": "case-319",
 "url": "https://www.ekgblog.com/2022/07/ecg-blog-319-qrs-alternans.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #319 — QRS Alternans?",
+"tieu_de_vi": "ECG Blog #319 — QRS luân phiên?",
+"trang_thai": "xong",
+"tu_khoa": "WPW Wolff-Parkinson-White tiền kích thích preexcitation giả luân phiên pseudo-alternans điện thế luân phiên electrical alternans sóng delta sóng T kiểu de Winter deWinter-like tắc LAD nhồi máu cấp OMI",
+"ngay": "2026-09-30"
 },
 {
 "stt": 322,
 "nhan": "#320",
 "slug": "case-320",
 "url": "https://www.ekgblog.com/2022/07/ecg-blog-320-not-culprit-you-think.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790789523
+"tieu_de_en": "ECG Blog #320: Not the Culprit You Think!",
+"tieu_de_vi": "ECG Blog #320 — Không phải động mạch thủ phạm như bạn nghĩ!",
+"trang_thai": "xong",
+"tu_khoa": "Wellens hội chứng Wellens sóng T hai pha biphasic reperfusion tái tưới máu nhánh chéo diagonal LAD Quốc kỳ Nam Phi South African Flag STEMI OMI aVL",
+"ngay": "2026-09-30"
 },
 {
 "stt": 323,
