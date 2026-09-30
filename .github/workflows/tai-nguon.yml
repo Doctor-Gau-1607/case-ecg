@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths: ['tools/tai_nguon.py', '.github/workflows/tai-nguon.yml']
   schedule:
-    - cron: '17 20 * * *'   # mỗi ngày một lần: tải bù case lỗi / case mới thêm vào danh sách
+    - cron: '17 */6 * * *'   # mỗi 6 giờ: tải tiếp phần còn lại / tải bù case lỗi
 permissions:
   contents: write
 concurrency:
