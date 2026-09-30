@@ -796,40 +796,44 @@
 "nhan": "#72",
 "slug": "case-072",
 "url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-72-sinus.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774310
+"tieu_de_en": "ECG Interpretation Review #72 (Sinus Tachycardia in a Child - Juvenile T Wave Variant - Baseline Wander - Artifact)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 72 (Nhịp nhanh xoang ở trẻ em – Biến thể sóng T thiếu niên – Trôi đường nền – Nhiễu)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh xoang, sinus tachycardia, trẻ em, pediatric ECG, ngộ độc carbon monoxide, carbon monoxide poisoning, sóng T thiếu niên, juvenile T wave pattern, trôi đường nền, baseline wander, nhiễu, artifact, điện tâm đồ trẻ em",
+"ngay": "2026-09-30"
 },
 {
 "stt": 74,
 "nhan": "#73",
 "slug": "case-073",
 "url": "https://www.ekgblog.com/2013/08/ecg-interpretation-review-73-lvh.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774310
+"tieu_de_en": "ECG Blog #73 — LVH — Voltage Criteria ...",
+"tieu_de_vi": "ECG Blog #73 — LVH — Tiêu chuẩn điện thế ...",
+"trang_thai": "xong",
+"tu_khoa": "phì đại thất trái, LVH, tiêu chuẩn điện thế, voltage criteria, tăng gánh thất trái, LV strain, strain equivalent, tương đương tăng gánh, tiêu chuẩn Cornell, tiêu chuẩn Peguero, sóng R aVL 12 mm, SV1 + RV5 35 mm, độ đặc hiệu, specificity, thiếu máu cục bộ, ischemia, tuổi dưới 35, người trẻ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 75,
 "nhan": "#74",
 "slug": "case-074",
 "url": "https://www.ekgblog.com/2013/09/ecg-interpretation-review-74.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774310
+"tieu_de_en": "ECG Interpretation Review #74 (Computerized ECG Interpretation – Peaked T Waves – QS complexes - Computer)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 74 (Kết quả đọc điện tâm đồ bằng máy tính – Sóng T nhọn – Phức bộ QS – Máy tính)",
+"trang_thai": "xong",
+"tu_khoa": "kết quả đọc bằng máy tính, computerized ECG interpretation, sóng T nhọn, peaked T waves, phức bộ QS, QS complex, nhồi máu vùng vách cũ, old septal infarction, tăng kali máu, hyperkalemia, nghiệm pháp soi gương, mirror test, thiếu máu cục bộ, ischemia, đọc lại, overread",
+"ngay": "2026-09-30"
 },
 {
 "stt": 76,
 "nhan": "#75",
 "slug": "case-075",
 "url": "https://www.ekgblog.com/2013/09/ecg-interpretation-review-75-chamber.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774310
+"tieu_de_en": "ECG Blog #75 — LAA vs LAE vs Not ...",
+"tieu_de_vi": "ECG Blog #75 — LAA hay LAE hay Không ...",
+"trang_thai": "xong",
+"tu_khoa": "bất thường nhĩ trái, LAA, lớn nhĩ trái, LAE, bất thường nhĩ phải, RAA, lớn nhĩ phải, RAE, P phế, P pulmonale, P hai lá, P mitrale, loạn nhịp xoang, sinus arrhythmia, sóng q vách, septal q waves, LVH ở người trẻ, rối loạn dẫn truyền trong nhĩ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 77,
@@ -847,10 +851,11 @@
 "nhan": "#77",
 "slug": "case-077",
 "url": "https://www.ekgblog.com/2013/10/ecg-interpretation-review-77-chamber.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774310
+"tieu_de_en": "ECG Interpretation Review #77 (Chamber Enlargement – RVH – RAE – P Pulmonale – COPD)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 77 (Lớn các buồng tim – RVH – RAE – P phế – COPD)",
+"trang_thai": "xong",
+"tu_khoa": "phì đại thất phải, RVH, lớn nhĩ phải, RAE, RAA, P phế, P pulmonale, COPD, bệnh phổi, tâm phế mạn, cor pulmonale, trục lệch phải, RAD, blốc nhánh phải không hoàn toàn, IRBBB, sóng S dai dẳng, điện thế thấp, R cao ở V1, tăng gánh thất phải, thuyên tắc phổi",
+"ngay": "2026-09-30"
 },
 {
 "stt": 79,
