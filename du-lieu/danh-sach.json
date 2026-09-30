@@ -2676,80 +2676,88 @@
 "nhan": "#242",
 "slug": "case-242",
 "url": "https://www.ekgblog.com/2021/07/ecg-blog-242-57-why-wide-beats-mobitz-i.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #242 — Why Wide Beats? (Mobitz I vs II?)",
+"tieu_de_vi": "ECG Blog #242 — Vì sao có các nhát rộng? (Mobitz I hay II?)",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2, Mobitz II, Mobitz I, blốc AV 2:1, second-degree AV block, 2:1 AV block, BBB liên quan tần số, rate-related bundle branch block, blốc nhánh trái, LBBB, dẫn truyền lệch hướng, aberrant conduction, khoảng P-P, tần số nhĩ, máy tạo nhịp, pacemaker, Sgarbossa cải biên theo Smith",
+"ngay": "2026-09-30"
 },
 {
 "stt": 245,
 "nhan": "#243",
 "slug": "case-243",
 "url": "https://www.ekgblog.com/2021/07/ecg-blog-243-47-why-group-beating-av.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #243 — Why the Group Beating?",
+"tieu_de_vi": "ECG Blog #243 — Vì sao có nhịp theo nhóm?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp theo nhóm, group beating, nhịp đôi, bigeminal rhythm, cuồng nhĩ, atrial flutter, AFlutter, dẫn truyền Wenckebach, Wenckebach conduction, blốc hai tầng, dual-level block, nút AV, dẫn truyền ẩn, concealed conduction, giản đồ bậc thang, laddergram, blốc AV độ 2, Mobitz I",
+"ngay": "2026-09-30"
 },
 {
 "stt": 246,
 "nhan": "#244",
 "slug": "case-244",
 "url": "https://www.ekgblog.com/2021/07/ecg-blog-244-58-cath-lab-was-activated.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #244 (58) — The Cath Lab Was Activated. Do You Agree?",
+"tieu_de_vi": "ECG Blog #244 (58) — Phòng thông tim đã được kích hoạt. Bạn có đồng ý không?",
+"trang_thai": "xong",
+"tu_khoa": "hội chứng Brugada, hình ảnh Brugada-1, Brugada pattern, Brugada Phenocopy, kiểu hình sao Brugada, tăng kali máu, hyperkalemia, sóng T nhọn, peaked T waves, sóng T tháp Eiffel, QRS giãn rộng, giả STEMI, STEMI mimic, phòng thông tim, cath lab, nhiễm toan ceton đái tháo đường, DKA, nhịp nhanh xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 247,
 "nhan": "#245",
 "slug": "case-245",
 "url": "https://www.ekgblog.com/2021/08/ecg-blog-245-59-heart-failure-and-acute.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #245 — Heart Failure. An Acute Event?",
+"tieu_de_vi": "ECG Blog #245 — Suy tim. Một biến cố cấp?",
+"trang_thai": "xong",
+"tu_khoa": "phì đại thất trái, LVH, tăng gánh thất trái, LV strain, bất thường nhĩ trái, LAA, sóng Q aVL, ST chênh xuống, ST dạng vòm, sóng T đảo ngược, thiếu máu cục bộ, ischemia, suy tim, heart failure, nửa chuẩn, half-standardization, OMI, tiêu chuẩn điện thế",
+"ngay": "2026-09-30"
 },
 {
 "stt": 248,
 "nhan": "#246",
 "slug": "case-246",
 "url": "https://www.ekgblog.com/2021/08/ecg-blog-246-60-what-is-mirror-test.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #246 (60) — What is the Mirror Test?",
+"tieu_de_vi": "ECG Blog #246 (60) — Nghiệm pháp soi gương là gì?",
+"trang_thai": "xong",
+"tu_khoa": "nghiệm pháp soi gương, mirror test, nhồi máu cơ tim thành sau, posterior MI, OMI dưới-sau-bên, infero-postero-lateral OMI, ST chênh xuống V1-V3, ST depression, sóng Q thành dưới, thay đổi soi gương, reciprocal change, chuyển đạo III và aVL, QRS phân mảnh, fragmented QRS, tương đương STEMI, STEMI-equivalent, LVH, nhịp nhanh xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 249,
 "nhan": "#247",
 "slug": "case-247",
 "url": "https://www.ekgblog.com/2021/08/ecg-blog-247-61-why-is-pr-interval.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #247 (61) — Why is the PR Interval Decreasing?",
+"tieu_de_vi": "ECG Blog #247 (61) — Vì sao khoảng PR ngắn dần?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp bộ nối gia tốc, accelerated junctional rhythm, phân ly nhĩ thất, AV dissociation, chiếm quyền, usurpation, loạn nhịp xoang, sinus arrhythmia, nhát bắt được, sinus capture, nhát hỗn hợp, fusion beat, khoảng PR ngắn dần, giản đồ bậc thang, laddergram, đặt sai vị trí điện cực, ECG MP-61",
+"ngay": "2026-09-30"
 },
 {
 "stt": 250,
 "nhan": "#248",
 "slug": "case-248",
 "url": "https://www.ekgblog.com/2021/09/ecg-blog-248-62-qr-in-lead-v1.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #248 (62) — A qR in Lead V1",
+"tieu_de_vi": "ECG Blog #248 (62) — Hình ảnh qR ở chuyển đạo V1",
+"trang_thai": "xong",
+"tu_khoa": "hình ảnh qR V1, qR pattern lead V1, phì đại thất phải, RVH, sóng R cao V1, tall R wave V1, hẹp van hai lá, mitral stenosis, bệnh tim do thấp, rheumatic heart disease, tăng áp phổi, pulmonary hypertension, hở van ba lá, tricuspid regurgitation, bất thường nhĩ phải, RAA, rung nhĩ, AFib, trục lệch phải, RAD",
+"ngay": "2026-09-30"
 },
 {
 "stt": 251,
 "nhan": "#249",
 "slug": "case-249",
 "url": "https://www.ekgblog.com/2021/09/ecg-blog-249-63-can-you-explain-what.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790782331
+"tieu_de_en": "ECG Blog #249 (63) — Can You Explain What Happened?",
+"tieu_de_vi": "ECG Blog #249 (63) — Bạn có giải thích được chuyện gì đã xảy ra?",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh thất, ventricular tachycardia, VT, tăng kali máu, hyperkalemia, sóng T nhọn, peaked T waves, nhịp nhanh QRS rộng, wide-complex tachycardia, WCT, calci tĩnh mạch, IV calcium, xơ gan, lợi tiểu giữ kali, spironolactone, phì đại thất trái, LVH, nhịp nhanh xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 252,
