@@ -376,7 +376,7 @@ def trich():
                 if c.find('img'):
                     anh_rieng(c)
                 t = clean(c)
-                if re.sub(r'<br>|\s', '', t):
+                if re.sub(r'<[^>]+>|\s', '', t):
                     them(loai='p', tag='blockquote' if n == 'blockquote' else 'p', html=t)
             elif n in ('ul', 'ol'):
                 if c.find(['iframe', 'video']):
