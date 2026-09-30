@@ -31,8 +31,8 @@ jobs:
                   link=[l['href'] for l in e['link'] if l['rel']=='alternate']
                   out.append({'title':e['title']['$t'],'url':link[0] if link else '','ngay':e['published']['$t'][:10]})
               print(i,len(es))
-              if len(es)<150: break
-              i+=150; time.sleep(3)
+              if not es: break
+              i+=len(es); time.sleep(2)
           json.dump(out,open('du-lieu/tat-ca-bai-blog.json','w'),ensure_ascii=False,indent=1)
           print('tong',len(out))
           PY
@@ -42,3 +42,4 @@ jobs:
           git add du-lieu/tat-ca-bai-blog.json
           git commit -m "Danh sách toàn bộ bài trên ekgblog (feed)" || exit 0
           for t in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+# lần 2: phân trang theo số bài thực nhận
