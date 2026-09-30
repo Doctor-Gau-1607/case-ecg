@@ -1,6 +1,6 @@
 # Quy trình một lượt dịch Case ECG
 
-Mỗi lượt (tác vụ hẹn giờ) dịch **5 case** kế tiếp của ECG Blog (Ken Grauer, ekgblog.com — tác giả đã cho phép) sang tiếng Việt, dựng trang theo khung MEDGUIDE và đẩy lên `main` của repo `Doctor-Gau-1607/case-ecg`. Trang công khai: `https://doctor-gau-1607.github.io/case-ecg/` (được nhúng trong MEDGUIDE, mục Cận lâm sàng → ECG → Case ECG).
+Mỗi lượt (tác vụ hẹn giờ) dịch **10 case** kế tiếp của ECG Blog (Ken Grauer, ekgblog.com — tác giả đã cho phép) sang tiếng Việt, dựng trang theo khung MEDGUIDE và đẩy lên `main` của repo `Doctor-Gau-1607/case-ecg`. Trang công khai: `https://doctor-gau-1607.github.io/case-ecg/` (được nhúng trong MEDGUIDE, mục Cận lâm sàng → ECG → Case ECG).
 
 Nguồn (trang + ảnh gốc) đã được GitHub Actions tải sẵn vào nhánh `nguon`. **Không tự tải từ ekgblog.com** (container không truy cập được, và không cần).
 
@@ -18,7 +18,7 @@ Clone hoặc push bị từ chối vì quyền: gọi tool `add_repo` (owner `Do
 
 ## 1. Nhận case
 ```bash
-python3 tools/lam_case.py chuan-bi --so 5
+python3 tools/lam_case.py chuan-bi --so 10
 ```
 In "KHÔNG CÒN CASE NÀO SẴN SÀNG" → dừng lượt, báo lại (hết việc hoặc nguồn chưa tải tới).
 
