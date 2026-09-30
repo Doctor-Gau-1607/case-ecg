@@ -1742,100 +1742,110 @@
 "nhan": "#161",
 "slug": "case-161",
 "url": "https://www.ekgblog.com/2019/02/ecg-blog-161-acute-stemi-abnormal-rhythm.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #161 (Acute STEMI - Abnormal Rhythm)",
+"tieu_de_vi": "ECG Blog #161 (STEMI cấp - Nhịp bất thường)",
+"trang_thai": "xong",
+"tu_khoa": "STEMI cấp, acute STEMI, động mạch thủ phạm, culprit artery, ST chênh xuống, ST depression, COPD, bệnh phổi nặng, pulmonary disease, nhồi máu cơ tim, myocardial infarction, đau ngực, chest pain, nhịp bất thường, abnormal rhythm",
+"ngay": "2026-09-30"
 },
 {
 "stt": 160,
 "nhan": "#162",
 "slug": "case-162",
 "url": "https://www.ekgblog.com/2019/03/ecg-blog-162-stemi-coronary-circulation.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #162 — Can You Dx MI with LBBB?",
+"tieu_de_vi": "ECG Blog #162 — Có thể chẩn đoán MI khi có LBBB không?",
+"trang_thai": "xong",
+"tu_khoa": "STEMI, LBBB, nhồi máu cơ tim cấp kèm LBBB, MI with LBBB, blốc nhánh trái mới, new LBBB, BBB liên quan tần số, rate-related BBB, sóng T tối cấp, hyperacute T waves, STEMI dưới-sau-bên, infero-postero-lateral STEMI, động mạch mũ trái, LCx, nhánh bờ tù, obtuse marginal, động mạch thủ phạm, culprit artery",
+"ngay": "2026-09-30"
 },
 {
 "stt": 161,
 "nhan": "#163",
 "slug": "case-163",
 "url": "https://www.ekgblog.com/2019/04/ecg-blog-163-escape-capture-wenckebach.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #163 (Escape-Capture - Wenckebach - SA Block)",
+"tieu_de_vi": "ECG Blog #163 (Thoát–Bắt được – Wenckebach – Blốc SA)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp thoát-bắt được, escape-capture, Wenckebach, blốc SA 2:1, SA block, nhịp chậm xoang, sinus bradycardia, nhát thoát bộ nối, junctional escape, giản đồ bậc thang, laddergram, blốc AV ngược dòng, retrograde AV block, nhịp theo nhóm, group beating, hội chứng suy nút xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 162,
 "nhan": "#164",
 "slug": "case-164",
 "url": "https://www.ekgblog.com/2019/05/ecg-blog-164-pacs-blocked-pacs.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #164 — PACs vs Wenckebach ... ?",
+"tieu_de_vi": "ECG Blog #164 — PAC hay Wenckebach ... ?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2 Mobitz I, Mobitz type I, Wenckebach AV, AV Wenckebach, dấu chân của Wenckebach, Footprints of Wenckebach, nhịp theo nhóm, group beating, ngoại tâm thu nhĩ, PAC, blốc AV độ 1, compa đo, calipers, giản đồ bậc thang, laddergram, dẫn truyền AV 4:3 3:2, sóng P ẩn trong sóng T",
+"ngay": "2026-09-30"
 },
 {
 "stt": 163,
 "nhan": "#165",
 "slug": "case-165",
 "url": "https://www.ekgblog.com/2019/06/ecg-blog-165-mi-acute-old-unknown-age.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #165 (MI - Acute - Old - Unknown Age - Aneurysm - Fragmentation)",
+"tieu_de_vi": "ECG Blog #165 (MI – Cấp – Cũ – Không rõ tuổi – Phình thất – Phân mảnh)",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim cũ, old MI, định tuổi nhồi máu, dating an infarct, phình thất trái, LV aneurysm, phân mảnh QRS, QRS fragmentation, blốc phân nhánh trái trước, LAHB, MI thành dưới, inferior MI, MI thành trước, anterior MI, mất sóng R, loss of R wave, ST chênh lên, trục lệch trái",
+"ngay": "2026-09-30"
 },
 {
 "stt": 164,
 "nhan": "#166",
 "slug": "case-166",
 "url": "https://www.ekgblog.com/2019/07/ecg-blog-166-st-t-afib-lvh-svt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #166 (ST-T – AFib – LVH – SVT)",
+"tieu_de_vi": "ECG Blog #166 (ST-T – AFib – LVH – SVT)",
+"trang_thai": "xong",
+"tu_khoa": "rung nhĩ đáp ứng thất nhanh, AFib rapid ventricular response, phì đại thất trái, LVH voltage criteria, sóng ST-T chênh xuống, ST-T depression, tăng gánh thất trái, LV strain, tác dụng digoxin, digoxin effect, thay đổi ST-T không đặc hiệu, nonspecific ST-T changes, suy tim, heart failure, thiếu máu cục bộ, ischemia",
+"ngay": "2026-09-30"
 },
 {
 "stt": 165,
 "nhan": "#167",
 "slug": "case-167",
 "url": "https://www.ekgblog.com/2019/07/ecg-blog-167-reciprocal-omi-normal.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #167 (Reciprocal-OMI-Normal)",
+"tieu_de_vi": "ECG Blog #167 (Soi gương – OMI – Bình thường)",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim thành dưới, acute inferior MI, OMI, thay đổi soi gương, reciprocal ST depression, chuyển đạo III và aVL, mirror-image, động mạch thủ phạm, culprit artery, RCA, sóng Q, điện thế thấp, low voltage, đọc lại điện tâm đồ, overread",
+"ngay": "2026-09-30"
 },
 {
 "stt": 166,
 "nhan": "#168",
 "slug": "case-168",
 "url": "https://www.ekgblog.com/2019/09/ecg-blog-168-stemi-complex-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #168 (STEMI - complex AV Block - Laddergram - Calipers)",
+"tieu_de_vi": "ECG Blog #168 (STEMI - Blốc AV phức tạp - Giản đồ bậc thang - Compa đo)",
+"trang_thai": "xong",
+"tu_khoa": "STEMI dưới-sau, infero-posterior STEMI, nhồi máu thất phải, RV MI, tắc RCA đoạn gần, proximal RCA occlusion, OMI, ngất, syncope, blốc AV độ 2 mức độ cao, high-grade 2nd-degree AV block, Wenckebach AV, Mobitz I, blốc hai tầng trong nút AV, giản đồ bậc thang, laddergram, compa đo, calipers, loạn nhịp xoang theo pha thất, ventriculophasic sinus arrhythmia",
+"ngay": "2026-09-30"
 },
 {
 "stt": 167,
 "nhan": "#170",
 "slug": "case-170",
 "url": "https://www.ekgblog.com/2020/01/ecg-blog-170-atypical-chest-pain-mirror.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #170 (Atypical Chest Pain - Mirror Image - Troponin - Lcx - Lad)",
+"tieu_de_vi": "ECG Blog #170 (Đau ngực không điển hình – Hình ảnh soi gương – Troponin – LCx – LAD)",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim, OMI, động mạch mũ trái, LCx, circumflex occlusion, hình ảnh soi gương, mirror image, ST chênh lên bên cao, high lateral ST elevation, aVL, chuyển đạo III, đau ngực không điển hình, atypical chest pain, troponin âm tính, siêu âm tim gắng sức",
+"ngay": "2026-09-30"
 },
 {
 "stt": 168,
 "nhan": "#171",
 "slug": "case-171",
 "url": "https://www.ekgblog.com/2020/01/ecg-blog-171-culprit-artery.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777758
+"tieu_de_en": "ECG Blog #171 — \"Magic\" between Leads III & AVL",
+"tieu_de_vi": "ECG Blog #171 — \"Điều kỳ diệu\" giữa chuyển đạo III và aVL",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim thành dưới, inferior MI, nhồi máu thành sau, posterior MI, tắc RCA, RCA occlusion, thay đổi soi gương, reciprocal change, chuyển đạo III, aVL, nghiệm pháp soi gương, mirror test, ST chênh xuống dạng bậc thềm, shelf-like ST depression, nhồi máu thất phải, RV involvement, OMI",
+"ngay": "2026-09-30"
 },
 {
 "stt": 169,
