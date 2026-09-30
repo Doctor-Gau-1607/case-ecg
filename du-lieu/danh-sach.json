@@ -1852,100 +1852,110 @@
 "nhan": "#172",
 "slug": "case-172",
 "url": "https://www.ekgblog.com/2020/02/ecg-blog-172-st-elevation-j-point.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #172 (ST Elevation – J-Point – Osborn – OMI vs Repolarization)",
+"tieu_de_vi": "ECG Blog #172 (ST chênh lên – Điểm J – Osborn – OMI hay tái cực)",
+"trang_thai": "xong",
+"tu_khoa": "hạ thân nhiệt, hypothermia, sóng Osborn, Osborn wave, sóng J, khía điểm J, J-point notching, trát đậm điểm J, ST chênh lên, ST elevation, QTc kéo dài, nhịp chậm xoang, viêm màng ngoài tim, OMI, tái cực sớm",
+"ngay": "2026-09-30"
 },
 {
 "stt": 170,
 "nhan": "#173",
 "slug": "case-173",
 "url": "https://www.ekgblog.com/2020/03/ecg-blog-173-vt-afib-polymorphic-wpw.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #173 (VT - AFib - Polymorphic - WPW)",
+"tieu_de_vi": "ECG Blog #173 (VT - AFib - Đa dạng - WPW)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, wide complex tachycardia, WCT, rung nhĩ tiền kích thích, pre-excited atrial fibrillation, WPW, Wolff-Parkinson-White, đường phụ, accessory pathway, VT đa dạng, polymorphic VT, AFib, nhịp nhanh thất, VT",
+"ngay": "2026-09-30"
 },
 {
 "stt": 171,
 "nhan": "#174",
 "slug": "case-174",
 "url": "https://www.ekgblog.com/2020/03/ecg-blog-174-av-block-pacs-group-beating.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #174 (AV block – PACs – group beating)",
+"tieu_de_vi": "ECG Blog #174 (Blốc AV – PAC – Nhịp theo nhóm)",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, Wenckebach, Mobitz I, nhịp theo nhóm, group beating, PAC bị blốc, blocked PAC, ngoại tâm thu nhĩ, nhịp ba nhĩ, atrial trigeminy, compa đo, calipers, dấu chân của Wenckebach",
+"ngay": "2026-09-30"
 },
 {
 "stt": 172,
 "nhan": "#175",
 "slug": "case-175",
 "url": "https://www.ekgblog.com/2020/03/ecg-blog-175-lead-reversal-lateral-mi.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #175 — Lead Reversal — or Not?",
+"tieu_de_vi": "ECG Blog #175 — Đảo điện cực — hay không phải?",
+"trang_thai": "xong",
+"tu_khoa": "tim sang phải, dextrocardia, đảo điện cực, lead reversal, LA-RA lead reversal, đặt sai vị trí điện cực, lead misplacement, sóng Q chuyển đạo I, tăng tiến sóng R đảo ngược, reverse R wave progression, rung nhĩ, AFib, đảo ngược phủ tạng toàn bộ, situs inversus totalis, chuyển đạo ngực bên phải",
+"ngay": "2026-09-30"
 },
 {
 "stt": 173,
 "nhan": "#176",
 "slug": "case-176",
 "url": "https://www.ekgblog.com/2020/04/ecg-blog-176-pvcs-interpolated-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #176 (PVCs - interpolated - AV block - concealed)",
+"tieu_de_vi": "ECG Blog #176 (PVC - xen kẽ - blốc AV - dẫn truyền ẩn)",
+"trang_thai": "xong",
+"tu_khoa": "ngoại tâm thu thất, PVC, PVC xen kẽ, interpolated PVC, dẫn truyền ẩn, concealed conduction, blốc nhĩ thất, AV block, blốc AV, chóng mặt, gần ngất, near syncope, dải nhịp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 174,
 "nhan": "#177",
 "slug": "case-177",
 "url": "https://www.ekgblog.com/2020/05/ecg-blog-177-wct-vt-svt-aberrancy-bbb.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #177 (WCT - VT - SVT - Aberrancy - BBB)",
+"tieu_de_vi": "ECG Blog #177 (WCT - VT - SVT - Dẫn truyền lệch hướng - BBB)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, wide complex tachycardia, WCT, nhịp nhanh thất, VT, SVT, dẫn truyền lệch hướng, aberrancy, blốc nhánh, BBB, tụt huyết áp, người cao tuổi",
+"ngay": "2026-09-30"
 },
 {
 "stt": 175,
 "nhan": "#178",
 "slug": "case-178",
 "url": "https://www.ekgblog.com/2020/08/ecg-blog-178-rv-strain-lead-placement.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #178 (RV Strain - Lead Placement - Dextrocardia - Acute PE)",
+"tieu_de_vi": "ECG Blog #178 (Tăng gánh thất phải - Vị trí đặt điện cực - Tim sang phải - PE cấp)",
+"trang_thai": "xong",
+"tu_khoa": "tăng gánh thất phải, RV strain, sóng T đảo ngược chuyển đạo dưới, T wave inversion, đặt sai vị trí điện cực, lead misplacement, tim sang phải, dextrocardia, thuyên tắc phổi cấp, acute PE, khó thở mới khởi phát",
+"ngay": "2026-09-30"
 },
 {
 "stt": 176,
 "nhan": "#179",
 "slug": "case-179",
 "url": "https://www.ekgblog.com/2020/08/ecg-blog-179-qrs-widening-lbbb-rbbb.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #179 (QRS Widening - LBBB - RBBB)",
+"tieu_de_vi": "ECG Blog #179 (Giãn rộng QRS - LBBB - RBBB)",
+"trang_thai": "xong",
+"tu_khoa": "giãn rộng QRS, QRS widening, QRS giãn rộng từng lúc, intermittent QRS widening, blốc nhánh, bundle branch block, LBBB, RBBB, blốc nhánh trái, blốc nhánh phải, rate-related BBB",
+"ngay": "2026-09-30"
 },
 {
 "stt": 177,
 "nhan": "#180",
 "slug": "case-180",
 "url": "https://www.ekgblog.com/2020/08/ecg-blog-180-wct-svt-vt-pleomorphic.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #180 (WCT - SVT - VT - Pleomorphic - Polymorphic - Aberration)",
+"tieu_de_vi": "ECG Blog #180 (WCT - SVT - VT - Đa hình thái - Đa dạng - Dẫn truyền lệch hướng)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, WCT, SVT, VT, nhịp nhanh thất, nhịp nhanh trên thất, pleomorphic VT, polymorphic VT, VT đa dạng, dẫn truyền lệch hướng, aberration, wide complex tachycardia",
+"ngay": "2026-09-30"
 },
 {
 "stt": 178,
 "nhan": "#181",
 "slug": "case-181",
 "url": "https://www.ekgblog.com/2020/10/note-my-complete-write-up-of-this-case.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778159
+"tieu_de_en": "ECG Blog #181 (AV Wenckebach - Mobitz I - PACs - ATach - Group Beating)",
+"tieu_de_vi": "ECG Blog #181 (Wenckebach AV - Mobitz I - PAC - ATach - Nhịp theo nhóm)",
+"trang_thai": "xong",
+"tu_khoa": "Wenckebach AV, AV Wenckebach, Mobitz I, blốc AV độ 2, 2nd degree AV block, ngoại tâm thu nhĩ, PAC, nhịp nhanh nhĩ, atrial tachycardia, ATach, nhịp theo nhóm, group beating, nhịp không đều, irregular rhythm",
+"ngay": "2026-09-30"
 },
 {
 "stt": 179,
