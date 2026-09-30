@@ -114,7 +114,7 @@ def trich():
             s.extract()
 
     og_t = soup.find('meta', property='og:title')
-    h1 = soup.select_one('h1.entry-title') or soup.find('h1')
+    h1 = soup.select_one('h1.entry-title') or soup.select_one('.post-title.entry-title') or soup.find('h1')
     tieu_de = (h1.get_text(' ', strip=True) if h1 else '') or \
         re.split(r'\s[|–—]\s', (og_t['content'] if og_t else '') or soup.title.get_text())[0].strip()
     for h in body.find_all('h1'):          # tiêu đề bài nằm trong vùng thân bài thì bỏ khỏi thân
