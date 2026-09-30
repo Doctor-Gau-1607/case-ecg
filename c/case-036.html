@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ôn tập đọc điện tâm đồ – Số 36 (WCT - VT - Rung nhĩ - VT không đều - WPW - Nhịp nhanh QRS rộng)</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #36 · ECG BLOG (KEN GRAUER)</div>
+   <h1>Ôn tập đọc điện tâm đồ – Số 36 (WCT - VT - Rung nhĩ - VT không đều - WPW - Nhịp nhanh QRS rộng)</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p>Một trong những nhiệm vụ khó khăn nhất đối với người làm cấp cứu là đánh giá và xử trí bệnh nhân có nhịp nhanh QRS rộng <b><i>ổn định</i></b> — <b>WCT (<u><i>W</i></u></b><i>ide-<b><u>C</u></b>omplex <b><u>T</u></b>achycardia</i><b>)</b>. Khi phức bộ QRS rộng — nhịp đều — và không thấy sóng P – thì chẩn đoán được mặc định là nhịp nhanh thất <b>VT (<u><i>V</i></u></b><i>entricular <b><u>T</u></b>achycardia</i><b>)</b> (<u>Hình 1</u>).</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-1-VT-Reg-II-2-2.1-2012--Blog-36-31da449f6bd8.JPG"><img src="case-036_anh/Fig-1-VT-Reg-II-2-2.1-2012--Blog-36-31da449f6bd8.JPG" alt="" width="1344" height="330" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 1:</u></b> WCT <i>đều</i> không có hoạt động nhĩ rõ ràng. Phải mặc định là VT cho đến khi chứng minh được điều ngược lại.</figcaption></figure>
+<p>Ở bệnh nhân có bệnh tim nền — VT gặp nhiều hơn hẳn so với nhịp nhanh trên thất SVT (<i><u>S</u>upra<u>V</u>entricular <u>T</u>achycardia</i>) kèm <i><u>hoặc</u></i> blốc nhánh có từ trước <u>hoặc</u> dẫn truyền lệch hướng. Vì lý do này, và vì VT có thể đe dọa tính mạng — VT luôn <i>phải</i> được mặc định là nguyên nhân của một WCT <i>đều</i> <i><u>cho đến khi</u></i> chứng minh được điều ngược lại (<i>Xem</i> <b>ECG <a href="http://ecg-interpretation.blogspot.com/2011/06/ecg-interpretation-review-23-wide.html" rel="noopener" target="_blank">Blog #23</a></b> <i>để ôn lại cách tiếp cận một WCT đều</i>).</p>
+<ul><li><u>LƯU Ý:</u> Một số bệnh nhân dung nạp VT tốt đến bất ngờ. Những bệnh nhân này có thể vẫn tỉnh táo hàng giờ (<i>hoặc lâu hơn</i>) <u>dù</u> đang trong VT kéo dài. Vì vậy — việc thấy bệnh nhân tỉnh táo với huyết áp bình thường (<i>hoặc thậm chí tăng</i>) <i><u>hoàn</u></i> <i><u>toàn không</u></i> loại trừ khả năng nhịp đó là VT <i>bền bỉ</i>.</li></ul>
+<p>----------------------------------------------------------------</p>
+<p>Chẩn đoán các <b>nhịp</b> <b><i>WCT</i></b> càng trở nên khó khăn khi nhịp <b><i>không đều</i></b> và <i><u><b>không</b></u></i> <b>thấy</b> <b>hoạt động</b> <b><i>nhĩ</i></b> xác định được trong cơn nhịp nhanh. Bốn ví dụ như vậy được trình bày dưới đây ở <u>Hình</u> <u>1</u>, <u>2</u>, <u>3</u> và <u>4</u>. Hãy hình dung bệnh nhân <b>ổn định</b> về <b><i>huyết động</i></b> trong mỗi trường hợp, và bạn buộc phải đưa ra chẩn đoán <u>mà không có</u> điện tâm đồ 12 chuyển đạo ghi trong cơn nhịp nhanh. Hãy ghép các nhịp ở Hình 2-<i>đến</i>-5 với các lựa chọn trả lời sau:</p>
+<p>a) Nhịp nhanh thất.</p>
+<p>b) Rung nhĩ kèm blốc nhánh.</p>
+<p>c) Rung nhĩ kèm WPW.</p>
+<p>d) Xoắn đỉnh (Torsades de pointes).</p>
+<p>----------------------------------------------------------------</p>
+<p><b><span class="c-do"><u>4 nhịp WCT không đều:</u></span></b> Hãy ghép <b>4 nhịp WCT <i>không đều</i></b> dưới đây <b>(</b><i>ở Hình 2-đến-5</i><b>)</b> với một trong 4 lựa chọn trả lời ở trên:</p>
+<p>----------------------------------------------------------------</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-2-Rapid_AF-not_VT-V1-2-2.3-12--Blog-36-c1cda96c0db7.JPG"><img src="case-036_anh/Fig-2-Rapid_AF-not_VT-V1-2-2.3-12--Blog-36-c1cda96c0db7.JPG" alt="" width="1090" height="286" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 2:</u></b> WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>----------------------------------------------------------------</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-3-Torsades-2-2.2-12--Blog-36-461073eccbbb.jpg"><img src="case-036_anh/Fig-3-Torsades-2-2.2-12--Blog-36-461073eccbbb.jpg" alt="" width="1450" height="210" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3:</u></b> Một hoặc hai nhát xoang ban đầu — sau đó là một WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>----------------------------------------------------------------</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-4-WPW-fast-AFib-2-2.1-12--Blog-36-89a1e35ea3c0.jpg"><img src="case-036_anh/Fig-4-WPW-fast-AFib-2-2.1-12--Blog-36-89a1e35ea3c0.jpg" alt="" width="1158" height="281" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 4:</u></b> WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>----------------------------------------------------------------</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-5-VT-but_Irreg-2-2.2-2012--Blog-36-a5221012b401.JPG"><img src="case-036_anh/Fig-5-VT-but_Irreg-2-2.2-2012--Blog-36-a5221012b401.JPG" alt="" width="1414" height="340" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 5:</u></b> Ba nhát xoang ban đầu — sau đó là một WCT <i>không đều</i> không có hoạt động nhĩ. Bản ghi kết thúc bằng 2 nhát xoang.</figcaption></figure>
+<p>----------------------------------------------------------------</p>
+<p><b><span class="c-do"><u>LƯU Ý CHUNG:</u></span></b>  Mặc dù chẩn đoán xác định từng nhịp trong 4 nhịp này là khó do không có các bản ghi trước đó và không có điện tâm đồ 12 chuyển đạo ghi <i>trong</i> cơn nhịp nhanh — người đọc <u>vẫn nên </u>đưa ra được một <b>chẩn đoán</b> có <b><i>xác suất cao</i></b> cho mỗi dải nhịp. Làm được điều đó thường sẽ quan trọng về mặt lâm sàng — khi có thể không đủ thời gian để khai thác thêm bệnh sử — so sánh với các bản ghi trước — và ghi điện tâm đồ 12 chuyển đạo <i>trong</i> cơn nhịp nhanh. Lựa chọn điều trị tối ưu thay đổi rất nhiều tùy theo <b>WCT</b> <b><i>không đều</i></b> đó nhiều khả năng là gì.</p>
+<p>----------------------------------------------------------------</p>
+<p><b><span class="c-do">TRẢ LỜI cho Hình 2:</span></b>  Tuy khó nhận ra — nhịp ở Hình 2 thực ra <i>không đều</i> hoàn toàn. QRS rộng. Thỉnh thoảng thấy đường nền gợn sóng — nhưng không có sóng P rõ ràng. Vì vậy chúng tôi rất nghi ngờ chẩn đoán là <b><i>rung</i></b> <b>nhĩ (</b><i>AFib</i><b>)</b> — ở đây với <b>đáp ứng thất <i>nhanh</i></b>.</p>
+<ul><li>Mặc dù VT không phải lúc nào cũng là một nhịp đều tuyệt đối — nó thường <i><u>không</u></i> thay đổi từ nhát này sang nhát kế tiếp như thấy ở đây. Đây là dấu hiệu gợi ý mạnh chẩn đoán AFib. Dù vậy — ví dụ này làm nổi bật điểm: khi AFib nhanh — sự thay đổi khoảng R-R giữa nhát này và nhát kế tiếp có thể rất ít (<i>và đôi khi cần dùng compa đo để xác nhận</i>).</li>
+<li>Chúng tôi nói đáp ứng thất của AFib trong ví dụ này là “nhanh” — vì các khoảng R-R ở Hình 2 dài trong khoảng 2-đến-3 ô lớn (<i>gần với 2 ô hơn</i>). Như vậy, tần số tim nằm trong khoảng 120-130/phút.</li>
+<li>Hình dạng QRS ở chuyển đạo bên phải V1 này phù hợp với blốc nhánh trái LBBB (<i><u>L</u>eft <u>B</u>undle <u>B</u>ranch <u>B</u>lock</i>). Điều này được xác nhận bằng bản ghi 12 chuyển đạo dưới đây, ghi trên bệnh nhân này cùng thời điểm với dải nhịp chuyển đạo V1 (<u>Hình 2-ANS</u>).</li></ul>
+<figure><a class="o-anh" href="case-036_anh/Fig-2-Rapid_AF-not_VT-V1-282-2.3-12-29-Blog-36-c7810072eeb0.JPG"><img src="case-036_anh/Fig-2-Rapid_AF-not_VT-V1-282-2.3-12-29-Blog-36-c7810072eeb0.JPG" alt="" width="1090" height="286" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 2</u></b> – WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>Loại blốc nhánh được chẩn đoán bằng cách đánh giá hình dạng QRS ở 3 chuyển đạo <i>MẤU CHỐT</i> = <b>Chuyển đạo I,V1,V6 (</b><i>Xem</i> <b>ECG <a href="http://ecg-interpretation.blogspot.com/2010/12/ecg-interpretation-review-3-bbb-bundle.html" rel="noopener" target="_blank">Blog #3</a> - <a href="http://ecg-interpretation.blogspot.com/2010/12/ecg-interpretation-review-11-bbb-wide.html" rel="noopener" target="_blank">Blog #11</a> </b>—<b> </b><i>và</i><b> <a href="http://ecg-interpretation.blogspot.com/2011/01/ecg-interpretation-review-13-bbb-wide.html" rel="noopener" target="_blank">Blog #13</a>)</b>. QRS đơn pha dương ở các chuyển đạo <i>bên trái</i> I,V6 của <u>Hình 2-ANS</u> — cùng với QRS âm là chủ yếu ở chuyển đạo <i>bên phải</i> V1 phù hợp với chẩn đoán <b>LBBB</b> <b><i>điển hình</i></b>.</p>
+<ul><li>Việc xác nhận WCT <i>không đều</i> ở Hình 2 đúng là AFib với QRS giãn rộng do blốc nhánh có từ trước đến từ việc so sánh với một điện tâm đồ 12 chuyển đạo <i>trước đó</i> của bệnh nhân này, cho thấy sự không đều tương tự với hình dạng QRS <i>giống hệt</i> do LBBB mạn tính của bệnh nhân.</li></ul>
+<figure><a class="o-anh" href="case-036_anh/Fig-2-Ans-Rapid_AF-not_VT-12-2-2.3-12--Blog-36-212db0a93780.JPG"><img src="case-036_anh/Fig-2-Ans-Rapid_AF-not_VT-12-2-2.3-12--Blog-36-212db0a93780.JPG" alt="" width="1478" height="792" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 2-ANS:</u></b> Điện tâm đồ 12 chuyển đạo của bệnh nhân có dải nhịp chuyển đạo V1 đã trình bày ở Hình 2.  Nhịp là AFib nhanh. QRS giãn rộng là do LBBB.</figcaption></figure>
+<p><u>Ghi chú lâm sàng:</u> Trái với blốc nhánh phải RBBB (<i><u>R</u>ight <u>B</u>undle <u>B</u>ranch <u>B</u>lock</i>) — bệnh nhân có <b>LBBB</b> <b><i>mạn tính</i></b> hầu như luôn có <b>bệnh tim <i>nền</i></b> đáng kể. Do đó, một bối cảnh lâm sàng rất thường gặp dẫn tới nhịp như ở Hình 2 là suy tim (<i>do mất “cú hích” nhĩ</i>) vì AFib <i>mới khởi phát </i>với đáp ứng thất nhanh ở bệnh nhân có LBBB nền.</p>
+<ul><li>Điều trị AFib nhanh <i>mới khởi phát</i> bao gồm (<i>bất cứ khi nào có thể</i>) điều chỉnh các yếu tố thúc đẩy (<i>như suy tim</i>) — <u>và</u> — <i>làm chậm</i> đáp ứng thất bằng các thuốc ức chế nút AV (<i>verapamil-diltiazem-</i><i>β</i><i>-blocker-digoxin</i>).</li></ul>
+<p>----------------------------------------------------------------</p>
+<p><b><span class="c-do">TRẢ LỜI cho Hình 3:</span></b>  Nhát thứ 1 và thứ 3 ở Hình 3 có vẻ là nhát dẫn truyền từ xoang. Chúng tôi nghi ngờ phức bộ thứ 2 là một nhát <i>hỗn hợp</i>, biểu hiện hình dạng QRS trung gian giữa hai nhát xoang và phần đầu của WCT không đều theo sau.</p>
+<ul><li>Một cách phân loại hữu ích các <b>nhịp</b> <b><i>WCT</i></b> là chia thành loại <b><u>đơn</u> dạng</b> <b>(</b><i>hình dạng QRS tương tự nhau trong cơn nhịp nhanh</i><b>)</b> <u>và</u> loại <b><u>đa</u> dạng (</b><i>hình dạng QRS thay đổi</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-036_anh/Fig-3-Torsades-2-2.2-12--Blog-36-ce01ed87782e.jpg"><img src="case-036_anh/Fig-3-Torsades-2-2.2-12--Blog-36-ce01ed87782e.jpg" alt="" width="1450" height="210" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3:</u></b> Một hoặc hai nhát xoang ban đầu — sau đó là một WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>Bắt đầu từ nhát thứ 4 ở <u>Hình 3</u> — thấy một <b>WCT</b> <b><i>không đều</i></b> rất nhanh, không có hoạt động nhĩ. Hình dạng QRS thay đổi gần như theo từng nhát. Đây là <b><span class="c-do">VT</span></b> <b><i><span class="c-do">đa dạng</span></i></b>.</p>
+<ul><li><b><i><span class="c-do">Xoắn đỉnh (Torsades de Pointes)</span></i></b> – được định nghĩa là <b>VT</b> <b><i>đa dạng</i></b> xảy ra <b><u>kèm</u></b> <b>khoảng QT</b> <b><i>dài</i></b> trên điện tâm đồ nền. WCT <i>không đều</i> rất nhanh ở Hình 3 rõ ràng biểu hiện sự đổi chiều QRS quanh đường nền (<i>“xoắn quanh các đỉnh”</i>), đặc trưng của Torsades. Tuy nhiên, việc QT của các nhát xoang ở Hình 3 có kéo dài hay không – thì chỉ nghi ngờ chứ <i><u>không</u></i> hề rõ ràng vì ranh giới phần cuối sóng T không rõ nét …</li>
+<li><u>Về mặt thuật ngữ:</u> VT <i>đa dạng</i> xác định được khi không có QT kéo dài thì chỉ gọi đơn giản là <b><i>“VT đa dạng”</i></b>. Trái với căn nguyên đa yếu tố của Torsades (<i>do thuốc, thiếu hụt điện giải, rối loạn thần kinh trung ương hoặc bệnh lý nền khác có thể dẫn tới QT kéo dài</i>) — VT đa dạng <i><u>không</u></i> kèm QT kéo dài thường có căn nguyên thiếu máu cục bộ nhất.</li>
+<li><u>Về mặt lâm sàng:</u> Torsades de Pointes (<i>= VT đa dạng <u>kèm</u> QT dài</i>) — đáp ứng cực kỳ tốt với <b>Magnesi tĩnh mạch</b>. Mặc dù magnesi tĩnh mạch cũng được chỉ định làm điều trị ban đầu cho VT đa dạng có QT bình thường — khả năng đáp ứng rõ ràng <i>thấp hơn</i> so với khi khoảng QT kéo dài. Thay vào đó — có thể cần đến các thuốc chống loạn nhịp như amiodarone hoặc β–blocker để điều trị.</li></ul>
+<p>Chẩn đoán xác định WCT <i>không đều</i> ở Hình 3 có được khi xem bản mở rộng của nhịp này (<u>Hình 3-ANS</u>).</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-3-Ans-Torsades-2-2.3-12--Blog-36-dee4d9c45dc8.jpg"><img src="case-036_anh/Fig-3-Ans-Torsades-2-2.3-12--Blog-36-dee4d9c45dc8.jpg" alt="" width="1600" height="140" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3-ANS:</u></b> Bản mở rộng của nhịp ở Hình 3. Đây là xoắn đỉnh (Torsades de Pointes).</figcaption></figure>
+<p>Cách dễ nhất để nhìn dải nhịp chuyển đạo II ở <u>Hình 3-ANS</u> — là lùi ra xa bản ghi một chút. Làm vậy cho phép nhận ra trọn vẹn sự đổi chiều <i>luân phiên</i> đặc trưng của các phức bộ QRS quanh đường nền trong cơn WCT không đều.</p>
+<ul><li>Lưu ý trong hình phóng to vài nhát đầu tiên (<u>Hình 3-ANS-2</u>) rằng <b>khoảng QT</b> thực ra <u>có</u> <b><i>kéo dài</i></b> <b>(</b>tức là <i>dài hơn một nửa khoảng R-R</i><b>)</b> — xác nhận ví dụ <b>VT</b> <b><i>đa dạng</i></b> ở Hình 3 đúng là <b><i>Torsades</i></b> <b>(</b><i>Xem </i><b><a href="http://ecg-interpretation.blogspot.com/2014/05/ecg-blog-89-basic-concepts-2-intervals.html" rel="noopener" target="_blank">Basic Concepts #2</a></b><i> bắt đầu từ Hình 9 để ôn nhanh cách đánh giá khoảng QT</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-036_anh/Fig-3-ANS-2-Long_QT-1st_3_beats-2-4.2-12-228eb17dc82b.jpg"><img src="case-036_anh/Fig-3-ANS-2-Long_QT-1st_3_beats-2-4.2-12-228eb17dc82b.jpg" alt="" width="813" height="219" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 3-ANS-2</u></b>: Phóng to vài nhát đầu tiên của Hình 3-ANS. Khoảng QT nền kéo dài; nó chiếm hơn một nửa khoảng R-R ở mỗi nhát trong 2 nhát xoang đầu tiên.</figcaption></figure>
+<p><b><span class="c-do">LƯU Ý:</span></b> <b><i>Có thể cần đến sốc điện.</i></b> Nghĩa là — <u>NẾU</u> bệnh nhân <b>VT</b> <b><i>đa dạng</i></b> mất ổn định huyết động (<i>hoặc trở nên mất ổn định vào bất cứ lúc nào</i>) — chỉ định sốc điện <i>ngay lập tức</i>. Do phức bộ QRS liên tục thay đổi trong cơn nhịp nhanh — sốc điện chuyển nhịp đồng bộ thường sẽ <i><u>không</u></i> thực hiện được. Vì vậy — khuyến cáo sốc điện <i>không đồng bộ</i> (tức là <b><i>khử rung</i></b>) nếu bệnh nhân không ổn định.</p>
+<ul><li>VT đa dạng thường tái phát — nhất là khi còn một nguyên nhân <i>thúc đẩy</i> chưa được điều chỉnh. Có thể cần sốc điện lặp lại trong khi nỗ lực tìm và điều chỉnh các nguyên nhân nền.</li>
+
+<li>Nhận ra QT kéo dài trên điện tâm đồ nền của những bệnh nhân này gợi ý nhiều khả năng có vai trò của QT kéo dài <i>do thuốc </i><u>hoặc</u> <i>do điện giải</i>. Hy vọng — Magnesi tĩnh mạch sẽ đảo ngược rối loạn và ngăn các cơn tiếp theo. Các nỗ lực điều trị thiếu máu cục bộ có thể hữu ích trong điều trị VT đa dạng khi QT bình thường.</li></ul>
+<p>----------------------------------------------------------------</p>
+<p><b><span class="c-do">TRẢ LỜI cho Hình 4:</span></b>  Phức bộ QRS đơn pha, dù chiều cao QRS có thay đổi đôi chút. Nhịp <i>không đều</i> hoàn toàn với khoảng R-R thay đổi rõ rệt từ nhát này sang nhát kế tiếp. Không thấy hoạt động nhĩ. Mặc dù QRS rõ ràng giãn rộng — sự không đều thô của nhịp khiến VT ít có khả năng. Chẩn đoán có khả năng nhất còn lại là <b><i>rung</i></b> <b>nhĩ (</b><i>AFib</i><b>)</b> (<i>Xem </i><b>ECG <a href="http://ecg-interpretation.blogspot.com/2011/03/ecg-interpretation-review-18.html" rel="noopener" target="_blank">Blog #18</a></b>).</p>
+<figure><a class="o-anh" href="case-036_anh/Fig-4-WPW-fast-AFib-2-2.1-12--Blog-36-ff0e4309476f.jpg"><img src="case-036_anh/Fig-4-WPW-fast-AFib-2-2.1-12--Blog-36-ff0e4309476f.jpg" alt="" width="1158" height="281" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 4:</u></b> WCT <i>không đều</i> không có hoạt động nhĩ.</figcaption></figure>
+<p>Điểm <i>MẤU CHỐT</i> khi đọc nhịp này là nhận ra đáp ứng thất cực kỳ nhanh — nhanh hơn nhiều so với thường gặp trong rung nhĩ.</p>
+<ul><li>Trong điều kiện bình thường khi AFib – thời kỳ trơ của nút AV không cho phép quá 150-đến-200 xung/phút được dẫn xuống thất. Ở một số chỗ trong Hình 4 — khoảng R-R chỉ dài hơn một ô lớn một chút (<i>tương ứng tần số tim ~250/phút</i>) Tần số này đơn giản là <i>quá nhanh</i> để các xung nhĩ có thể truyền qua đường dẫn truyền bình thường (<i>qua nút AV</i>).</li></ul>
+<p><u><b>Kết luận:</b></u> Các xung nhĩ hẳn đang đi tắt qua nút AV. Phát hiện AFib với tần số cực kỳ nhanh (<i>trên ~220/phút</i>) phải ngay lập tức gợi ý khả năng dẫn truyền qua đường phụ (AP) ở bệnh nhân có <b>hội chứng WPW (<u><i>W</i></u></b><i>olff-<b><u>P</u></b>arksinson-<b><u>W</u></b>hite</i><b>)</b> (<i>Xem </i><b>ECG <a href="http://ecg-interpretation.blogspot.com/2011/03/ecg-interpretation-review-18.html" rel="noopener" target="_blank">Blog #18</a></b><i> để ôn lại các rối loạn nhịp nhanh trong WPW</i>).</p>
+<ul><li>Ví dụ AFib ở Hình 4 có thể dễ dàng phân biệt với dạng AFib nhanh phổ biến hơn nhiều (dẫn truyền qua đường nút AV bình thường) nhờ tần số. <i><b>Hãy nghi AFib kèm WPW bất cứ khi nào bạn gặp một WCT quá nhanh và không đều (</b>&gt;220/phút ở một số đoạn của bản ghi<b>) <u>không có</u> bằng chứng hoạt động nhĩ.</b></i></li>
+<li><u>Về mặt lâm sàng:</u> Tầm quan trọng của việc phân biệt dạng AFib nhanh thường gặp ở Hình 2 với dạng quá nhanh do WPW (Hình 4) — nằm ở khuyến cáo điều trị. Các thuốc ức chế nút AV thường được khuyến cáo để kiểm soát đáp ứng thất của AFib nhanh lại <b><i>chống chỉ định</i></b> khi AFib xảy ra kèm WPW. Do đó — verapamil, diltiazem, digoxin (<i>và có thể cả </i><i>β</i><i>–blocker</i>) đều có thể làm tăng dẫn truyền xuôi qua AP, qua đó làm tần số của nhịp vốn đã cực kỳ nhanh này tăng thêm và dễ dẫn tới chuyển thành rung thất.</li>
+<li>Điều trị được khuyến cáo cho AFib rất nhanh xảy ra kèm WPW gồm amiodarone, procainamide và ibutilide. Chỉ định sốc điện chuyển nhịp ngay lập tức nếu xảy ra mất bù huyết động vào bất cứ lúc nào trong quá trình điều trị.</li></ul>
+<p>----------------------------------------------------------------</p>
+<p><b><u><span class="c-do">TRẢ LỜI cho Hình 5:</span></u></b>  3 nhát đầu tiên trên dải nhịp V1 này là nhát xoang. Tiếp theo là một WCT <i>không đều</i> nhanh. Đây là một loạt <b>VT</b> <b><i>đơn dạng</i></b>, dù nhịp không đều nhiều hơn mức thường thấy ở VT.</p>
+<ul><li>Các lý do ủng hộ nguồn gốc thất của loạt WCT ở Hình 5 gồm: QRS giãn rộng khởi phát đột ngột với phức bộ QRS có hình dạng hoàn toàn khác so với các nhát dẫn truyền từ xoang.</li>
+<li>Có khoảng ngưng sau ngoại tâm thu theo sau loạt nhịp (<i>ít gặp hơn sau SVT</i>).</li>
+<li>Không có sóng P sớm đi trước loạt WCT.</li>
+<li>Xác suất thống kê cao rằng một WCT như ở Hình 5 là VT chứ không phải SVT kèm blốc nhánh có từ trước hoặc dẫn truyền lệch hướng.</li></ul>
+<figure><a class="o-anh" href="case-036_anh/Fig-5-VT-but_Irreg-2-2.2-2012--Blog-36-ef6e7d8bb9e4.JPG"><img src="case-036_anh/Fig-5-VT-but_Irreg-2-2.2-2012--Blog-36-ef6e7d8bb9e4.JPG" alt="" width="1414" height="340" loading="lazy" decoding="async"></a><figcaption><b><u>Hình 5:</u></b> Ba nhát xoang ban đầu — sau đó là một WCT không đều không có hoạt động nhĩ — tiếp theo là 2 nhát xoang ở cuối bản ghi.</figcaption></figure>
+<p><u><b>ĐIỂM THEN CHỐT (PEARL):</b></u> Chúng tôi thêm ví dụ cuối cùng này (<i>Hình 5</i>) để đối chiếu với WCT đều ở <u>Hình 1</u>, nhằm nhấn mạnh rằng VT <i><u>không</u></i> phải lúc nào cũng đều hoàn toàn.</p>
+<ul><li>Phần lớn thời gian — mọi sự không đều gặp trong VT sẽ rất ít.</li>
+<li>Đôi khi, có thể có <i><u>hoặc</u></i> <b>hiện tượng</b> <i><b>“khởi động” (warm-up)</b></i> <u>hoặc</u> <b><i>“hạ nhiệt” (cool-down)</i></b> — trong đó vài nhát đầu của loạt VT sẽ <i><u>hoặc</u></i> nhanh dần hoặc chậm dần cho đến khi thiết lập được khoảng R-R khá đều. Ở Hình 5 thấy một giai đoạn “hạ nhiệt” (<i>biểu hiện bằng tần số VT chậm lại sau vài nhát đầu</i>).</li>
+<li>WCT <i>không đều</i> ở Hình 5 <i><u>không</u></i> phải AFib kèm WPW.  Khác với Hình 4 — Hình 5 bắt đầu và kết thúc bằng các nhát dẫn truyền từ xoang. Ở giữa là một WCT <i>đơn dạng</i> có hình dạng rất khác, không có hoạt động nhĩ. Đây là VT.</li>
+<li>WCT <i>không đều</i> ở Hình 5 <i><u>không</u></i> phải Torsades vì nó không đa dạng. Thay vào đó chúng ta thấy một loạt WCT <i>đơn dạng</i> phù hợp với VT thông thường.</li></ul>
+<p><b><u>Về mặt lâm sàng:</u> </b>Tầm quan trọng của việc nhận định WCT <i>không đều</i> ở Hình 5 là VT nằm ở khuyến cáo điều trị. Các lựa chọn chống loạn nhịp được ưu tiên cho VT đơn dạng gồm amiodarone — procainamide — sotalol. Điều này rất khác với điều trị được khuyến cáo cho Torsades hoặc AFib có QRS giãn rộng do dẫn truyền lệch hướng hoặc WPW.</p>
+<p>----------------------------------------------------------------</p>
+<p>—<i> Xem </i><b>ECG <a href="http://ecg-interpretation.blogspot.com/2011/03/ecg-interpretation-review-18.html" rel="noopener" target="_blank">Blog #18</a>, <a href="http://ecg-interpretation.blogspot.com/2011/06/ecg-interpretation-review-23-wide.html" rel="noopener" target="_blank">Blog #23</a></b>,<i> </i><b><a href="http://ecg-interpretation.blogspot.com/2011/07/ecg-interpretation-review-24-wide.html" rel="noopener" target="_blank">Blog #24</a></b><i> và </i><b><a href="http://ecg-interpretation.blogspot.com/2012/02/ecg-interpretation-review-37-irregular.html" rel="noopener" target="_blank">Blog #37</a> </b>—<br><i> </i>—<i> Xem thêm các tệp pdf trích từ cuốn </i><b>ACLS-2013-ePub</b><i> của chúng tôi về </i><b><a href="https://www.dropbox.com/s/vwyops3cnxkgo6k/7.0-%20ACLS-2013-e-PUB-Known%20VT-%2810-13.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">VT đã biết</a></b><i> </i><i>–</i><i> </i><b><a href="https://www.dropbox.com/s/z2rf9uf5q17q5tf/11.0-%20ACLS-2013-e-PUB-PMVT-Torsades-%2810-13.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">Torsades</a></b><i> de Points (xoắn đỉnh) </i>—<i> </i><b><a href="https://www.dropbox.com/s/vv598s5qsmzqf5c/12.0-%20ACLS-2013-e-PUB-Irreg%20WCT-WPW-%2810-13.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">AFib rất nhanh kèm WPW</a></b><i> </i><i>–</i><i> </i></p>
+<p><span class="c-do">----------------------------------------------------------------</span></p>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
