@@ -721,50 +721,55 @@
 "nhan": "#67",
 "slug": "case-067",
 "url": "https://www.ekgblog.com/2013/05/ecg-interpretation-review-67-pac-pvc-12.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Interpretation Review #67 (PAC – PVC – 12 Leads Better than One)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 67 (PAC – PVC – 12 chuyển đạo tốt hơn một)",
+"trang_thai": "xong",
+"tu_khoa": "ngoại tâm thu nhĩ, ngoại tâm thu thất, PAC, PVC, nhịp ba thất, ventricular trigeminy, nhịp ba nhĩ, atrial trigeminy, dẫn truyền lệch hướng, aberrant conduction, dải nhịp nhiều chuyển đạo, multi-lead rhythm strip, QRS rộng",
+"ngay": "2026-09-30"
 },
 {
 "stt": 69,
 "nhan": "#68",
 "slug": "case-068",
 "url": "https://www.ekgblog.com/2013/06/ecg-interpretation-review-68-pvc.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #68 — Interpolated and Concealed ...",
+"tieu_de_vi": "ECG Blog #68 — Ngoại tâm thu thất xen kẽ và dẫn truyền ẩn ...",
+"trang_thai": "xong",
+"tu_khoa": "ngoại tâm thu thất xen kẽ, interpolated PVC, dẫn truyền ẩn, concealed conduction, khoảng nghỉ bù, compensatory pause, khoảng ngưng sau ngoại tâm thu, post-ectopic pause, giản đồ bậc thang, laddergram, PR kéo dài, dẫn truyền ngược dòng, PVC",
+"ngay": "2026-09-30"
 },
 {
 "stt": 70,
 "nhan": "#69",
 "slug": "case-069",
 "url": "https://www.ekgblog.com/2013/06/ecg-interpretation-review-69-pvc-pjc.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #69 (Laddergrams – Group Beating)",
+"tieu_de_vi": "ECG Blog #69 (Giản đồ bậc thang – Nhịp theo nhóm)",
+"trang_thai": "xong",
+"tu_khoa": "giản đồ bậc thang, laddergram, nhịp theo nhóm, group beating, ngoại tâm thu bộ nối, PJC, dẫn truyền ẩn, concealed conduction, dẫn truyền ngược dòng, retrograde conduction, blốc AV độ 1, Wenckebach, dẫn truyền lệch hướng, aberrant conduction, sóng P không dẫn truyền",
+"ngay": "2026-09-30"
 },
 {
 "stt": 71,
 "nhan": "#70",
 "slug": "case-070",
 "url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-70-pvc.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #70 (PVC – Aberrancy – Ashman)",
+"tieu_de_vi": "ECG Blog #70 (PVC – dẫn truyền lệch hướng – hiện tượng Ashman)",
+"trang_thai": "xong",
+"tu_khoa": "hiện tượng Ashman, Ashman phenomenon, dẫn truyền lệch hướng, aberrant conduction, PAC, PVC, ngoại tâm thu nhĩ, RBBB, thời kỳ trơ, refractory period, khoảng ghép, coupling interval, MAT, MCL-1, dẫn truyền ẩn, concealed conduction",
+"ngay": "2026-09-30"
 },
 {
 "stt": 72,
 "nhan": "#71",
 "slug": "case-071",
 "url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-71-pvc.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #71 (PVC – AFib – Ashman – Aberrancy)",
+"tieu_de_vi": "ECG Blog #71 (PVC – rung nhĩ – hiện tượng Ashman – dẫn truyền lệch hướng)",
+"trang_thai": "xong",
+"tu_khoa": "hiện tượng Ashman, Ashman phenomenon, rung nhĩ, AFib, dẫn truyền lệch hướng, aberrant conduction, dẫn truyền ẩn, concealed conduction, PVC, RBBB, rsR, tai thỏ, rabbit ear, MCL-1, đáp ứng thất nhanh",
+"ngay": "2026-09-30"
 },
 {
 "stt": 73,
@@ -807,10 +812,11 @@
 "nhan": "#76",
 "slug": "case-076",
 "url": "https://www.ekgblog.com/2013/10/ecg-interpretation-review-76-anterior.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #76 — Localization of the Problem?",
+"tieu_de_vi": "ECG Blog #76 — Định vị vấn đề?",
+"trang_thai": "xong",
+"tu_khoa": "WPW, Wolff-Parkinson-White, sóng delta, delta wave, đường phụ, accessory pathway, định vị đường phụ, AP localization, tiền kích thích, preexcitation, giả nhồi máu thành trước, pseudoinfarction, vùng chuyển tiếp, transition, thăm dò điện sinh lý, EP study, triệt đốt qua ống thông, catheter ablation",
+"ngay": "2026-09-30"
 },
 {
 "stt": 78,
@@ -826,10 +832,11 @@
 "nhan": "#78",
 "slug": "case-078",
 "url": "https://www.ekgblog.com/2013/11/ecg-interpretation-review-78-pacs.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Interpretation Review #78 (PACs – Atrial Bigeminy – Aberrancy – Blocked PAC – AV Block)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 78 (PAC – Nhịp đôi nhĩ – Dẫn truyền lệch hướng – PAC bị blốc – Blốc AV)",
+"trang_thai": "xong",
+"tu_khoa": "ngoại tâm thu nhĩ, PAC, nhịp đôi nhĩ, atrial bigeminy, dẫn truyền lệch hướng, aberrant conduction, PAC bị blốc, blocked PAC, blốc AV, AV block, nhịp nhanh xoang, sinus tachycardia, hẫng nhịp, khía sóng T",
+"ngay": "2026-09-30"
 },
 {
 "stt": 80,
@@ -845,30 +852,33 @@
 "nhan": "#80",
 "slug": "case-080",
 "url": "https://www.ekgblog.com/2013/12/ecg-interpretation-review-80-acute.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #80 — CP & Coronary Anatomy",
+"tieu_de_vi": "ECG Blog #80 — Đau ngực & giải phẫu động mạch vành",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim cấp, STEMI dưới-sau-bên, tắc động mạch mũ, LCx occlusion, động mạch thủ phạm, culprit artery, tuần hoàn ưu thế trái, left-dominant circulation, tắc RCA đoạn gần, nhồi máu thành sau, posterior MI, nghiệm pháp gương, mirror test, nhồi máu thất phải, RV MI, giải phẫu động mạch vành, coronary anatomy",
+"ngay": "2026-09-30"
 },
 {
 "stt": 82,
 "nhan": "#81",
 "slug": "case-081",
 "url": "https://www.ekgblog.com/2014/01/ecg-interpretation-review-81-tall-r.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #81 — Tall R Wave in V1 ...",
+"tieu_de_vi": "ECG Blog #81 — Sóng R cao ở V1 ...",
+"trang_thai": "xong",
+"tu_khoa": "sóng R cao ở V1, tall R wave V1, WPW, sóng delta, delta wave, tiền kích thích, pre-excitation, RBBB, RVH, nhồi máu thành sau, posterior MI, bệnh cơ tim phì đại, HCM, vùng chuyển tiếp sớm, early transition, đường phụ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 83,
 "nhan": "#82",
 "slug": "case-082",
 "url": "https://www.ekgblog.com/2014/01/ecg-interpretation-review-82-acute.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770933
+"tieu_de_en": "ECG Blog #82 — Serial STEMI Tracings",
+"tieu_de_vi": "ECG Blog #82 — Các bản ghi STEMI liên tiếp",
+"trang_thai": "xong",
+"tu_khoa": "STEMI, tắc LAD đoạn gần, proximal LAD occlusion, điện tâm đồ ghi liên tiếp, serial ECG, sóng T tối cấp, hyperacute T waves, RBBB, tái tưới máu, reperfusion, động mạch thủ phạm, culprit artery, aVL, nhánh chéo, diagonal branch, nhánh xuyên vách, septal perforator, wraparound LAD",
+"ngay": "2026-09-30"
 },
 {
 "stt": 84,
