@@ -1049,10 +1049,11 @@
 "nhan": "#95",
 "slug": "case-095",
 "url": "https://www.ekgblog.com/2014/08/ecg-blog-95-ecg-video-blog-1-is-there.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #95 (ECG Video-Blog-1) – Is there AV Block?",
+"tieu_de_vi": "ECG Blog #95 (ECG Video-Blog-1) – Có blốc AV không?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, blốc AV độ 2, second-degree AV block, Mobitz I, Wenckebach, PAC bị blốc, blocked PAC, khoảng ngưng, pause, hội chứng suy nút xoang, sick sinus syndrome, dải nhịp, rhythm strip, ECG Video Blog",
+"ngay": "2026-09-30"
 },
 {
 "stt": 97,
@@ -1081,10 +1082,11 @@
 "nhan": "#98",
 "slug": "case-098",
 "url": "https://www.ekgblog.com/2014/10/ecg-blog-98-ecg-video-blog-4-arrhythmia.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #98 (ECG Video-Blog-4) - Arrhythmia Management in Primary Care (Part I)",
+"tieu_de_vi": "ECG Blog #98 (ECG Video-Blog-4) - Xử trí rối loạn nhịp tim trong chăm sóc ban đầu (Phần I)",
+"trang_thai": "xong",
+"tu_khoa": "rối loạn nhịp tim, cardiac arrhythmia, xử trí rối loạn nhịp, arrhythmia management, chăm sóc ban đầu, primary care, theo dõi nhịp tim, cardiac monitoring, Holter, rối loạn nhịp lành tính, benign arrhythmia, chuyển tuyến, referral, điện sinh lý tim, EP cardiology, ECG Video Blog",
+"ngay": "2026-09-30"
 },
 {
 "stt": 100,
@@ -1421,40 +1423,44 @@
 "nhan": "#132",
 "slug": "case-132",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-132-ventricular-tachycardia-vt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #132 (Ventricular Tachycardia - VT - Vfib - Artifact - Cardioversion)",
+"tieu_de_vi": "ECG Blog #132 (Nhịp nhanh thất - VT - Rung thất - Nhiễu - Sốc điện chuyển nhịp)",
+"trang_thai": "xong",
+"tu_khoa": "nhiễu, artifact, giả nhịp nhanh thất, VT, nhịp nhanh thất, rung thất, VFib, sốc điện chuyển nhịp, cardioversion, theo dõi từ xa, telemetry, ho, compa đo, calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 131,
 "nhan": "#133",
 "slug": "case-133",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-133-aberrant-conduction-vt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #133 — Is there AV Dissociation?",
+"tieu_de_vi": "ECG Blog #133 — Có phân ly nhĩ thất không?",
+"trang_thai": "xong",
+"tu_khoa": "phân ly nhĩ thất, AV dissociation, nhát hỗn hợp, fusion beat, nhịp nhanh QRS rộng, WCT, nhịp nhanh thất, VT, loạn nhịp xoang, dẫn truyền lệch hướng, aberrant conduction, compa đo, calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 132,
 "nhan": "#134",
 "slug": "case-134",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-134-ventricular-tachycardia-vt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #134 — Is there AV Dissociation?",
+"tieu_de_vi": "ECG Blog #134 — Có phân ly nhĩ thất không?",
+"trang_thai": "xong",
+"tu_khoa": "phân ly nhĩ thất, AV dissociation, nhịp nhanh QRS rộng đều, WCT, nhịp nhanh thất, VT, nhịp tự thất gia tốc, AIVR, trục lệch cực độ, extreme axis deviation, hồi hộp, palpitations, compa đo, calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 133,
 "nhan": "#135",
 "slug": "case-135",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-135-regular-wct-fascicular-vt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790774669
+"tieu_de_en": "ECG Blog #135 (Regular WCT – Fascicular VT – RBBB – LPHB – SVT)",
+"tieu_de_vi": "ECG Blog #135 (WCT đều – VT phân nhánh – RBBB – LPHB – SVT)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, WCT, VT phân nhánh, fascicular VT, RBBB, LPHB, blốc hai phân nhánh, bifascicular block, SVT, sốc điện chuyển nhịp, cardioversion, phân mảnh QRS, QRS fragmentation, dẫn truyền lệch hướng, aberrant conduction",
+"ngay": "2026-09-30"
 },
 {
 "stt": 134,
