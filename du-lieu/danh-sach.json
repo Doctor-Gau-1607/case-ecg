@@ -301,50 +301,55 @@
 "nhan": "#28",
 "slug": "case-028",
 "url": "https://www.ekgblog.com/2011/08/ecg-interpretation-review-28-st-t-wave.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770180
+"tieu_de_en": "ECG Interpretation Review #28 (ST-T Wave Changes - Ischemia - RVH - RV \"Strain\")",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 28 (Thay đổi ST-T – Thiếu máu cục bộ – RVH – “Tăng gánh” thất phải)",
+"trang_thai": "xong",
+"tu_khoa": "sóng T đảo ngược đối xứng, T wave inversion, thiếu máu cục bộ, ischemia, phì đại thất phải, RVH, tăng gánh thất phải, RV strain, bất thường nhĩ phải, RAA, trục lệch phải, RAD, thuyên tắc phổi, pulmonary embolism, loạn nhịp xoang, sinus arrhythmia",
+"ngay": "2026-09-30"
 },
 {
 "stt": 29,
 "nhan": "#29",
 "slug": "case-029",
 "url": "https://www.ekgblog.com/2011/09/test.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770180
+"tieu_de_en": "ECG Interpretation Review #29 (Infarction- Hemiblock- Normal Q Waves)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 29 (Nhồi máu – Blốc phân nhánh – Sóng Q bình thường)",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cũ, prior infarction, sóng Q, Q wave, sóng Q bình thường, normal Q waves, blốc phân nhánh trái trước, LAHB, trục lệch trái, LAD, vùng chuyển tiếp sớm, early transition, nhồi máu thành sau, posterior infarction, sóng T thiếu niên, juvenile T wave, chữ Z ngược",
+"ngay": "2026-09-30"
 },
 {
 "stt": 30,
 "nhan": "#30",
 "slug": "case-030",
 "url": "https://www.ekgblog.com/2011/10/ecg-interpretation-review-30-bundle.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770180
+"tieu_de_en": "ECG Interpretation Review #30 (Bundle Branch Block - RBBB - LAHB - LPHB - PACs - Aberrant Conduction)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 30 (Blốc nhánh - RBBB - LAHB - LPHB - PAC - Dẫn truyền lệch hướng)",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhánh phải, RBBB, blốc phân nhánh trái sau, LPHB, LAHB, blốc hai phân nhánh, bifascicular block, ngoại tâm thu nhĩ, PAC, dẫn truyền lệch hướng, aberrant conduction, loạn nhịp xoang, sinus arrhythmia, nhịp tư nhĩ, atrial quadrigeminy, thay đổi ST-T thứ phát",
+"ngay": "2026-09-30"
 },
 {
 "stt": 31,
 "nhan": "#31",
 "slug": "case-031",
 "url": "https://www.ekgblog.com/2011/10/ecg-interpretation-review-31-fib-rbbb.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770180
+"tieu_de_en": "ECG Interpretation Review #31 (A Fib – RBBB – LBBB – IVCD – LAD – Infarct with BBB/Conduction Defects)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 31 (Rung nhĩ – RBBB – LBBB – IVCD – LAD – Nhồi máu kèm blốc nhánh/rối loạn dẫn truyền)",
+"trang_thai": "xong",
+"tu_khoa": "rung nhĩ, atrial fibrillation, blốc nhánh phải, RBBB, LBBB, chậm dẫn truyền trong thất, IVCD, trục lệch trái, LAD, blốc hai phân nhánh, LAHB, nhồi máu cơ tim cấp, acute MI, nhồi máu vách-trước, anteroseptal infarction, kiểu Brugada, Brugada pattern, Brugada phenocopy, đau ngực",
+"ngay": "2026-09-30"
 },
 {
 "stt": 32,
 "nhan": "#32",
 "slug": "case-032",
 "url": "https://www.ekgblog.com/2011/11/ecg-interpretation-review-32-bundle.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770180
+"tieu_de_en": "ECG Interpretation Review #32 (Bundle Branch Block - Rate Related - Aberrant Conduction - LBBB)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 32 (Blốc nhánh – Liên quan tần số – Dẫn truyền lệch hướng – LBBB)",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhánh liên quan tần số, rate-related BBB, blốc nhánh trái, LBBB, dẫn truyền lệch hướng, aberrant conduction, rung nhĩ, atrial fibrillation, AIVR, nhịp tự thất gia tốc, NSVT, thời kỳ trơ tương đối, QRS giãn rộng từng lúc, MCL-1",
+"ngay": "2026-09-30"
 },
 {
 "stt": 33,
