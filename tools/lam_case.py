@@ -55,11 +55,16 @@ def ghi_ds(ds):
 def day(thong_diep, duong_dan):
     """commit + pull --rebase + push, thử lại khi có lượt khác vừa đẩy."""
     sh('git', 'add', '--sparse', *duong_dan)
-    if sh('git', 'diff', '--cached', '--quiet', check=False).returncode == 0:
-        print('Không có gì mới để đẩy.'); return
-    sh('git', 'commit', '-q', '-m', thong_diep + '\n\nCo-Authored-By: Claude <noreply@anthropic.com>')
+    if sh('git', 'diff', '--cached', '--quiet', check=False).returncode != 0:
+        sh('git', 'commit', '-q', '-m', thong_diep + '\n\nCo-Authored-By: Claude <noreply@anthropic.com>')
+    else:
+        # không có thay đổi mới, nhưng có thể còn commit cũ chưa đẩy (lần trước kẹt)
+        sh('git', 'fetch', '-q', 'origin', 'main', check=False)
+        if sh('git', 'rev-list', '--count', 'origin/main..HEAD', cap=True).stdout.strip() == '0':
+            print('Không có gì mới để đẩy.'); return
     for t in range(6):
-        if sh('git', 'pull', '-q', '--rebase', 'origin', 'main', check=False).returncode != 0:
+        # --autostash: tệp khác đang sửa dở (vd. thuat-ngu.md) không làm kẹt rebase
+        if sh('git', 'pull', '-q', '--rebase', '--autostash', 'origin', 'main', check=False).returncode != 0:
             # xung đột chỉ có thể ở danh-sach.json: lấy bản mới rồi áp lại thay đổi của mình
             sh('git', 'rebase', '--abort', check=False)
             sys.exit('LỖI: rebase xung đột — xem lại du-lieu/danh-sach.json rồi chạy lại day-len')
