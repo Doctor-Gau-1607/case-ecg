@@ -1577,40 +1577,44 @@
 "nhan": "#146",
 "slug": "case-146",
 "url": "https://www.ekgblog.com/2018/01/ecg-blog-146-chest-pain-lbbb-primary-st.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775892
+"tieu_de_en": "ECG Blog #146 – (BBB – Primary ST-T Changes)",
+"tieu_de_vi": "ECG Blog #146 — (BBB – Thay đổi ST-T nguyên phát)",
+"trang_thai": "xong",
+"tu_khoa": "LBBB, blốc nhánh trái, left bundle branch block, STEMI, nhồi máu cơ tim cấp, thay đổi ST-T nguyên phát, primary ST-T changes, sóng Q vách, septal Q waves, thay đổi soi gương, reciprocal changes, Sgarbossa, Smith-modified Sgarbossa, ST dạng vòm, ST coving",
+"ngay": "2026-09-30"
 },
 {
 "stt": 145,
 "nhan": "#147",
 "slug": "case-147",
 "url": "https://www.ekgblog.com/2018/01/ecg-blog-147-av-block-pacs-mobitz-i.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775892
+"tieu_de_en": "ECG Blog #147 (AV Block - PACs - Mobitz I, II).",
+"tieu_de_vi": "ECG Blog #147 (Blốc AV - PAC - Mobitz I, II).",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, PAC bị blốc, blocked PAC, non-conducted PAC, Mobitz I, Mobitz II, Wenckebach AV, nhịp theo nhóm, group beating, nhát thoát bộ nối, junctional escape beat, khoảng ngưng, pause, blốc AV độ 1, 1st-degree AV block, giản đồ bậc thang, laddergram",
+"ngay": "2026-09-30"
 },
 {
 "stt": 146,
 "nhan": "#148",
 "slug": "case-148",
 "url": "https://www.ekgblog.com/2018/03/ecg-blog-148-ventricular-fibrillation.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775892
+"tieu_de_en": "ECG Blog #148 — Is this VFib?",
+"tieu_de_vi": "ECG Blog #148 — Đây có phải rung thất (VFib) không?",
+"trang_thai": "xong",
+"tu_khoa": "rung thất, VFib, ventricular fibrillation, nhiễu, artifact, giả rung thất, pseudo-VFib, ghi đồng thời, simultaneous leads, nhịp trên thất, supraventricular rhythm, nhiễu do run, tremor artifact",
+"ngay": "2026-09-30"
 },
 {
 "stt": 147,
 "nhan": "#149",
 "slug": "case-149",
 "url": "https://www.ekgblog.com/2018/03/ecg-blog-149-j-point-osborn-hypothermia.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775892
+"tieu_de_en": "ECG Blog #149 (ST Elevation - J-Point - Osborn - Hypothermia - Pericarditis - Acute STEMI)",
+"tieu_de_vi": "ECG Blog #149 (ST chênh lên - Điểm J - Osborn - Hạ thân nhiệt - Viêm màng ngoài tim - STEMI cấp)",
+"trang_thai": "xong",
+"tu_khoa": "sóng Osborn, Osborn wave, sóng J, J wave, hạ thân nhiệt, hypothermia, ST chênh lên lan tỏa, diffuse ST elevation, điểm J, J-point, viêm màng ngoài tim, pericarditis, STEMI cấp, QTc kéo dài, nhịp chậm, bradycardia, camel-hump sign",
+"ngay": "2026-09-30"
 },
 {
 "stt": 148,
