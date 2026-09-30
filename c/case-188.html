@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #188 — Cách đọc/vẽ giản đồ bậc thang (laddergram)</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #188 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #188 — Cách đọc/vẽ giản đồ bậc thang (laddergram)</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p><i>Học vẽ <b><u><span class="c-do">G</span>iản đồ bậc thang</u></b> (laddergram) là việc đầy thử thách</i>. Tôi hoàn toàn thừa nhận rằng tôi đã mất khá nhiều thời gian mới cảm thấy thành thạo kỹ năng này. Dù vậy — <b>học cách <i>đọc</i> giản đồ bậc thang thì <i>DỄ</i></b> — và quan trọng để nâng cao hiểu biết của bạn về các rối loạn nhịp phức tạp hơn.</p>
+<ul><li>Tôi trình bày những điều cơ bản về giản đồ bậc thang là gì trong <b><i><u>Video</u></i> điện tâm đồ </b>dài 5 phút bên dưới. Với phần giới thiệu này — bạn sẽ có thể hiểu được cơ chế được mô tả trong hầu hết các giản đồ bậc thang mà bạn sẽ gặp.</li><li>Với những ai quan tâm đến việc <b><i><u>vẽ</u></i></b> <b>giản đồ bậc thang</b> — tôi hướng dẫn bạn một cách tiếp cận <i>từng bước</i> trong bài <b><a href="http://ecg-interpretation.blogspot.com/2013/06/ecg-interpretation-review-69-pvc-pjc.html" rel="noopener" target="_blank">ECG Blog #69</a> (</b><i>tiếp theo là các đường link ở CUỐI trang này dẫn tới <b><u>hơn</u> 140 ví dụ lâm sàng về giản đồ bậc thang</b> mà tôi đã vẽ để minh họa các ca bệnh</i><b>)</b>.</li><li><b><u>LƯU Ý:</u></b> Bạn <i><u>không</u></i> cần biết cách vẽ giản đồ bậc thang mới có thể đọc rối loạn nhịp một cách xuất sắc — NHƯNG — <b>Việc thành thạo <i><u>đọc</u></i> giản đồ bậc thang sẽ vô cùng quý giá để đưa bạn lên trình độ <i>tiếp theo</i>!</b></li><li><br></li><li><b><u><span class="c-do">L</span>INK</u></b> <b><i><span class="c-do">d</span>ễ <span class="c-do">n</span>hớ</i></b> <b> = <a href="http://tinyurl.com/KG-Laddergrams" rel="noopener" target="_blank">https://tinyurl.com/KG-Laddergrams</a></b> — dẫn bạn tới bài ECG Blog #188 này.</li></ul>
+<figure><a class="o-anh" href="case-188_anh/MP-5-28Video-29-All-About-Laddergrams-USE-d60b65f53031.png"><img src="case-188_anh/MP-5-28Video-29-All-About-Laddergrams-USE-d60b65f53031.png" alt="" width="1600" height="202" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dz7muHYzxuJ07sKNmRUfQCWa5VoAdNTelIvSNjHNNwLE_uvGn59XoxfP5KAyTLh9HhS06u1n0Q7AcpRJJmctb44L9f396KKKVZVUDV8PrP3n58uIX_6atS96XeSyObYItsYw09T&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b><u><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>earl <span class="c-do">#</span>5<span class="c-do">:</span></u> </b>Video này (<i>5:00 phút — <span class="c-do">sửa lại</span> 11/10/2021</i>) ôn lại những điều cơ bản về giản đồ bậc thang là gì. Giản đồ bậc thang mà tôi minh họa ngắn gọn (<i>bắt đầu ở khoảng phút thứ ~4 của video</i>) được trích từ bài <b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-187-ischemia-mi-complete-av.html" rel="noopener" target="_blank">ECG Blog #187</a> (</b><i>bài này cung cấp thêm chi tiết về ca bệnh — kể cả, trong Phần bổ sung của Blog #187, một số khả năng khác về cơ chế của rối loạn nhịp</i><b>)</b> của tôi.</p>
+<p>===================================</p>
+<p><b><u>Cách <i><span class="c-do">V</span>ẽ</i> một <span class="c-do">G</span>iản đồ bậc thang</u> (</b><i>Minh họa từng bước</i><b>)</b></p>
+<ul><li><i><b>Xem</b></i> <b><a href="http://ecg-interpretation.blogspot.com/2013/06/ecg-interpretation-review-69-pvc-pjc.html" rel="noopener" target="_blank">ECG Blog #69</a></b> <b>— </b>Để có hướng dẫn Từng bước bằng <i>lời</i> về việc <b><i>vẽ</i></b> một <b>giản đồ bậc thang</b>. </li><li><i>Để luyện tập thêm, hãy xem bất kỳ đường </i><b>LINK</b><i> nào trong <b>rất nhiều</b> link <b>bên dưới</b> ở cuối bài blog hôm nay!</i></li><li><b><a href="https://www.dropbox.com/scl/fi/puqqu241zuskfla28f7y9/Laddergram-Stencil-For_FREE_Use_By_OTHERS-11-14.2-2021.pptx?dl=0&amp;rlkey=ciaq7i5ozjpfltot18ntgehcu" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a> </b><i>— Để TẢI VỀ </i><b><span class="c-do">M</span><i>ẫu </i><span class="c-do">G</span><i>iản đồ bậc thang </i><span class="c-do">P</span><i>ower</i><span class="c-do">P</span><i>oint </i></b><b><u>MIỄN PHÍ</u> của tôi (</b><i>Đây là LINK dễ nhớ tới Mẫu giản đồ bậc thang PowerPoint MIỄN PHÍ của tôi — </i><b><a href="http://tinyurl.com/KG-Laddergrm-Stencil" rel="noopener" target="_blank">tinyurl.com/KG-Laddergram-Stencil</a> )</b>.</li></ul>
+<p>===================================</p>
+<p>Để <b><u>Tóm tắt</u></b> các <b>thành phần</b> <b><i>thiết yếu</i></b> của <b><u>giản đồ bậc thang</u></b> — tôi đã thêm 2 hình sau (<i>lấy từ cuốn sách ACLS-2013-ePub của tôi</i>). <b>Chú thích</b> giải thích các thành phần cơ bản của giản đồ bậc thang ở <u>Ô A</u> và <u>Ô B</u> nằm <i>bên dưới</i> mỗi Hình.</p>
+<figure><a class="o-anh" href="case-188_anh/Figure-1---Laddergram-Elements-33af28c9a67c.png"><img src="case-188_anh/Figure-1---Laddergram-Elements-33af28c9a67c.png" alt="" width="1600" height="921" loading="lazy" decoding="async"></a></figure>
+<figure><a class="o-anh" href="case-188_anh/Legend-to-Figure-1-083400ef4c55.png"><img src="case-188_anh/Legend-to-Figure-1-083400ef4c55.png" alt="" width="1349" height="1600" loading="lazy" decoding="async"></a></figure>
+<p>===================================</p>
+<figure><a class="o-anh" href="case-188_anh/Figure-2-SVT-Laddergram-1c8768a575ba.png"><img src="case-188_anh/Figure-2-SVT-Laddergram-1c8768a575ba.png" alt="" width="1600" height="751" loading="lazy" decoding="async"></a></figure>
+<figure><a class="o-anh" href="case-188_anh/Legend-to-Figure-2-3102187a40b9.png"><img src="case-188_anh/Legend-to-Figure-2-3102187a40b9.png" alt="" width="1600" height="1140" loading="lazy" decoding="async"></a></figure>
+<p>===================================</p>
+<p><b><u>Để luyện tập <i><span class="c-do">Đ</span>ọc</i> <span class="c-do">G</span>iản đồ bậc thang</u> <span class="c-do">—</span></b> Mời bạn <i>XEM</i> các bài ECG Blog sau đây do tôi viết, trong đó tôi có thêm hình minh họa bằng giản đồ bậc thang:</p>
+<ul><li><b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-189-ecg-mp-6-is-this-some-type.html" rel="noopener" target="_blank">ECG Blog #189</a> (</b><i>kèm một video điện tâm đồ minh họa, dò theo từng bước dựng giản đồ bậc thang trong ca đầy thử thách này</i><b>)</b> — <u>và</u> — <i>bài</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-187-ischemia-mi-complete-av.html" rel="noopener" target="_blank">ECG Blog #187</a></b> của tôi <b>(</b><i>minh họa việc đôi khi có thể có <u>nhiều hơn</u> một cách giải thích bằng giản đồ bậc thang</i><b>)</b> —</li><li>Một ca có <b>nhịp theo <i>nhóm</i> (group beating)</b> <b>(</b><i>minh họa Từng bước</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2019/05/ecg-blog-164-pacs-blocked-pacs.html" rel="noopener" target="_blank">ECG Blog #164</a></b> —</li><li>Một bệnh nhân ngất và tụt huyết áp <b>(</b><i>minh họa Từng bước</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2019/09/ecg-blog-168-stemi-complex-av-block.html" rel="noopener" target="_blank">ECG Blog #168</a></b> —</li><li>STEMI <i>thành dưới</i> + <b>Wenckebach AV</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2018/07/ecg-blog-154-stemi-inferior-mobitz.html" rel="noopener" target="_blank">ECG Blog #154</a></b> —</li><li>Mobitz I + nhồi máu cơ tim cấp — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2012/11/ecg-interpretation-review-55-mobitz-i.html" rel="noopener" target="_blank">ECG Blog #55</a></b> —</li><li>Mobitz I + các nhát thoát bộ nối — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2013/03/ecg-interpretation-review-63-av-block.html" rel="noopener" target="_blank">ECG Blog #63</a></b> —</li><li>Nhịp theo nhóm + PAC — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2018/01/ecg-blog-147-av-block-pacs-mobitz-i.html" rel="noopener" target="_blank">ECG Blog #147</a></b> —</li><li>Thoát–bắt được (escape-capture) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2019/04/ecg-blog-163-escape-capture-wenckebach.html" rel="noopener" target="_blank">ECG Blog #163</a></b> —</li><li>Nhát hỗn hợp — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2016/07/ecg-blog-129-pvc-late-cycle-end.html" rel="noopener" target="_blank">ECG Blog #129</a></b> —</li><li>PVC xen kẽ — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2013/06/ecg-interpretation-review-68-pvc.html" rel="noopener" target="_blank">ECG Blog #68</a></b> —</li><li>AIVR có dẫn truyền <i>ngược dòng</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2015/04/ecg-blog-107-pvcs-couplets-aivr-echo.html" rel="noopener" target="_blank">ECG Blog #107</a></b> —</li><li><i><br></i></li><li><i>Rất nhiều </i>phân ly nhĩ thất (<i><u>không phải</u></i> độ 3) — <b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-202-ecg-mp-19-do-any-p-waves.html" rel="noopener" target="_blank">ECG Blog #202</a></b></li><li>Blốc AV có hoàn toàn không? — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-191-ecg-mp-8-is-av-block.html" rel="noopener" target="_blank">ECG Blog #191</a></b> <b>(</b><i>và</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/11/ecg-blog-405-is-av-block-complete-vs-av.html" rel="noopener" target="_blank">Blog #405</a>)</b> —</li><li>Phân ly nhĩ thất do "mặc định" ("Default") — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-192-ecg-mp-9-av-dissociation.html" rel="noopener" target="_blank">ECG Blog #192</a></b> —</li><li>Phân ly nhĩ thất do "chiếm quyền" ("Usurpation") — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/08/ecg-blog-247-61-why-is-pr-interval.html" rel="noopener" target="_blank">ECG Blog #247</a></b> —</li><li><b>AIVR</b> kèm nhát thoát <i>bộ nối</i> &amp; nhát <i>hỗn hợp</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-194-ecg-mp-11-reperfusion-of.html" rel="noopener" target="_blank">ECG Blog #194</a></b> —</li><li>Phân ly nhĩ thất <i>đồng nhịp</i> (isorhythmic) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/02/blog-195-ecg-mp-12-are-p-waves-related.html" rel="noopener" target="_blank">ECG Blog #195</a></b> —</li><li>Mobitz I <b>+</b> blốc phân nhánh <i>luân phiên</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-206-how-many-conduction-defects.html" rel="noopener" target="_blank">ECG Blog #206</a></b> —</li><li>Một ca blốc AV đầy thử thách ... — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/04/ecg-blog-216-ecg-mp-33-is-av-block.html" rel="noopener" target="_blank">ECG Blog #216</a></b> —</li><li>Nhịp nhanh nhĩ (ATach) kèm Wenckebach — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-223-40-what-are-p-waves-doing.html" rel="noopener" target="_blank">ECG Blog #223</a></b> —</li><li>Nhồi máu cơ tim <i>thành dưới</i> kèm Mobitz I — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/05/the-12-lead-ecg-and-long-lead-ii-rhythm.html" rel="noopener" target="_blank">ECG Blog #224</a></b> —</li><li><i><br></i></li><li><b>Wenckebach <i>hai</i> tầng (dual-level)</b> — Xem <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-226-42-variable-form-of.html" rel="noopener" target="_blank">ECG Blog #226</a></b> —</li><li><br></li><li>Nhồi máu cơ tim <i>thành dưới</i> gần đây kèm Mobitz I — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-232-47-what-is-bigeminy.html" rel="noopener" target="_blank">ECG Blog #232</a></b> —</li><li><b>Blốc AV <i>mức độ cao</i> (</b><i><u>không</u></i> <i>hoàn toàn</i><b>)</b> — <b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-235-51-is-there-complete-av.html" rel="noopener" target="_blank">ECG Blog #235</a></b> —</li><li><i>Blốc AV 3:1, có lẽ là Mobitz II — Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-237-52-70-year-old-with.html" rel="noopener" target="_blank">ECG Blog 237</a></b><i> —</i></li><li>Nhát <i>dội</i> (echo) + Mobitz I kín đáo — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-239-54-why-are-there-2-kinds.html" rel="noopener" target="_blank">ECG Blog #239</a></b> —</li><li>Giản đồ bậc thang của AVNRT <i>"nhanh–chậm"</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-240-55-what-kind-of-regular-svt.html" rel="noopener" target="_blank">ECG Blog #240</a></b></li><li>Giản đồ bậc thang của nhịp đôi <i>phân nhánh</i> (fascicular) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-241-56-fascinating-bigeminy.html" rel="noopener" target="_blank">ECG Blog #241</a></b></li><li><br></li><li>Cuồng nhĩ (AFlutter) kèm Wenckebach <i><u>hai</u> tầng</i> (<i>giản đồ bậc thang <b>Từng bước</b> về CÁCH vẽ!</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-243-47-why-group-beating-av.html" rel="noopener" target="_blank">ECG Blog #243</a></b> —</li><li><br></li><li>Phân ly nhĩ thất do "chiếm quyền" ("Usurpation") — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/08/ecg-blog-247-61-why-is-pr-interval.html" rel="noopener" target="_blank">ECG Blog #247</a></b> —</li><li>Mobitz I kết thúc bằng một nhát <i><u>dội</u></i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/09/ecg-blog-251-65-how-does-cycle-end.html" rel="noopener" target="_blank">ECG Blog #251</a> (</b><i>kèm minh họa giản đồ bậc thang <b><u>Từng</u> <u>bước</u></b></i><b>)</b>.</li><li>Nhịp đôi <i><u>thoát</u>–<u>bắt được</u></i> (<b><i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i>) — Xem <b><a href="https://ecg-interpretation.blogspot.com/2021/10/ecg-blog-256-ecg-mp-6869-special-kind.html" rel="noopener" target="_blank">ECG Blog #256</a></b> —</li><li>Nhịp nhanh nhĩ kèm <i>có lẽ</i> blốc AV hoàn toàn — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/10/ecg-blog-257-ecg-mp-19a-av-block-in.html" rel="noopener" target="_blank">ECG Blog #257</a></b> —</li><li>Nhịp đôi kèm Wenckebach <i><u>hai</u> tầng</i> (<b><i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i>) — Xem <b><a href="https://ecg-interpretation.blogspot.com/2021/11/ecg-blog-259-71-what-is-dual-level-block.html" rel="noopener" target="_blank">ECG Blog #259</a></b> —</li><li>Nhịp nhanh nhĩ kèm Wenckebach (<b><i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i>) — Xem <b><a href="https://ecg-interpretation.blogspot.com/2021/11/ecg-blog-261-51a-how-many-p-waves.html" rel="noopener" target="_blank">ECG Blog #261</a></b> —</li><li>Một ca Wenckebach AV <i>bất thường</i> (<b><i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/12/ecg-blog-267-75-group-beating-and.html" rel="noopener" target="_blank">ECG Blog #267</a></b> —</li><li>Dẫn truyền <i>"siêu bình thường"</i> (supernormal) là gì?  — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/12/ecg-blog-268-76-mobitz-i-vs-complete-av.html" rel="noopener" target="_blank">ECG Blog #268</a></b> —</li><li><br></li><li><b><i>Vì sao có <span class="c-do">3</span> <span class="c-do">h</span>ình dạng <span class="c-do">Q</span>RS<span class="c-do">?</span></i></b> — Nhịp ba, dẫn truyền lệch hướng kiểu <i>Ashman</i> <b>(<i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i><b>)</b> — <i>Xem</i> <b><a href="https://www.ekgblog.com/2021/01/— See also ECG Blog #279 —" rel="noopener" target="_blank">ECG Blog #279</a></b> —</li><li><br></li><li>Nhịp đôi/sóng P ngẫu nhiên? (<b>giải thích bằng <i><u>VIDEO</u> Từng bước</i></b> cách tôi suy ra <b>giản đồ bậc thang</b> cho nhịp phức tạp này) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-280-82-bigeminyrandom-p-waves.html" rel="noopener" target="_blank">ECG Blog #280</a></b> —</li><li><br></li><li><b>AVNRT</b> <b><i>"nhanh–chậm"</i></b> kèm <i>điện thế luân phiên </i>và dẫn truyền ngược dòng thay đổi — Xem <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-281-83-where-are-p-waves.html" rel="noopener" target="_blank">ECG Blog #281</a></b> — </li><li>Một <b>AIVR</b> <b><i>không đều</i></b> kèm nhồi máu cơ tim <i>gần đây</i> — Xem <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-285-wider-irregular-rhythm.html" rel="noopener" target="_blank">ECG Blog #285</a></b> —</li><li><br></li><li>Một <b><span class="c-do">M</span>obitz</b> <b><span class="c-do">I</span></b> <b><i><span class="c-do">p</span>hức tạp</i></b> "<i><u>không</u></i> tuân theo quy luật" <b>(<i>Từng bước</i></b><i> vẽ giản đồ bậc thang — CÁCH vẽ!</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-286-challenge-what-is-rhythm.html" rel="noopener" target="_blank">ECG Blog #286</a></b> —</li><li><br></li><li>Thêm một ca Mobitz I với Wenckebach phụ thuộc <i><u>nhịp chậm</u></i> (<i>pha 4</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/04/ecg-blog-295-why-is-1st-beat-different.html" rel="noopener" target="_blank">ECG Blog #295</a></b> —</li><li>Một ca Mobitz I phức tạp kèm OMI thành dưới (<i>tôi <u>không</u> chắc chắn về cơ chế rối loạn nhịp — Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/05/ecg-blog-304-what-kind-of-rhythm.html" rel="noopener" target="_blank">ECG Blog #304</a></b> —</li><li>Không triệu chứng nhưng tần số <i>chậm</i> (<i>Mobitz I</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/05/ecg-blog-307-no-symptoms-but-slow-rate.html" rel="noopener" target="_blank">ECG Blog #307</a></b> —</li><li>Nhồi máu cơ tim <i>sau dưới</i> gần đây kèm Mobitz I <i><u>phức tạp</u></i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/06/ecg-blog-311-culprit-of-rhythm.html" rel="noopener" target="_blank">ECG Blog #311</a></b> —</li><li><b><span class="c-do">B</span>lốc <span class="c-do">S</span>A</b> — Xem <b><a href="https://ecg-interpretation.blogspot.com/2022/06/ecg-blog-312-bigeminy-but-not-mobitz-i.html" rel="noopener" target="_blank">ECG Blog #312</a></b> —</li><li><b>Nhịp đôi</b> <b><i>thoát–bắt được</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/06/ecg-blog-315-bradycardia-and-abdominal.html" rel="noopener" target="_blank">ECG Blog #315</a></b> —</li><li>Nhịp thoát <i>phân nhánh</i> có dẫn truyền <i>ngược dòng</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/08/ecg-blog-327-can-you-explain-this-rhythm.html" rel="noopener" target="_blank">ECG Blog 327</a></b> —</li><li><b>Phân ly nhĩ thất</b> <b><i>đồng nhịp</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/08/ecg-blog-328-what-happened-after-fall.html" rel="noopener" target="_blank">ECG Blog #328</a></b> —</li><li>Mobitz I <i>không điển hình</i> (<b><i>Từng bước</i></b> <i>vẽ giản đồ bậc thang — CÁCH vẽ!</i>) — Xem <b><a href="https://ecg-interpretation.blogspot.com/2022/09/ecg-blog-331-whats-rhythm.html" rel="noopener" target="_blank">ECG Blog #331</a> </b> —</li><li>Blốc AV <i>mức độ cao</i> (<i>phức tạp</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/09/ecg-blog-332-3rd-degree-with-double-bbb.html" rel="noopener" target="_blank">ECG Blog #332</a></b> —</li><li><b>Độ 2</b> <i><u>nhưng</u></i> <b><i>không thể</i></b> <b>phân loại</b> = phức tạp <b>(<i>Từng bước</i></b> <i>vẽ giản đồ bậc thang</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/10/ecg-blog-336-impossible-to-classify-why.html" rel="noopener" target="_blank">ECG Blog #336</a></b> —</li><li><b>Phân ly nhĩ thất do <i>"chiếm quyền"</i></b> (<i><b>Từng bước </b>vẽ giản đồ bậc thang</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/10/ecg-blog-338-who-is-related-to-whom.html" rel="noopener" target="_blank">ECG Blog #338</a></b> —</li><li><b>Mobitz I hay Mobitz II (</b>2:1<b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/11/ecg-blog-344-mobitz-i-mobitz-ii-or.html" rel="noopener" target="_blank">ECG Blog #344</a></b> <b>(</b><i>và</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/11/ecg-video-blog-404-344-mobitz-i-mobitz.html" rel="noopener" target="_blank">Blog #404</a>)</b> —</li><li><b>Blốc AV <i>hai tầng</i></b><b>, Mobitz I </b>— <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/11/ecg-blog-347-why-non-conducted-p-waves.html" rel="noopener" target="_blank">ECG Blog #347</a></b> —</li><li><b>Phân ly nhĩ thất</b> <b><i><u>đồng nhịp</u></i></b> ở người 20 tuổi — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/01/ecg-blog-357-av-block-default-or.html" rel="noopener" target="_blank">ECG Blog #357</a></b> —</li><li><b>Blốc AV</b> <b><i>bẩm sinh</i></b> ở người 20 tuổi <b>(</b><i>2:1, Mobitz I?</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/01/ecg-blog-358-20-year-old-with.html" rel="noopener" target="_blank">ECG Blog #358</a></b> —</li><li><b>PVC </b>— <b>PVC</b> <b><i>xen kẽ</i></b> — <b>Dẫn truyền</b> <b><i>ẩn</i></b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2023/01/ecg-blog-359-how-many-beats-in-12-lead.html" rel="noopener" target="_blank">ECG Blog #359</a> </b>—</li><li><b>Phân ly nhĩ thất</b> do <b><i>"chiếm quyền"</i></b> ở trẻ 14 tuổi — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/02/ecg-blog-362-funny-rhythm-in-14-year-old.html" rel="noopener" target="_blank">ECG Blog #362</a></b> —</li><li><b>Nhịp nhanh nhĩ</b> kèm <b>dẫn truyền <i><u>Wenckebach</u></i> 3:2</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/03/ecg-blog-370-post-arrest-tachycardia.html" rel="noopener" target="_blank">ECG Blog #370</a></b> —</li><li><b>Các loạt nhát thất (ventricular salvos) (</b><i>dẫn truyền ẩn</i><b>)</b> — giản đồ bậc thang cho thấy cơ chế (<i>và chứng minh đây <u>không phải</u> là dẫn truyền lệch hướng</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/04/ecg-blog-372-pvcs-or-aberrant.html" rel="noopener" target="_blank">ECG Blog #372</a></b> —</li><li><b>AIVR (</b><i>giản đồ bậc thang chứng minh phân ly nhĩ thất</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/04/ecg-blog-373-86yo-and-this-rhythm.html" rel="noopener" target="_blank">ECG Blog #373</a></b> —</li><li>Viêm cơ tim + <b>Wenckebach <i>phức tạp</i></b> <b>(<i>Từng bước</i></b> vẽ giản đồ bậc thang<b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/04/ecg-blog-376-15yo-with-fever.html" rel="noopener" target="_blank">ECG Blog #376</a></b> —</li><li><b>PVC</b> <b><i>xen kẽ</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/05/ecg-blog-378-wenckebach-with-pvcs.html" rel="noopener" target="_blank">ECG Blog #378</a></b> —</li><li><b>SVT</b> <b><i>vào lại</i></b> <i>khởi phát từ một</i> <b>PVC</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/05/ecg-blog-379-why-tachy-on-telemetry.html" rel="noopener" target="_blank">ECG Blog #379</a></b> —</li><li><b>Wenckebach AV <i>không điển hình</i> (</b><i><u>KHÔNG</u> có khoảng ngưng!</i> <b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/08/ecg-blog-389-quote-from-sherlock-holmes.html" rel="noopener" target="_blank">ECG Blog #389</a></b> —</li><li><b>Blốc AV</b> <b><i>hoàn toàn</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/08/ecg-blog-390-no-information-provided.html" rel="noopener" target="_blank">ECG Blog #390</a></b> —</li><li><b>VT</b> <b><i>phân nhánh</i></b> kèm <b><i>nhiều</i> nhát hỗn hợp</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/09/ecg-blog-393-why-so-many-shapes.html" rel="noopener" target="_blank">ECG Blog #393</a></b> —</li><li>Nhịp xoang <i>phức tạp</i> với <b>PVC</b> <b><i>thường xuyên</i></b> kèm <b>dẫn truyền <i><u>ẩn</u></i></b> <b>(</b><i>Từng bước </i>vẽ giản đồ bậc thang<b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/09/ecg-blog-395-no-simple-explanation.html" rel="noopener" target="_blank">ECG Blog #395</a></b> —</li><li>Nhịp xoang với một <b>chu kỳ Wenckebach AV <i>dài</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/09/ecg-blog-397-unusually-long-cycle.html" rel="noopener" target="_blank">ECG Blog #397</a></b> —</li><li>Cường giáp với <b>nhịp nhanh nhĩ <i>không đều</i> </b><b>rất</b> rõ, kèm <b>dẫn truyền <i>Wenckebach </i></b><i>bất thường</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/10/ecg-blog-398-uncontrolled-graves-disease.html" rel="noopener" target="_blank">ECG Blog #398</a></b> —</li><li><i>Giản đồ bậc thang nào đúng? </i>— <b>Blốc AV <i>mức độ cao </i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2023/10/ecg-blog-399-which-laddergram-is-correct.html" rel="noopener" target="_blank">ECG Blog #399</a></b> —</li><li><i>Blốc loại gì? </i>— <b>Mobitz I </b><u>và</u> <b>BBB</b> <b><i>luân phiên</i></b> — Xem <b><a href="https://ecg-interpretation.blogspot.com/2023/10/ecg-blog-401-what-kind-of-block.html" rel="noopener" target="_blank">ECG Blog #401</a></b> —</li><li><i><b>Có phải Wenckebach?</b></i> Một thử thách với phân ly nhĩ thất (<i>giản đồ bậc thang <b>Từng bước</b> về CÁCH vẽ!</i>) — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/01/ecg-blog-411-is-it-wenckebach.html" rel="noopener" target="_blank">ECG Blog #411</a></b> —</li><li><b>Blốc AV</b> <b><i>hoàn toàn</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/01/ecg-413-pre-op-ecg-in-asx-patient.html" rel="noopener" target="_blank">ECG Blog #413</a></b> —</li><li><b>Phân ly nhĩ thất</b> <b>do mặc định</b> kèm loạn nhịp xoang <i>rõ rệt</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/01/ecg-blog-414-what-kind-of-av-block.html" rel="noopener" target="_blank">ECG Blog #414</a></b> —</li><li>OMI <i>sau dưới</i> cấp kèm <b>Wenckebach</b> <b><i>hai tầng</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/02/ecg-blog-416-is-rhythm-and-ecg-related.html" rel="noopener" target="_blank">ECG Blog #416</a></b> —</li><li><b>VT <i>không đều</i> rõ rệt (</b><i>kèm nhát hỗn hợp — và dẫn truyền ngược dòng</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/02/ecg-blog-417-afib-with-aberrancy.html" rel="noopener" target="_blank">ECG Blog #417</a></b> — </li><li><b>Nhịp nhanh nhĩ</b> kèm <b>dẫn truyền <i>Wenckebach</i> (</b><i>giản đồ bậc thang Từng bước về CÁCH vẽ!</i><b>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/03/ecg-blog-420-fast-complete-heart-block.html" rel="noopener" target="_blank">ECG Blog #420</a></b> —</li><li><b>Mobitz I <i>kín đáo</i> (</b><i>kèm các nhát thoát bộ nối</i><b>)</b> ở một bệnh nhân <b>OMI <u>thành sau</u></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/03/ecg-blog-421-has-there-been-recent-mi.html" rel="noopener" target="_blank">ECG Blog #421</a></b> —</li><li>Người 92 tuổi không triệu chứng với <b>NSVT <u>phân nhánh</u></b> và <i>"phổ MAT"</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/05/ecg-blog-428-how-much-to-do-at-age-92.html" rel="noopener" target="_blank">ECG Blog #428</a> </b>—</li><li>Một <b>chu kỳ Wenckebach Mobitz I <i>dài </i></b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/05/ecg-blog-436-2-part-answer-metodo.html" rel="noopener" target="_blank">ECG Blog #437</a></b> —</li><li><b>Wenckebach <i>hai tầng </i></b>— <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/07/ecg-blog-439-how-many-possibilities.html" rel="noopener" target="_blank">ECG Blog #439</a> (</b><i>giản đồ bậc thang Từng bước về CÁCH vẽ!</i><b>)</b> —</li><li>Một ca <b>Wenckebach</b> <b><i>đầy thử thách</i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/09/ecg-blog-449-isorhythmic-av-dissociation.html" rel="noopener" target="_blank">ECG Blog #449</a> (</b><i>giản đồ bậc thang Từng bước về CÁCH vẽ!</i><b><i> </i>)</b> —</li><li><b>Cường <i>phế vị </i>quá mức (vagal hypertonia)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2024/10/ecg-blog-450-healthy-30yo-with-dizziness.html" rel="noopener" target="_blank">ECG Blog #450</a></b> —</li><li>Chu kỳ Wenckebach dài — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/11/ecg-blog-454-look-for-break.html" rel="noopener" target="_blank">ECG Blog #454</a> </b>—</li><li>Mobitz I kín đáo — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/11/ecg-blog-457-is-anything-conducting.html" rel="noopener" target="_blank">ECG Blog #457</a> </b>—</li><li>Không phải độ 3 (<i>mà là độ 2</i>) — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/11/ecg-blog-458-complete-heart-block.html" rel="noopener" target="_blank">ECG Blog #458</a></b> —</li><li>Cuồng nhĩ chậm &amp; độ 3 — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2024/12/ecg-blog-462-why-so-slow.html" rel="noopener" target="_blank">ECG Blog #462</a></b> —</li><li>Cuồng nhĩ kèm <b>Wenckebach </b><i>hai tầng</i> <b>(</b><i>giản đồ bậc thang Từng bước về CÁCH vẽ!</i><b>)</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/01/ecg-blog-463-lots-to-explain.html" rel="noopener" target="_blank">ECG Blog #463</a></b> —</li><li><b>WCT</b> <b><i>đều</i></b> do <b>VT</b> <b><i>phân nhánh</i></b> <b>(</b><i>giản đồ bậc thang cho thấy VT kèm nhát <u>hỗn hợp</u></i><b>)</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/01/ecg-blog-464-why-dilated-heart.html" rel="noopener" target="_blank">ECG Blog #464</a></b> —</li><li>Có lẽ là <b>Mobitz II</b> — rồi <b>độ 3 — </b><i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/01/ecg-blog-465-tale-of-syncope-2-rhythms.html" rel="noopener" target="_blank">ECG Blog #465</a></b> —</li><li>Nhồi máu cơ tim cấp và <b>độ 3 (</b><i><u>không phải</u> AIVR</i><b>)</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/02/ecg-blog-470-this-ecg-tells-story.html" rel="noopener" target="_blank">ECG Blog #470</a></b> —</li><li>SEMI thành dưới cấp + Mobitz I 2:1 và 3:2 — <i>Xem</i><b> <a href="https://ecg-interpretation.blogspot.com/2025/03/ecg-blog-472-at-least-4-major-findings.html" rel="noopener" target="_blank">ECG Blog #472</a></b> —</li><li>Amyloid, nhịp nhanh nhĩ, dẫn truyền Wenckebach — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/05/ecg-blog-480-patient-with-amyloid.html" rel="noopener" target="_blank">ECG Blog #480</a></b> —</li><li>Mobitz I phức tạp <b>(</b><i>kèm </i><b><i>tương hỗ PR/RP</i>)</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/06/ecg-blog-484-what-is-not-blocked.html" rel="noopener" target="_blank">ECG Blog #484</a> </b>—</li><li><b>Wenckebach SA</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/07/ecg-blog-488-5-ecg-findings-say-same.html" rel="noopener" target="_blank">ECG Blog #488</a> </b>—</li><li>PVC kèm <b>nhát hỗn hợp</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2025/09/ecg-blog-496-when-iii-and-v1-show-same.html" rel="noopener" target="_blank">ECG Blog #496</a></b> —</li><li>Nhịp chậm xoang kèm <i>thoát–bắt được</i> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2025/10/ecg-blog-500-can-you-solve-this-case.html" rel="noopener" target="_blank">ECG Blog #500</a></b> —</li><li>"Nguyên nhân của một khoảng ngưng?" = <b>PAC <i>bị blốc </i></b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2025/11/ecg-blog-503-1457-cause-of-pause.html" rel="noopener" target="_blank">ECG Blog #503</a></b> —</li><li>Trẻ 10 tuổi, hồi hộp đánh trống ngực <b>(giản đồ bậc thang dạng <u>Video</u>)</b> — <i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2025/10/ecg-blog-504-video-challenging-rhythm.html" rel="noopener" target="_blank">ECG Blog #504</a></b> —</li><li><b>VT</b> kèm một <b>phân ly nhĩ thất</b> <b><i>"khó nhận ra"</i></b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/02/ecg-blog-520-how-certain-are-you.html" rel="noopener" target="_blank">ECG Blog #520</a></b> —</li><li><b>VT</b> kèm <b>blốc đường ra <i>kiểu Wenckebach </i></b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/04/ecg-blog-528-patient-decided-to-leave.html" rel="noopener" target="_blank">ECG Blog #528</a></b> —</li><li><b>Độ 2</b> kèm <b>Mobitz I <i><u>hai</u> tầng </i>mức độ cao </b><b>(</b><i>giản đồ bậc thang Từng bước về CÁCH vẽ!</i><b>)</b>  — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/06/ecg-blog-534-what-is-or-is-not.html" rel="noopener" target="_blank">ECG Blog #534</a></b> —</li><li><b><i>VT </i>bền bỉ </b><i>kèm </i><b><i>Wenckebach </i>ngược dòng (</b><i>chứng minh nhịp WCT đều này là VT! </i><b>)</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/07/ecg-blog-538-unusual-finding.html" rel="noopener" target="_blank">ECG Blog #538</a> </b>—</li><li><b>Dẫn truyền ngược dòng <i>từng lúc</i> </b><u>chứng minh</u><b> là VT! </b>— <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/07/ecg-blog-539-does-svt-cause-hypotension.html" rel="noopener" target="_blank">ECG Blog #539</a></b>.</li><li>Nhịp đôi <i>kèm</i><b> blốc SA</b> — <i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2026/08/ecg-blog-542-why-is-rhythm-irregular.html" rel="noopener" target="_blank">ECG Blog #542</a> </b>—</li></ul>
+<p><u>(</u> <i>106</i><i> ca giản đồ bậc thang tính đến #542 </i><u>)</u> —</p>
+<p><b><u>Để luyện tập <i>Thêm</i> việc <i><span class="c-do">Đ</span>ọc</i> <span class="c-do">G</span>iản đồ bậc thang</u> <span class="c-do">—</span></b> Mời bạn <i>XEM</i> các <b>bài đăng</b> sau đây trên <b>Dr. Smith's ECG Blog</b> <b>(</b><i>Vui lòng cuộn xuống CUỐI trang để xem Bình luận của tôi kèm hình minh họa bằng giản đồ bậc thang. Nhiều bài trong số này sẽ cho thấy từng bước cách tôi dựng giản đồ bậc thang</i><b>).</b></p>
+<ul><li>Nhồi máu cơ tim cấp thành dưới — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2020/01/a-woman-in-her-70s-with-bradycardia-and.html" rel="noopener" target="_blank">19/1/2020</a></b>.</li><li><b>PVC</b> <b><i>xen kẽ</i></b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/04/pvcs-and-av-block-in-young-adult.html" rel="noopener" target="_blank">9/4/2020</a></b>.</li><li>Wenckebach AV (<i>PR rất dài</i>) — Loạn nhịp xoang — Sử dụng <b><span class="c-do">A</span>tropine (</b><i>kèm </i><u>hình minh họa</u><i> <u>từng</u> <u>bước</u> để vẽ giản đồ bậc thang này</i><b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/05/syncope-and-chest-pressure-then-unusual.html" rel="noopener" target="_blank">16/5/2020</a></b>.</li><li>Không có thông tin lâm sàng — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2019/05/i-was-handed-this-ecg-at-triage-with-no.html" rel="noopener" target="_blank">28/5/2019</a></b>.</li><li>Quá liều thuốc và một rối loạn nhịp hấp dẫn — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2020/06/drug-overdose-with-fascinating.html" rel="noopener" target="_blank">13/6/2020</a></b>.</li><li>Hồi hộp đánh trống ngực và một nhịp phức tạp <b>(Pha 4</b> = <i>Dẫn truyền lệch hướng do nhịp chậm — Giản đồ bậc thang từng bước</i><b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/08/35-year-old-with-palpitations-and-very.html" rel="noopener" target="_blank">17/8/2020</a></b>.</li><li>Có Wenckebach không? (<i>Đường dẫn truyền kép trong nút AV kèm Mobitz I — khoảng PR nhảy vọt!</i>) — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/09/a-fall-in-elderly-patient-with-unusual.html" rel="noopener" target="_blank">9/9/2020</a></b>.</li><li>Blốc AV mức độ cao với nhịp thoát từ nhánh bó — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/09/repost-syncope-shock-av-block-rbbb.html" rel="noopener" target="_blank">24/9/2020</a></b>.</li><li>Nhịp theo nhóm <i><u>không</u></i> phải Wenckebach — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2020/09/40-something-man-with-palpitations-and.html" rel="noopener" target="_blank">26/9/2020</a></b>.</li><li>Vẽ nhịp thoát bộ nối — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2020/10/not-all-new-t-wave-inversion-signifies.html" rel="noopener" target="_blank">9/10/2020</a></b>.</li><li><br></li><li>Một cú ngã và một nhịp cần nhận ra (<i>Digoxin</i>) — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2020/11/a-fall-and-rhythm-to-recognize.html" rel="noopener" target="_blank">24/11/2020</a></b>.</li><li><br></li><li>Một bản ghi phức tạp với Mobitz I có thể có <b>+</b> một nhịp phân nhánh gia tốc <b>+</b> các mức độ hỗn hợp khác nhau với nhịp nền — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2021/06/acute-chest-pain-all-p-waves-are-not.html" rel="noopener" target="_blank">17/6/2021</a></b>.</li><li>Wenckebach <i>hai <u>mức</u> </i>sau ngừng tim — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2021/10/acute-pulmonary-edema-pea-arrest-lbbb.html" rel="noopener" target="_blank">25/10/2021</a></b>.</li><li>Mobitz I với <b>PR <i><u>dài</u></i> (</b><i>Ngưng thất</i><b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2022/03/a-man-in-his-60s-with-seemingly.html" rel="noopener" target="_blank">14/3/2022</a></b>.</li><li>Nhồi máu cơ tim cấp thành dưới kèm <b>blốc SA</b> — từ <b><a href="https://hqmeded-ecg.blogspot.com/2022/05/back-to-basics-elderly-man-with-chest.html" rel="noopener" target="_blank">bài ngày 25/5/2022</a></b>.</li><li>Một <b>bản ghi</b> <b><i><u>máy tạo nhịp</u></i></b> với các <b>nhát</b> <b><i><u>bị blốc</u></i></b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2022/08/what-happens-if-you-dont-recognize.html" rel="noopener" target="_blank">3/8/2022</a></b>.</li><li>Đánh giá một <b>chu kỳ Wenckebach</b> <b><i><u>dài</u></i> (<i><span class="c-do">B</span>ÀI <span class="c-do">C</span>ủa tôi<span class="c-do">!</span></i> )</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/01/what-is-this-rhythm.html" rel="noopener" target="_blank">26/1/2023</a> (</b><i>cũng đề cập ý nghĩa lâm sàng của blốc AV độ 1 rất dài ≥0.30 giây</i><b>)</b>.</li><li><i>Nhịp này có làm bạn bối rối không? </i><b>(</b><i><b><span class="c-do">B</span>ÀI <span class="c-do">C</span>ủa tôi<span class="c-do">!</span> </b>— về <b>Wenckebach AV</b> với <b>khoảng PR <u>rất</u> dài</b></i><b>) </b>— từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/03/is-this-rhythm-puzzling-to-you.html" rel="noopener" target="_blank">30/3/2023</a></b>.</li><li><b>Wenckebach AV</b> bị <i><u>chẩn đoán nhầm</u></i> thành <b>AFib (</b><i><u>không phải</u> blốc "ba phân nhánh"!</i> <b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/04/rbbb-and-lafb-is-it-trifascicular-block.html" rel="noopener" target="_blank">6/4/2023</a></b>.</li><li><b>Wenckebach AV hai mức</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/05/20-something-with-huge-verapamil.html" rel="noopener" target="_blank">26/5/2023</a></b>.</li><li><b>Phân ly nhĩ thất đồng tần số (isorhythmic) (</b><u>CA</u><i> <u>của tôi</u></i><b>) </b>— từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2023/06/an-intriguing-rhythm-who-belongs-to-whom.html" rel="noopener" target="_blank">26/6/2023</a>.</b></li><li><b>Nhịp thoát bộ nối + Wenckebach AV</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/07/a-woman-in-her-50s-with-chest-pain-and.html" rel="noopener" target="_blank">30/7/2023</a></b>.</li><li>Blốc SA <u>so với</u><b> PAC bị blốc (</b><i>Nhịp theo nhóm! </i><b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2023/08/a-woman-in-her-70s-with-chest-pain.html" rel="noopener" target="_blank">30/8/2023</a></b>.</li><li><b>AIVR <i><u>chiếm chỗ</u></i> Mobitz I</b> — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2023/10/an-interesting-rhythm-strip-what-is.html" rel="noopener" target="_blank">3/10/2023</a>.</b></li><li><b>Mobitz I <i><u>so với</u></i> Mobitz II</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2024/01/what-kind-of-av-block-is-this-and-why.html" rel="noopener" target="_blank">23/1/2024</a>.</b></li><li><b><br></b></li><li><b>Precordial Swirl </b><i>kèm </i><b>giản đồ bậc thang</b> của <b><i>nhịp thoát phân nhánh </i>từng lúc! </b>— từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2024/03/is-there-omi-and-what-is-rhythm.html" rel="noopener" target="_blank">22/3/2024</a></b> của W.Frick.</li><li><b>Cuồng nhĩ (AFlutter) </b>với <b>dẫn truyền Wenckebach <i>hai <u>mức</u></i></b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2024/06/every-rural-hospital-needs-queen-of.html" rel="noopener" target="_blank">3/6/2024</a></b></li><li><b>AIVR (</b><i>với việc AIVR "giành quyền" khỏi nhịp xoang</i><b>)</b> — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2024/08/46-year-old-with-chest-pain-develops.html" rel="noopener" target="_blank">9/8/2024</a></b> của Dr. Frick.</li><li><b>Blốc SA (</b><i>Sóng P đã đi đâu? — giản đồ bậc thang phức tạp</i><b>)</b> — từ <b>bài ngày <a href="http://hqmeded-ecg.blogspot.com/2024/08/where-did-p-waves-go.html" rel="noopener" target="_blank">14/8/2024</a></b> của Dr. Frick.</li><li><b>NSVT — Các nhát <i>dội </i>(</b><i>Ngược dòng</i><b>)</b> — từ bài ngày <b><a href="https://hqmeded-ecg.blogspot.com/2024/11/electrophysiological-curiosity-can-you.html" rel="noopener" target="_blank">3/11/2024</a></b> —</li><li><b>Xử lý sự cố tạo nhịp (</b><i>ATach — PVARP — Nhịp nhanh do máy tạo nhịp</i><b>)</b> — từ <b>bài ngày</b> <b><a href="https://hqmeded-ecg.blogspot.com/2024/12/chest-pain-and-rapid-pacing-followed-by.html" rel="noopener" target="_blank">20/12/2024</a></b>.</li><li>OMI kèm <b>AIVR (</b><i>Các nhát hỗn hợp</i><b>)</b> — từ <b>bài ngày <a href="https://hqmeded-ecg.blogspot.com/2025/01/does-guessing-culprit-vessel-based-on.html" rel="noopener" target="_blank">5/1/2025</a></b>.</li><li><b>Cuồng nhĩ (AFlutter)</b> với <b>Wenckebach <i>hai <u>mức</u> </i>(</b><i>tỷ lệ dẫn truyền thay đổi</i><b>)</b> — từ <b>bài ngày <a href="https://drsmithsecgblog.com/challenging-rhythms-in-80-something-man/" rel="noopener" target="_blank">26/1/2025</a></b>.</li><li><b>Nhịp chậm xoang </b>kèm <b>nhịp thoát bộ nối</b> — từ <b>bài ngày <a href="https://drsmithsecgblog.com/ed-bedside-echo-for-last-very-subtle/" rel="noopener" target="_blank">10/5/2025</a></b>.</li><li><b>Cuồng nhĩ (AFlutter) </b>với <b>dẫn truyền Wenckebach <i>hai <u>mức</u> </i></b> — từ <b>bài ngày <a href="https://drsmithsecgblog.com/and-now-for-something-completely/" rel="noopener" target="_blank">24/5/2025</a>.</b></li><li><b><strong>SVT <em>vào lại </em>(</strong><em>có đường phụ tham gia; ATach; các nhát bộ nối</em><strong>)</strong> — từ <strong>bài ngày <a href="https://drsmithsecgblog.com/narrow-complex-tachycardia-with-interesting-laddergram/" rel="noopener" target="_blank">26/12/2025</a>.</strong></b></li><li><strong>SVT <i>vào lại </i>(</strong><i>với các khoảng R-R luân phiên</i><b>)</b> —<i> </i>từ <b>bài ngày <a href="https://drsmithsecgblog.com/narrow-complex-tachycardia-it-recurs-after-adenosine-what-should-we-do-now/" rel="noopener" target="_blank">6/1/2026</a>.</b></li><li><b>Nhịp bộ nối</b> kèm <b>phân ly nhĩ thất (</b><i>Ngất ở một người khỏe mạnh</i><b>)</b> — từ <b>bài ngày <a href="https://drsmithsecgblog.com/syncope-in-a-healthy-person/" rel="noopener" target="_blank">9/6/2026</a></b>.</li><li><strong>Giản đồ bậc thang <em>lý thuyết</em></strong> — cho thấy vì sao dẫn truyền ngược dòng từng lúc mà <em>không</em> làm xáo trộn tính đều của một nhịp WCT chứng minh rằng WCT đó là VT <strong>(</strong><em>chứ không phải một nhịp SVT vào lại</em><strong>)</strong> — từ <strong>bài ngày <a href="https://drsmithsecgblog.com/what-is-the-critical-finding-for-establishing-the-diagnosis-of-this-wide-complex-tachycardia/" rel="noopener" target="_blank">6/7/2026</a></strong>. </li></ul>
+<p><u>(</u><i>39 ca có giản đồ bậc thang tính đến ngày 6/7/2026</i><u>)</u> —</p>
+<p>================================</p>
+<p><u><b><span class="c-do">L</span>ƯU Ý (</b><i>21/6/2026</i><b>)<span class="c-do">:</span></b></u> Tôi sẽ tiếp tục bổ sung vào trang này đường link tới các giản đồ bậc thang khác mà tôi dùng để minh họa ca bệnh.</p>
+<ul><li><i>HÃY GỬI CHO TÔI</i> những ca rối loạn nhịp thú vị mà bạn muốn thấy được đăng trên ECG Blog của tôi. <i>Tôi luôn vui lòng ghi nhận đóng góp của bạn trong bài đăng! </i>CẢM ƠN sự quan tâm của bạn!</li></ul>
+<figure><a class="o-anh" href="case-188_anh/0---Figure-6-RED-LINE--Use-in-Blogs-90c6de2cd040.png"><img src="case-188_anh/0---Figure-6-RED-LINE--Use-in-Blogs-90c6de2cd040.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+<p><b><u><span class="c-do">P</span>HẦN BỔ SUNG</u> <span class="c-do">(</span></b>16/11/2021<b><span class="c-do">)</span>:</b></p>
+<p>Yalena Bradford đã giới thiệu với tôi một ca rối loạn nhịp thú vị. Dù hoàn toàn thừa nhận rằng tôi <i><u>không thể</u></i> đưa ra một giản đồ bậc thang "đáp án dứt khoát" — tôi nghĩ quá trình mà tôi đã suy luận trong <b><i><u>Video</u></i></b> 7 phút này dù sao vẫn có thể hữu ích. <i>Rất hoan nghênh BÌNH LUẬN về ca này!</i> — :) <b>Ken Grauer, MD</b></p>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dzNYJRcQa5u4MPwQIO-0vekuERMLLpHfWgTgO1V9lfcoDZbC9fQTUZzRNylMQsXeKOtirUQSsrgITBD9zQd6UzrrwhOpplMG5kUH_VvTxYcyfouwXuyQKjvlMK3OnIiwbdMylY&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<figure><a class="o-anh" href="case-188_anh/0--RED-LINE--Use-in-Blogs-dd9817c75be9.png"><img src="case-188_anh/0--RED-LINE--Use-in-Blogs-dd9817c75be9.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
