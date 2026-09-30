@@ -15,50 +15,55 @@
 "nhan": "#2",
 "slug": "case-002",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-2-st-segment.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790755087
+"tieu_de_en": "ECG Blog #2 — \"Smiley\" ST Elevation",
+"tieu_de_vi": "ECG Blog #2 — ST chênh lên dạng \"mặt cười\"",
+"trang_thai": "xong",
+"tu_khoa": "tái cực sớm early repolarization ST chênh lên smiley mặt cười viêm màng ngoài tim pericarditis nhồi máu cơ tim cấp LVH tiêu chuẩn điện thế",
+"ngay": "2026-09-30"
 },
 {
 "stt": 3,
 "nhan": "#3",
 "slug": "case-003",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-3-bbb-bundle.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790755087
+"tieu_de_en": "ECG Interpretation Review - #3 (BBB, Wide QRS, BBB with ST Changes, Ischemia, RBBB vs LBBB)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 3 (BBB, QRS rộng, BBB kèm thay đổi ST, thiếu máu cục bộ, RBBB và LBBB)",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhánh phải RBBB blốc nhánh trái LBBB QRS rộng rSR' thay đổi ST-T nguyên phát thiếu máu cục bộ nhồi máu sóng Q aVL IVCD nhịp chậm xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 4,
 "nhan": "#4",
 "slug": "case-004",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-4-long-qt.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790755087
+"tieu_de_en": "ECG Interpretation Review - #4 (QT Interval, List #3, Causes of Long QT, Tachycardia, Torsades)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 4 (Khoảng QT, Danh sách #3, nguyên nhân QT kéo dài, nhịp nhanh, xoắn đỉnh)",
+"trang_thai": "xong",
+"tu_khoa": "QT kéo dài long QT xoắn đỉnh torsades de pointes nhịp nhanh xoang thuốc điện giải thần kinh trung ương drugs lytes CNS",
+"ngay": "2026-09-30"
 },
 {
 "stt": 5,
 "nhan": "#5",
 "slug": "case-005",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-5-t-wave.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790755087
+"tieu_de_en": "ECG Blog #5 — TWI: Juvenile T Wave Variant?",
+"tieu_de_vi": "ECG Blog #5 — Sóng T đảo ngược: biến thể sóng T thiếu niên?",
+"trang_thai": "xong",
+"tu_khoa": "sóng T đảo ngược TWI juvenile T wave pattern PJTWP biến thể bình thường trẻ em nhi thiếu máu cục bộ tăng gánh strain trục lệch phải RAD thuyên tắc phổi",
+"ngay": "2026-09-30"
 },
 {
 "stt": 6,
 "nhan": "#6",
 "slug": "case-006",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-6-chest-pain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790755087
+"tieu_de_en": "ECG Interpretation Review - #6 (Chest Pain, Subtle ECG Changes)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 6 (Đau ngực, thay đổi điện tâm đồ kín đáo)",
+"trang_thai": "xong",
+"tu_khoa": "đau ngực chest pain thay đổi kín đáo sóng q vách sóng Q aVL QS sóng T nhọn tăng kali máu ST dẹt nhồi máu cấp nhập viện loại trừ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 7,
