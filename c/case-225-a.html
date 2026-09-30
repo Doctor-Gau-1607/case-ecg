@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #225a — VIDEO ĐIỆN TÂM ĐỒ (Media Pearls)</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #225a · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #225a — VIDEO ĐIỆN TÂM ĐỒ (Media Pearls)</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p><b><u>Thưa bạn đọc:</u></b> Trong khuôn khổ <b><i>ECG Media </i>PEARL Series</b> mà tôi bắt đầu từ tháng 1 năm 2021 — tôi đã và đang mở rộng và cập nhật các video điện tâm đồ tôi đã làm. Để tiện ôn lại — tôi sẽ đưa tất cả <b><i><span class="c-do">V</span>IDEO <span class="c-do">Đ</span>IỆN TÂM ĐỒ</i></b> lên trang này (<i>cũng như trong bài ECG Blog nơi chúng xuất hiện lần đầu</i>).</p>
+<ul><li>Như mọi khi — tôi <i><u>hoan nghênh</u></i> ý kiến của bạn! Mọi bình luận hay câu hỏi: <i>HÃY VIẾT CHO TÔI tại</i> <b>ekgpress@mac.com</b> —</li></ul>
+<p>========================================</p>
+<p>— Để quay lại <b><i><u><span class="c-do">b</span>ài mới nhất</u></i> của <span class="c-do">E</span>CG <span class="c-do">B</span>log = <a href="https://ecg-interpretation.blogspot.com" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a> </b>—</p>
+<p>— Để truy cập <b>ECG <i><u>Audio</u></i> Pearls — <a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-225-ecg-media-pearl-5-16-2021.html" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a></b> —</p>
+<p>========================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/VIDEOS-ECG-Media-Pearls-285-17.1-2021-29-e6c21c35df69.png"><img src="case-225-a_anh/VIDEOS-ECG-Media-Pearls-285-17.1-2021-29-e6c21c35df69.png" alt="" width="1600" height="273" loading="lazy" decoding="async"></a></figure>
+<p><b>Các ca video điện tâm đồ <i>mới hơn</i>:</b></p>
+<ul><li><b><a href="https://ecg-interpretation.blogspot.com/2025/10/httpsecg-interpretation.blogspot.com202510blog-post-502-Wellens.html" rel="noopener" target="_blank">ECG Blog #502</a> (</b><i>25/10/2025 — 6 phút</i><b>)</b> — Đây có phải hội chứng Wellens?</li><li>xxx </li></ul>
+<p>====================================</p>
+<p><b><u><span class="c-do">VI</span>DEO <i>từ</i> các <span class="c-do">B</span>ài giảng <span class="c-do">Đ</span>iện tâm đồ <span class="c-do">M</span>edAll <i>của</i> <span class="c-do">T</span>ôi<span class="c-do">:</span></u></b></p>
+<ul><li><b><a href="https://www.youtube.com/playlist?list=PL_nGbmto9vetxclSi_kYmya4yVFM7GJYv" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a></b> — để xem DANH SÁCH YouTube gồm 6 video điện tâm đồ này.</li></ul>
+<p>====================================</p>
+<ul><li><b><a href="https://ecg-interpretation.blogspot.com/2023/11/ecg-video-blog-403-220-psqs3rs-approach.html" rel="noopener" target="_blank">ECG Blog #403</a> (</b><i>11/11/2023 — 22 phút</i><b>)</b> — dựa trên <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-220-ecg-mp-37-vt-or-aberrancy.html" rel="noopener" target="_blank">ECG Blog #220</a> (</b><i>Ôn lại </i><b>Cách tiếp cận <u>P</u>s, <u>Q</u>s, 3<u>R</u></b><i> để </i><b>đọc <i>nhịp</i></b><i> — rồi áp dụng vào đánh giá điện tâm đồ một ca nhịp WCT đều</i><b>)</b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/11/ecg-video-blog-404-344-mobitz-i-mobitz.html" rel="noopener" target="_blank">ECG Blog #404</a> (</b><i>18/11/2023 — 15:30 phút</i><b>)</b> — dựa trên<i> </i><b><a href="https://ecg-interpretation.blogspot.com/2022/11/ecg-blog-344-mobitz-i-mobitz-ii-or.html" rel="noopener" target="_blank">ECG Blog #344</a> (</b><i>Định nghĩa các blốc AV — Phân tích một ca blốc độ 2 — Là Mobitz I, Mobitz II <u>hay</u> không phải cả hai?</i><b>)</b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/11/ecg-blog-405-is-av-block-complete-vs-av.html" rel="noopener" target="_blank">ECG Blog #405</a> (</b><i>25/11/2023 — 19:40 phút</i><b>)</b> — Đọc nhịp<i> dựa trên </i><b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-191-ecg-mp-8-is-av-block.html" rel="noopener" target="_blank">ECG Blog #191</a> (</b><i>Phân ly nhĩ thất <u>và</u> blốc AV hoàn toàn</i><b>)</b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/12/ecg-blog-406-to-do-additional-leads.html" rel="noopener" target="_blank">ECG Blog #406</a> (</b><i>2/12/2023 — 22:00 phút</i><b>) </b>— Ôn lại <b><i>đánh giá</i> điện tâm đồ ở bệnh nhân đau ngực (CP) <i>mới xuất hiện</i> (</b><i>gồm cả <b>mô hình STEMI</b> <u>so với</u> <b>mô hình OMI</b> — "Nghiệm pháp soi gương (Mirror Test)" cho OMI thành sau — Thiếu máu cục bộ dưới nội tâm mạc lan tỏa</i><b>)</b> — tập trung vào việc áp dụng <b><i>Cách tiếp cận </i>hệ thống</b> <i>để </i><b>đọc điện tâm đồ 12 chuyển đạo</b><i> — dựa trên </i><b><a href="https://ecg-interpretation.blogspot.com/2022/12/ecg-blog-351-posterior-leads.html" rel="noopener" target="_blank">ECG Blog #351</a> (</b><i>OMI là gì, <u>khác</u> STEMI thế nào?</i><b>)</b><i>.</i></li><li><i><br></i></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/12/ecg-video-blog-407-292-why-patient-died.html" rel="noopener" target="_blank">ECG Blog #407</a> (</b><i>8/12/2023 — 22:30 phút</i><b>)</b> — Ôn lại <b><i>đánh giá</i></b> <b>điện tâm đồ ở bệnh nhân đau ngực (CP) <i>mới xuất hiện</i> (</b><i>gồm cả <b>mô hình STEMI</b> <u>so với</u> <b>mô hình OMI</b> — So sánh các điện tâm đồ nối tiếp — thay đổi ST-T "động"</i><b>)</b> <i>— tập trung vào việc áp dụng <b><i>Cách tiếp cận </i>hệ thống</b> <i>để </i><b>đọc điện tâm đồ 12 chuyển đạo</b> — dựa trên </i><b><a href="https://ecg-interpretation.blogspot.com/2022/03/ecg-blog-292-why-did-patient-die.html" rel="noopener" target="_blank">ECG Blog #292</a> (</b><i>Vì sao bệnh nhân tử vong?</i><b>)</b>.</li><li><b><br></b></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/12/ecg-video-blog-408-392-20-minutes-later.html" rel="noopener" target="_blank">ECG Blog #408</a> (</b><i>16/12/2023 — 18:00 phút</i><b>)</b> — Ôn lại <b><i>đánh giá </i>điện tâm đồ ở bệnh nhân đau ngực (CP) <i>mới xuất hiện</i> (</b><i>gồm cả <b>mô hình STEMI </b><u>so với</u> <b>mô hình OMI</b> — Sóng T tối cấp — Mọi thứ có thể thay đổi nhiều đến mức nào chỉ trong 20 phút</i><b>)</b> — dựa trên<i> </i><b><a href="https://ecg-interpretation.blogspot.com/2023/08/ecg-blog-392-repolarization-t-waves.html?fbclid=IwAR3ttHGO9mzn0bMwiDbrN7_D8-U12YmiVBYhvv20H7hxHhMzuD0L-nu1dPw" rel="noopener" target="_blank">ECG Blog #392</a> (</b><i>Sóng T tái cực?</i><b>)</b>.<i> </i></li></ul>
+<p>====================================</p>
+<p><b><u>Sử dụng <span class="c-do">C</span>ách tiếp cận <i><span class="c-do">h</span>ệ thống</i><span class="c-do">:</span></u></b></p>
+<p>====================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/ECG-MP-27-Rule-of-300-53f91608fea2.png"><img src="case-225-a_anh/ECG-MP-27-Rule-of-300-53f91608fea2.png" alt="" width="1600" height="344" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dySI-qMAgTwd-WxEqhIyvIft_JqHO5LTRbR6D5xyYg-ZCyVuhoAny8ilCwBPf-m9RemiuW08EpUb5EQ0WbmkvJwEvKtwwNWTYAhVIpe2FTWCjUMxp2ct_zNkz0kMTupbis15t4&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>27 (</b><i>3:00 phút</i><b> <i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/04/blog-210-ecg-mp-27-regular-wct-how-fast.html" rel="noopener" target="_blank">ECG Blog #210</a></b> — Ôn lại <b><i>Quy tắc 300</i></b> để ước tính tần số tim — <i><u>và</u></i> — ở phút 1:25 của video, <b><i><span class="c-do">P</span>hương pháp </i><span class="c-do">C</span>ách-<u><span class="c-do">M</span>ột</u>-<span class="c-do">N</span>hát<i> </i></b>để <i>ước tính</i> tần số với các nhịp <i><u><b>nhanh</b></u></i> <b>(</b><i>2/4/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/AVvXsEiLzZrpystL0iiBh4ko5V-1QA3n3zsiWKWCAWVi42JW_DgQb0lUjcnN-2c83d9fe354c"><img src="case-225-a_anh/AVvXsEiLzZrpystL0iiBh4ko5V-1QA3n3zsiWKWCAWVi42JW_DgQb0lUjcnN-2c83d9fe354c" alt="" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dyBXUoLEsKNmPh0sRhcFlkw5EDTOfd7B9y9d8A4pK68YOjNrk9yPwWdjFWVltsZXyNQuacEYqmZE6Sb6feMwVaWA_U9k71uC5vGOMwHT5oLOgsz6GzyiufB6MXe9YbpZ5QkFdWN&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>77 (</b><i>11:00 phút </i><b><i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/12/ecg-blog-269-77-what-is-poor-r-wave.html" rel="noopener" target="_blank">ECG Blog #269</a></b> — Ôn lại cách đánh giá <b><span class="c-do">T</span>ăng tiến <span class="c-do">s</span>óng <span class="c-do">R</span></b> như một phần của mẹo ghi nhớ <b>Q-<span class="c-do"><u>R</u></span>-S-T</b> trong Cách tiếp cận hệ thống để đọc điện tâm đồ 12 chuyển đạo <b>(</b><i>gồm cả làm rõ thuật ngữ <b>tăng tiến sóng R "kém"</b> <u>so với</u> <b>vùng chuyển tiếp</b> — 18/12/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/AVvXsEi2d5cEhX6QrJnO6XmEZ2yhyT5_rZrYhSrmBpWHEIUGQNEvMtbuZMZ2-fbc3ac6d734b"><img src="case-225-a_anh/AVvXsEi2d5cEhX6QrJnO6XmEZ2yhyT5_rZrYhSrmBpWHEIUGQNEvMtbuZMZ2-fbc3ac6d734b" alt="" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dwaAn_gx_criX7mxY36YzhMYavWZiS8Y1lkIT9oNFc14VJkJq1h83_86AsJLYbocy7BG5baUycZzA7oYCbMHTlZ0WyTi65yXpxatmikBaViq6xeiu0p2NBEdI8T_ROXVQ3f5ws&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>78 (</b><i>4:30 phút</i> <b><i><u>Video</u></i>)</b> <b>— <a href="https://ecg-interpretation.blogspot.com/2021/12/ecg-blog-270-78-mi-vs-septal-q-waves.html" rel="noopener" target="_blank">ECG Blog #270</a></b> — Ôn lại cách chúng ta định nghĩa <b>"<span class="c-do"><u>Sóng Q</u></span>"</b> — và cách phân biệt <b><span class="c-do">s</span>óng q <i><span class="c-do">v</span>ách</i> "bình thường"</b> <i><u>với</u></i> <b><span class="c-do">s</span>óng <span class="c-do">Q</span> <i><span class="c-do">n</span>hồi máu</i> (</b><i>22/12/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/AVvXsEg06y9EKh8EDLqHQNzwvAMsO9K6Zz4C9QDiF1QFol0siXzGLT-kRKBl-a9735ca73474"><img src="case-225-a_anh/AVvXsEg06y9EKh8EDLqHQNzwvAMsO9K6Zz4C9QDiF1QFol0siXzGLT-kRKBl-a9735ca73474" alt="" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dzAl_8HjbvVFWjCGveZavBF5BcJtgcUrj1zN-DHYgfDgpg5gkkrlVBfOitjP949R4Fq4g_esehi0GJG3V_aqoriChei9yhFv6GsivNcY2YP_AnWJkSPdPsZr94LOm4giUsJ-R_B&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>79 (</b><i>3:00 phút</i> <b><i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/12/ecg-blog-271-79-what-is-st-segment.html" rel="noopener" target="_blank">ECG Blog #271</a></b> — Ôn lại cách chúng ta xác định <b><span class="c-do">Đ</span>ường nền <span class="c-do">c</span>ủa đoạn <span class="c-do">S</span>T (</b>tức là <i>nên dùng</i> <b>đoạn <span class="c-do">P</span>R</b> <i><u>hay</u></i> <b><span class="c-do">đ</span>oạn <span class="c-do">T</span>P</b> — hay <i><u>cả hai?</u></i> — <i>26/12/2021</i><b>)</b>.</p>
+<p>====================================</p>
+<p><b><u><span class="c-do">T</span>rục - <span class="c-do">B</span>lốc phân nhánh - <span class="c-do">B</span>lốc <span class="c-do">n</span>hánh <span class="c-do">b</span>ó His<span class="c-do">:</span></u> </b></p>
+<p><b>====================================</b></p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-20-28203-Video-29-Calculating-AXIS-USE-copy-cfaf6e6ff8e2.png"><img src="case-225-a_anh/MP-20-28203-Video-29-Calculating-AXIS-USE-copy-cfaf6e6ff8e2.png" alt="" width="1600" height="239" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dx-SSe3eYZkJ9nrw83c7cp603--pNsJd4EepPnL3FFb9gkRXel0G3T3itbZ2yvWvM2Ygdii9yY3Q8l0Egia778iELeuYVxKcuiHOfOpbiaT6clQaAMjV7iWU06qI69kRA2Wt8A&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dzwfTOIzS9Mu4XSL1qom61-FI5RGpTHFIr9_CkMdm6GEdSgxxcBcCvZ0-LF4qGusa3W1N3Sq1igH-Ql-sY5klEYP1sxEgKFHjoixHY8T6U3ydjI-Gf9EkWLSyvqIeVrLvwvm_g&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>20 (</b><i>14:30 phút <b><u>Video</u></b></i><b>)</b> — <b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-203-ecg-mp-2021-axis.html" rel="noopener" target="_blank">ECG Blog #203</a></b> — Cách tiếp cận <u><i>d</i></u><i><u>ễ</u>-<u>dùng</u> </i>để <b><i><u>tính</u></i></b> <b><span class="c-do">t</span>rục (</b><i>12/3/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-21-28203-Video-29-Hemiblocks-BiFasc-USE-a91e53036fe0.png"><img src="case-225-a_anh/MP-21-28203-Video-29-Hemiblocks-BiFasc-USE-a91e53036fe0.png" alt="" width="1600" height="240" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dxV91JS3R7Y33ygVXZhb_pZafyvEHElWKKXpeteAKHhjEUQM5TZNfJwgb3KCVymUoj1m_wQsf7wWO1n179pO9dsrcFMp__fB53NdOfdEiNXdr6IAFUosC2bJq9vz3IxwOmCzrWf&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>21 (</b><i>12:00 phút <b><u>Video</u></b></i><b>) — <a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-203-ecg-mp-2021-axis.html" rel="noopener" target="_blank">ECG Blog #203</a></b> — Cách tiếp cận <i><u>dễ</u>-<u>dùng</u></i> với <b><u><span class="c-do">b</span>lốc phân nhánh</u> (</b><i>LAHB/LPHB</i><b>)</b> và <b><span class="c-do">b</span>lốc <i><span class="c-do">h</span>ai phân nhánh</i> (</b><i>RBBB/LAHB- RBBB/LPHB — 12/3/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-22-28204-Video-29-BBB-USE-copy-57ba4c56d885.png"><img src="case-225-a_anh/MP-22-28204-Video-29-BBB-USE-copy-57ba4c56d885.png" alt="" width="1600" height="237" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dw9r53xoZQ5EYH0fZ7iopBoBvNMDa1TE00u0KtrDL8zIhoPk9hU4T1uv5yrWgoJfih0eW6bsghcLzbfV1sItkRwU5igRvhApKM-BS4bk8b9Vj9PpXMkEHR1sSi3mif2uQzp7hs&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>22 </b><b>(</b><i>13:15 phút <b><u>Video</u></b></i><b>) — <a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-204-ecg-mp-22-bundle-branch.html" rel="noopener" target="_blank">ECG Blog #204</a></b> — Ôn lại một cách tiếp cận <i><u>dễ</u>-<u>dùng</u></i> để chẩn đoán <b><u><span class="c-do">B</span>lốc</u> <i><u><span class="c-do">n</span>hánh</u></i> <i><u><span class="c-do">b</span>ó His</u></i> (</b><i>RBBB/LBBB/IVCD</i><b>)</b> chỉ trong vài <u>giây</u>! <b>(</b><i>15/3/2021</i><b>) — </b><i>xem thêm</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-282-lbbb-and-sgarbossa-lvh-mi.html" rel="noopener" target="_blank">ECG Blog #282</a></b> —</p>
+<ul><li><b><a href="https://www.dropbox.com/s/s3zo7zghegsfa7t/282-PDF%20of%20LBBB-Basics-LVH-MI%20%282-8.32-2022%29-REVISED.pdf?dl=0" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a> —</b> để tải MIỄN PHÍ <b><span class="c-do">P</span>DF</b> tệp 26 trang này về <b>BBB (</b><i>trích từ ECG-2014-ePub của tôi</i><b>)</b> — ôn lại <b><i>Những điều cơ bản</i></b> để chẩn đoán điện tâm đồ các <b><span class="c-do">B</span>lốc <span class="c-do">n</span>hánh <span class="c-do">b</span>ó His (</b><i>gồm cả chẩn đoán nhồi máu cơ tim cấp &amp; LVH khi có BBB</i><b>)</b>.</li></ul>
+<p>====================================</p>
+<p><b><u><span class="c-do">L</span>ớn các <span class="c-do">b</span>uồng tim</u> (</b><i>RAA/LAA - RVH - LVH</i><b>)<span class="c-do">:</span></b></p>
+<p>====================================</p>
+<p>XXX</p>
+<p>====================================</p>
+<p><b><u>Chẩn đoán <span class="c-do">T</span>hiếu máu cục bộ/<span class="c-do">N</span>hồi máu <i><span class="c-do">c</span>ấp</i><span class="c-do">:</span></u></b></p>
+<p>====================================</p>
+<p>XXX</p>
+<p>====================================</p>
+<p><b><u>Chẩn đoán <i><span class="c-do">V</span>T hay</i> <span class="c-do">S</span>VT (<i>dẫn truyền lệch hướng</i>)</u></b><b><span class="c-do">:</span></b></p>
+<p><b>====================================</b></p>
+<figure><a class="o-anh" href="case-225-a_anh/ECG-MP-28-28211-29-Aberrant-Conduction-663d31cf063e.png"><img src="case-225-a_anh/ECG-MP-28-28211-29-Aberrant-Conduction-663d31cf063e.png" alt="" width="1600" height="197" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dzopCkRvBOxMuw6GWe1hIJemapGGYasUynrg1EP_oD7ViTiAKGBzjc_Ewccly6Zk_4Dy5mDRouHf7a_MsdSUNMeryLcVrUIACz_voBh_Is1heQS6FeSM6A1Bp7MhPdjkLAPBNU&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>28 (</b><i>4:40 phút</i><b> <i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/04/ecg-blog-211-ecg-mp-28-why-does.html" rel="noopener" target="_blank">ECG Blog #211</a> </b>— Ôn lại <i>VÌ SAO</i> một số nhát đến sớm và một số nhịp SVT lại dẫn truyền <b><u><span class="c-do">l</span>ệch hướng</u></b> <b>(</b><i>và vì sao dạng dẫn truyền lệch hướng hay gặp nhất biểu hiện hình dạng RBBB</i><b>) </b><b>(</b><i>5/4/2021</i><b>) </b><i>— Xem thêm</i><b> <a href="https://ecg-interpretation.blogspot.com/2022/01/ecg-blog-279-why-3-qrs-shapes.html" rel="noopener" target="_blank">ECG Blog #279</a> </b>—</p>
+<p>====================================</p>
+<p><b><u>Các loại <span class="c-do">N</span>hịp <span class="c-do">T</span>rên <span class="c-do">T</span>hất</u> (</b><i>SVT-AFib-Flutter-MAT, v.v.</i><b>)<span class="c-do">:</span></b></p>
+<p>====================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-16-28199-Video-29-MAT-USE-copy-1db5bf7e7e62.png"><img src="case-225-a_anh/MP-16-28199-Video-29-MAT-USE-copy-1db5bf7e7e62.png" alt="" width="1600" height="151" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dy2-4pMVbj15-NAktDvxvQlWy2elrAAG-fLE7Bqu40-_PoCQCRy4iWKBKCF9xV19cCYeCJyLUr90XFYCBfpFEWAeEPepkge5L5bvg_aS2LzL_1LkZ-TwbDaLWcoE-MgIk-Wo0U&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>16 (</b><i>2:20 phút <b><u>Video</u></b></i><b>) — <a href="https://ecg-interpretation.blogspot.com/2021/03/blog-199-ecg-mp-16-afib-mat-wandering.html" rel="noopener" target="_blank">ECG Blog #199</a> </b>— <i>Thế nào là </i><b><span class="c-do">M</span>AT (</b><i>nhịp nhanh nhĩ đa ổ — <u>M</u>ultiple <u>A</u>trial <u>T</u>achycardia</i><b>)?</b> Chẩn đoán như thế nào? <b>(</b><i>1/3/2021</i><b>)</b>.</p>
+<p>====================================</p>
+<p><b><u>Chẩn đoán <span class="c-do">B</span>lốc <span class="c-do">A</span>V/Phân ly nhĩ thất<span class="c-do">:</span></u></b></p>
+<p><b>====================================</b></p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-6-28189-Video-29-What-Type-AV-Block-USE-copy-c1bd117f7757.png"><img src="case-225-a_anh/MP-6-28189-Video-29-What-Type-AV-Block-USE-copy-c1bd117f7757.png" alt="" width="1600" height="210" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dwgITNQmKMDDsbic5H6mmx83fmhWu8FV-XQLGvVyaSFUC4Jf361Ft_zNaJ3L6ZFpbaEt62zSjfLl-UF7Q3oHf6NLiL07ke5tupoXZnzG99ytSP4QjclNUM7tDXoWy2J-xQXJAc&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>6a <b>(</b><i><u>PHẦN #1</u> = 6:50 phút <b><u>Video</u></b></i><b>) </b>— <a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-189-ecg-mp-6-is-this-some-type.html" rel="noopener" target="_blank">ECG Blog #189</a> </b>— <i><b>Blốc AV <u>loại</u> gì?</b></i> Phân tích chi tiết rối loạn nhịp đầy thử thách này (<i>gồm cả <u><b>video</b></u> điện tâm đồ phân tích từng bước giản đồ bậc thang phức tạp này</i>) <b>(</b><i>30/1/2021</i><b>)</b>.</p>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dxVnWhsp-7gy7b8ec1M-e6-xWsDzihWnSqyc2u4YeNpiWTZyHMQFm5iEMZFg4DQCJEfB4UFExf-XiPYGmNOD-PVXhZiaLtFUEo9tGrsNqGHp70E47PTXcnviCKBeC2iZo_EsS8&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b><b>ECG Media Pearl <span class="c-do">#</span>6b <b>(</b><i><u>PHẦN #2</u> = 5:00 phút <b><u>Video</u></b></i><b>)</b></b></b></p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-8-28191-Video-29-AV-Diss-vs-Complete-AV-Block-USE-copy-86f0ec465a95.png"><img src="case-225-a_anh/MP-8-28191-Video-29-AV-Diss-vs-Complete-AV-Block-USE-copy-86f0ec465a95.png" alt="" width="1600" height="164" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dzBdhlE0IvcFOAKR4c0Us7jO-zIWDr2CgZODkx66fPE7txINQKPYSIdEuF1OEV7yqLfoXaqEzX8m49bxTDZViODQM4Au7-RxtaFfLcsQ2w2FEWaqZ1_0QebTkK2gxMiAPKuQyuz&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>8 (</b><i>8:20 phút <b><u>Video</u></b></i><b>)</b> — <b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-191-ecg-mp-8-is-av-block.html" rel="noopener" target="_blank">ECG Blog #191</a></b> — Phân biệt <b><span class="c-do">P</span>hân ly <span class="c-do">n</span>hĩ thất</b> <u>với</u> <b>blốc AV hoàn toàn (</b><i>6/2/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-9-28192-Video-29-Causes-of-AV-Dissociatio-USE-copy-94fdb53ed0e2.png"><img src="case-225-a_anh/MP-9-28192-Video-29-Causes-of-AV-Dissociatio-USE-copy-94fdb53ed0e2.png" alt="" width="1600" height="171" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dyApQSOnefMfSvjdsMlmSTFVtbVCHxkN9WZnrRBO1xOnQu4Yi1A3htCbcAPGtuNWlirTIye5nE9DA3i_ezC8m88bhVi7PmibE_Rh6l6RHY0ankiitmcdqy_BW5jiwRg_-QVMFI&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>9 (</b><i>5:40 phút <b><u>Video</u></b></i><b>)</b> — <b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-192-ecg-mp-9-av-dissociation.html" rel="noopener" target="_blank">ECG Blog #192</a></b> — Ôn lại <b>3 nguyên nhân</b> gây <b>phân ly nhĩ thất (</b><i>9/2/2021</i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/ECG-MP-42-28226-29-Case-Study-3c34176a2e74.png"><img src="case-225-a_anh/ECG-MP-42-28226-29-Case-Study-3c34176a2e74.png" alt="" width="1600" height="196" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dwsRCsAfJpSZSnKftig2pCXYY7MayQ_XOV7weOV81WzVtxsZfQzK06MzktRduvB_0_RdWRHwvLszZgnfJqjDdQtudYJ6cGztUG3CFCVpptQsN1cwetEdUrolA6dRvQrNTABoJE&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>42 (</b><i>11:00 phút</i> <b><i><u>Video</u></i>)</b> — Bàn về ca được trình bày trong <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-226-42-variable-form-of.html" rel="noopener" target="_blank">ECG Blog #226</a> (</b><i>có <b><u>giản đồ bậc thang</u></b> minh họa </i><b>Wenckebach AV <i><u>hai</u>-tầng</i>)</b>. Cho rõ ràng — tôi đã đưa lại điện tâm đồ 12 chuyển đạo và dải nhịp DII dài ở bên dưới.</p>
+<figure><a class="o-anh" href="case-225-a_anh/Figure-1-28226-29-12-lead-2Clead-II-285-12.21-2021-29-USE-co-6c257034585f.png"><img src="case-225-a_anh/Figure-1-28226-29-12-lead-2Clead-II-285-12.21-2021-29-USE-co-6c257034585f.png" alt="" width="1600" height="1007" loading="lazy" decoding="async"></a><figcaption>Đây là điện tâm đồ 12 chuyển đạo và dải nhịp DII dài đi kèm <b>ECG Media Pearl #42 (</b>từ <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-226-42-variable-form-of.html" rel="noopener" target="_blank">ECG Blog #226)</a></b>.</figcaption></figure>
+<figure><a class="o-anh" href="case-225-a_anh/ECG-MP-52---2nd-Degree-AV-Blocks-286-24.1-2021-29-ECG-732a10a99c88.png"><img src="case-225-a_anh/ECG-MP-52---2nd-Degree-AV-Blocks-286-24.1-2021-29-ECG-732a10a99c88.png" alt="" width="1600" height="333" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dx87iioxLRwWmbIQG5LlTFf9xZd8lvyQFYFihNf8TFHT-d-nTfQgsrY-gEWAKceWrqq_ZHpkRHymZlRHp_zjQZhf8cPW2hty-dIzmjoeVuT7E2wKsGEvWILWmVvTLcmuL_oKE2O&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b>ECG Media Pearl <span class="c-do">#</span>52 (</b><i>15:00 phút </i><b><i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-236-52-2nd-degree-av-blocks.html" rel="noopener" target="_blank">ECG Blog #236</a> —</b> Ôn lại <b>3 loại</b> <b><span class="c-do">b</span>lốc <span class="c-do">A</span>V <span class="c-do">đ</span>ộ <span class="c-do">2</span></b> — <i><u>cộng thêm</u></i> — thuật ngữ <i>khó định nghĩa</i> <b><span class="c-do">b</span>lốc <span class="c-do">A</span>V <i>"<span class="c-do">m</span>ức độ <span class="c-do">c</span>ao"</i> (</b><i>Video này cũng rất liên quan tới ca được trình bày trong </i><b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-237-52-70-year-old-with.html" rel="noopener" target="_blank">ECG Blog #237</a>)</b>.</p>
+<ul><li><b><a href="https://www.dropbox.com/s/v01yvlqafd5c6z2/AV%20Blocks-Pg%2060-66%20ECG-PB%20%281-16.22-2021%29-USE.pdf?dl=0" rel="noopener" target="_blank">Mục 2F</a> (</b><i>6 trang = <b>câu trả lời "<u>ngắn</u>"</b></i><b>)</b> trong sách ECG-2014 Pocket Brain của tôi giúp ôn nhanh bằng chữ về các <b>blốc AV (</b><i>Tải miễn phí</i><b>)</b>.</li><li><b><a href="https://www.dropbox.com/s/k1jk1y4o4uu48ab/20.0-%20ACLS-2013-e-PUB-AV%20Block-Dissociaton-%2810-15.11-2014%29-LOCK.pdf?dl=0" rel="noopener" target="_blank">Mục 20</a></b> <b>(</b><i>54</i><i> trang = <b>câu trả lời "<u>dài</u>"</b></i><b>)</b> trong bản <i>mở rộng</i> ACLS-2013-Arrhythmias của tôi bàn chi tiết các <b>blốc AV</b> <i>LÀ GÌ</i> — và <u>không phải</u> là gì! <b>(</b><i>Tải miễn phí</i><b>)</b>.</li></ul>
+<p>====================================</p>
+<p><b><u><span class="c-do">G</span>iản đồ bậc thang</u> (</b><i>Cách đọc và vẽ giản đồ bậc thang</i><b>)<span class="c-do">:</span></b></p>
+<p>====================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/MP-5-28188-Video-29-All-About-Laddergrams-USE-copy-429a11914319.png"><img src="case-225-a_anh/MP-5-28188-Video-29-All-About-Laddergrams-USE-copy-429a11914319.png" alt="" width="1600" height="202" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dylz5jP0M1j-AWvs-eQC6BSyYvDmsfLNX_So1_MKxaTnygYcdyrlsthIlKFON0UHgakC2KBNSXmLx5W8HMxnpy3hv8qedhOyw6CM-ywpRpVP4EVxU24vpO0Cd2Y31xr8FYwOvo&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><u><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>earl <span class="c-do">#</span>5:</u> Video này <b>(</b><i>5:00 phút <b><u>Video</u></b></i><b>) — <a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-188-how-to-read-laddergrams.html" rel="noopener" target="_blank">ECG Blog #188</a></b> — <i>Cần biết GÌ về</i> <b><span class="c-do">G</span>iản đồ bậc thang? (</b><u>LƯU Ý:</u> <i>Video nói tới một giản đồ bậc thang tôi đã bàn trong</i> <a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-187-ischemia-mi-complete-av.html" rel="noopener" target="_blank">ECG Blog #187</a> — <i>gồm cả, trong Phần bổ sung của Blog #187, các khả năng <u>khác</u> về cơ chế của rối loạn nhịp</i><b>) - (</b><i>Video <span class="c-do">được sửa lại</span> ngày 10/11/2021</i><b>)</b>.</p>
+<p>===================================</p>
+<p><b><u>Cách <i><span class="c-do">v</span>ẽ</i> một <span class="c-do">G</span>iản đồ bậc thang</u> (</b><i>Minh họa từng bước</i><b>)</b></p>
+<ul><li><i><b>Xem</b></i> <b><a href="http://ecg-interpretation.blogspot.com/2013/06/ecg-interpretation-review-69-pvc-pjc.html" rel="noopener" target="_blank">ECG Blog #69</a></b> <b>— </b>để có phần hướng dẫn <i>bằng lời</i> từng bước về cách <b><i>vẽ</i></b> một <b>giản đồ bậc thang</b>. </li><li><i>Để luyện tập thêm, hãy xem bất kỳ đường dẫn nào trong <b>rất nhiều</b> </i><b>ĐƯỜNG DẪN</b><i> <b>bên dưới</b> ở cuối bài hôm nay!</i></li><li><b><a href="https://www.dropbox.com/scl/fi/puqqu241zuskfla28f7y9/Laddergram-Stencil-For_FREE_Use_By_OTHERS-11-14.2-2021.pptx?dl=0&amp;rlkey=ciaq7i5ozjpfltot18ntgehcu" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a> </b><i>— Để TẢI VỀ</i> <b><u>MIỄN PHÍ</u> <span class="c-do">K</span>HUÔN MẪU <i><span class="c-do">G</span>iản đồ bậc thang</i> <i><span class="c-do">P</span>ower<span class="c-do">P</span>oint</i></b> <i>của tôi</i> để bạn dùng tùy ý.</li></ul>
+<p>===================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/AVvXsEhkafOOUtcmbG33XoDJ9tVPRyqKkkeCg3nr_qLF-GZCYb3OSjH20zM8-243453fae6ba"><img src="case-225-a_anh/AVvXsEhkafOOUtcmbG33XoDJ9tVPRyqKkkeCg3nr_qLF-GZCYb3OSjH20zM8-243453fae6ba" alt="" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dx_tn2MiK97zjXJYELtX3eNyecCf67qxU83tv1e0twUcpJ4L4fXP0oUPPFAjjV_RelmTk_tqvSsDwiD_eYLABm5hgW2_Tgq6vE4KWFzctSPMzkIcq8wXtvPBdy7hWDsBM_5RQY&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>earl <span class="c-do">#</span>82 (</b><i>8:40 phút </i><b><i><u>Video</u></i>)</b> — <b><a href="https://ecg-interpretation.blogspot.com/2022/02/ecg-blog-280-82-bigeminyrandom-p-waves.html" rel="noopener" target="_blank">ECG Blog #280</a></b> — Phân tích chi tiết rối loạn nhịp đầy thử thách này <b>(</b><i>gồm cả <b><u>video</u></b> điện tâm đồ phân tích từng bước giản đồ bậc thang tôi đề xuất — 1/2/2022</i><b>)</b>.</p>
+<ul><li><b><a href="https://www.dropbox.com/s/pb1q4h1xjbqrx5h/280-%20PDF%20of%20ECGs%20in%20Video-82%20%281-28.41-2022%29-USE.pdf?dl=0" rel="noopener" target="_blank">BẤM VÀO ĐÂY</a></b> để tải <b>PDF</b> gồm mọi bản ghi xuất hiện trong <b>video điện tâm đồ (</b><i>gồm cả cách dựng từng bước giản đồ bậc thang tôi đề xuất</i><b>)</b> hôm nay.</li></ul>
+<p>====================================</p>
+<p><b><u><span class="c-do">C</span>ác bệnh cảnh <i><span class="c-do">K</span>HÁC</i> <span class="c-do">l</span>inh tinh</u> (</b><i>Viêm màng ngoài tim-cơ tim-XXX </i><b>)<span class="c-do">:</span></b></p>
+<p>====================================</p>
+<figure><a class="o-anh" href="case-225-a_anh/ECG-MP-53-Brugada-Syndrome-286-30.1-2021-29-USE-over-Video-a21b83f83d8c.png"><img src="case-225-a_anh/ECG-MP-53-Brugada-Syndrome-286-30.1-2021-29-USE-over-Video-a21b83f83d8c.png" alt="" width="1600" height="290" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dyq1dLZN7kBnYewHIzkuLBQjS8K7i6IqsJ0SdFF6j10mFygl-jpY4EujaJaqxlvKj7JvrLi4qRPuWfIer9FCdQAOWquMFsgfHei7bBkdia2hawy6fWxbj_z6BUEbW9AaE4Xqgg_&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p>Trong <b><u>Phần 1</u></b> của <b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>earl <span class="c-do">#</span>53 (</b><i>9:00 phút </i><b><i><u>Video</u></i>)</b> hôm nay — ôn lại những điều cốt yếu về hội chứng Brugada.</p>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dy4iTQIIPEa865XDT1phMadgc_nbMD-l7e4q9D_g4fJ74gTaJITcr0zBkU3pK9ZR5Vnj_EXw6tH8uHIfRoHfJpbnwboMX0eDK9NTnoSosc8fv4v0JWTXUCfbKdVRmrA5aA5o0BO&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p>Trong <b><u>Phần 2</u></b> của <b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>earl <span class="c-do">#</span>53 (</b><i>8:00 phút</i> <b><i><u>Video</u></i>)</b> hôm nay — những điều cốt yếu này được áp dụng vào lâm sàng.</p>
+<p><b>ECG Media Pearl <span class="c-do">#</span>53 (</b><i>video 2 phần 9:00 phút và 8:00 phút</i><b> <i><u>Video</u></i>) — <a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-238-53-what-is-phenocopy.html" rel="noopener" target="_blank">ECG Blog #238</a> —</b> Ôn lại chẩn đoán điện tâm đồ các hình ảnh <b>Brugada-1</b> <u>và</u> <b>Brugada-2</b> — và phân biệt <b><span class="c-do">H</span>ội chứng <i><span class="c-do">B</span>rugada</i></b> với <b><span class="c-do">P</span>henocopy (kiểu hình giả)<span class="c-do">!</span></b></p>
+<figure><a class="o-anh" href="case-225-a_anh/AVvXsEg4YyHnuNq1dalhdb8klqmxNLTLBr9hGOspLXGIj0zB23ATbYnWFmVz-db6c7af20559"><img src="case-225-a_anh/AVvXsEg4YyHnuNq1dalhdb8klqmxNLTLBr9hGOspLXGIj0zB23ATbYnWFmVz-db6c7af20559" alt="" loading="lazy" decoding="async"></a></figure>
+<figure><div class="khung-video"><iframe src="https://www.blogger.com/video.g?token=AD6v5dyeaOGq3dSpedm8VY_DPkr7N0iNXAHUbfBRRf0qxt-O9Ezkj3Tt3BuhoqlbtErjzFWLKEypkmo8DMEszoqkdGydzQHuiAWmdRsid17eUcArH0Vejo45MX1-mcfwkhzUAx9Zb-E&amp;origin=www.ekgblog.com" loading="lazy" allowfullscreen allow="fullscreen; encrypted-media; picture-in-picture"></iframe></div></figure>
+<p><b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>EARL <span class="c-do">#</span>81 (</b><i>9:50 phút </i><b><i><u>Video</u></i>) </b>— <b><a href="https://ecg-interpretation.blogspot.com/2022/01/ecg-blog-276-81-what-about-those-t-waves.html" rel="noopener" target="_blank">ECG Blog #276</a></b> — Tóm lược <b><span class="c-do">C</span>ách tiếp cận</b> <b><i><u><span class="c-do">h</span>ệ thống</u></i></b> của tôi để <b>đọc điện tâm đồ 12 chuyển đạo (</b><i>trong 2:50 phút đầu của video</i><b>)</b> — sau đó tôi áp dụng Cách tiếp cận <i><u>hệ thống</u></i> này vào một ca khi lần lượt xem xét các <b><span class="c-do">N</span>guyên nhân</b> gây <b><span class="c-do">S</span>óng <span class="c-do">T</span> <i><u><span class="c-do">K</span>hổng lồ</u></i> (</b><i>Xem thêm</i><b> <a href="https://ecg-interpretation.blogspot.com/2022/01/ecg-blog-277-why-those-t-waves.html" rel="noopener" target="_blank">ECG Blog #277</a>)</b>.</p>
+<figure><a class="o-anh" href="case-225-a_anh/0--RED-LINE--Use-in-Blogs-f45ac7435e19.png"><img src="case-225-a_anh/0--RED-LINE--Use-in-Blogs-f45ac7435e19.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+<p>Tôi hy vọng các <b>ECG <i>Media</i> PEARLS</b> của tôi giúp ích cho bạn.</p>
+<ul><li>Thông tin liên hệ của tôi (<i>email</i>) có ở đầu trang này.</li></ul>
+<figure><a class="o-anh" href="case-225-a_anh/KG-Solo-900-1200-Use-Red-Border-2810-5.1-2014-29-37a008ea4868.png"><img src="case-225-a_anh/KG-Solo-900-1200-Use-Red-Border-2810-5.1-2014-29-37a008ea4868.png" alt="" width="953" height="1202" loading="lazy" decoding="async"></a></figure>
+<figure><a class="o-anh" href="case-225-a_anh/kg-938a6f46a9b7.png"><img src="case-225-a_anh/kg-938a6f46a9b7.png" alt="" width="238" height="111" loading="lazy" decoding="async"></a></figure>
+<figure><a class="o-anh" href="case-225-a_anh/0--RED-LINE--Use-in-Blogs-756ea8e583f7.png"><img src="case-225-a_anh/0--RED-LINE--Use-in-Blogs-756ea8e583f7.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
