@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #453 — Đây có phải hội chứng Wellens?</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #453 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #453 — Đây có phải hội chứng Wellens?</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p>Điện tâm đồ ở <u><b>Hình-1</b></u> được ghi từ một người đàn ông trung niên đến khám vì <b>CP (</b><i>đau ngực — <u>C</u>hest <u>P</u>ain</i><b>)</b> khi gắng sức, <b><i>tăng dần</i></b> trong 2 tuần. Cơn CP nặng nhất của ông xảy ra một ngày trước khi ông được ghi điện tâm đồ này. <b>Cơn CP</b> của ông đã giảm nhiều so với hôm trước — nhưng <b><i><u>vẫn</u></i> <u>chưa</u> hết hoàn toàn</b>.</p>
+<ul><li>Xét nghiệm <b>Troponin</b> <b><i>ban đầu</i></b> lấy chưa đầy 1 giờ sau khi ghi điện tâm đồ ở <u>Hình-1</u> cho kết quả <b><i>trên</i></b> <b>10,000</b>.</li></ul>
+<p><b><u>CÂU HỎI:</u></b></p>
+<ul><li>Với bệnh sử này — <i>BẠN sẽ đọc điện tâm đồ này như thế nào?</i></li><li>Đây có phải là <b>hội chứng</b> <b><i><u>Wellens</u>’</i></b> không?</li></ul>
+<figure><a class="o-anh" href="case-453_anh/Figure-1-ECG-1-PMcardio-9-14.23-2024--USE-eb918d79c393.png"><img src="case-453_anh/Figure-1-ECG-1-PMcardio-9-14.23-2024--USE-eb918d79c393.png" alt="" width="1600" height="643" loading="lazy" decoding="async"></a><figcaption><b>Hình-1:</b> <b>Điện tâm đồ</b> <b><i><u>ban đầu</u></i></b> của ca hôm nay. <b>(</b><i>Để dễ quan sát hơn — tôi đã số hóa điện tâm đồ gốc bằng</i> <b><a href="https://www.powerfulmedical.com/" rel="noopener" target="_blank">PMcardio</a>)</b>.</figcaption></figure>
+<p><b><u><i>SUY NGHĨ CỦA TÔI</i> về ca bệnh <i>hôm nay</i>:</u></b></p>
+<p>Nhịp của điện tâm đồ ở <u>Hình-1</u> là nhịp xoang ~85/phút. Khoảng PR và thời gian QRS bình thường; QTc có vẻ kéo dài ở mức giới hạn (<i>khi tính cả phần âm cuối của sóng T ở V3,V4). </i>Không có lớn buồng tim.</p>
+<p><i>Về</i> <b>Thay đổi sóng <u>Q</u>-<u>R</u>-<u>S</u>-<u>T</u>:</b></p>
+<ul><li>Có các <b>sóng q</b> nhỏ ở từng chuyển đạo thành dưới. Sóng q ở <b>chuyển đạo III</b> hơi rộng hơn so với một sóng q vách bình thường — nên tôi không chắc các sóng q thành dưới này có ý nghĩa lâm sàng hay không.</li><li>Dù vậy — có một <b>phức bộ <u>Q</u>S </b>rõ ràng ở <b>chuyển đạo V3 (</b><i>Xem </i><b><u>Hình-2</u>)</b>. Phức bộ QS này càng có thêm ý nghĩa vì có <b><u>mất</u> sóng r</b> từ chuyển đạo V2 sang V3. Do có QS ở V3 — tôi cho rằng <b>sóng <u>Q</u></b> nhỏ ở <b>chuyển đạo V4</b> cũng có ý nghĩa.</li><li>Các sóng q nhỏ và hẹp chưa rõ ý nghĩa thấy ở các chuyển đạo ngực bên V5 và V6.</li><li><b>Tăng tiến sóng <u>R</u></b> bị <i>chậm</i> do mất các lực hướng ra trước ở chuyển đạo V3 và V4.</li></ul>
+<p><i>Về</i> <b>Thay đổi sóng <u>S</u>T-<u>T</u>:</b></p>
+<ul><li>Có ST thẳng đuỗn kèm ST chênh lên nhẹ ở <b>chuyển đạo V2</b>.</li><li><b>Đoạn khởi đầu ST </b>ở <b>chuyển đạo V3</b> hơi chênh lên và có hình <i>vòm </i>— kèm đoạn đi xuống dốc đứng vào <b>phần âm <i>cuối</i> của sóng T</b> <b>(</b><i>mũi tên XANH ở chuyển đạo này trong Hình-2</i><b>)</b>.</li><li>Hình ảnh ST thẳng đuỗn tương tự kèm phần cuối sóng T âm tiếp tục thấy ở <b>chuyển đạo V4</b>, và ở mức độ ít hơn ở <b>chuyển đạo V5 (</b><i>các mũi tên xanh ở những chuyển đạo này</i><b>)</b>.</li><li>Có sóng ST-T dẹt không đặc hiệu ở chuyển đạo V6 — và ở các chuyển đạo chi.</li></ul>
+<p><b><u><i>Nhận định của tôi</i> về điện tâm đồ #1 với bệnh sử <i>hôm nay</i>:</u></b></p>
+<p>Ở người đàn ông trung niên này có <b><i>bệnh sử 2 tuần</i></b> <b>CP</b> — với cơn nặng nhất xảy ra một ngày trước khi ghi <u>điện tâm đồ #1</u> — và CP đã <b><i>giảm</i></b> <b>(</b><i>nhưng <u>chưa</u> hết hoàn toàn</i><b>) </b>vào lúc ghi điện tâm đồ này — bản ghi này gợi ý đã có <b>nhồi máu</b> <b><i><u>thành trước</u></i></b>.</p>
+<ul><li>"Mắt" tôi lập tức bị thu hút vào 2 chuyển đạo nằm trong các <i>hình chữ nhật ĐỎ</i> ở <u>Hình-2</u> — làm nổi bật <b>phức bộ QS</b> ở <b>chuyển đạo V3 </b>và sóng Q ở V4, cho thấy <i><b>nhồi máu</b>.</i></li><li><u>LƯU Ý:</u> Việc còn giữ được sóng dương khởi đầu <b>(</b><i>tức là sóng r</i><b>)</b> ở chuyển đạo V1,V2 — gợi ý vách liên thất vẫn còn nguyên vẹn.</li><li><b>Troponin <i>ban đầu </i></b>ở mức <b>&gt;10,000</b> xác nhận đã có nhồi máu — có lẽ xảy ra một ngày trước khi ghi <u>điện tâm đồ #1</u>, vì khi đó CP nặng nhất.</li><li>Mức ST chênh lên tồn dư vừa phải ở các chuyển đạo thành trước, cùng với phần cuối sóng T đảo ngược ở chuyển đạo V3,V4,V5 và CP đã giảm nhiều — gợi ý đã có một phần <b>tái tưới máu</b> <b><i>tự phát</i></b>.</li></ul>
+<p>ĐIỀU CỐT LÕI:</p>
+<p>Đối chiếu lâm sàng với điện tâm đồ hôm nay hướng tới <b>tắc LAD (</b><i>động mạch liên thất trước — <u>L</u>eft <u>A</u>nterior <u>D</u>escending</i><b>)</b>, nay đã có <b>sóng T</b> <b><i>tái tưới máu</i> (</b><i>đi kèm với việc giảm CP</i><b>)</b>.</p>
+<ul><li>Dù vậy, <b>đây <i><u>không</u></i> phải hội chứng Wellens</b> — vì một vùng nhồi máu lớn <i>đã</i> xảy ra! <b>(</b><i>Xem giải thích đầy đủ bên dưới</i><b>)</b>.</li><li><u>T.B. (P.S.):</u> Bệnh nhân đã được thông tim — cho thấy <b>tổn thương "thủ phạm" ở LA</b><b>D</b> <b><i>đoạn xa</i></b>, đã được đặt stent thành công. Siêu âm tim cho thấy phân suất tống máu 35-40%.</li></ul>
+<figure><a class="o-anh" href="case-453_anh/Figure-2-ECG-1-labeled-9-14.24-2024--USE-c0ecf61300d2.png"><img src="case-453_anh/Figure-2-ECG-1-labeled-9-14.24-2024--USE-c0ecf61300d2.png" alt="" width="1600" height="642" loading="lazy" decoding="async"></a><figcaption><b>Hình-2:</b> Tôi đã đánh dấu trên điện tâm đồ ban đầu của ca hôm nay.</figcaption></figure>
+<p><b><u><span class="c-do">H</span>ội chứng <i><span class="c-do">W</span>ellens’</i> là gì</u>?</b></p>
+<p>Khi nói đến <b>hội chứng <i>Wellens’ </i></b> —<i> Tất cả là vấn đề thời điểm</i>. Như đã ôn lại trong <b><a href="https://ecg-interpretation.blogspot.com/2022/12/ecg-blog-350-severe-cp-not-much-on-ecg.html" rel="noopener" target="_blank">ECG Blog #350</a></b> — ý nghĩa lâm sàng của hội chứng Wellens — là việc nhận ra nó cho bạn biết bệnh nhân có <b>hẹp</b><b> LAD</b> <b><i>mức độ nặng</i></b> với cục <b>huyết khối</b> được cho là <b><i>"nóng"</i></b>, có khuynh hướng cao lan rộng <i>và/hoặc</i> gây tắc hoàn toàn LAD vào <i><u>bất kỳ</u></i> thời điểm nào (<i>kể cả ngay lập tức</i>).</p>
+<p>Dù vậy — hội chứng Wellens vẫn là một thực thể lâm sàng hay bị hiểu sai và thường bị chẩn đoán nhầm. Sau đây là các <b>đặc điểm</b> <b><u>lâm sàng</u></b> và <b><u>điện tâm đồ</u></b> <i>MẤU CHỐT</i> giúp xác lập chẩn đoán <b>hội chứng <i><u>Wellens</u>' </i></b>:</p>
+<ul><li>Phải có <b><u>bệnh sử</u></b> <b>đau ngực <i>trước đó</i></b> đã <b><i><u>hết</u></i></b> vào thời điểm ghi điện tâm đồ xác định chẩn đoán.</li><li>Troponin <i>không được tăng quá</i> <b>mức tối thiểu (</b><i>nếu có tăng</i><b>)</b>. </li><li><b><i><u>Không</u></i> có sóng Q (</b><i>hoặc QS</i><b>) nhồi máu mới</b>. Tăng tiến sóng R phải được bảo tồn <b>(</b><i>tức là không mất các lực hướng ra trước</i><b>)</b>.</li><li><i>Có thể có</i> <b>ST chênh lên nhẹ (</b><i>nhưng không nhiều</i><b>)</b> ở một hoặc nhiều chuyển đạo ngực.</li><li>Có <b>sóng T</b> <b><i><u>hai pha</u></i></b> đặc trưng, với sóng T đi xuống nhanh vào <b>phần âm</b> <b><i>cuối</i></b> ở một hoặc nhiều chuyển đạo ngực <b>(</b><i>thường gặp nhất ở</i> <b>chuyển đạo V2 </b><i>và/hoặc</i><b> V3 </b><i>và/hoặc</i><b> V4)</b>.</li><li><br></li><li><b><u>CẢNH BÁO:</u></b> Cần thận trọng khi chẩn đoán hội chứng Wellens (<i>thậm chí không nên chẩn đoán</i>) ở bệnh nhân có <b>LVH</b> <b><i>rõ</i></b> và thay đổi sóng ST-T kiểu <b>"tăng gánh" thất trái (LV strain)</b>. Lý do là trên điện tâm đồ, biên độ QRS tăng đi kèm với vùng chuyển tiếp trước tim đột ngột từ phức bộ QRS chủ yếu âm sang chủ yếu dương — có thể tạo ra hình ảnh sóng ST-T <i><u>giống hệt</u></i> sóng T hai pha có phần cuối âm, đặc trưng của thay đổi Wellens <b>(</b><i>Xem</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-209-ecg-mp-26-is-this-wellens.html" rel="noopener" target="_blank">ECG Blog #209</a></b> <i>và</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/10/ecg-blog-254-26a-wellens-syndrome.html" rel="noopener" target="_blank">Blog #254</a></b> <i>và</i> <b><a href="https://ecg-interpretation.blogspot.com/2022/05/ecg-blog-309-syncope-and-wellens.html" rel="noopener" target="_blank">Blog #309</a></b> — <i>để xem một số ví dụ về hình ảnh "dương tính giả" này</i><b>)</b>.</li></ul>
+<p><b><u>Vì sao điện tâm đồ <i>hôm nay</i> Không phải là<i> hội chứng Wellens</i>:</u></b></p>
+<p>Hiểu được sinh lý bệnh của hội chứng Wellens giúp ta hiểu vì sao ca hôm nay <u>không</u> thỏa tiêu chuẩn.</p>
+<ul><li><b>Sóng T</b> <i><b>hai pha</b></i> đặc trưng với sóng T đi xuống <i>nhanh</i> vào <b>phần âm</b> <b><i>cuối</i></b> của sóng T — là dấu hiệu cho thấy đã có <b>tắc</b><b> <i>hoàn toàn</i> LAD trong thời gian ngắn, </b>và <b>nay đã <i>tự</i> tái tưới máu</b>. Dấu hiệu điện tâm đồ này là một <b><i>"sóng T tái tưới máu"</i></b>. Nó có thể trông <i><u>giống hệt</u></i> hình ảnh sóng ST-T thấy sau một STEMI có troponin tăng cao, nay đã được tái tưới máu <b>(</b><i>dù tái tưới máu tự phát — hay nhờ điều trị bằng PCI hoặc thuốc tiêu sợi huyết</i><b>)</b>.</li><li><b>Đau ngực</b> cần có trong định nghĩa hội chứng Wellens xảy ra <i>vào lúc</i> động mạch vành bị tắc. Lý do bệnh nhân <b><i><u>không</u> <u>đau</u></i></b> vào lúc ghi điện tâm đồ xác định chẩn đoán — là vì <b><i>tổn thương "thủ phạm" ở LAD nay đã thông</i></b>. NẾU tổn thương "thủ phạm" ở LAD vẫn còn tắc — thì thay vì là một <i><u>lời cảnh báo</u></i> về nhồi máu sắp xảy ra <b>(</b><i>đó chính là mục đích của việc nhận ra kịp thời hội chứng Wellens</i><b>)</b> — sẽ là nhồi máu cấp <i>đang diễn ra</i>.</li><li>Lý do troponin <b><i>không tăng quá</i></b> <b>mức tối thiểu (</b><i>nếu có tăng</i><b>)</b> trong hội chứng Wellens — là vì thời gian tắc động mạch vành <i>quá ngắn</i> nên tổn thương cơ tim gây ra không quá mức tối thiểu. Ngược lại, nếu Troponin tăng đáng kể — điều này hàm ý tổn thương cơ tim đáng kể <i>đã</i> xảy ra <b>(</b><i>theo định nghĩa có nghĩa là bạn đang đối mặt với một nhồi máu đã hoàn tất — và <u>không</u> phải với "lời cảnh báo" về một nhồi máu lớn <u>sắp xảy ra</u></i><b>)</b>.</li><li>Cũng vì lý do này — <b><i><u>không</u></i> được có sóng Q (</b><i>hoặc QS</i><b>) nhồi máu mới</b>, vì chúng hàm ý nhồi máu đã hoàn tất.</li><li>Lý do ST <b>chênh lên <i>không quá</i> mức nhẹ</b> — là vì hội chứng Wellens <i><u>không</u></i> phải là STEMI <b>(</b>tức là, <i>nó <u>không</u> phải là nhồi máu cơ tim "ST chênh lên"</i><b>)</b>.</li><li>Nguy cơ lâm sàng do hội chứng Wellens đặt ra — là nó chứng tỏ <b><i><u>đã</u></i> có tắc LAD cấp do huyết khối (</b><i>dù thời gian ngắn và sau đó mạch máu tự thông trở lại</i><b>)</b>. NHƯNG — Mạch nào đã tự tắc rồi tự thông lại — thì có <b><i>nguy cơ cao</i></b> <b>tự tắc lại lần nữa (</b><i><u>không</u> có gì bảo đảm rằng lần tắc tiếp theo mạch sẽ lại tự thông trở lại</i><b>)</b>.</li></ul>
+<p><b><u>Về ca bệnh <i>hôm nay</i>:</u></b><i> </i></p>
+<p>Hãy đọc lại bệnh sử của ca hôm nay (<i>trong đoạn mở đầu ở trên</i>) — và <i>XEM LẠI một lần nữa</i> điện tâm đồ ở <u>Hình-2</u>.</p>
+<ul><li>Mất sóng r từ chuyển đạo V2 sang V3, tạo thành <b>phức bộ QS</b> <b><i>lớn</i></b> ở <b>chuyển đạo V3 (</b><i>kèm sóng Q ở cả chuyển đạo V4</i><b>)</b> — cho thấy nhồi máu thành trước đáng kể <i>đã</i> xảy ra ở bệnh nhân hôm nay, người có <b>CP <u>vẫn chưa</u> hết hoàn toàn</b> — và có trị số <b>Troponin</b> <b><i>ban đầu</i></b> đã <b>tăng</b> <b><i>rất cao</i> (</b><i>trên 10,000</i><b>)</b>. Điều này cho thấy nhồi máu đã hoàn tất — và <u>không</u> phù hợp với định nghĩa hội chứng Wellens.</li></ul>
+<p>==========================================</p>
+<p><b><u><span class="c-do">L</span></u></b><b><u>ời cảm ơn<span class="c-do">:</span></u></b> Xin cảm ơn Josep Serra Tarragon (<i>từ Tarragona, Tây Ban Nha</i>) đã cung cấp ca bệnh và bản ghi này.</p>
+<p>==========================================</p>
+<figure><a class="o-anh" href="case-453_anh/0--RED-LINE--Use-in-Blogs-054ed98e263d.png"><img src="case-453_anh/0--RED-LINE--Use-in-Blogs-054ed98e263d.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+<p>==================================</p>
+<p><b><i><u>Các bài</u></i></b><b><u> ECG Blog liên quan đến ca <i>hôm nay</i>: </u></b></p>
+<ul><li><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-205-ecg-mp-23-what-is.html" rel="noopener" target="_blank">ECG Blog #205</a><b> </b>— Ôn lại <b>Cách tiếp cận</b> <b><i><u>hệ thống</u></i></b> của tôi trong <b>đọc điện tâm đồ 12 chuyển đạo</b>.</li><li><b> </b></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-209-ecg-mp-26-is-this-wellens.html" rel="noopener" target="_blank">ECG Blog #209</a></b> và <b><a href="https://ecg-interpretation.blogspot.com/2021/10/ecg-blog-254-26a-wellens-syndrome.html" rel="noopener" target="_blank">ECG Blog #254</a></b> và <b><a href="https://ecg-interpretation.blogspot.com/2022/05/ecg-blog-309-syncope-and-wellens.html" rel="noopener" target="_blank">ECG Blog #309</a></b> — Ôn lại các ca <b>LVH</b> <b><i>rõ</i></b> gây ra thay đổi sóng ST-T <i><u>tương tự</u></i> như có thể thấy trong <b>hội chứng</b> <b><i>Wellens</i></b>.<b> </b></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/08/ecg-blog-245-59-heart-failure-and-acute.html" rel="noopener" target="_blank">ECG Blog #245</a></b> — Ôn lại cách tiếp cận của tôi trong chẩn đoán <b>LVH (</b><i>tóm tắt ở Hình-3 và -4, và là chủ đề của</i> <b><i><u>Audio</u></i></b> <b>Pearl MP-59</b> <i>trong Blog #245</i><b>)</b> trên điện tâm đồ.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2022/07/ecg-blog-320-not-culprit-you-think.html" rel="noopener" target="_blank">ECG Blog #320</a></b> — Ôn lại <b>OMI</b> <b><i>cấp</i></b> của <b>nhánh chéo thứ 1</b> hoặc <b>thứ 2 (</b><i>biểu hiện như </i><b><i>hội chứng Wellens</i>)</b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2022/08/ecg-blog-326-this-case-was-missed.html" rel="noopener" target="_blank">ECG Blog #326</a></b> — Ôn lại một ca <b>hội chứng</b> <b><i>Wellens</i></b> bị bỏ sót.</li><li><b><a href="https://ecg-interpretation.blogspot.com/2022/12/ecg-blog-350-severe-cp-not-much-on-ecg.html" rel="noopener" target="_blank">ECG Blog #350</a></b> — một ca khác về <b>hội chứng <i>Wellens </i></b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2022/10/ecg-blog-337-nstemi-or-omi.html" rel="noopener" target="_blank">ECG Blog #337</a></b> — để ôn lại một ca minh họa việc <i><u>đối chiếu</u></i> lâm sàng <i>từng bước</i> giữa <b>các điện tâm đồ</b> <b><i>liên tiếp</i></b> với <b>mức độ</b> <b><i>triệu chứng</i></b>.</li><li><br></li><li>Xem <b>bài đăng <a href="https://hqmeded-ecg.blogspot.com/2022/10/precordial-swirl-20-cases-of-swirl-or.html" rel="noopener" target="_blank">ngày 15 tháng 10 năm 2022</a> (</b><i>kể cả Bình luận của tôi ở cuối trang</i><b>)</b> — để ôn lại và minh họa khái niệm <b>"<u>Xoáy</u> <i><u>trước tim</u></i>" (Precordial Swirl) (</b><i>do OMI đoạn gần LAD</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-453_anh/0--RED-LINE--Use-in-Blogs-05617febcacd.png"><img src="case-453_anh/0--RED-LINE--Use-in-Blogs-05617febcacd.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+<p>==================================</p>
+<p><b><u><span class="c-do">P</span></u></b><b><u>HẦN BỔ SUNG</u></b><b> <span class="c-do">(</span></b><i>26/10/2024</i><b><span class="c-do">)</span></b><b>:</b> Tôi trích phần dưới đây từ <i>Bình luận của tôi</i> trong<i> </i><b>bài đăng <a href="https://hqmeded-ecg.blogspot.com/2022/08/inferior-st-elevation-and-hyperacute-t.html" rel="noopener" target="_blank">ngày 12 tháng 8 năm 2022</a></b><i> trên ECG Blog của Dr. Smith</i><b>)</b>.</p>
+<p>==================================</p>
+<p><b><u>Lịch sử của <i>hội chứng Wellens</i>:</u></b></p>
+<p>Thật khó tin rằng bài báo gốc mô tả hội chứng Wellens đã được công bố <b><i>hơn</i> 40 năm trước!</b> Tôi nghĩ sẽ bổ ích khi quay lại <b>bài báo</b> <b><i><u>gốc</u></i></b> này <b>(</b><i>de Zwaan, Bär &amp; Wellens:</i> <b><a href="https://www.richardbogle.com/uploads/1/6/7/1/16713358/wellens_syndrome_original_paper.pdf" rel="noopener" target="_blank">Am Heart J 103: 7030-736, 1982</a>):</b></p>
+<ul><li>Các tác giả (<i>de Zwaan, Bär &amp; Wellens</i>) — đã nghiên cứu 145 bệnh nhân liên tiếp (<i>tuổi trung bình 58</i>) nhập viện vì <b><i>đau ngực</i></b>, được cho là đang có <b>nhồi máu <i>cấp</i> sắp xảy ra (</b><i>Loại trừ các bệnh nhân có LBBB, RBBB, LVH hoặc RVH</i><b>)</b>. Trong nhóm này — <b>26/145 bệnh nhân</b> đã có sẵn hoặc xuất hiện trong vòng 24 giờ sau nhập viện một hình ảnh sóng ST-T bất thường ở các chuyển đạo ngực trước, <i><u>không</u></i> kèm thay đổi phức bộ QRS.</li><li>Tôi đã sao chép lại (<i>và chỉnh sửa</i>) trong <b><u>Hình-3</u></b> — các mẫu điển hình của <b>2 dạng điện tâm đồ</b> thấy ở 26 bệnh nhân này. Đáng chú ý — <i><u>tất cả</u></i> 26 bệnh nhân đều có <b>thay đổi sóng ST-T</b> <b><i>đặc trưng</i></b> ở <b>chuyển đạo V2</b> và <b>V3</b>.</li><li><i>Đa số</i> bệnh nhân cũng có thay đổi đặc trưng ở <b>chuyển đạo V4</b>.</li><li><i>Đa số</i> bệnh nhân có một ít (<i>nhưng nhẹ hơn</i>) thay đổi sóng ST-T ở <b>chuyển đạo V1</b>.</li><li>Ở một số ít bệnh nhân — sóng ST-T bất thường còn thấy lan sang tận thành bên ở chuyển đạo V5 <i>và/hoặc</i> V6.</li><li><br></li><li><i><u>Một nửa</u></i> trong 26 bệnh nhân có thay đổi sóng ST-T đặc trưng ngay lúc nhập viện. 13/26 bệnh nhân còn lại xuất hiện các thay đổi này <i><u>trong vòng</u></i> 24 giờ sau nhập viện.</li><li><b>Các chất chỉ điểm</b> <b><i>huyết thanh</i></b> của <b>nhồi máu (</b>tức là, <i>CPK, SGOT, SLDH</i><b>)</b> <i><u>hoặc</u></i> bình thường <u>hoặc</u> tăng <i>không quá</i> mức tối thiểu</li></ul>
+<p><b><u>Các dạng điện tâm đồ của <i>hội chứng Wellens</i>:</u></b></p>
+<p>2 dạng điện tâm đồ quan sát được ở 26 bệnh nhân có thay đổi sóng ST-T đặc trưng được trình bày ở <b><u>Hình-3</u>:</b></p>
+<ul><li><b><u>Dạng A</u></b> — <i><u>ít</u></i> gặp hơn nhiều trong nhóm nghiên cứu <b>(</b>tức là, <i>gặp ở 4/26 bệnh nhân</i><b>)</b>. Dạng này có đoạn khởi đầu ST đẳng điện hoặc chênh lên tối thiểu, với đoạn ST thẳng hoặc dạng vòm (tức là, <i>hình "mặt mếu"</i>), tiếp theo là sóng T đi xuống <i><u>dốc đứng</u></i> từ đỉnh cho đến khi kết thúc bằng sóng T đảo ngược đối xứng ở <i>phần cuối</i>.</li><li><b><u>Dạng B</u></b> — gặp <i><u>nhiều</u></i> hơn hẳn <b>(</b>tức là, <i>gặp ở 22/26 bệnh nhân</i><b>)</b>. Dạng này có đoạn ST <i>dạng vòm</i>, về cơ bản <i>không</i> chênh lên — kết thúc bằng sóng T đảo ngược <i>đối xứng</i>, thường sâu đến bất ngờ.</li></ul>
+<figure><a class="o-anh" href="case-453_anh/Figure-1-Wellens-A-B-7-26.1-2022--USE-copy-a989b607e113.png"><img src="case-453_anh/Figure-1-Wellens-A-B-7-26.1-2022--USE-copy-a989b607e113.png" alt="" width="1600" height="1031" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-3:</u></b> 2 <b>dạng</b> <b>điện tâm đồ</b> của <b>hội chứng <i>Wellens</i></b> — như được báo cáo trong bài báo gốc năm 1982 <b>(</b><i>Hình được chỉnh sửa từ de Zwaan, Bär &amp; Wellens:</i><b> <a href="https://www.richardbogle.com/uploads/1/6/7/1/16713358/wellens_syndrome_original_paper.pdf" rel="noopener" target="_blank">Am Heart J 103:730-736, 1982</a></b><b>)</b>.</figcaption></figure>
+<p><b><u><i>Diễn tiến</i> sóng ST-T của <i>hội chứng Wellens</i>:</u></b></p>
+<p>Tôi đã sao chép lại (<i>và chỉnh sửa</i>) trong <b><u>Hình-4</u></b> — các <b>điện tâm đồ</b> <b><i>liên tiếp</i></b> tiêu biểu của một bệnh nhân trong bài báo gốc năm 1982.</p>
+<ul><li>Bệnh nhân có các điện tâm đồ trong <u>Hình-4</u> — là một người đàn ông 45 tuổi đến viện vì đau ngực kéo dài nhiều tuần trước khi nhập viện. <b>Điện tâm đồ</b> <b><i>ban đầu</i></b> của ông được trình bày ở <b><u>Ô A</u></b> — và không có gì đặc biệt, với tăng tiến sóng R bình thường. Các chất chỉ điểm huyết thanh âm tính với nhồi máu. Điều trị nội khoa bằng thuốc chẹn ß và nitrat làm hết mọi triệu chứng.</li><li> </li><li><b><u>Ô B</u></b> — được ghi 23 giờ sau nhập viện khi bệnh nhân <b>không triệu chứng</b> <b><i>hoàn toàn</i></b>. Điện tâm đồ thứ 2 này cho thấy thay đổi sóng ST-T đặc trưng tương tự như <b><u>Dạng B</u></b> ở <u>Hình-3</u> <b>(</b>tức là, <i>sóng T đảo ngược sâu, đối xứng ở nhiều chuyển đạo ngực — với sóng T đi xuống dốc đứng, đặc biệt rõ ở chuyển đạo V3</i><b>)</b>.</li><li><br></li><li><i><u>Không</u></i> được trình bày trong <u>Hình-4</u> là <b>các điện tâm đồ <i>sau đó</i></b> ghi trong 3 ngày tiếp theo — cho thấy <b><i><u>trở lại</u></i> hình ảnh "bình thường"</b> của <b>điện tâm đồ <i>ban đầu</i> (</b><i>đã trình bày ở</i> <u>Ô A</u> <i>của Hình-4</i><b>)</b> của bệnh nhân. Trong thời gian này — bệnh nhân vẫn không triệu chứng và tăng dần mức độ hoạt động.</li><li><br></li><li><b><u>Ô C</u></b> — được ghi <b>~5 ngày sau</b>, vì bệnh nhân lên một cơn <b>đau ngực <i>dữ dội</i></b> mới. Như có thể thấy — có mất các lực hướng ra trước (<i>QS sâu ở chuyển đạo V3</i>) với <b>ST chênh lên <i><u>thành trước</u></i> rõ</b> phù hợp với <b>STEMI</b> <b><i>diện rộng</i></b>. Đáng tiếc — bệnh nhân tử vong do sốc tim trong vòng 12 giờ sau khi ghi bản ghi này. Tử thiết cho thấy nhồi máu cơ tim trước vách diện rộng với tắc hoàn toàn động mạch vành do cục máu đông mới tại chỗ chia đôi giữa thân chung động mạch vành trái và LAD đoạn gần.</li></ul>
+<figure><a class="o-anh" href="case-453_anh/Figure-2-Patient-A-B-C-7-26.1-2022--USE-copy-c4d6d5298fe0.png"><img src="case-453_anh/Figure-2-Patient-A-B-C-7-26.1-2022--USE-copy-c4d6d5298fe0.png" alt="" width="1600" height="877" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-4:</u></b> Các <b>điện tâm đồ</b> <b><i>liên tiếp</i></b> tiêu biểu của một bệnh nhân trong bài báo gốc năm 1982.<br><b>— <u>Ô A:</u></b> <b>Điện tâm đồ</b> <b><i>ban đầu</i></b> lúc nhập viện;<br><b>— <u>Ô B:</u></b> <b>Điện tâm đồ</b> <b><i>ghi lại</i></b> 23 giờ <i>sau</i> <b><u>A</u></b>. Bệnh nhân <i><u>không</u></i> đau ngực trong suốt 23 giờ này. <b><u>LƯU Ý:</u></b> 3 ngày <i>sau</i> <b><u>B</u></b> — hình ảnh điện tâm đồ của bệnh nhân này rất giống với hình ảnh ở <b><u>A</u> (</b> = <i>bản ghi ban đầu</i><b>)</b>.<br><b>— <u>Ô C:</u></b> 5 ngày sau — bệnh nhân quay lại với một cơn <b>đau ngực</b> <b><i>dữ dội</i></b> mới. Như thấy trên bản ghi này (<b><u>C</u></b>) — bệnh nhân đã tiến triển thành <b>STEMI <i><u>thành trước</u></i> diện rộng</b>. Ông tử vong trong vòng vài giờ do sốc tim <b>(</b><i>Hình được chỉnh sửa từ de Zwaan, Bär &amp; Wellens:</i><b> <a href="https://www.richardbogle.com/uploads/1/6/7/1/16713358/wellens_syndrome_original_paper.pdf" rel="noopener" target="_blank">Am Heart J 103:730-736, 1982</a></b> — <i>Xem phần bài viết</i><b>)</b>.</figcaption></figure>
+<p><i>==========================</i></p>
+<p><b><u>Các phát hiện <i>đáng chú ý</i> từ bài báo năm 1982:</u></b></p>
+<p>Hình ảnh điện tâm đồ được gọi là hội chứng Wellens đã được mô tả từ <i>hơn</i> 40 năm trước. Các phát hiện lâm sàng rút ra từ bài báo gốc năm 1982 của de Zwaan, Bär &amp; Wellens vẫn còn giá trị đến ngày nay.</p>
+<ul><li>Một trong <b>2 dạng điện tâm đồ</b> trình bày ở <u>Hình-3</u>, với các bất thường sóng ST-T đặc trưng ở chuyển đạo ngực <i><u>thành trước</u></i> — gặp ở <b>18% </b>trong 145 bệnh nhân nhập viện vì <b>đau ngực do tim </b><b>mới </b><u>hoặc</u><b> nặng lên</b>.</li><li>Có thể thấy các biến thể về hình dạng của 2 dạng điện tâm đồ này ở những bệnh nhân nhập viện vì đau ngực. Các điện tâm đồ liên tiếp không cho thấy thay đổi hình dạng QRS (tức là, <i>không xuất hiện sóng Q hay phức bộ QS</i>). Các chất chỉ điểm huyết thanh của nhồi máu vẫn bình thường, hoặc tăng <i>không quá</i> mức tối thiểu.</li><li>Trong phân nhóm bệnh nhân của bài báo năm 1982 này không được phẫu thuật bắc cầu — <b>75% (</b><i>12/16 bệnh nhân</i><b>) đã tiến triển</b> thành <b>STEMI <i><u>thành trước</u></i> diện rộng </b>do <b>tắc LAD</b> <b><i>đoạn gần</i></b> <i>trong vòng</i> 1-2 tuần sau khi hết đau.</li></ul>
+<p><b><u><i>BÀI HỌC CẦN RÚT RA:</i></u></b></p>
+<p>Vào thời điểm bài báo năm 1982 được viết — các tác giả còn <i><u>chưa chắc chắn</u></i> về cơ chế gây ra 2 dạng điện tâm đồ của <b>hội chứng <i>Wellens</i></b>.</p>
+<ul><li><i><b>Ngày nay chúng ta đã <u>biết</u> cơ chế.</b></i> Một tỷ lệ cao bệnh nhân đến khoa cấp cứu (ED) vì đau ngực do tim <i>mới xuất hiện</i> <i>rồi sau đó hết</i> — và ngay sau đó xuất hiện một dạng nào đó của các hình ảnh điện tâm đồ ở <u>Hình-1</u> — <b>đã có tắc động mạch vành <i>gần đây</i> </b>ở <b>LAD</b> <b><i>đoạn gần</i></b> — rồi sau đó <b>thông trở lại</b> <b><i>một cách tự phát</i></b>.</li><li>Lý do sóng Q <i><u>không</u></i> xuất hiện trên điện tâm đồ và các chất chỉ điểm huyết thanh của nhồi máu bình thường <b>(</b><i>hoặc cùng lắm chỉ tăng không quá mức tối thiểu</i><b>)</b> — là vì <b>thời gian tắc động mạch vành <i>rất</i> ngắn</b>. Tổn thương cơ tim là tối thiểu <b>(</b><i>nếu thực sự có tổn thương</i><b>)</b>.</li><li><b><u>NHƯNG:</u></b> Mạch nào <i>tự</i> tắc, rồi <i>tự</i> thông lại — có thể <i><u>tiếp tục</u></i> chu kỳ tắc — thông — tắc lại — thông lại này — <i><u>cho đến khi</u></i> cuối cùng đạt tới một trạng thái <i>sau cùng</i> <b>(</b>tức là, <i>mạch "thủ phạm" hoặc giữ thông hoặc tắc hẳn</i><b>)</b>.</li><li><br></li><li><b><u>Về lâm sàng:</u></b> Chúng ta có thể <i><u>biết</u></i> động mạch "thủ phạm" đang thông hay tắc bằng cách <b><i>đối chiếu</i> các điện tâm đồ liên tiếp với bệnh sử đau ngực của bệnh nhân</b>. Ví dụ — hết đau ngực kèm giảm ST chênh lên gợi ý mạch "thủ phạm" đã tự thông trở lại. Và, nếu sau đó đau ngực tái phát kèm ST chênh lên trở lại — thì động mạch "thủ phạm" có lẽ đã tắc lại.</li><li>Tầm quan trọng của việc nhận ra <b>hội chứng</b> <b><i>Wellens</i></b> — là nó cho chúng ta biết rằng thông tim <i>kịp thời</i> là thiết yếu NẾU ta muốn ngăn tắc lại. Trong nghiên cứu của de Zwaan, Bär &amp; Wellens — <b>75% bệnh nhân <i>không đau</i> này</b> có thay đổi sóng ST-T kiểu Wellens <b>về sau đã tiến triển thành STEMI <i>thành trước</i> diện rộng</b> trong vòng 1-2 tuần tiếp theo nếu không được điều trị.</li><li>Vì vậy, <b><i><u>mục tiêu</u></i> của <i>việc nhận ra</i> hội chứng Wellens</b> — là can thiệp <i><u>trước khi</u></i> xảy ra tổn thương cơ tim đáng kể <b>(</b>tức là, <i>tiêu chuẩn chẩn đoán hội chứng này đòi hỏi <u>chưa</u> xuất hiện sóng Q hay phức bộ QS ở thành trước — và các chất chỉ điểm huyết thanh của nhồi máu tăng <u>không</u> <u>quá</u> mức tối thiểu</i><b>)</b>.</li><li><b><i><u>Không</u></i> phải là "hội chứng Wellens" — NẾU bệnh nhân đang có CP (</b><i>đau ngực — <u>C</u>hest <u>P</u>ain</i><b>)</b> vào lúc thấy một trong các dạng điện tâm đồ ở <u>Hình-3</u>. CP đang diễn ra gợi ý động mạch "thủ phạm" vẫn còn tắc.</li><li><i><u><b>Tiêu chuẩn loại trừ</b></u></i> trong nghiên cứu năm 1982 là bệnh nhân có LBBB, RBBB, LVH hoặc RVH. Dù tắc cấp LAD đoạn gần tất nhiên vẫn có thể xảy ra ở bệnh nhân có rối loạn dẫn truyền hoặc lớn buồng tim — việc nhận ra các dạng của hội chứng Wellens khó khăn hơn nhiều khi có bất kỳ dấu hiệu điện tâm đồ nào trong số này.</li><li>Cuối cùng, đôi lời về 2 dạng điện tâm đồ ở <u>Hình-3</u>. Như dữ liệu trong bài báo gốc năm 1982 gợi ý, <b><u>Dạng A</u></b> — <i>ít</i> gặp hơn nhiều, nhưng <i>đặc hiệu hơn</i> cho hội chứng Wellens <u>NẾU</u> đi kèm bệnh sử "phù hợp" <b>(</b>tức là, <i>đau ngực trước đó — nay đã hết vào lúc xuất hiện các bất thường sóng ST-T</i><b>)</b>.</li><li>Khác với ví dụ ở <u>Hình-3</u> — <b><u>Dạng B</u></b> có thể chỉ giới hạn ở sóng T đảo ngược đối xứng mà <i><u>không</u></i> có dấu hiệu sóng T đi xuống dốc đứng vào phần âm cuối ở bất kỳ chuyển đạo nào. Bản thân sóng T đảo ngược sâu, đối xứng gặp trong nhiều bệnh lý khác, và kém đặc hiệu hơn nhiều cho hội chứng Wellens.</li></ul>
+<p><b><u>Tóm lại:</u></b> 145 bệnh nhân được de Zwaan, Bär &amp; Wellens nghiên cứu năm 1982 cho đến nay vẫn tiếp tục mang lại hiểu biết lâm sàng về bản chất của hội chứng Wellens.</p>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
