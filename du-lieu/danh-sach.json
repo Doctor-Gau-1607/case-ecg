@@ -1327,40 +1327,44 @@
 "nhan": "#128",
 "slug": "case-128",
 "url": "https://www.ekgblog.com/2016/06/ecg-blog-128-vt-fusion-wct-sinus.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790772164
+"tieu_de_en": "ECG Blog #128 — VT, Fusion, WCT, Sinus Tach",
+"tieu_de_vi": "ECG Blog #128 — VT, nhát hỗn hợp, WCT, nhịp nhanh xoang",
+"trang_thai": "xong",
+"tu_khoa": "nhát hỗn hợp, fusion beat, nhịp tự thất gia tốc, AIVR, nhịp nhanh thất, VT, nhịp nhanh QRS rộng, WCT, nhịp nhanh xoang, sinus tachycardia, nguồn gốc thất, ventricular etiology, dải nhịp, rhythm strip, khoảng PR ngắn",
+"ngay": "2026-09-30"
 },
 {
 "stt": 127,
 "nhan": "#129",
 "slug": "case-129",
 "url": "https://www.ekgblog.com/2016/07/ecg-blog-129-pvc-late-cycle-end.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790772164
+"tieu_de_en": "ECG Blog #129 — Late-Cycle: How Many Children?",
+"tieu_de_vi": "ECG Blog #129 — PVC muộn trong chu kỳ: có bao nhiêu \"đứa con\" (nhát hỗn hợp)?",
+"trang_thai": "xong",
+"tu_khoa": "PVC cuối tâm trương, end-diastolic PVC, late-cycle PVC, nhát hỗn hợp, fusion beat, nhịp đôi thất, ventricular bigeminy, AIVR, nhịp tự thất gia tốc, nhịp tái tưới máu, reperfusion rhythm, giản đồ bậc thang, laddergram, hiệu ứng đàn xếp, concertina effect, WPW, rối loạn nhịp phức tạp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 128,
 "nhan": "#130",
 "slug": "case-130",
 "url": "https://www.ekgblog.com/2016/07/ecg-blog-130-av-block-2-to-1-abbb-rbbb.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790772164
+"tieu_de_en": "ECG Blog #130 (AV Block – ABBB – RBBB – LBBB)",
+"tieu_de_vi": "ECG Blog #130 (Blốc AV – blốc nhánh luân phiên (ABBB) – RBBB – LBBB)",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV, AV block, blốc AV 2:1, 2:1 AV block, blốc nhánh luân phiên, alternating bundle branch block, ABBB, blốc nhánh phải, RBBB, blốc nhánh trái, LBBB, MCL-1, nhịp chậm, bradycardia, bệnh His-Purkinje, máy tạo nhịp, pacemaker",
+"ngay": "2026-09-30"
 },
 {
 "stt": 129,
 "nhan": "#131",
 "slug": "case-131",
 "url": "https://www.ekgblog.com/2016/11/ecg-blog-131-acute-stemi-acute.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790772164
+"tieu_de_en": "ECG Blog #131 (Acute STEMI – Acute Occlusion of LAD – LCx – RCA)",
+"tieu_de_vi": "ECG Blog #131 (STEMI cấp – tắc cấp LAD – LCx – RCA)",
+"trang_thai": "xong",
+"tu_khoa": "STEMI cấp, acute STEMI, động mạch thủ phạm, culprit artery, động mạch mũ trái, LCx, left circumflex, ưu thế trái, dominant LCx, nhồi máu thành sau, posterior MI, nhồi máu thành bên, lateral MI, ST chênh xuống trước tim, tái tưới máu, reperfusion, RCA, LAD",
+"ngay": "2026-09-30"
 },
 {
 "stt": 130,
