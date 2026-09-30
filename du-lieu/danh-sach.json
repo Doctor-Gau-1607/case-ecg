@@ -79,20 +79,22 @@
 "nhan": "#8",
 "slug": "case-008",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-8-tachycardia.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790762925
+"tieu_de_en": "ECG Interpretation Review - #8 (Tachycardia, Acute Changes)",
+"tieu_de_vi": "ECG Interpretation Review #8 — Nhịp nhanh, thay đổi cấp",
+"trang_thai": "xong",
+"tu_khoa": "rung nhĩ, atrial fibrillation, AFib đáp ứng thất nhanh, nhồi máu cơ tim thầm lặng, silent MI, ST chênh lên hình bia mộ, tombstone ST elevation, sóng T tối cấp, hyperacute T waves, khó thở, dyspnea, dẫn truyền lệch hướng, aberrant conduction",
+"ngay": "2026-09-30"
 },
 {
 "stt": 9,
 "nhan": "#9",
 "slug": "case-009",
 "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-9-hemiblock.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790762925
+"tieu_de_en": "ECG Interpretation Review - #9 (Hemiblock, Axis, Ischemia vs Normal T Wave Inversion)",
+"tieu_de_vi": "ECG Interpretation Review #9 — Blốc phân nhánh, trục, thiếu máu cục bộ hay sóng T đảo ngược bình thường",
+"trang_thai": "xong",
+"tu_khoa": "blốc phân nhánh trái trước, LAHB, hemiblock, LPHB, trục lệch trái, LAD bệnh lý, left axis deviation, chuyển đạo II, sóng T đảo ngược, T wave inversion, sóng Q bình thường, chữ Z ngược, thiếu máu cục bộ thành dưới",
+"ngay": "2026-09-30"
 },
 {
 "stt": 10,
