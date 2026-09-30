@@ -1,0 +1,4934 @@
+[
+{
+"stt": 1,
+"nhan": "#1",
+"slug": "case-001",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-1-lvh-strain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 2,
+"nhan": "#2",
+"slug": "case-002",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-2-st-segment.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 3,
+"nhan": "#3",
+"slug": "case-003",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-3-bbb-bundle.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 4,
+"nhan": "#4",
+"slug": "case-004",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-4-long-qt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 5,
+"nhan": "#5",
+"slug": "case-005",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-5-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 6,
+"nhan": "#6",
+"slug": "case-006",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-6-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 7,
+"nhan": "#7",
+"slug": "case-007",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-7-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 8,
+"nhan": "#8",
+"slug": "case-008",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-8-tachycardia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 9,
+"nhan": "#9",
+"slug": "case-009",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-9-hemiblock.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 10,
+"nhan": "#10",
+"slug": "case-010",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-10-peaked-t.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 11,
+"nhan": "#11",
+"slug": "case-011",
+"url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-11-bbb-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 12,
+"nhan": "#12",
+"slug": "case-012",
+"url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-12.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 13,
+"nhan": "#13",
+"slug": "case-013",
+"url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-13-bbb-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 14,
+"nhan": "#14",
+"slug": "case-014",
+"url": "https://www.ekgblog.com/2011/01/ecg-interpretation-review-14-pause-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 15,
+"nhan": "#15",
+"slug": "case-015",
+"url": "https://www.ekgblog.com/2011/02/ecg-interpretation-review-15-run-of-wct.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 16,
+"nhan": "#16",
+"slug": "case-016",
+"url": "https://www.ekgblog.com/2011/03/ecg-interpretation-review-16-23-yo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 17,
+"nhan": "#17",
+"slug": "case-017",
+"url": "https://www.ekgblog.com/2011/03/ecg-interpretation-review-17-older.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 18,
+"nhan": "#18",
+"slug": "case-018",
+"url": "https://www.ekgblog.com/2011/03/ecg-interpretation-review-18.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 19,
+"nhan": "#19",
+"slug": "case-019",
+"url": "https://www.ekgblog.com/2011/05/ecg-interpretation-review-19-2-to-1-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 20,
+"nhan": "#20",
+"slug": "case-020",
+"url": "https://www.ekgblog.com/2011/05/ecg-interpretation-review-20-high-grade.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 21,
+"nhan": "#21",
+"slug": "case-021",
+"url": "https://www.ekgblog.com/2011/05/ecg-interpretation-review-21-complete_10.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 22,
+"nhan": "#22",
+"slug": "case-022",
+"url": "https://www.ekgblog.com/2011/06/ecg-interpretation-review-22-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 23,
+"nhan": "#23",
+"slug": "case-023",
+"url": "https://www.ekgblog.com/2011/06/ecg-interpretation-review-23-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 24,
+"nhan": "#24",
+"slug": "case-024",
+"url": "https://www.ekgblog.com/2011/07/ecg-interpretation-review-24-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 25,
+"nhan": "#25",
+"slug": "case-025",
+"url": "https://www.ekgblog.com/2011/07/ecg-interpretation-review-25-regular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 26,
+"nhan": "#26",
+"slug": "case-026",
+"url": "https://www.ekgblog.com/2011/08/ecg-interpretation-review-26-regular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 27,
+"nhan": "#27",
+"slug": "case-027",
+"url": "https://www.ekgblog.com/2011/08/ecg-interpretation-review-27-st-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 28,
+"nhan": "#28",
+"slug": "case-028",
+"url": "https://www.ekgblog.com/2011/08/ecg-interpretation-review-28-st-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 29,
+"nhan": "#29",
+"slug": "case-029",
+"url": "https://www.ekgblog.com/2011/09/test.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 30,
+"nhan": "#30",
+"slug": "case-030",
+"url": "https://www.ekgblog.com/2011/10/ecg-interpretation-review-30-bundle.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 31,
+"nhan": "#31",
+"slug": "case-031",
+"url": "https://www.ekgblog.com/2011/10/ecg-interpretation-review-31-fib-rbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 32,
+"nhan": "#32",
+"slug": "case-032",
+"url": "https://www.ekgblog.com/2011/11/ecg-interpretation-review-32-bundle.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 33,
+"nhan": "#33",
+"slug": "case-033",
+"url": "https://www.ekgblog.com/2011/12/ecg-interpretation-review-33-bundle.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 34,
+"nhan": "#34",
+"slug": "case-034",
+"url": "https://www.ekgblog.com/2012/01/ecg-interpretation-review-34-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 35,
+"nhan": "#35",
+"slug": "case-035",
+"url": "https://www.ekgblog.com/2012/01/ecg-interpretation-review-35-sct-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 36,
+"nhan": "#36",
+"slug": "case-036",
+"url": "https://www.ekgblog.com/2012/02/ecg-interpretation-review-36-wct-vt-fib.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 37,
+"nhan": "#37",
+"slug": "case-037",
+"url": "https://www.ekgblog.com/2012/02/ecg-interpretation-review-37-irregular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 38,
+"nhan": "#38",
+"slug": "case-038",
+"url": "https://www.ekgblog.com/2012/02/ecg-interpretation-review-38-wct-svt-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 39,
+"nhan": "#39",
+"slug": "case-039",
+"url": "https://www.ekgblog.com/2012/03/ecg-interpretation-review-39-narrow-qrs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 40,
+"nhan": "#40",
+"slug": "case-040",
+"url": "https://www.ekgblog.com/2012/03/ecg-interpretation-review-40-regular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 41,
+"nhan": "#41",
+"slug": "case-041",
+"url": "https://www.ekgblog.com/2012/04/ecg-interpretation-review-41-wct-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 42,
+"nhan": "#42",
+"slug": "case-042",
+"url": "https://www.ekgblog.com/2012/05/ecg-interpretation-review-42-vt-brugada.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 43,
+"nhan": "#42-bis",
+"slug": "case-042-bis",
+"url": "https://www.ekgblog.com/2012/05/ecg-interpretation-review-42-bis-tables.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 44,
+"nhan": "#43",
+"slug": "case-043",
+"url": "https://www.ekgblog.com/2012/05/ecg-interpretation-review-43-afib-pacs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 45,
+"nhan": "#44",
+"slug": "case-044",
+"url": "https://www.ekgblog.com/2012/06/ecg-interpretation-review-44-afib.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 46,
+"nhan": "#45",
+"slug": "case-045",
+"url": "https://www.ekgblog.com/2012/06/ecg-interpretation-review-45-ivcd-lahb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 47,
+"nhan": "#46",
+"slug": "case-046",
+"url": "https://www.ekgblog.com/2012/06/ecg-interpretation-review-46-inferior.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 48,
+"nhan": "#47",
+"slug": "case-047",
+"url": "https://www.ekgblog.com/2012/07/ecg-interpretation-review-47-normal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 49,
+"nhan": "#48",
+"slug": "case-048",
+"url": "https://www.ekgblog.com/2012/07/ecg-interpretation-review-48-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 50,
+"nhan": "#49",
+"slug": "case-049",
+"url": "https://www.ekgblog.com/2012/08/ecg-interpretation-review-49-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 51,
+"nhan": "#50",
+"slug": "case-050",
+"url": "https://www.ekgblog.com/2012/08/ecg-interpretation-review-50-syncope.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 52,
+"nhan": "#51",
+"slug": "case-051",
+"url": "https://www.ekgblog.com/2012/09/ecg-interpretation-review-51-chamber.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 53,
+"nhan": "#52",
+"slug": "case-052",
+"url": "https://www.ekgblog.com/2012/10/ecg-interpretation-review-52-wide.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 54,
+"nhan": "#53",
+"slug": "case-053",
+"url": "https://www.ekgblog.com/2012/11/ecg-interpretation-review-53-peaked-t.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 55,
+"nhan": "#54",
+"slug": "case-054",
+"url": "https://www.ekgblog.com/2012/11/ecg-interpretation-review-54-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 56,
+"nhan": "#55",
+"slug": "case-055",
+"url": "https://www.ekgblog.com/2012/11/ecg-interpretation-review-55-mobitz-i.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 57,
+"nhan": "#56",
+"slug": "case-056",
+"url": "https://www.ekgblog.com/2012/12/ecg-interpretation-review-56-st.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 58,
+"nhan": "#57",
+"slug": "case-057",
+"url": "https://www.ekgblog.com/2012/12/ecg-interpretation-review-57-mobitz-i.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 59,
+"nhan": "#58",
+"slug": "case-058",
+"url": "https://www.ekgblog.com/2013/01/ecg-interpretation-review-58-2nd-degree.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 60,
+"nhan": "#59",
+"slug": "case-059",
+"url": "https://www.ekgblog.com/2013/01/ecg-interpretation-review-59-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 61,
+"nhan": "#60",
+"slug": "case-060",
+"url": "https://www.ekgblog.com/2013/02/ecg-interpretation-review-60-st-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 62,
+"nhan": "#61",
+"slug": "case-061",
+"url": "https://www.ekgblog.com/2013/02/ecg-interpretation-review-61-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 63,
+"nhan": "#62",
+"slug": "case-062",
+"url": "https://www.ekgblog.com/2013/03/ecg-interpretation-review-62-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 64,
+"nhan": "#63",
+"slug": "case-063",
+"url": "https://www.ekgblog.com/2013/03/ecg-interpretation-review-63-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 65,
+"nhan": "#64",
+"slug": "case-064",
+"url": "https://www.ekgblog.com/2013/04/ecg-interpretation-review-64-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 66,
+"nhan": "#65",
+"slug": "case-065",
+"url": "https://www.ekgblog.com/2013/04/ecg-interpretation-review-65-svt-rvh.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 67,
+"nhan": "#66",
+"slug": "case-066",
+"url": "https://www.ekgblog.com/2013/05/ecg-interpretation-review-66-2nd-degree.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 68,
+"nhan": "#67",
+"slug": "case-067",
+"url": "https://www.ekgblog.com/2013/05/ecg-interpretation-review-67-pac-pvc-12.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 69,
+"nhan": "#68",
+"slug": "case-068",
+"url": "https://www.ekgblog.com/2013/06/ecg-interpretation-review-68-pvc.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 70,
+"nhan": "#69",
+"slug": "case-069",
+"url": "https://www.ekgblog.com/2013/06/ecg-interpretation-review-69-pvc-pjc.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 71,
+"nhan": "#70",
+"slug": "case-070",
+"url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-70-pvc.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 72,
+"nhan": "#71",
+"slug": "case-071",
+"url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-71-pvc.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 73,
+"nhan": "#72",
+"slug": "case-072",
+"url": "https://www.ekgblog.com/2013/07/ecg-interpretation-review-72-sinus.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 74,
+"nhan": "#73",
+"slug": "case-073",
+"url": "https://www.ekgblog.com/2013/08/ecg-interpretation-review-73-lvh.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 75,
+"nhan": "#74",
+"slug": "case-074",
+"url": "https://www.ekgblog.com/2013/09/ecg-interpretation-review-74.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 76,
+"nhan": "#75",
+"slug": "case-075",
+"url": "https://www.ekgblog.com/2013/09/ecg-interpretation-review-75-chamber.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 77,
+"nhan": "#76",
+"slug": "case-076",
+"url": "https://www.ekgblog.com/2013/10/ecg-interpretation-review-76-anterior.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 78,
+"nhan": "#77",
+"slug": "case-077",
+"url": "https://www.ekgblog.com/2013/10/ecg-interpretation-review-77-chamber.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 79,
+"nhan": "#78",
+"slug": "case-078",
+"url": "https://www.ekgblog.com/2013/11/ecg-interpretation-review-78-pacs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 80,
+"nhan": "#79",
+"slug": "case-079",
+"url": "https://www.ekgblog.com/2013/11/ecg-interpretation-review-79-normal-q.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 81,
+"nhan": "#80",
+"slug": "case-080",
+"url": "https://www.ekgblog.com/2013/12/ecg-interpretation-review-80-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 82,
+"nhan": "#81",
+"slug": "case-081",
+"url": "https://www.ekgblog.com/2014/01/ecg-interpretation-review-81-tall-r.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 83,
+"nhan": "#82",
+"slug": "case-082",
+"url": "https://www.ekgblog.com/2014/01/ecg-interpretation-review-82-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 84,
+"nhan": "#83",
+"slug": "case-083",
+"url": "https://www.ekgblog.com/2014/02/ecg-interpretation-review-83-psvt-avnrt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 85,
+"nhan": "#84",
+"slug": "case-084",
+"url": "https://www.ekgblog.com/2014/02/ecg-interpretation-review-84-st-segment.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 86,
+"nhan": "#85",
+"slug": "case-085",
+"url": "https://www.ekgblog.com/2014/03/ecg-interpretation-review-85-aberration.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 87,
+"nhan": "#86",
+"slug": "case-086",
+"url": "https://www.ekgblog.com/2014/04/ecg-interpretation-review-86-regular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 88,
+"nhan": "#87",
+"slug": "case-087",
+"url": "https://www.ekgblog.com/2014/05/ecg-interpretation-review-87-pvcs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 89,
+"nhan": "#88",
+"slug": "case-088",
+"url": "https://www.ekgblog.com/2014/05/ecg-blog-88-basic-concepts-1-qrs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 90,
+"nhan": "#89",
+"slug": "case-089",
+"url": "https://www.ekgblog.com/2014/05/ecg-blog-89-basic-concepts-2-intervals.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 91,
+"nhan": "#90",
+"slug": "case-090",
+"url": "https://www.ekgblog.com/2014/06/ecg-blog-90-basic-concepts-3.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 92,
+"nhan": "#91",
+"slug": "case-091",
+"url": "https://www.ekgblog.com/2014/06/ecg-blog-91-basic-concepts-4-lead.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 93,
+"nhan": "#92",
+"slug": "case-092",
+"url": "https://www.ekgblog.com/2014/06/ecg-blog-92-basic-concepts-5-lvh.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 94,
+"nhan": "#93",
+"slug": "case-093",
+"url": "https://www.ekgblog.com/2014/06/ecg-blog-93-basic-concepts-6-systematic.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 95,
+"nhan": "#94",
+"slug": "case-094",
+"url": "https://www.ekgblog.com/2014/07/ecg-blog-94-basic-concepts-7-qrst.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 96,
+"nhan": "#95",
+"slug": "case-095",
+"url": "https://www.ekgblog.com/2014/08/ecg-blog-95-ecg-video-blog-1-is-there.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 97,
+"nhan": "#96",
+"slug": "case-096",
+"url": "https://www.ekgblog.com/2014/08/ecg-blog-96-ecg-video-blog-2-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 98,
+"nhan": "#97",
+"slug": "case-097",
+"url": "https://www.ekgblog.com/2014/09/ecg-blog-97-ecg-video-blog-3-svt-with.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 99,
+"nhan": "#98",
+"slug": "case-098",
+"url": "https://www.ekgblog.com/2014/10/ecg-blog-98-ecg-video-blog-4-arrhythmia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 100,
+"nhan": "#99",
+"slug": "case-099",
+"url": "https://www.ekgblog.com/2014/10/ecg-blog-99-ecg-video-blog-5-arrhythmia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 101,
+"nhan": "#100",
+"slug": "case-100",
+"url": "https://www.ekgblog.com/2014/11/ecg-blog-100-ecg-video-blog-6.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 102,
+"nhan": "#101",
+"slug": "case-101",
+"url": "https://www.ekgblog.com/2014/12/blog-101.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 103,
+"nhan": "#102",
+"slug": "case-102",
+"url": "https://www.ekgblog.com/2014/12/ecg-blog-102-addendum-to-ecg-video-7.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 104,
+"nhan": "#103",
+"slug": "case-103",
+"url": "https://www.ekgblog.com/2015/01/ecg-blog-103-my-ecg-guru-comments-1.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 105,
+"nhan": "#105",
+"slug": "case-105",
+"url": "https://www.ekgblog.com/2015/01/ecg-blog-105-ecg-video-blog-8-basics-of.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 106,
+"nhan": "#107",
+"slug": "case-107",
+"url": "https://www.ekgblog.com/2015/04/ecg-blog-107-pvcs-couplets-aivr-echo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 107,
+"nhan": "#108",
+"slug": "case-108",
+"url": "https://www.ekgblog.com/2015/04/ecg-blog-108-ventricular-rhythms-aivr-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 108,
+"nhan": "#110",
+"slug": "case-110",
+"url": "https://www.ekgblog.com/2015/05/ecg-blog-110-ecg-video-blog-9-is-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 109,
+"nhan": "#111",
+"slug": "case-111",
+"url": "https://www.ekgblog.com/2015/05/ecg-blog-111-addendum-to-ecg-video-9.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 110,
+"nhan": "#112",
+"slug": "case-112",
+"url": "https://www.ekgblog.com/2015/05/ecg-blog-112-sinus-rhythm-lead-ii.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 111,
+"nhan": "#113",
+"slug": "case-113",
+"url": "https://www.ekgblog.com/2015/06/ecg-blog-113-ecg-video-blogs-101112.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 112,
+"nhan": "#114",
+"slug": "case-114",
+"url": "https://www.ekgblog.com/2015/07/ecg-blog-114-standard-recording-cabrera.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 113,
+"nhan": "#115",
+"slug": "case-115",
+"url": "https://www.ekgblog.com/2015/07/ecg-blog-115-early-repolarization.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 114,
+"nhan": "#116",
+"slug": "case-116",
+"url": "https://www.ekgblog.com/2015/08/ecg-blog-116-ecg-video-blog-13.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 115,
+"nhan": "#117",
+"slug": "case-117",
+"url": "https://www.ekgblog.com/2015/09/ecg-blog-117-ecg-video-blog-14-brugada.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 116,
+"nhan": "#118",
+"slug": "case-118",
+"url": "https://www.ekgblog.com/2015/09/ecg-blog-118-ecg-video-15-qrst-changes.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 117,
+"nhan": "#119",
+"slug": "case-119",
+"url": "https://www.ekgblog.com/2015/12/ecg-blog-119-anterior-t-wave-inversion.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 118,
+"nhan": "#120",
+"slug": "case-120",
+"url": "https://www.ekgblog.com/2015/12/ecg-blog-120-ecg-video-16-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 119,
+"nhan": "#121",
+"slug": "case-121",
+"url": "https://www.ekgblog.com/2016/03/ecg-blog-121-arrhythmia-multiple-q.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 120,
+"nhan": "#122",
+"slug": "case-122",
+"url": "https://www.ekgblog.com/2016/05/ecg-interpretation-blog-122-rbbb-lphb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 121,
+"nhan": "#123",
+"slug": "case-123",
+"url": "https://www.ekgblog.com/2016/05/123.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 122,
+"nhan": "#124",
+"slug": "case-124",
+"url": "https://www.ekgblog.com/2016/05/124.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 123,
+"nhan": "#125",
+"slug": "case-125",
+"url": "https://www.ekgblog.com/2016/05/ecg-blog-125-acute-stemi-reperfusion.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 124,
+"nhan": "#126",
+"slug": "case-126",
+"url": "https://www.ekgblog.com/2016/05/ecg-blog-126-computerized-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 125,
+"nhan": "#127",
+"slug": "case-127",
+"url": "https://www.ekgblog.com/2016/06/ecg-blog-127-acute-stemi-lead.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 126,
+"nhan": "#128",
+"slug": "case-128",
+"url": "https://www.ekgblog.com/2016/06/ecg-blog-128-vt-fusion-wct-sinus.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 127,
+"nhan": "#129",
+"slug": "case-129",
+"url": "https://www.ekgblog.com/2016/07/ecg-blog-129-pvc-late-cycle-end.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 128,
+"nhan": "#130",
+"slug": "case-130",
+"url": "https://www.ekgblog.com/2016/07/ecg-blog-130-av-block-2-to-1-abbb-rbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 129,
+"nhan": "#131",
+"slug": "case-131",
+"url": "https://www.ekgblog.com/2016/11/ecg-blog-131-acute-stemi-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 130,
+"nhan": "#132",
+"slug": "case-132",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-132-ventricular-tachycardia-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 131,
+"nhan": "#133",
+"slug": "case-133",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-133-aberrant-conduction-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 132,
+"nhan": "#134",
+"slug": "case-134",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-134-ventricular-tachycardia-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 133,
+"nhan": "#135",
+"slug": "case-135",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-135-regular-wct-fascicular-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 134,
+"nhan": "#136",
+"slug": "case-136",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-136-avnrt-vagal-maneuver-pvc.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 135,
+"nhan": "#137",
+"slug": "case-137",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-137-svt-av-block-atrial.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 136,
+"nhan": "#138",
+"slug": "case-138",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-138-svt-av-block-atrial.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 137,
+"nhan": "#139",
+"slug": "case-139",
+"url": "https://www.ekgblog.com/2016/12/ecg-blog-139-atrial-flutter-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 138,
+"nhan": "#140",
+"slug": "case-140",
+"url": "https://www.ekgblog.com/2017/06/ecg-blog-140-pvc-atrial-bigeminy-pac.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 139,
+"nhan": "#141",
+"slug": "case-141",
+"url": "https://www.ekgblog.com/2017/09/ecg-interpretation-review-141-ischemia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 140,
+"nhan": "#142",
+"slug": "case-142",
+"url": "https://www.ekgblog.com/2017/09/ecg-interpretation-review-142-ischemia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 141,
+"nhan": "#143",
+"slug": "case-143",
+"url": "https://www.ekgblog.com/2017/10/ecg-interpretation-review-143-ecg-guru.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 142,
+"nhan": "#144",
+"slug": "case-144",
+"url": "https://www.ekgblog.com/2017/12/ecg-blog-144-bradycardia-av-block_53.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 143,
+"nhan": "#145",
+"slug": "case-145",
+"url": "https://www.ekgblog.com/2018/01/ecg-blog-145-st-depression-stemi-rbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 144,
+"nhan": "#146",
+"slug": "case-146",
+"url": "https://www.ekgblog.com/2018/01/ecg-blog-146-chest-pain-lbbb-primary-st.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 145,
+"nhan": "#147",
+"slug": "case-147",
+"url": "https://www.ekgblog.com/2018/01/ecg-blog-147-av-block-pacs-mobitz-i.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 146,
+"nhan": "#148",
+"slug": "case-148",
+"url": "https://www.ekgblog.com/2018/03/ecg-blog-148-ventricular-fibrillation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 147,
+"nhan": "#149",
+"slug": "case-149",
+"url": "https://www.ekgblog.com/2018/03/ecg-blog-149-j-point-osborn-hypothermia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 148,
+"nhan": "#150",
+"slug": "case-150",
+"url": "https://www.ekgblog.com/2018/04/ecg-blog-150-j-point-st-elevation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 149,
+"nhan": "#151",
+"slug": "case-151",
+"url": "https://www.ekgblog.com/2018/04/ecg-blog-151-wct-vt-svt-av-dissociation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 150,
+"nhan": "#152",
+"slug": "case-152",
+"url": "https://www.ekgblog.com/2018/06/ecg-blog-152-qtc-ecg-lists-sinus-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 151,
+"nhan": "#153",
+"slug": "case-153",
+"url": "https://www.ekgblog.com/2018/07/ecg-blog-153-lvh-rvh-wpw-rbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 152,
+"nhan": "#154",
+"slug": "case-154",
+"url": "https://www.ekgblog.com/2018/07/ecg-blog-154-stemi-inferior-mobitz.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 153,
+"nhan": "#155",
+"slug": "case-155",
+"url": "https://www.ekgblog.com/2018/09/ecg-blog-155-arrhythmia-pacs-wandering.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 154,
+"nhan": "#156",
+"slug": "case-156",
+"url": "https://www.ekgblog.com/2018/11/ecg-blog-156-lvh-rvh-laa-raa-strain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 155,
+"nhan": "#157",
+"slug": "case-157",
+"url": "https://www.ekgblog.com/2018/12/ecg-blog-157-rbbb-wpw-st-depression.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 156,
+"nhan": "#158",
+"slug": "case-158",
+"url": "https://www.ekgblog.com/2018/12/ecg-blog-158-stemi-omi-ischemia-st.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 157,
+"nhan": "#159",
+"slug": "case-159",
+"url": "https://www.ekgblog.com/2018/12/ecg-blog-159-bradycardia-av-block-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 158,
+"nhan": "#160",
+"slug": "case-160",
+"url": "https://www.ekgblog.com/2019/01/ecg-blog-160-av-block-av-dissociation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 159,
+"nhan": "#161",
+"slug": "case-161",
+"url": "https://www.ekgblog.com/2019/02/ecg-blog-161-acute-stemi-abnormal-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 160,
+"nhan": "#162",
+"slug": "case-162",
+"url": "https://www.ekgblog.com/2019/03/ecg-blog-162-stemi-coronary-circulation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 161,
+"nhan": "#163",
+"slug": "case-163",
+"url": "https://www.ekgblog.com/2019/04/ecg-blog-163-escape-capture-wenckebach.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 162,
+"nhan": "#164",
+"slug": "case-164",
+"url": "https://www.ekgblog.com/2019/05/ecg-blog-164-pacs-blocked-pacs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 163,
+"nhan": "#165",
+"slug": "case-165",
+"url": "https://www.ekgblog.com/2019/06/ecg-blog-165-mi-acute-old-unknown-age.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 164,
+"nhan": "#166",
+"slug": "case-166",
+"url": "https://www.ekgblog.com/2019/07/ecg-blog-166-st-t-afib-lvh-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 165,
+"nhan": "#167",
+"slug": "case-167",
+"url": "https://www.ekgblog.com/2019/07/ecg-blog-167-reciprocal-omi-normal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 166,
+"nhan": "#168",
+"slug": "case-168",
+"url": "https://www.ekgblog.com/2019/09/ecg-blog-168-stemi-complex-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 167,
+"nhan": "#170",
+"slug": "case-170",
+"url": "https://www.ekgblog.com/2020/01/ecg-blog-170-atypical-chest-pain-mirror.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 168,
+"nhan": "#171",
+"slug": "case-171",
+"url": "https://www.ekgblog.com/2020/01/ecg-blog-171-culprit-artery.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 169,
+"nhan": "#172",
+"slug": "case-172",
+"url": "https://www.ekgblog.com/2020/02/ecg-blog-172-st-elevation-j-point.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 170,
+"nhan": "#173",
+"slug": "case-173",
+"url": "https://www.ekgblog.com/2020/03/ecg-blog-173-vt-afib-polymorphic-wpw.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 171,
+"nhan": "#174",
+"slug": "case-174",
+"url": "https://www.ekgblog.com/2020/03/ecg-blog-174-av-block-pacs-group-beating.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 172,
+"nhan": "#175",
+"slug": "case-175",
+"url": "https://www.ekgblog.com/2020/03/ecg-blog-175-lead-reversal-lateral-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 173,
+"nhan": "#176",
+"slug": "case-176",
+"url": "https://www.ekgblog.com/2020/04/ecg-blog-176-pvcs-interpolated-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 174,
+"nhan": "#177",
+"slug": "case-177",
+"url": "https://www.ekgblog.com/2020/05/ecg-blog-177-wct-vt-svt-aberrancy-bbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 175,
+"nhan": "#178",
+"slug": "case-178",
+"url": "https://www.ekgblog.com/2020/08/ecg-blog-178-rv-strain-lead-placement.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 176,
+"nhan": "#179",
+"slug": "case-179",
+"url": "https://www.ekgblog.com/2020/08/ecg-blog-179-qrs-widening-lbbb-rbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 177,
+"nhan": "#180",
+"slug": "case-180",
+"url": "https://www.ekgblog.com/2020/08/ecg-blog-180-wct-svt-vt-pleomorphic.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 178,
+"nhan": "#181",
+"slug": "case-181",
+"url": "https://www.ekgblog.com/2020/10/note-my-complete-write-up-of-this-case.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 179,
+"nhan": "#182",
+"slug": "case-182",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-182-reciprocal-changes-covid.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 180,
+"nhan": "#183",
+"slug": "case-183",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-183-repolarization-variant.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 181,
+"nhan": "#184",
+"slug": "case-184",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-184-audio-pearl-2-magical-lead.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 182,
+"nhan": "#185",
+"slug": "case-185",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-185-audio-pearl-3-ps-qs-3r.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 183,
+"nhan": "#186",
+"slug": "case-186",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-186-audio-pearl-4-av-blocks.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 184,
+"nhan": "#187",
+"slug": "case-187",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-187-ischemia-mi-complete-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 185,
+"nhan": "#188",
+"slug": "case-188",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-188-how-to-read-laddergrams.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 186,
+"nhan": "#189",
+"slug": "case-189",
+"url": "https://www.ekgblog.com/2021/01/ecg-blog-189-ecg-mp-6-is-this-some-type.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 187,
+"nhan": "#190",
+"slug": "case-190",
+"url": "https://www.ekgblog.com/2021/02/ecg-blog-190-ecg-mp-7-where-is-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 188,
+"nhan": "#191",
+"slug": "case-191",
+"url": "https://www.ekgblog.com/2021/02/ecg-blog-191-ecg-mp-8-is-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 189,
+"nhan": "#192",
+"slug": "case-192",
+"url": "https://www.ekgblog.com/2021/02/ecg-blog-192-ecg-mp-9-av-dissociation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 190,
+"nhan": "#193",
+"slug": "case-193",
+"url": "https://www.ekgblog.com/2021/02/ecg-blog-193-ecg-mp-10-acute-omi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 191,
+"nhan": "#194",
+"slug": "case-194",
+"url": "https://www.ekgblog.com/2021/02/ecg-blog-194-ecg-mp-11-reperfusion-of.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 192,
+"nhan": "#195",
+"slug": "case-195",
+"url": "https://www.ekgblog.com/2021/02/blog-195-ecg-mp-12-are-p-waves-related.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 193,
+"nhan": "#196",
+"slug": "case-196",
+"url": "https://www.ekgblog.com/2021/02/blog-196-ecg-mp-13-is-this-vt-or-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 194,
+"nhan": "#197",
+"slug": "case-197",
+"url": "https://www.ekgblog.com/2021/02/blog-197-ecg-mp-14-svt-with-aberrancy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 195,
+"nhan": "#198",
+"slug": "case-198",
+"url": "https://www.ekgblog.com/2021/02/blog-198-ecg-mp-15-can-vt-be-irregular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 196,
+"nhan": "#199",
+"slug": "case-199",
+"url": "https://www.ekgblog.com/2021/03/blog-199-ecg-mp-16-afib-mat-wandering.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 197,
+"nhan": "#200",
+"slug": "case-200",
+"url": "https://www.ekgblog.com/2021/03/blog-200-ecg-mp-17-wandering-atrial.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 198,
+"nhan": "#201",
+"slug": "case-201",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-201-ecg-mp-18-should-cath-lab.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 199,
+"nhan": "#202",
+"slug": "case-202",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-202-ecg-mp-19-do-any-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 200,
+"nhan": "#203",
+"slug": "case-203",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-203-ecg-mp-2021-axis.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 201,
+"nhan": "#204",
+"slug": "case-204",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-204-ecg-mp-22-bundle-branch.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 202,
+"nhan": "#205",
+"slug": "case-205",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-205-ecg-mp-23-what-is.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 203,
+"nhan": "#206",
+"slug": "case-206",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-206-how-many-conduction-defects.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 204,
+"nhan": "#207",
+"slug": "case-207",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-207-ecg-mp-24-ecg-computer.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 205,
+"nhan": "#208",
+"slug": "case-208",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-208-ecg-mp-25-st-elevation-but.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 206,
+"nhan": "#209",
+"slug": "case-209",
+"url": "https://www.ekgblog.com/2021/03/ecg-blog-209-ecg-mp-26-is-this-wellens.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 207,
+"nhan": "#210",
+"slug": "case-210",
+"url": "https://www.ekgblog.com/2021/04/blog-210-ecg-mp-27-regular-wct-how-fast.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 208,
+"nhan": "#211",
+"slug": "case-211",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-211-ecg-mp-28-why-does.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 209,
+"nhan": "#212",
+"slug": "case-212",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-212-ecg-mp-29-why-so-many-qrs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 210,
+"nhan": "#213",
+"slug": "case-213",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-213-ecg-mp-30-aberrant.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 211,
+"nhan": "#214",
+"slug": "case-214",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-214-ecg-mp-31-12-leads-are.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 212,
+"nhan": "#215",
+"slug": "case-215",
+"url": "https://www.ekgblog.com/2021/04/blog-215-ecg-mp-32-at-least-4-notable.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 213,
+"nhan": "#216",
+"slug": "case-216",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-216-ecg-mp-33-is-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 214,
+"nhan": "#217",
+"slug": "case-217",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-217-ecg-mp-34-is-this-vt-on.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 215,
+"nhan": "#218",
+"slug": "case-218",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-218-ecg-mp-35-what-is.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 216,
+"nhan": "#219",
+"slug": "case-219",
+"url": "https://www.ekgblog.com/2021/04/ecg-blog-219-ecg-mp-36-is-this.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 217,
+"nhan": "#220",
+"slug": "case-220",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-220-ecg-mp-37-vt-or-aberrancy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 218,
+"nhan": "#221",
+"slug": "case-221",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-221-ecg-mp-38-do-you-need-to.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 219,
+"nhan": "#222",
+"slug": "case-222",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-222-39-are-there-dynamic-st-t.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 220,
+"nhan": "#223",
+"slug": "case-223",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-223-40-what-are-p-waves-doing.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 221,
+"nhan": "#224",
+"slug": "case-224",
+"url": "https://www.ekgblog.com/2021/05/the-12-lead-ecg-and-long-lead-ii-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 222,
+"nhan": "#225",
+"slug": "case-225",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-225-ecg-media-pearl-5-16-2021.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 223,
+"nhan": "#225a",
+"slug": "case-225-a",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-225a-ecg-videos-media-pearls.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 224,
+"nhan": "#226",
+"slug": "case-226",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-226-42-variable-form-of.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 225,
+"nhan": "#227",
+"slug": "case-227",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-227-43-sinus-tach-and-1st.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 226,
+"nhan": "#228",
+"slug": "case-228",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-228-44-what-is-main-problem.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 227,
+"nhan": "#229",
+"slug": "case-229",
+"url": "https://www.ekgblog.com/2021/05/ecg-blog-229-45-is-this-vt-or-something.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 228,
+"nhan": "#230",
+"slug": "case-230",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-230-46-are-there-serial-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 229,
+"nhan": "#231",
+"slug": "case-231",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-231-what-is-this-bizarre.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 230,
+"nhan": "#232",
+"slug": "case-232",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-232-47-what-is-bigeminy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 231,
+"nhan": "#233",
+"slug": "case-233",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-233-49-why-did-patient-die.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 232,
+"nhan": "#234",
+"slug": "case-234",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-234-50-what-is-unifying.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 233,
+"nhan": "#235",
+"slug": "case-235",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-235-51-is-there-complete-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 234,
+"nhan": "#236",
+"slug": "case-236",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-236-52-2nd-degree-av-blocks.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 235,
+"nhan": "#237",
+"slug": "case-237",
+"url": "https://www.ekgblog.com/2021/06/ecg-blog-237-52-70-year-old-with.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 236,
+"nhan": "#238",
+"slug": "case-238",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-238-53-what-is-phenocopy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 237,
+"nhan": "#239",
+"slug": "case-239",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-239-54-why-are-there-2-kinds.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 238,
+"nhan": "#240",
+"slug": "case-240",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-240-55-what-kind-of-regular-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 239,
+"nhan": "#241",
+"slug": "case-241",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-241-56-fascinating-bigeminy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 240,
+"nhan": "#242",
+"slug": "case-242",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-242-57-why-wide-beats-mobitz-i.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 241,
+"nhan": "#243",
+"slug": "case-243",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-243-47-why-group-beating-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 242,
+"nhan": "#244",
+"slug": "case-244",
+"url": "https://www.ekgblog.com/2021/07/ecg-blog-244-58-cath-lab-was-activated.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 243,
+"nhan": "#245",
+"slug": "case-245",
+"url": "https://www.ekgblog.com/2021/08/ecg-blog-245-59-heart-failure-and-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 244,
+"nhan": "#246",
+"slug": "case-246",
+"url": "https://www.ekgblog.com/2021/08/ecg-blog-246-60-what-is-mirror-test.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 245,
+"nhan": "#247",
+"slug": "case-247",
+"url": "https://www.ekgblog.com/2021/08/ecg-blog-247-61-why-is-pr-interval.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 246,
+"nhan": "#248",
+"slug": "case-248",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-248-62-qr-in-lead-v1.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 247,
+"nhan": "#249",
+"slug": "case-249",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-249-63-can-you-explain-what.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 248,
+"nhan": "#250",
+"slug": "case-250",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-250-64-st-depression-and.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 249,
+"nhan": "#251",
+"slug": "case-251",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-251-65-how-does-cycle-end.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 250,
+"nhan": "#252",
+"slug": "case-252",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-252-66-mobitz-i-mobitz-ii-or.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 251,
+"nhan": "#253",
+"slug": "case-253",
+"url": "https://www.ekgblog.com/2021/09/ecg-blog-253-67-pvcs-or-aberrant.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 252,
+"nhan": "#254",
+"slug": "case-254",
+"url": "https://www.ekgblog.com/2021/10/ecg-blog-254-26a-wellens-syndrome.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 253,
+"nhan": "#255",
+"slug": "case-255",
+"url": "https://www.ekgblog.com/2021/10/ecg-blog-255-ecg-mp-18-why-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 254,
+"nhan": "#256",
+"slug": "case-256",
+"url": "https://www.ekgblog.com/2021/10/ecg-blog-256-ecg-mp-6869-special-kind.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 255,
+"nhan": "#257",
+"slug": "case-257",
+"url": "https://www.ekgblog.com/2021/10/ecg-blog-257-ecg-mp-19a-av-block-in.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 256,
+"nhan": "#258",
+"slug": "case-258",
+"url": "https://www.ekgblog.com/2021/10/ecg-blog-258-mp-70-how-to-date-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 257,
+"nhan": "#259",
+"slug": "case-259",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-259-71-what-is-dual-level-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 258,
+"nhan": "#260",
+"slug": "case-260",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-260-repolarization-change.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 259,
+"nhan": "#261",
+"slug": "case-261",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-261-51a-how-many-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 260,
+"nhan": "#262",
+"slug": "case-262",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-262-41a-what-is-story.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 261,
+"nhan": "#263",
+"slug": "case-263",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-263-13a-what-is-this-wct.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 262,
+"nhan": "#264",
+"slug": "case-264",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-264-72-what-are-2-major.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 263,
+"nhan": "#265",
+"slug": "case-265",
+"url": "https://www.ekgblog.com/2021/11/ecg-blog-265-73-vt-or-something-else.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 264,
+"nhan": "#266",
+"slug": "case-266",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-266-74-dewinter-t-waves-or.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 265,
+"nhan": "#267",
+"slug": "case-267",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-267-75-group-beating-and.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 266,
+"nhan": "#268",
+"slug": "case-268",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-268-76-mobitz-i-vs-complete-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 267,
+"nhan": "#269",
+"slug": "case-269",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-269-77-what-is-poor-r-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 268,
+"nhan": "#270",
+"slug": "case-270",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-270-78-mi-vs-septal-q-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 269,
+"nhan": "#271",
+"slug": "case-271",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-271-79-what-is-st-segment.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 270,
+"nhan": "#272",
+"slug": "case-272",
+"url": "https://www.ekgblog.com/2021/12/ecg-blog-272-80-3-days-of-chest-pain-in.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 271,
+"nhan": "#273",
+"slug": "case-273",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-273-73-30-minutes-after-ed.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 272,
+"nhan": "#274",
+"slug": "case-274",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-27477-new-or-old-septal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 273,
+"nhan": "#275",
+"slug": "case-275",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-275-58-what-chart-audit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 274,
+"nhan": "#276",
+"slug": "case-276",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-276-81-what-about-those-t-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 275,
+"nhan": "#277",
+"slug": "case-277",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-277-why-those-t-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 276,
+"nhan": "#278",
+"slug": "case-278",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-278-most-likely-cause-of-this.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 277,
+"nhan": "#279",
+"slug": "case-279",
+"url": "https://www.ekgblog.com/2022/01/ecg-blog-279-why-3-qrs-shapes.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 278,
+"nhan": "#280",
+"slug": "case-280",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-280-82-bigeminyrandom-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 279,
+"nhan": "#281",
+"slug": "case-281",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-281-83-where-are-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 280,
+"nhan": "#282",
+"slug": "case-282",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-282-lbbb-and-sgarbossa-lvh-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 281,
+"nhan": "#283",
+"slug": "case-283",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-283-vt-or-svt-with-aberrancy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 282,
+"nhan": "#284",
+"slug": "case-284",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-284-diagnose-this-wct-in.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 283,
+"nhan": "#285",
+"slug": "case-285",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-285-wider-irregular-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 284,
+"nhan": "#286",
+"slug": "case-286",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-286-challenge-what-is-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 285,
+"nhan": "#287",
+"slug": "case-287",
+"url": "https://www.ekgblog.com/2022/02/ecg-blog-287-sinus-tach-with-st.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 286,
+"nhan": "#288",
+"slug": "case-288",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-288-pvcs-and-run-of-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 287,
+"nhan": "#289",
+"slug": "case-289",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-289-artifact-or-giant-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 288,
+"nhan": "#290",
+"slug": "case-290",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-290-84a-errors-in-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 289,
+"nhan": "#291",
+"slug": "case-291",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-291-84b-errors-in-ecg-part-2.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 290,
+"nhan": "#292",
+"slug": "case-292",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-292-why-did-patient-die.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 291,
+"nhan": "#293",
+"slug": "case-293",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-293-what-diagnoses-to-suspect.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 292,
+"nhan": "#294",
+"slug": "case-294",
+"url": "https://www.ekgblog.com/2022/03/ecg-blog-294-one-hour-later.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 293,
+"nhan": "#295",
+"slug": "case-295",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-295-why-is-1st-beat-different.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 294,
+"nhan": "#296",
+"slug": "case-296",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-296-shark-fin-infarction-or-not.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 295,
+"nhan": "#297",
+"slug": "case-297",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-297-is-this-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 296,
+"nhan": "#298",
+"slug": "case-298",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-298-rbbb-and-anything-else.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 297,
+"nhan": "#299",
+"slug": "case-299",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-299-unresponsive-and-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 298,
+"nhan": "#300",
+"slug": "case-300",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-300-why-does-it-happen-at-night.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 299,
+"nhan": "#301",
+"slug": "case-301",
+"url": "https://www.ekgblog.com/2022/04/ecg-blog-301-40yo-man-vt-vs-aberrancy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 300,
+"nhan": "#302",
+"slug": "case-302",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-302-qc-ecg-quick-case.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 301,
+"nhan": "#303",
+"slug": "case-303",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-303-eqc-patient-fainted.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 302,
+"nhan": "#304",
+"slug": "case-304",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-304-what-kind-of-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 303,
+"nhan": "#305",
+"slug": "case-305",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-305-cause-of-palpitations.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 304,
+"nhan": "#306",
+"slug": "case-306",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-306-alternating-beats.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 305,
+"nhan": "#307",
+"slug": "case-307",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-307-no-symptoms-but-slow-rate.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 306,
+"nhan": "#308",
+"slug": "case-308",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-308-funny-p-waves-acute-inf.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 307,
+"nhan": "#309",
+"slug": "case-309",
+"url": "https://www.ekgblog.com/2022/05/ecg-blog-309-syncope-and-wellens.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 308,
+"nhan": "#310",
+"slug": "case-310",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-310-special-hat-sign.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 309,
+"nhan": "#311",
+"slug": "case-311",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-311-culprit-of-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 310,
+"nhan": "#312",
+"slug": "case-312",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-312-bigeminy-but-not-mobitz-i.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 311,
+"nhan": "#313",
+"slug": "case-313",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-313-acute-post-partum-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 312,
+"nhan": "#314",
+"slug": "case-314",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-314-79yo-with-palpitations.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 313,
+"nhan": "#315",
+"slug": "case-315",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-315-bradycardia-and-abdominal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 314,
+"nhan": "#316",
+"slug": "case-316",
+"url": "https://www.ekgblog.com/2022/06/ecg-blog-316-what-when-was-culprit-done.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 315,
+"nhan": "#317",
+"slug": "case-317",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-317-80yo-man-cp-culprit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 316,
+"nhan": "#318",
+"slug": "case-318",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-318-stroke-but-no-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 317,
+"nhan": "#319",
+"slug": "case-319",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-319-qrs-alternans.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 318,
+"nhan": "#320",
+"slug": "case-320",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-320-not-culprit-you-think.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 319,
+"nhan": "#321",
+"slug": "case-321",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-321-this-rhythm-and-normal-k.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 320,
+"nhan": "#322",
+"slug": "case-322",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-322-71yo-with-1-week-of-chest_26.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 321,
+"nhan": "#323",
+"slug": "case-323",
+"url": "https://www.ekgblog.com/2022/07/ecg-blog-323-wct-with-rbbb-morphology.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 322,
+"nhan": "#324",
+"slug": "case-324",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-324-only-1-lead.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 323,
+"nhan": "#325",
+"slug": "case-325",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-325-50s-woman-with-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 324,
+"nhan": "#326",
+"slug": "case-326",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-326-this-case-was-missed.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 325,
+"nhan": "#327",
+"slug": "case-327",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-327-can-you-explain-this-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 326,
+"nhan": "#328",
+"slug": "case-328",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-328-what-happened-after-fall.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 327,
+"nhan": "#329",
+"slug": "case-329",
+"url": "https://www.ekgblog.com/2022/08/ecg-blog-329-normal-variant-in-young.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 328,
+"nhan": "#330",
+"slug": "case-330",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-330-pneumonia-with-2-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 329,
+"nhan": "#331",
+"slug": "case-331",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-331-whats-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 330,
+"nhan": "#332",
+"slug": "case-332",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-332-3rd-degree-with-double-bbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 331,
+"nhan": "#333",
+"slug": "case-333",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-333-elderly-man-with-stroke.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 332,
+"nhan": "#334",
+"slug": "case-334",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-334-what-do-12-leads-show.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 333,
+"nhan": "#335",
+"slug": "case-335",
+"url": "https://www.ekgblog.com/2022/09/ecg-blog-335-is-there-proof.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 334,
+"nhan": "#336",
+"slug": "case-336",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-336-impossible-to-classify-why.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 335,
+"nhan": "#337",
+"slug": "case-337",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-337-nstemi-or-omi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 336,
+"nhan": "#338",
+"slug": "case-338",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-338-who-is-related-to-whom.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 337,
+"nhan": "#339SA",
+"slug": "case-339-sa",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-339-is-it-sa-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 338,
+"nhan": "#340",
+"slug": "case-340",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-340-evolution-to-make-note-of.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 339,
+"nhan": "#341",
+"slug": "case-341",
+"url": "https://www.ekgblog.com/2022/10/ecg-blog-341-why-are-t-waves-peaked_29.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 340,
+"nhan": "#342",
+"slug": "case-342",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-342-this-is-12-lead-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 341,
+"nhan": "#343",
+"slug": "case-343",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-343-gi-bleed-and-funky-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 342,
+"nhan": "#344",
+"slug": "case-344",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-344-mobitz-i-mobitz-ii-or.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 343,
+"nhan": "#345",
+"slug": "case-345",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-345-forward-backward-conduction.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 344,
+"nhan": "#346",
+"slug": "case-346",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-346-recurrent-palpitations.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 345,
+"nhan": "#347",
+"slug": "case-347",
+"url": "https://www.ekgblog.com/2022/11/ecg-blog-347-why-non-conducted-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 346,
+"nhan": "#348",
+"slug": "case-348",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-348-14yo-with-palpitations.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 347,
+"nhan": "#349",
+"slug": "case-349",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-349-is-there-capture.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 348,
+"nhan": "#350",
+"slug": "case-350",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-350-severe-cp-not-much-on-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 349,
+"nhan": "#351",
+"slug": "case-351",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-351-posterior-leads.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 350,
+"nhan": "Medall-351",
+"slug": "case-medall-351",
+"url": "https://www.ekgblog.com/2023/10/medall-lecture-slides-blog-351.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 351,
+"nhan": "#352",
+"slug": "case-352",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-352-chest-pain-1-week-ago.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 352,
+"nhan": "#353",
+"slug": "case-353",
+"url": "https://www.ekgblog.com/2022/12/ecg-blog-353-why-wide-qrs-t-qrs-d.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 353,
+"nhan": "#354",
+"slug": "case-354",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-354-what-is-n-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 354,
+"nhan": "#355",
+"slug": "case-355",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-355-why-pauses-with-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 355,
+"nhan": "#356",
+"slug": "case-356",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-356-multiple-wavelets.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 356,
+"nhan": "#357",
+"slug": "case-357",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-357-av-block-default-or.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 357,
+"nhan": "#358",
+"slug": "case-358",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-358-20-year-old-with.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 358,
+"nhan": "#359",
+"slug": "case-359",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-359-how-many-beats-in-12-lead.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 359,
+"nhan": "#360",
+"slug": "case-360",
+"url": "https://www.ekgblog.com/2023/01/ecg-blog-360-patient-has-cancer.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 360,
+"nhan": "#361",
+"slug": "case-361",
+"url": "https://www.ekgblog.com/2023/02/ecg-blog-361-another-wct-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 361,
+"nhan": "#362",
+"slug": "case-362",
+"url": "https://www.ekgblog.com/2023/02/ecg-blog-362-funny-rhythm-in-14-year-old.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 362,
+"nhan": "#363",
+"slug": "case-363",
+"url": "https://www.ekgblog.com/2023/02/ecg-blog-363-how-many-directions.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 363,
+"nhan": "#364",
+"slug": "case-364",
+"url": "https://www.ekgblog.com/2023/02/ecg-blog-364-vt-in-need-of-cardioversion.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 364,
+"nhan": "#365",
+"slug": "case-365",
+"url": "https://www.ekgblog.com/2023/02/ecg-blog-365-30yo-with-pericarditis.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 365,
+"nhan": "#366",
+"slug": "case-366",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-366-diltiazem-didnt-work.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 366,
+"nhan": "#367",
+"slug": "case-367",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-367-do-you-recognize-key.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 367,
+"nhan": "#368",
+"slug": "case-368",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-368-why-so-fast.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 368,
+"nhan": "#369",
+"slug": "case-369",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-369-10-minutes-later.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 369,
+"nhan": "#370",
+"slug": "case-370",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-370-post-arrest-tachycardia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 370,
+"nhan": "#371",
+"slug": "case-371",
+"url": "https://www.ekgblog.com/2023/03/ecg-blog-371-palpitations-since.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 371,
+"nhan": "#372",
+"slug": "case-372",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-372-pvcs-or-aberrant.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 372,
+"nhan": "#373",
+"slug": "case-373",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-373-86yo-and-this-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 373,
+"nhan": "#374",
+"slug": "case-374",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-374-do-you-know-culprit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 374,
+"nhan": "#375",
+"slug": "case-375",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-375-at-least-3-major-findings.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 375,
+"nhan": "#376",
+"slug": "case-376",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-376-15yo-with-fever.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 376,
+"nhan": "#377",
+"slug": "case-377",
+"url": "https://www.ekgblog.com/2023/04/ecg-blog-377-is-1st-ecg-normal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 377,
+"nhan": "#378",
+"slug": "case-378",
+"url": "https://www.ekgblog.com/2023/05/ecg-blog-378-wenckebach-with-pvcs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 378,
+"nhan": "#379",
+"slug": "case-379",
+"url": "https://www.ekgblog.com/2023/05/ecg-blog-379-why-tachy-on-telemetry.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 379,
+"nhan": "#380",
+"slug": "case-380",
+"url": "https://www.ekgblog.com/2023/05/ecg-380-what-is-swirl-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 380,
+"nhan": "#381",
+"slug": "case-381",
+"url": "https://www.ekgblog.com/2023/05/ecg-blog-381-why-was-troponin-normal.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 381,
+"nhan": "#382",
+"slug": "case-382",
+"url": "https://www.ekgblog.com/2023/06/ecg-blog-382-what-does-holter-show.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 382,
+"nhan": "#383",
+"slug": "case-383",
+"url": "https://www.ekgblog.com/2023/06/ecg-blog-383-is-this-coronary-disease.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 383,
+"nhan": "#384",
+"slug": "case-384",
+"url": "https://www.ekgblog.com/2023/06/ecg-blog-384-why-so-fast.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 384,
+"nhan": "#385",
+"slug": "case-385",
+"url": "https://www.ekgblog.com/2023/07/ecg-blog-385-this-patient-arrested-soon.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 385,
+"nhan": "#386",
+"slug": "case-386",
+"url": "https://www.ekgblog.com/2023/07/ecg-blog-386-omi-or-something-else.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 386,
+"nhan": "#387",
+"slug": "case-387",
+"url": "https://www.ekgblog.com/2023/07/ecg-blog-387-2-minutes-later.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 387,
+"nhan": "#388",
+"slug": "case-388",
+"url": "https://www.ekgblog.com/2023/07/ecg-blog-388-why-does-lead-v1-look-funny.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 388,
+"nhan": "#389",
+"slug": "case-389",
+"url": "https://www.ekgblog.com/2023/08/ecg-blog-389-quote-from-sherlock-holmes.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 389,
+"nhan": "#390",
+"slug": "case-390",
+"url": "https://www.ekgblog.com/2023/08/ecg-blog-390-no-information-provided.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 390,
+"nhan": "#391",
+"slug": "case-391",
+"url": "https://www.ekgblog.com/2023/08/ecg-blog-391-asymptomatic-but-irregular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 391,
+"nhan": "#392",
+"slug": "case-392",
+"url": "https://www.ekgblog.com/2023/08/ecg-blog-392-repolarization-t-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 392,
+"nhan": "#393",
+"slug": "case-393",
+"url": "https://www.ekgblog.com/2023/09/ecg-blog-393-why-so-many-shapes.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 393,
+"nhan": "#394",
+"slug": "case-394",
+"url": "https://www.ekgblog.com/2023/09/ecg-blog-394-is-qrs-morphology-disguised.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 394,
+"nhan": "#395",
+"slug": "case-395",
+"url": "https://www.ekgblog.com/2023/09/ecg-blog-395-no-simple-explanation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 395,
+"nhan": "#396",
+"slug": "case-396",
+"url": "https://www.ekgblog.com/2023/09/ecg-blog-396-why-flat-line.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 396,
+"nhan": "#397",
+"slug": "case-397",
+"url": "https://www.ekgblog.com/2023/09/ecg-blog-397-unusually-long-cycle.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 397,
+"nhan": "#398",
+"slug": "case-398",
+"url": "https://www.ekgblog.com/2023/10/ecg-blog-398-uncontrolled-graves-disease.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 398,
+"nhan": "#399",
+"slug": "case-399",
+"url": "https://www.ekgblog.com/2023/10/ecg-blog-399-which-laddergram-is-correct.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 399,
+"nhan": "#400",
+"slug": "case-400",
+"url": "https://www.ekgblog.com/2023/10/ecg-blog-400-is-this-nstemi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 400,
+"nhan": "#401",
+"slug": "case-401",
+"url": "https://www.ekgblog.com/2023/10/ecg-blog-401-what-kind-of-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 401,
+"nhan": "#402",
+"slug": "case-402",
+"url": "https://www.ekgblog.com/2023/11/ecg-blog-402-will-adenosine-convert.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 402,
+"nhan": "#403 Video",
+"slug": "case-403-video",
+"url": "https://www.ekgblog.com/2023/11/ecg-video-blog-403-220-psqs3rs-approach.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 403,
+"nhan": "#404 Video",
+"slug": "case-404-video",
+"url": "https://www.ekgblog.com/2023/11/ecg-video-blog-404-344-mobitz-i-mobitz.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 404,
+"nhan": "#405 Video",
+"slug": "case-405-video",
+"url": "https://www.ekgblog.com/2023/11/ecg-blog-405-is-av-block-complete-vs-av.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 405,
+"nhan": "#406 Video",
+"slug": "case-406-video",
+"url": "https://www.ekgblog.com/2023/12/ecg-blog-406-to-do-additional-leads.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 406,
+"nhan": "#407 Video",
+"slug": "case-407-video",
+"url": "https://www.ekgblog.com/2023/12/ecg-video-blog-407-292-why-patient-died.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 407,
+"nhan": "#408 Video",
+"slug": "case-408-video",
+"url": "https://www.ekgblog.com/2023/12/ecg-video-blog-408-392-20-minutes-later.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 408,
+"nhan": "#409",
+"slug": "case-409",
+"url": "https://www.ekgblog.com/2023/12/ecg-blog-409-every-other-beat.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 409,
+"nhan": "#410",
+"slug": "case-410",
+"url": "https://www.ekgblog.com/2023/12/ecg-blog-410-how-tall-are-t-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 410,
+"nhan": "#411",
+"slug": "case-411",
+"url": "https://www.ekgblog.com/2024/01/ecg-blog-411-is-it-wenckebach.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 411,
+"nhan": "#412",
+"slug": "case-412",
+"url": "https://www.ekgblog.com/2024/01/ecg-blog-412-is-cardiac-cath-indicated.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 412,
+"nhan": "#413",
+"slug": "case-413",
+"url": "https://www.ekgblog.com/2024/01/ecg-413-pre-op-ecg-in-asx-patient.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 413,
+"nhan": "#414",
+"slug": "case-414",
+"url": "https://www.ekgblog.com/2024/01/ecg-blog-414-what-kind-of-av-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 414,
+"nhan": "#415",
+"slug": "case-415",
+"url": "https://www.ekgblog.com/2024/02/ecg-blog-415-cath-showed-no-occlusion.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 415,
+"nhan": "#416",
+"slug": "case-416",
+"url": "https://www.ekgblog.com/2024/02/ecg-blog-416-is-rhythm-and-ecg-related.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 416,
+"nhan": "#417",
+"slug": "case-417",
+"url": "https://www.ekgblog.com/2024/02/ecg-blog-417-afib-with-aberrancy.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 417,
+"nhan": "#418",
+"slug": "case-418",
+"url": "https://www.ekgblog.com/2024/02/ecg-blog-418-single-lead-tells-tale.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 418,
+"nhan": "#419",
+"slug": "case-419",
+"url": "https://www.ekgblog.com/2024/02/ecg-blog-419-cause-of-ecg-1.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 419,
+"nhan": "#420",
+"slug": "case-420",
+"url": "https://www.ekgblog.com/2024/03/ecg-blog-420-fast-complete-heart-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 420,
+"nhan": "#421",
+"slug": "case-421",
+"url": "https://www.ekgblog.com/2024/03/ecg-blog-421-has-there-been-recent-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 421,
+"nhan": "#422",
+"slug": "case-422",
+"url": "https://www.ekgblog.com/2024/03/ecg-blog-422-was-clubbing-ecg-hint.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 422,
+"nhan": "#423",
+"slug": "case-423",
+"url": "https://www.ekgblog.com/2024/03/ecg-blog-423-flank-pain-heartburn-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 423,
+"nhan": "#424",
+"slug": "case-424",
+"url": "https://www.ekgblog.com/2024/04/ecg-blog-424-proportionality-and-cut-off.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 424,
+"nhan": "#425",
+"slug": "case-425",
+"url": "https://www.ekgblog.com/2024/04/ecg-blog-425-are-there-p-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 425,
+"nhan": "#426",
+"slug": "case-426",
+"url": "https://www.ekgblog.com/2024/04/ecg-blog-426-are-stemi-criteria-met.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 426,
+"nhan": "#427",
+"slug": "case-427",
+"url": "https://www.ekgblog.com/2024/04/ecg-blog-427-to-cath-this-elderly.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 427,
+"nhan": "#428",
+"slug": "case-428",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-428-how-much-to-do-at-age-92.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 428,
+"nhan": "#429",
+"slug": "case-429",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-429-mobitz-i-or-mobitz-ii.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 429,
+"nhan": "#430",
+"slug": "case-430",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-430-just-regular-lbbb-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 430,
+"nhan": "#431",
+"slug": "case-431",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-431-my-new-ecg-arrhythmia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 431,
+"nhan": "#432",
+"slug": "case-432",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-432-should-i-shock-this-patient.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 432,
+"nhan": "#433",
+"slug": "case-433",
+"url": "https://www.ekgblog.com/2024/06/ecg-433-which-lead-convinced-me.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 433,
+"nhan": "#434",
+"slug": "case-434",
+"url": "https://www.ekgblog.com/2024/06/ecg-blog-434-why-did-this-patient-arrest.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 434,
+"nhan": "#435",
+"slug": "case-435",
+"url": "https://www.ekgblog.com/2024/06/ecg-blog-435-did-cath-show-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 435,
+"nhan": "#436",
+"slug": "case-436",
+"url": "https://www.ekgblog.com/2024/06/ecg-blog-436-bigeminy-or-alternans.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 436,
+"nhan": "#437",
+"slug": "case-437",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-436-2-part-answer-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 437,
+"nhan": "#438",
+"slug": "case-438",
+"url": "https://www.ekgblog.com/2024/05/ecg-blog-437-paramedic-diagnosis-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 438,
+"nhan": "#439",
+"slug": "case-439",
+"url": "https://www.ekgblog.com/2024/07/ecg-blog-439-how-many-possibilities.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 439,
+"nhan": "#440",
+"slug": "case-440",
+"url": "https://www.ekgblog.com/2024/07/ecg-blog-440-what-is-pvc-clue.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 440,
+"nhan": "#441",
+"slug": "case-441",
+"url": "https://www.ekgblog.com/2024/08/ecg-blog-441-what-to-learn-from-this.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 441,
+"nhan": "#442",
+"slug": "case-442",
+"url": "https://www.ekgblog.com/2024/08/ecg-blog-442-and-then-patient-arrested.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 442,
+"nhan": "#443",
+"slug": "case-443",
+"url": "https://www.ekgblog.com/2024/08/ecg-blog-443-40s-man-with-cp-and-dyspnea.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 443,
+"nhan": "#444",
+"slug": "case-444",
+"url": "https://www.ekgblog.com/2024/08/ecg-blog-444-cp-and-aberrant-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 444,
+"nhan": "#445",
+"slug": "case-445",
+"url": "https://www.ekgblog.com/2024/08/ecg-blog-445-vt-or-lbbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 445,
+"nhan": "#446",
+"slug": "case-446",
+"url": "https://www.ekgblog.com/2024/09/ecg-blog-446-what-kind-of-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 446,
+"nhan": "#447",
+"slug": "case-447",
+"url": "https://www.ekgblog.com/2024/09/ecg-blog-447-prophetic-p-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 447,
+"nhan": "MIS-C",
+"slug": "case-mis-c",
+"url": "https://www.ekgblog.com/2024/09/challenging-arrhythmias-mis-c-case.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 448,
+"nhan": "#448",
+"slug": "case-448",
+"url": "https://www.ekgblog.com/2024/09/ecg-blog-448-young-man-with-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 449,
+"nhan": "#449",
+"slug": "case-449",
+"url": "https://www.ekgblog.com/2024/09/ecg-blog-449-isorhythmic-av-dissociation.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 450,
+"nhan": "#450",
+"slug": "case-450",
+"url": "https://www.ekgblog.com/2024/10/ecg-blog-450-healthy-30yo-with-dizziness.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 451,
+"nhan": "#451",
+"slug": "case-451",
+"url": "https://www.ekgblog.com/2024/10/ecg-blog-451-premature-closure.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 452,
+"nhan": "#452",
+"slug": "case-452",
+"url": "https://www.ekgblog.com/2024/10/ecg-blog-452-is-this-wide-qrs-rhythm-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 453,
+"nhan": "#453",
+"slug": "case-453",
+"url": "https://www.ekgblog.com/2024/10/ecg-blog-453-is-this-wellens-syndrome.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 454,
+"nhan": "#454",
+"slug": "case-454",
+"url": "https://www.ekgblog.com/2024/11/ecg-blog-454-look-for-break.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 455,
+"nhan": "#455",
+"slug": "case-455",
+"url": "https://www.ekgblog.com/2024/11/ecg-blog-455-vt-until-proven-otherwise.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 456,
+"nhan": "#456",
+"slug": "case-456",
+"url": "https://www.ekgblog.com/2024/10/ecg-blog-456-woman-with-chest-pain-from.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 457,
+"nhan": "#457",
+"slug": "case-457",
+"url": "https://www.ekgblog.com/2024/11/ecg-blog-457-is-anything-conducting.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 458,
+"nhan": "#458",
+"slug": "case-458",
+"url": "https://www.ekgblog.com/2024/11/ecg-blog-458-complete-heart-block.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 459,
+"nhan": "#459",
+"slug": "case-459",
+"url": "https://www.ekgblog.com/2024/12/ecg-blog-459-what-did-paramedics-see.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 460,
+"nhan": "#460",
+"slug": "case-460",
+"url": "https://www.ekgblog.com/2024/12/ecg-blog-460-wide-tachycardia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 461,
+"nhan": "#461",
+"slug": "case-461",
+"url": "https://www.ekgblog.com/2024/12/ecg-blog-461-stemi-lv-aneurysm-or.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 462,
+"nhan": "#462",
+"slug": "case-462",
+"url": "https://www.ekgblog.com/2024/12/ecg-blog-462-why-so-slow.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 463,
+"nhan": "#463",
+"slug": "case-463",
+"url": "https://www.ekgblog.com/2025/01/ecg-blog-463-lots-to-explain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 464,
+"nhan": "#464",
+"slug": "case-464",
+"url": "https://www.ekgblog.com/2025/01/ecg-blog-464-why-dilated-heart.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 465,
+"nhan": "#465",
+"slug": "case-465",
+"url": "https://www.ekgblog.com/2025/01/ecg-blog-465-tale-of-syncope-2-rhythms.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 466,
+"nhan": "#466",
+"slug": "case-466",
+"url": "https://www.ekgblog.com/2025/01/ecg-blog-466-do-you-see-what-i-see.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 467,
+"nhan": "#467",
+"slug": "case-467",
+"url": "https://www.ekgblog.com/2025/02/ecg-blog-467-cath-lab-was-deactivated.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 468,
+"nhan": "#468",
+"slug": "case-468",
+"url": "https://www.ekgblog.com/2025/02/ecg-blog-468-aberrant-or-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 469,
+"nhan": "#469",
+"slug": "case-469",
+"url": "https://www.ekgblog.com/2025/02/ecg-blog-469-epigastric-pain-with-dinner.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 470,
+"nhan": "#470",
+"slug": "case-470",
+"url": "https://www.ekgblog.com/2025/02/ecg-blog-470-this-ecg-tells-story.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 471,
+"nhan": "#471",
+"slug": "case-471",
+"url": "https://www.ekgblog.com/2025/03/ecg-blog-471-two-for-one.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 472,
+"nhan": "#472",
+"slug": "case-472",
+"url": "https://www.ekgblog.com/2025/03/ecg-blog-472-at-least-4-major-findings.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 473,
+"nhan": "#473",
+"slug": "case-473",
+"url": "https://www.ekgblog.com/2025/03/ecg-blog-473-sinus-tach-what-kind-of-bbb.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 474,
+"nhan": "#474",
+"slug": "case-474",
+"url": "https://www.ekgblog.com/2025/03/ecg-blog-474-please-believe-me-my-ecgs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 475,
+"nhan": "#475",
+"slug": "case-475",
+"url": "https://www.ekgblog.com/2025/03/ecg-blog-475-aberrant-svt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 476,
+"nhan": "#476",
+"slug": "case-476",
+"url": "https://www.ekgblog.com/2025/04/ecg-blog-476-funny-looking-pvcs.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 477,
+"nhan": "#477",
+"slug": "case-477",
+"url": "https://www.ekgblog.com/2025/04/ecg-blog-477-is-one-or-both-3rd-degree.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 478,
+"nhan": "#478",
+"slug": "case-478",
+"url": "https://www.ekgblog.com/2025/04/ecg-blog-478-torsades-or-polymorphic-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 479,
+"nhan": "#479",
+"slug": "case-479",
+"url": "https://www.ekgblog.com/2025/04/ecg-blog-479-technical-misadventures-to.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 480,
+"nhan": "#480",
+"slug": "case-480",
+"url": "https://www.ekgblog.com/2025/05/ecg-blog-480-patient-with-amyloid.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 481,
+"nhan": "#481",
+"slug": "case-481",
+"url": "https://www.ekgblog.com/2025/05/ecg-blog-481-new-old-or-in-between.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 482,
+"nhan": "#482",
+"slug": "case-482",
+"url": "https://www.ekgblog.com/2025/05/ecg-blog-482-this-patient-got-morphine.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 483,
+"nhan": "#483",
+"slug": "case-483",
+"url": "https://www.ekgblog.com/2025/06/ecg-blog-483-this-is-not-stemi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 484,
+"nhan": "#484",
+"slug": "case-484",
+"url": "https://www.ekgblog.com/2025/06/ecg-blog-484-what-is-not-blocked.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 485,
+"nhan": "#485",
+"slug": "case-485",
+"url": "https://www.ekgblog.com/2025/06/ecg-blog-485-30-minutes-later.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 486,
+"nhan": "#486",
+"slug": "case-486",
+"url": "https://www.ekgblog.com/2025/07/ecg-blog-486-unusual-coupling.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 487,
+"nhan": "#487",
+"slug": "case-487",
+"url": "https://www.ekgblog.com/2025/07/ecg-blog-487-normal-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 488,
+"nhan": "#488",
+"slug": "case-488",
+"url": "https://www.ekgblog.com/2025/07/ecg-blog-488-5-ecg-findings-say-same.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 489,
+"nhan": "#489",
+"slug": "case-489",
+"url": "https://www.ekgblog.com/2025/07/ecg-blog-489-wide-tachycardia-in-20yo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 490,
+"nhan": "#490",
+"slug": "case-490",
+"url": "https://www.ekgblog.com/2025/08/ecg-blog-490-which-lead-is-most.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 491,
+"nhan": "#491",
+"slug": "case-491",
+"url": "https://www.ekgblog.com/2025/08/ecg-blog-491-vt-until-proven-otherwise.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 492,
+"nhan": "#492",
+"slug": "case-492",
+"url": "https://www.ekgblog.com/2025/08/ecg-blog-492-confused-by-pacemaker.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 493,
+"nhan": "#493",
+"slug": "case-493",
+"url": "https://www.ekgblog.com/2025/08/ecg-blog-493-why-did-patient-faint.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 494,
+"nhan": "#494",
+"slug": "case-494",
+"url": "https://www.ekgblog.com/2025/08/ecg-blog-494-much-to-learn-from-this.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 495,
+"nhan": "#495",
+"slug": "case-495",
+"url": "https://www.ekgblog.com/2025/09/ecg-blog-495-whats-going-on.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 496,
+"nhan": "#496",
+"slug": "case-496",
+"url": "https://www.ekgblog.com/2025/09/ecg-blog-496-when-iii-and-v1-show-same.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 497,
+"nhan": "#497",
+"slug": "case-497",
+"url": "https://www.ekgblog.com/2025/09/ecg-blog-497-nonspecific-st-t-wave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 498,
+"nhan": "#498",
+"slug": "case-498",
+"url": "https://www.ekgblog.com/2025/09/ecg-blog-498-should-you-try-adenosine.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 499,
+"nhan": "#499",
+"slug": "case-499",
+"url": "https://www.ekgblog.com/2025/10/ecg-blog-499-athlete-with-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 500,
+"nhan": "#500",
+"slug": "case-500",
+"url": "https://www.ekgblog.com/2025/10/ecg-blog-500-can-you-solve-this-case.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 501,
+"nhan": "#501",
+"slug": "case-501",
+"url": "https://www.ekgblog.com/2025/10/ecg-blog-501-15-is-this-run-of-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 502,
+"nhan": "#502",
+"slug": "case-502",
+"url": "https://www.ekgblog.com/2025/10/httpsecg-interpretation.blogspot.com202510blog-post-502-Wellens.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 503,
+"nhan": "#503",
+"slug": "case-503",
+"url": "https://www.ekgblog.com/2025/11/ecg-blog-503-1457-cause-of-pause.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 504,
+"nhan": "#504",
+"slug": "case-504",
+"url": "https://www.ekgblog.com/2025/10/ecg-blog-504-video-challenging-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 505,
+"nhan": "#505",
+"slug": "case-505",
+"url": "https://www.ekgblog.com/2025/11/ecg-blog-505-new-old-vs-new-on-old.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 506,
+"nhan": "#506",
+"slug": "case-506",
+"url": "https://www.ekgblog.com/2025/11/ecg-blog-506-what-did-repeat-ecg-show.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 507,
+"nhan": "#507",
+"slug": "case-507",
+"url": "https://www.ekgblog.com/2025/11/ecg-blog-507-teenager-with-palpitations.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 508,
+"nhan": "#508",
+"slug": "case-508",
+"url": "https://www.ekgblog.com/2025/12/ecg-blog-508-tall-pointed-t-waves.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 509,
+"nhan": "#509",
+"slug": "case-509",
+"url": "https://www.ekgblog.com/2025/12/ecg-blog-509-computer-says-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 510,
+"nhan": "#510",
+"slug": "case-510",
+"url": "https://www.ekgblog.com/2025/12/ecg-blog-510-myocarditis-or-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 511,
+"nhan": "#511",
+"slug": "case-511",
+"url": "https://www.ekgblog.com/2025/12/ecg-blog-511-patient-with-chest-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 512,
+"nhan": "#512",
+"slug": "case-512",
+"url": "https://www.ekgblog.com/2026/01/ecg-blog-512-important-details.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 513,
+"nhan": "#513",
+"slug": "case-513",
+"url": "https://www.ekgblog.com/2026/01/ecg-blog-513-trauma-and-what-else.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 514,
+"nhan": "#514",
+"slug": "case-514",
+"url": "https://www.ekgblog.com/2026/01/ecg-blog-514-st-elevation-from-acute.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 515,
+"nhan": "#515",
+"slug": "case-515",
+"url": "https://www.ekgblog.com/2026/01/ecg-blog-515-who-is-culprit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 516,
+"nhan": "#516",
+"slug": "case-516",
+"url": "https://www.ekgblog.com/2026/01/ecg-blog-516-patient-is-post-op.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 517,
+"nhan": "#517",
+"slug": "case-517",
+"url": "https://www.ekgblog.com/2026/02/ecg-blog-517-recurrent-syncope.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 518,
+"nhan": "#518",
+"slug": "case-518",
+"url": "https://www.ekgblog.com/2026/02/ecg-blog-518-wct-with-low-urine-output.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 519,
+"nhan": "#519",
+"slug": "case-519",
+"url": "https://www.ekgblog.com/2026/02/ecg-blog-519-lv-strain-or-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 520,
+"nhan": "#520",
+"slug": "case-520",
+"url": "https://www.ekgblog.com/2026/02/ecg-blog-520-how-certain-are-you.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 521,
+"nhan": "#521",
+"slug": "case-521",
+"url": "https://www.ekgblog.com/2026/03/ecg-blog-521-inferior-mi-anything-else.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 522,
+"nhan": "#522",
+"slug": "case-522",
+"url": "https://www.ekgblog.com/2026/03/ecg-blog-522-what-is-other-diagnosis.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 523,
+"nhan": "#523",
+"slug": "case-523",
+"url": "https://www.ekgblog.com/2026/03/ecg-blog-523-is-there-culprit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 524,
+"nhan": "#524",
+"slug": "case-524",
+"url": "https://www.ekgblog.com/2026/03/ecg-blog-524-little-bit-of-jadwar.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 525,
+"nhan": "#525",
+"slug": "case-525",
+"url": "https://www.ekgblog.com/2026/04/ecg-blog-525-another-wide-tachycardia.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 526,
+"nhan": "#526",
+"slug": "case-526",
+"url": "https://www.ekgblog.com/2026/04/ecg-blog-526-epigastric-pain.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 527,
+"nhan": "#527",
+"slug": "case-527",
+"url": "https://www.ekgblog.com/2026/04/ecg-blog-527-whats-going-on.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 528,
+"nhan": "#528",
+"slug": "case-528",
+"url": "https://www.ekgblog.com/2026/04/ecg-blog-528-patient-decided-to-leave.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 529,
+"nhan": "#529",
+"slug": "case-529",
+"url": "https://www.ekgblog.com/2026/05/ecg-blog-529-should-prompt-cath-be-done.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 530,
+"nhan": "#530",
+"slug": "case-530",
+"url": "https://www.ekgblog.com/2026/05/ecg-blog-530-new-or-old-or-wellens.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 531,
+"nhan": "#531",
+"slug": "case-531",
+"url": "https://www.ekgblog.com/2026/05/ecg-blog-531-wct-what-to-do.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 532,
+"nhan": "#532",
+"slug": "case-532",
+"url": "https://www.ekgblog.com/2026/05/ecg-blog-532-surprise-diagnosis.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 533,
+"nhan": "#533",
+"slug": "case-533",
+"url": "https://www.ekgblog.com/2026/06/ecg-blog-533-wide-tachycardia-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 534,
+"nhan": "#534",
+"slug": "case-534",
+"url": "https://www.ekgblog.com/2026/06/ecg-blog-534-what-is-or-is-not.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 535,
+"nhan": "#535",
+"slug": "case-535",
+"url": "https://www.ekgblog.com/2026/06/ecg-blog-535-fluttering-ecg.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 536,
+"nhan": "#536",
+"slug": "case-536",
+"url": "https://www.ekgblog.com/2026/06/ecg-blog-536-why-2-morphologies-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 537,
+"nhan": "#537",
+"slug": "case-537",
+"url": "https://www.ekgblog.com/2026/07/ecg-blog-537-what-is-rhythm.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 538,
+"nhan": "#538",
+"slug": "case-538",
+"url": "https://www.ekgblog.com/2026/07/ecg-blog-538-unusual-finding.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 539,
+"nhan": "#539",
+"slug": "case-539",
+"url": "https://www.ekgblog.com/2026/07/ecg-blog-539-does-svt-cause-hypotension.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 540,
+"nhan": "#540",
+"slug": "case-540",
+"url": "https://www.ekgblog.com/2026/08/ecg-blog-540-does-it-fit-clinical.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 541,
+"nhan": "#541",
+"slug": "case-541",
+"url": "https://www.ekgblog.com/2026/08/ecg-blog-541-obvious-mi-what-is-culprit.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 542,
+"nhan": "#542",
+"slug": "case-542",
+"url": "https://www.ekgblog.com/2026/08/ecg-blog-542-why-is-rhythm-irregular.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 543,
+"nhan": "#543",
+"slug": "case-543",
+"url": "https://www.ekgblog.com/2026/08/ecg-blog-543-24-hour-holter-was-done.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 544,
+"nhan": "#544",
+"slug": "case-544",
+"url": "https://www.ekgblog.com/2026/08/ecg-blog-544-caused-by-acute-mi.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 545,
+"nhan": "#545",
+"slug": "case-545",
+"url": "https://www.ekgblog.com/2026/09/ecg-blog-545-is-rhythm-vt.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 546,
+"nhan": "#546",
+"slug": "case-546",
+"url": "https://www.ekgblog.com/2026/09/ecg-blog-546-i-was-sent-this-tracing.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 547,
+"nhan": "#547",
+"slug": "case-547",
+"url": "https://www.ekgblog.com/2026/09/ecg-blog-547-what-happened-when-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+},
+{
+"stt": 548,
+"nhan": "#548",
+"slug": "case-548",
+"url": "https://www.ekgblog.com/2026/09/ecg-blog-548-more-than-one-family-metodo.html",
+"tieu_de_en": "",
+"tieu_de_vi": "",
+"trang_thai": "chua"
+}
+]

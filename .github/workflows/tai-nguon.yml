@@ -1,0 +1,39 @@
+name: Tải nguồn case ECG
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['tools/tai_nguon.py', 'du-lieu/danh-sach.json', '.github/workflows/tai-nguon.yml']
+  schedule:
+    - cron: '17 20 * * *'   # mỗi ngày một lần: tải bù case lỗi / case mới thêm vào danh sách
+permissions:
+  contents: write
+concurrency:
+  group: tai-nguon
+  cancel-in-progress: false
+jobs:
+  tai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: main
+          sparse-checkout: |
+            tools
+            du-lieu
+      - name: Chuẩn bị nhánh nguon
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          R="https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$R" nguon >/dev/null; then
+            git clone -q --depth 1 -b nguon "$R" ng
+          else
+            git init -q ng && git -C ng checkout -q --orphan nguon && git -C ng remote add origin "$R"
+            echo "Nguồn gốc (trang + ảnh) của Case ECG, tải bằng GitHub Actions. Không phục vụ web." > ng/README.md
+          fi
+          git -C ng config user.name "case-ecg-bot"
+          git -C ng config user.email "actions@users.noreply.github.com"
+      - run: pip install -q beautifulsoup4 lxml pillow
+      - run: python3 main/tools/tai_nguon.py --main main --nguon ng
