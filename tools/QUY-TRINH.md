@@ -40,6 +40,14 @@ Quy ước (người đọc là bác sĩ):
 Tiêu đề trang (`--title`): dịch tiêu đề tiếng Anh của bài (xem dòng "Tiêu đề:" in ở bước 1), giữ "ECG Blog #N" / số case; ví dụ "ECG Blog #548 — Hơn một gia đình…".
 Từ khoá (`--tu-khoa`): 8–20 từ tiếng Việt + Anh về chẩn đoán/dấu hiệu chính để tìm kiếm.
 
+## 2b. Case có ảnh "mất" (khoá `anh_mat` trong nguon.json) — KHÔNG đăng với ảnh báo
+Người dùng xác nhận: ảnh gốc **không hề mất** — mở bằng trình duyệt thật (Chrome) vẫn thấy; lỗi 404 chỉ xảy ra khi máy chủ GitHub Actions tải. Vì vậy:
+- Ngay sau `chuan-bi`, với mỗi slug vừa nhận, đọc `/home/claude/cv/_nguon/<slug>/nguon.json`. Có khoá `anh_mat` (danh sách URL ảnh gốc) → case đó cần **ảnh thật** trước khi dựng.
+- **Có công cụ Claude in Chrome** (`mcp__claude-in-chrome__*`, đọc skill chrome-browser trước): mở trang gốc (`url` trong nguon.json) trong Chrome, lấy từng ảnh trong `anh_mat` (tên tệp đích xem `/home/claude/cv/<slug>/W/media.json`: khoá `url` → `name`). Có máy người dùng (device bash) thì thử tải trước bằng curl kèm User-Agent trình duyệt + `Referer: <url trang gốc>`; không được thì lấy qua Chrome (tải về máy rồi stage lên phiên). Chép ảnh thật đè lên `/home/claude/cv/_nguon/<slug>/goc/<name>` (thêm `/<slug>/` vào sparse-checkout của `_nguon` nếu cần), kiểm ảnh mở được và không phải ảnh báo; trong nguon.json đổi `anh_mat` → `anh_chrome` (giữ danh sách URL); commit + push lên nhánh `nguon` ("Ảnh gốc qua Chrome: <slug>"). Rồi dịch/dựng như thường.
+- **Không có Chrome**: KHÔNG dịch, KHÔNG dựng case đó. Sửa `du-lieu/danh-sach.json` bằng Python: `trang_thai="cho_anh"`, xoá `giu_luc`, `ly_do="ảnh gốc 404 từ máy chủ — cần tải qua Chrome"`; commit "Chờ ảnh gốc qua Chrome: …" + `day-len`. (`chuan-bi` không nhận lại case `cho_anh`.) Ghi số lượng case `cho_anh` vào báo cáo.
+- Lượt có Chrome: xử lý các case `cho_anh` (số nhỏ trước) như trên, xong ảnh thì đặt lại `trang_thai="chua"` để dịch bình thường.
+- Case ĐÃ đăng mà nguon.json có `anh_mat`: cũng lấy ảnh thật qua Chrome, đè vào `_nguon/<slug>/goc/` rồi `dung` lại (bản dịch `lo-*.vi.json` giữ nguyên nếu còn; nếu không, kéo trang đã đăng về đối chiếu).
+
 ## 3. Dựng + kiểm
 ```bash
 python3 tools/lam_case.py dung --slug <slug> --title "<tiêu đề tiếng Việt>" --tu-khoa "<từ khoá>"
