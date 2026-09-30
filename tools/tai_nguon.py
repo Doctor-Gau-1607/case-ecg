@@ -8,13 +8,14 @@
 Case đã có nguon.json không lỗi thì bỏ qua (chạy lại được nhiều lần).
 Tải chậm rãi: ~1 giây giữa hai trang, định danh rõ ràng bằng User-Agent.
 """
-import json, os, subprocess, sys, time, tempfile, argparse
+import json, os, subprocess, sys, time, tempfile, argparse, shutil
 import urllib.request, urllib.error
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--main', required=True)
 ap.add_argument('--nguon', required=True)
 ap.add_argument('--commit-moi', type=int, default=3, help='commit + push sau mỗi N case')
+ap.add_argument('--trang', default='', help='thư mục trang đã tải sẵn (nhánh trang), tên = path URL đổi / thành _')
 ap.add_argument('--gioi-han', type=int, default=0, help='chỉ tải N case (0 = tất cả)')
 A = ap.parse_args()
 
@@ -51,9 +52,11 @@ def day_len(n):
     git('add', '-A')
     if subprocess.run(['git', '-C', A.nguon, 'diff', '--cached', '--quiet']).returncode != 0:
         git('commit', '-q', '-m', f'Tải nguồn: thêm {n} case')
-        for t in range(3):
+        for t in range(5):
             if subprocess.run(['git', '-C', A.nguon, 'push', '-q', 'origin', 'HEAD:nguon']).returncode == 0:
                 return
+            # một lượt khác vừa đẩy: kéo về rồi đặt thay đổi của mình lên trên (trùng tệp thì giữ bản mình)
+            subprocess.run(['git', '-C', A.nguon, 'pull', '-q', '--rebase', '-X', 'theirs', '--depth', '50', 'origin', 'nguon'])
             time.sleep(10)
         sys.exit('push thất bại')
 
@@ -68,15 +71,20 @@ for c in DS:
         cu = json.load(open(nj))
         if not cu.get('loi') and cu.get('phien') == PHIEN:
             continue
-    import shutil
     shutil.rmtree(os.path.join(d, 'goc'), ignore_errors=True)
     os.makedirs(os.path.join(d, 'goc'), exist_ok=True)
     info = {'url': c['url'], 'loi': [], 'phien': PHIEN}
     try:
-        body, cuoi = tai(c['url'])
-        html = body.decode('utf-8', 'replace')
-        open(os.path.join(d, 'trang.html'), 'w', encoding='utf-8').write(
-            f'<!-- saved from url=({len(cuoi)}){cuoi} -->\n' + html)
+        from urllib.parse import urlparse
+        san = os.path.join(A.trang, urlparse(c['url']).path.lstrip('/').replace('/', '_')) if A.trang else ''
+        if san and os.path.isfile(san):
+            shutil.copy(san, os.path.join(d, 'trang.html'))     # trang đã tải sẵn: không gọi ekgblog
+            info['trang_san'] = True
+        else:
+            body, cuoi = tai(c['url'])
+            html = body.decode('utf-8', 'replace')
+            open(os.path.join(d, 'trang.html'), 'w', encoding='utf-8').write(
+                f'<!-- saved from url=({len(cuoi)}){cuoi} -->\n' + html)
         with tempfile.TemporaryDirectory() as w:
             r = subprocess.run([sys.executable, MG, 'trich', '--src', os.path.join(d, 'trang.html'),
                                 '--work', w, '--chon', 'div.post-body'], capture_output=True, text=True)
@@ -101,7 +109,7 @@ for c in DS:
     json.dump(info, open(nj, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(c['slug'], 'media', info.get('so_media'), 'lỗi', len(info['loi']), flush=True)
     moi += 1; xong_lo += 1
-    time.sleep(20)
+    time.sleep(1 if info.get('trang_san') else 20)
     if xong_lo >= A.commit_moi:
         day_len(xong_lo); xong_lo = 0
 day_len(xong_lo)

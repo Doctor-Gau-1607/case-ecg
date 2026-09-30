@@ -3,16 +3,40 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['tools/tai_nguon.py', '.github/workflows/tai-nguon.yml']
+    paths: ['tools/tai_nguon.py', 'tools/tai_trang.py', '.github/workflows/tai-nguon.yml']
   schedule:
     - cron: '17 */6 * * *'   # mỗi 6 giờ: tải tiếp phần còn lại / tải bù case lỗi
 permissions:
   contents: write
 concurrency:
-  group: tai-nguon
+  group: tai-nguon-v2
   cancel-in-progress: false
 jobs:
+  trang:
+    # 20 mảnh chạy song song trên 20 máy chủ (IP khác nhau) -> ít bị ekgblog giới hạn tốc độ
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        manh: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: main
+          sparse-checkout: |
+            tools
+            du-lieu
+      - run: python3 main/tools/tai_trang.py --main main --manh ${{ matrix.manh }} --tong 20 --out tr
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trang-${{ matrix.manh }}
+          path: tr
+          if-no-files-found: ignore
+          retention-days: 3
   tai:
+    needs: trang
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 350
     steps:
@@ -22,10 +46,16 @@ jobs:
           sparse-checkout: |
             tools
             du-lieu
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: trang-*
+          path: tr
+          merge-multiple: true
       - name: Chuẩn bị nhánh nguon
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          mkdir -p tr; ls tr | wc -l
           R="https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git"
           if git ls-remote --exit-code --heads "$R" nguon >/dev/null; then
             git clone -q --depth 1 -b nguon "$R" ng
@@ -36,4 +66,4 @@ jobs:
           git -C ng config user.name "case-ecg-bot"
           git -C ng config user.email "actions@users.noreply.github.com"
       - run: pip install -q beautifulsoup4 lxml pillow
-      - run: python3 main/tools/tai_nguon.py --main main --nguon ng
+      - run: python3 main/tools/tai_nguon.py --main main --nguon ng --trang tr
