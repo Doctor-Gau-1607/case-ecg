@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #264 — 2 dấu hiệu chính?</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #264 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #264 — 2 dấu hiệu chính?</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p>Điện tâm đồ ở <b><u>Hình-1</u></b> được ghi ở một người đàn ông khoảng 60 tuổi đến khoa cấp cứu – ED (<i><u>E</u>mergency <u>D</u>epartment</i>) vì đau ngực.</p>
+<ul><li>Bạn sẽ diễn giải bản ghi này như thế nào?</li><li><b><i>2 dấu hiệu điện tâm đồ chính là gì?</i></b></li><li><u>Điểm cộng</u>: Nhịp là gì?</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-1-ECG-1-Orig-2811-22.1-2021-29-USE-80429fb3f567.png"><img src="case-264_anh/Figure-1-ECG-1-Orig-2811-22.1-2021-29-USE-80429fb3f567.png" alt="" width="1600" height="741" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-1:</u></b> Điện tâm đồ ghi ở một người đàn ông khoảng 60 tuổi bị đau ngực. <i>2 dấu hiệu chính là gì?</i></figcaption></figure>
+<p><b><u>Ca bệnh tiếp diễn:</u></b></p>
+<p>Hai mươi phút sau — một <b>điện tâm đồ</b> <b><i>ghi lại</i></b> đã được thực hiện ở bệnh nhân đau ngực này (<b><u>Hình-2</u></b>).</p>
+<ul><li>Những <b><i>khác biệt</i></b> giữa 2 bản ghi này là gì <b>(</b>tức là <i>giữa</i> <b><u>điện tâm đồ #1</u></b> <i>và</i> <b><u>điện tâm đồ #2</u></b> <i>ở</i> <u>Hình-2</u><b>)?</b></li><li><u>Điểm cộng</u>: Đã có tiến triển chưa?</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-2-ECGs-1-2C2-Orig-2811-22.1-2021-29-USE-a8a50f60f67a.png"><img src="case-264_anh/Figure-2-ECGs-1-2C2-Orig-2811-22.1-2021-29-USE-a8a50f60f67a.png" alt="" width="1600" height="1419" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-2:</u></b> So sánh giữa 2 điện tâm đồ đầu tiên được ghi trong ca hôm nay.</figcaption></figure>
+<p>=======================================</p>
+<p><b><u>LƯU Ý:</u></b> Đến đây, một số độc giả có thể muốn <i><u>nghe</u></i> <b>ECG <i>Audio</i> PEARL</b> dài 5:45 phút <i><u>trước khi</u></i> đọc <b><i>Suy nghĩ</i></b> <b><i>của tôi</i></b> về 2 điện tâm đồ đầu tiên trong ca hôm nay. Bạn có thể tham khảo <i>Suy nghĩ</i> của tôi về các bản ghi này bất cứ lúc nào (<i>nằm <u>bên dưới</u> ECG MP-72</i>).</p>
+<p>=======================================</p>
+<figure><a class="o-anh" href="case-264_anh/ECG-MP-72-Lead-Reversal-2811-23.1-2021-29-USE-2-PARTS-7180e6a2d981.png"><img src="case-264_anh/ECG-MP-72-Lead-Reversal-2811-23.1-2021-29-USE-2-PARTS-7180e6a2d981.png" alt="" width="1600" height="1108" loading="lazy" decoding="async"></a></figure>
+<figure><a class="o-anh" href="case-264_anh/ECG-MP-72-Table-Suspect-Lead-Reversal-2811-23.1-2021-29-USE-681cfabfeee0.png"><img src="case-264_anh/ECG-MP-72-Table-Suspect-Lead-Reversal-2811-23.1-2021-29-USE-681cfabfeee0.png" alt="" width="1600" height="686" loading="lazy" decoding="async"></a></figure>
+<p><i>Hôm nay:</i> <b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>EARL <span class="c-do">#</span>72 (</b><i>5:45 phút <b><u>Audio</u></b></i>) — Ôn lại cách nghi ngờ <b><i><span class="c-do">Đ</span>ảo <span class="c-do">đ</span>iện cực</i> <span class="c-do">c</span>hi (</b><i>đặc biệt là đảo điện cực LA-RA</i><b>)</b>.</p>
+<p><b><u>ĐIỂM THEN CHỐT (PEARL) #1</u></b><b> =</b> <i>Ấn tượng đầu tiên của tôi về </i><b><u>điện tâm đồ #1</u></b> ...<i></i></p>
+<p>Có <b><i><u><span class="c-do">â</span>m</u></i></b> <b><u><span class="c-do">t</span>oàn bộ</u> (</b><i>global negativity — của sóng P, phức bộ QRS và sóng T</i><b>)</b> ở <b>chuyển đạo I</b>. Điều này hầu như <i><u>không bao giờ</u></i> gặp trong trường hợp bình thường — và phải <i><u>ngay lập tức</u></i> gợi ý một trong hai: <b>i<span class="c-do">)</span> Đảo điện cực LA-RA (</b><i><u>L</u>eft <u>A</u>rm-<u>R</u>ight <u>A</u>rm — tay trái-tay phải</i><b>)</b>; <u>hoặc</u>, <b>ii<span class="c-do">)</span> Tim sang phải – dextrocardia (</b><i>Được bàn chi tiết trong</i> <b><i><u>Audio</u></i> Pearl ở trên)</b>.</p>
+<ul><li>Chuyển đạo I chuẩn là một chuyển đạo <i>phía bên trái</i>. Vì tim nằm lệch về bên trái — hoạt động điện ưu thế hầu như luôn hướng về bên trái. Ngay cả khi có nhồi máu vùng bên diện rộng — cũng hiếm khi thấy sóng Q ưu thế ở chuyển đạo I.</li><li>Không chỉ là sóng Q ưu thế ở <b>chuyển đạo I</b> của <u>điện tâm đồ #1</u> — mà còn là việc <i><u>cả</u></i> sóng P lẫn sóng T ở chuyển đạo này đều âm <b>(</b>tức là <i>có</i> <b><i>âm</i></b> <b>toàn bộ</b> <i>của sóng P, QRS và sóng T ở chuyển đạo I</i><b>)</b>.</li><li>Ngược lại — sóng P ở <u>điện tâm đồ #1</u> lại dương ở <b>chuyển đạo aVR (</b><i>trong khi với nhịp xoang, sóng P sẽ âm ở chuyển đạo aVR</i><b>)</b>.</li><li>Ở <u>Hình-1</u> — nguyên nhân gây âm toàn bộ sóng P, QRS và sóng T ở chuyển đạo I <b><i><u>không phải</u></i> là tim sang phải </b>— vì sóng R đáng kể <i><u>có</u></i> xuất hiện ở chuyển đạo ngực bên V6 <b>(</b><i>trong khi với tim sang phải — phải có tăng tiến sóng R "đảo ngược", tức là không có sóng R đáng kể ở khắp các chuyển đạo ngực</i><b>)</b>. Vì vậy — tôi nghi ngờ mạnh mẽ <b><span class="c-do">đ</span></b><b>ảo </b><b><span class="c-do">đ</span></b><b>iện cực </b><b><span class="c-do">L</span></b><b>A-</b><b><span class="c-do">R</span></b><b>A</b>.</li><li><b><i><u>ĐIỂM</u></i></b><b><u> CHÍNH:</u></b> Có thể có <b><i><span class="c-do">s</span></i></b><b><i>óng</i></b> <b><span class="c-do">T</span></b><b> tối cấp – hyperacute (</b><i>kèm ST chênh lên nhẹ</i><b>)</b> ở các <i><u>chuyển đạo</u></i> <u>dưới</u> của điện tâm đồ #1 — cùng với một vài <b><i>thay đổi</i> soi gương (reciprocal)</b> có thể có. Với bệnh sử <b><i>đau</i></b> <b>ngực</b> — điện tâm đồ này cần được ghi lại <i><u>ngay lập tức</u></i> để làm rõ chuyện gì đang xảy ra. Tôi nghi ngờ một <b><i><span class="c-do">O</span></i></b><b><i>MI</i></b><b> </b><b><span class="c-do">c</span></b><b>ấp </b><b><span class="c-do">(</span></b><b><i><u>O</u></i></b><i>cclusion-based <b><u>M</u></b>yocardial <b><u>I</u></b>nfarction — nhồi máu cơ tim do tắc</i><b><span class="c-do">)</span></b> — nhưng do có khả năng có lỗi kỹ thuật (<i>đảo điện cực LA-RA</i>) — nên rất khó đánh giá chính xác tình hình khi xem <u>điện tâm đồ #1</u>.</li></ul>
+<p><b><i><u>SUY NGHĨ CỦA TÔI</u></i></b><b><u> về các điện tâm đồ ở Hình-2:</u></b></p>
+<p>Để trả lời câu hỏi tôi đặt ra ở đầu ca này — <b>2 dấu hiệu điện tâm đồ <i>chính</i></b> ở <u>Hình-1</u> là: <b>i<span class="c-do">) </span></b><i>Nhiều khả năng</i> <b>đảo điện cực LA-RA</b>; <u>và</u>, <b>ii<span class="c-do">)</span></b> <b>OMI <i>thành dưới</i> cấp</b> cho <i><u>đến khi</u></i> chứng minh được điều ngược lại <b>(</b><i>cần có một bản ghi đúng kỹ thuật để đánh giá chính xác các dấu hiệu điện tâm đồ</i><b>)</b>.</p>
+<ul><li>So với điện tâm đồ #1 — <b><u>điện tâm đồ #2</u></b> ở <u>Hình-2</u> có vẻ <b><i>đúng</i></b> <b>kỹ thuật</b> vì: <b>i</b><b><span class="c-do">)</span></b> Sóng P, phức bộ QRS và sóng T ở <b>chuyển đạo I</b> giờ đều dương; <b>ii</b><b><span class="c-do">)</span></b> <b><i>Âm</i></b> <b>toàn bộ (</b><i>của sóng P, phức bộ QRS và sóng T</i><b>)</b> giờ thấy ở <b>chuyển đạo aVR</b>, đúng như mong đợi khi điện cực được đặt bình thường; <u>và</u>, <b>iii</b><b><span class="c-do">)</span></b> Giờ đã thấy một <b>sóng P xoang</b> dương, bình thường ở <b>chuyển đạo II (</b><i>trong khi không thấy sóng P dương nào ở điện tâm đồ #1</i><b>)</b>.</li><li>Về <i><u>Câu hỏi</u></i> <u>Điểm</u> <u>cộng</u> tôi đặt ra trước đó — nhiều khả năng cơ chế của nhịp ở <u>điện tâm đồ #1</u> là <b>xoang</b> — và lý do chúng ta không thấy sóng P dương ở chuyển đạo II là do đảo điện cực LA-RA. Tôi đưa ra bằng chứng ủng hộ giả thuyết này ở bên dưới (<i>ở</i> <u>Hình-5</u>, <i>trong đó tôi cho thấy điện tâm đồ #1 lẽ-ra-phải-trông-như-thế-nào NẾU tất cả các điện cực chi được đặt đúng</i>).</li></ul>
+<p><b><i><u>DIỄN GIẢI CỦA TÔI</u></i></b><b><u> về điện tâm đồ #2:</u></b></p>
+<p>Giờ chúng ta đã xác nhận <b>điện tâm đồ #2 (</b><i>ở</i> <u>Hình-2</u><b>) </b>đúng kỹ thuật — tôi diễn giải bản ghi này trong bối cảnh bệnh sử là bệnh nhân đến khoa cấp cứu vì đau ngực mới xuất hiện. Như mọi khi — tôi ưu tiên dùng <b><i>Cách tiếp cận </i></b><b>hệ thống (</b><i>mà tôi ôn lại trong</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-205-ecg-mp-23-what-is.html" rel="noopener" target="_blank">ECG Blog #205</a>).</b></p>
+<ul><li><b><u>Tần số &amp; Nhịp:</u></b> Mặc dù không có dải nhịp dài — chúng ta vẫn thấy tần số chậm và hơi không đều. <u>Có</u> sóng P dương ở chuyển đạo II — và khoảng PR ở mọi chuyển đạo không đổi — nên nhịp ở <u>Hình-2</u> là <b><i>nhịp chậm</i></b> <b>xoang</b> kèm <b>loạn nhịp xoang</b>. </li><li><b><u>Các khoảng (<i>PR/QRS/QTc</i>):</u></b> Khoảng PR bình thường — phức bộ QRS hẹp — và QTc không kéo dài — nên mọi khoảng đều bình thường.</li><li><b><u>Trục:</u></b> Trục QRS mặt phẳng trán bình thường (<i>tôi ước tính khoảng +60 độ — do dương nhất ở chuyển đạo chuẩn II — và phức bộ QRS đẳng điện ở chuyển đạo aVL</i>).</li><li><b><u>Lớn các buồng tim:</u></b> Không có. Nếu có gì đáng nói thì — biên độ QRS giảm ở khắp các chuyển đạo, dù chưa hẳn đạt tiêu chuẩn điện thế thấp (<i>vì một vài chuyển đạo chi có biên độ vượt quá 5 mm</i>).</li></ul>
+<p><i>Về</i> <b>Thay đổi <u>Q</u>-<u>R</u>-<u>S</u>-<u>T</u> </b>ở <u>điện tâm đồ #2</u><b>:</b></p>
+<ul><li><b>Sóng </b><b><u>Q</u> —</b> Thấy các <b>sóng q</b> vách bình thường, rất nhỏ và hẹp ở chuyển đạo I và V6.</li><li><b>Tăng tiến sóng </b><b><u>R</u> —</b> Vùng chuyển tiếp (<i>nơi sóng R trở nên cao hơn độ sâu của sóng S</i>) hơi muộn, nằm giữa chuyển đạo V4 và V5.</li><li><b>Thay đổi </b><b><u>S</u>T-T —</b> Xét bệnh cảnh của bệnh nhân này (tức là <i>đau ngực là lý do chính đến khoa cấp cứu</i>) — tôi sẽ diễn giải <b>sóng T</b> ở <i><u>mỗi</u></i> <b><i>chuyển đạo</i></b> <b>dưới</b> là <b><u><span class="c-do">t</span>ối cấp</u></b> (hyperacute), vì các sóng T này cao hơn mong đợi <i><u>nhiều</u></i> <b>(</b>tức là <i>cao hơn cả sóng R ở chuyển đạo III và aVF!</i><b>)</b> — đồng thời <i>béo-hơn-ở-đỉnh</i> và <i>rộng-hơn-ở-đáy</i> so với mong đợi dựa trên biên độ sóng R ở các chuyển đạo này. Cũng có ít nhất 1 mm <b>ST chênh lên</b> ở mỗi <b><i>chuyển đạo</i></b> <b>dưới (</b><i>rõ nhất ở chuyển đạo III</i><b>)</b>.</li><li>Bằng chứng cho thấy các thay đổi ở chuyển đạo dưới này <i><u>là</u></i> cấp tính đến từ <b>sóng ST-T đảo ngược <i><u>soi gương</u></i></b> ở chuyển đạo aVL, và ở các chuyển đạo trước V1, V2, V3.</li><li><b><u>ĐIỂM THEN CHỐT #2:</u></b> Nếu xét riêng — sóng T ở <b>chuyển đạo V6</b> có thể không hẳn có vẻ bất thường — nhưng trong bối cảnh các sóng T tối cấp rõ ràng ở các chuyển đạo <i>dưới</i> — và "thể tích" sóng T tăng dần từ chuyển đạo V4 — đến V5 — đến V6 — thì <b>sóng T</b> ở <b>chuyển đạo V6</b> <i>béo-hơn-ở-đỉnh</i> và <i>rộng-hơn-ở-đáy</i> so với bình thường.</li></ul>
+<p><b><u>Nhận định về điện tâm đồ #2:</u></b></p>
+<p>Ở một bệnh nhân đau ngực <i>mới khởi phát</i> — điện tâm đồ này gợi ý <b>STEMI <i>dưới-sau-bên </i>đang tiến triển cấp</b>. Cần kích hoạt phòng thông tim (cath lab) ngay để tái tưới máu cấp.</p>
+<ul><li><b><u>ĐIỂM THEN CHỐT #3:</u></b> Hãy chú ý mối quan hệ <b><u><span class="c-do">s</span>oi</u> <span class="c-do">g</span>ương <i>ngược chiều</i></b> <b><i>"kỳ diệu"</i></b> của sóng ST-T giữa <b>chuyển đạo III</b> và <b>aVL</b> ở điện tâm đồ #2 <b>(</b><i>Khái niệm này được bàn chi tiết trong</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-184-audio-pearl-2-magical-lead.html" rel="noopener" target="_blank">ECG Blog #184</a>)</b>. Dù tinh tế — <u>có</u> ST chênh xuống tại điểm J ở chuyển đạo aVL, là <i>hình soi gương</i> của ST chênh lên ở chuyển đạo III. Mối quan hệ này xác nhận OMI thành dưới cấp đang diễn ra.</li><li><b><u>ĐIỂM THEN CHỐT #4:</u></b> Đánh giá sóng ST-T ở <u>điện tâm đồ #2</u> minh họa tuyệt vời cho khái niệm <b><i><u><span class="c-do">t</span>ính tương xứng</u></i></b> (proportionality). Dù biên độ sóng T đảo ngược ở chuyển đạo aVL chỉ 3 mm — biên độ sóng T này gấp đôi sóng R nhỏ xíu ở chuyển đạo này! Tương tự — chúng ta <i><u>biết</u></i> sóng T ở mỗi chuyển đạo dưới là tối cấp, vì chúng cao <i>không tương xứng</i> so với sóng R ở các chuyển đạo này.</li></ul>
+<p><b><u><span class="c-do">Đ</span></u></b><b><u>ảo <span class="c-do">đ</span>iện cực <span class="c-do">L</span>A-<span class="c-do">R</span>A<span class="c-do">:</span></u></b><b> <i>Điện tâm đồ #1 lẽ ra phải trông như thế nào?</i></b></p>
+<p>Tài liệu <b><i>“</i></b><b><i><span class="c-do">T</span></i></b><b><i>ra </i></b><b><i><span class="c-do">C</span></i></b><b><i>ứu-</i></b><b><i><span class="c-do">N</span></i></b><b><i>hanh”</i></b> <b><span class="c-do">t</span></b><b>rực tuyến</b> yêu thích của tôi về các kiểu đặt sai vị trí điện cực thường gặp nhất là của <b><span class="c-do">L</span></b><b>ITFL (</b> = <i><u>L</u>ife-<u>I</u>n-<u>T</u>he-<u>F</u>ast-<u>L</u>ane</i>). Tôi đã dùng trang web tuyệt vời mà họ đăng về chủ đề này trong nhiều năm. Trang này <i>DỄ</i> tìm — Chỉ cần gõ <b><i><span class="c-do">“</span></i></b><b><i><a href="https://litfl.com/ecg-limb-lead-reversal-ecg-library/" rel="noopener" target="_blank">LITFL Lead Reversal</a></i></b><b><i><span class="c-do">”</span></i></b> vào thanh Tìm kiếm — và đường link sẽ hiện ra ngay.</p>
+<ul><li>Trang LITFL này mô tả 7 kiểu đảo điện cực thường gặp nhất. Còn có những khả năng khác (tức là <i>có thể đặt sai vị trí nhiều điện cực</i>) — nhưng các trường hợp này ít gặp hơn và khó dự đoán hơn.</li><li><i>Cho đến nay</i> (!) — <b><i><span class="c-do">k</span></i></b><b><i>iểu </i></b><b><i><span class="c-do">đ</span></i></b><b><i>ảo điện cực</i></b> <b><span class="c-do">t</span></b><b>hường </b><b><span class="c-do">g</span></b><b>ặp nhất</b> là nhầm lẫn giữa các <b><span class="c-do">đ</span></b><b>iện cực</b> <b><span class="c-do">L</span></b><b>A (</b><i><u>L</u></i><i>eft <u>A</u>rm — tay trái</i><b>)</b> và <b><span class="c-do">R</span></b><b>A (</b><i><u>R</u></i><i>ight <u>A</u>rm — tay phải</i><b>)</b>. <i>Đây chính là sự nhầm lẫn đã xảy ra trong ca <u>hôm</u> <u>nay</u></i>. Để rõ ràng — tôi đã tái hiện hình minh họa <b>của LITFL</b> về đảo điện cực LA-RA ở <b><u>Hình-3</u></b>. </li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-3-LITFL-2811-22.1-2021-29-USE-aaeb63d41853.png"><img src="case-264_anh/Figure-3-LITFL-2811-22.1-2021-29-USE-aaeb63d41853.png" alt="" width="1600" height="928" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-3:</u></b> Đảo điện cực LA-RA — phỏng theo <b><a href="https://litfl.com/ecg-limb-lead-reversal-ecg-library/" rel="noopener" target="_blank">LITFL</a></b> (<i>Xem bài</i>).</figcaption></figure>
+<p><b><i><u>Cách tiếp cận CỦA TÔI để <span class="c-do">N</span>hận biết <span class="c-do">Đ</span>ặt sai vị trí <span class="c-do">Đ</span>iện cực</u></i> —</b> Điều đã giúp tôi qua nhiều năm nhận ra <i>nhanh chóng</i> phần lớn các trường hợp đặt sai vị trí điện cực là chú ý đến các thông số sau:</p>
+<ul><li><b><u><span class="c-do">C</span></u></b><b><u>huyển đạo </u></b><b><u><span class="c-do">I</span></u></b><b> —</b> thường có phức bộ QRS <i>dương</i> ưu thế, vì chuyển đạo <i>phía bên trái</i> này bình thường nhìn thấy hoạt động điện của tim đi <i><u>về phía</u></i> chuyển đạo I. Tất nhiên có thể có trục lệch phải — nhưng <b>bạn hầu như sẽ <i><u>không bao giờ</u></i> thấy một phức bộ <u>hoàn toàn</u> âm (</b>tức là <i>QS</i><b>) ở chuyển đạo I </b><i><u>trừ khi</u></i><b> </b>có<b>:</b> <b>i</b><b><span class="c-do">)</span></b> đảo điện cực; <u>hoặc</u> <b>ii</b><b><span class="c-do">) </span></b>tim sang phải. </li><li>Cũng cực kỳ hiếm khi có một <b>sóng Q</b> <b><i>rất sâu</i></b> và <b><i>rộng</i></b> ở <b>chuyển đạo I</b>. Tất nhiên có ngoại lệ (tức là <i>nhồi máu cơ tim vùng bên diện rộng</i>) — nhưng tôi luôn cân nhắc khả năng đặt sai vị trí điện cực mỗi khi có một sóng lệch <i>âm</i> ban đầu chiếm ưu thế (tức là một <i>sóng Q lớn và rộng</i>) ở <b><u>Chuyển đạo I</u></b>.</li><li><u>NẾU</u> có <b><i>“</i></b><b><i><span class="c-do">â</span></i></b><b><i>m </i></b><b><i><span class="c-do">t</span></i></b><b><i>oàn bộ”</i></b><b> (</b>tức là <i>sóng P, phức bộ QRS <u>và</u> sóng T đều âm</i><b>)</b> ở <b>chuyển đạo I </b>— thì chẩn đoán <i><u>hoặc</u></i> đảo điện cực hoặc tim sang phải gần như chắc chắn!</li><li><b><u><span class="c-do">C</span></u></b><b><u>huyển đạo aV</u></b><b><u><span class="c-do">R</span></u></b><b> —</b> thường có phức bộ QRS <i>âm</i> ưu thế, vì chuyển đạo <i>phía bên phải</i> này bình thường nhìn thấy hoạt động điện của tim đi <i><u>ra xa</u></i> khỏi <b>góc nhìn từ xa (</b><i>nhìn xuống từ vai phải</i><b>)</b> của <b>chuyển đạo aVR</b>. Rõ ràng có những trường hợp QRS có hoạt động dương ở chuyển đạo aVR — nhưng việc thấy QRS <i>hoàn toàn</i> âm ở chuyển đạo I <i><u>cùng với</u></i> QRS hoàn toàn <i>dương</i> ở chuyển đạo aVR gần như chẩn đoán <i><u>hoặc</u></i> đảo điện cực hoặc tim sang phải!</li><li><b><span class="c-do">S</span></b><b>óng P</b> phải <i><u>luôn</u></i> <b><i><u><span class="c-do">d</span></u></i></b><b><i><u>ương</u></i></b> ở <b><span class="c-do">c</span></b><b>huyển đạo </b><b><span class="c-do">I</span></b><b>I</b> khi có <b><i><span class="c-do">n</span></i></b><b><i>hịp</i></b> <b><span class="c-do">x</span></b><b>oang</b>. <i><u>Chỉ có</u></i> 2 ngoại lệ (tức là <i>khi có thể có nhịp xoang <u>mà không</u> có sóng P dương ở chuyển đạo II</i>) — đó là khi có <i><u>hoặc</u></i> đảo điện cực hoặc tim sang phải.</li><li>Cuối cùng — cách phân biệt giữa <b><i>đảo</i></b> <b>điện cực</b> <u>với</u> <b>tim sang phải</b> trên điện tâm đồ là xem tăng tiến sóng R. Khi có <b><i><span class="c-do">t</span>im sang phải</i></b> — sẽ có <b><i><span class="c-do">t</span>ăng tiến</i> <span class="c-do">s</span>óng <span class="c-do">R</span> <span class="c-do">đ</span>ảo ngược (</b>tức là <i>một sóng R vừa phải ở chuyển đạo V1 sẽ nhanh chóng trở nên <u>nhỏ hơn</u> và biến mất khi đi qua các chuyển đạo ngực bên trái</i><b>)</b>. Ghi lại điện tâm đồ với các chuyển đạo <i>bên phải</i> khi bệnh nhân có tim sang phải sẽ <i><u>bình thường hóa</u></i> tăng tiến sóng R.</li><li><br></li><li><b><u>ĐIỂM THEN CHỐT #5:</u></b> Với <b><span class="c-do">T</span>im sang phải</b> <b><i>thực sự</i></b> — Không chỉ có tăng tiến sóng R "đảo ngược" (<i>tức là sóng R ở các chuyển đạo ngực nhỏ dần khi đi qua vùng trước tim</i>) — mà vì bạn đang đi ngày càng <i><u>xa</u></i> tim hơn (<i>tim nằm ở nửa phải lồng ngực</i>) — <b><i>biên độ QRS trở nên ngày càng nhỏ hơn</i></b> khi tiến dần đến <b>chuyển đạo V6</b>!</li><li><br></li><li><b><u>ĐIỂM THEN CHỐT #6:</u></b> Mặc dù với <b>đảo điện cực LA-RA (</b><i>và cả với tim sang phải</i><b>)</b> — chúng ta có xu hướng nghĩ <b>chuyển đạo I </b>âm hoàn toàn <b>(</b><i>sóng P, QRS và sóng T</i><b>)</b> còn <b><span class="c-do">c</span>huyển đạo <span class="c-do">a</span>VR</b> thì "ngược lại" <b>(</b>tức là <i>dương hoàn toàn</i><b>)</b> — <u>NẾU</u> trục mặt phẳng trán hướng xuống dưới (<i>khiến chuyển đạo aVL âm ưu thế</i>) — bạn có thể <i><u>không</u></i> nhất thiết thấy phức bộ QRS dương ưu thế ở chuyển đạo aVR khi có <b>đảo điện cực LA-RA (</b><i>vì như thấy ở</i> <u>Hình-4</u> — <i>chuyển đạo aVL và aVR "đổi chỗ" cho nhau</i><b>)</b>.</li><li><br></li><li><b><u>ĐIỂM THEN CHỐT #7:</u></b> Việc thấy <b>sóng P</b> <b><i>âm</i></b> ở <b><span class="c-do">C</span>huyển đạo <span class="c-do">I</span>I</b> cho bạn biết đó <i><u>không phải</u></i> là nhịp xoang, <i><u>trừ khi</u></i> có: <b>i<span class="c-do">)</span></b> Đảo điện cực (<i>thường gặp nhất là đảo điện cực LA-RA</i>); <u>hoặc</u>, <b>ii<span class="c-do">)</span> </b>Tim sang phải! Tuy vậy — <b><i>điều ngược lại thì <u>không</u> đúng!</i></b> Ý tôi là bạn <i><u>có thể</u></i> thấy sóng P đẳng điện hoặc âm ở chuyển đạo II khi có <i><u>hoặc</u></i> tim sang phải hoặc đảo điện cực. </li><li><br></li><li><b><u>ĐIỀU CỐT LÕI:</u></b> Khi thấy sóng P <i><u>âm</u></i> ở <b>chuyển đạo II</b> — tôi nghĩ đến các nhịp không phải xoang (tức là <i>nhịp bộ nối, nhịp nhĩ thấp</i>) <u>và</u>/<u>hoặc</u> đảo điện cực <u>hoặc</u> tim sang phải. Tôi xem sóng R có dương ở <b>chuyển đạo aVR (</b><i>dù theo Điểm then chốt #6 — không nhất thiết phải như vậy khi có đảo điện cực hoặc tim sang phải</i><b>)</b> hay không. Nhưng tôi biết rằng trong trường hợp <u>bình thường</u> thì <i><u>không bao giờ</u></i> có âm toàn bộ ở <b>chuyển đạo I</b> — và cũng <i><u>không</u></i> có tăng tiến sóng R <i>đảo ngược</i>. NẾU còn nghi ngờ: <b>i<span class="c-do">)</span></b> Nghe xem tiếng tim ở bên phải hay bên trái; <b>ii<span class="c-do">)</span></b> Xem lại phim X-quang ngực; <u>và</u>, <b>iii<span class="c-do">)</span></b> Kiểm tra vị trí đặt điện cực — rồi <b><i>ghi lại điện tâm đồ!</i></b></li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-4-ECG-1-LITFL-2811-22.1-2021-29-USE-65879b0df862.png"><img src="case-264_anh/Figure-4-ECG-1-LITFL-2811-22.1-2021-29-USE-65879b0df862.png" alt="" width="1600" height="979" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-4:</u></b> <b>Điện tâm đồ</b> <b><i>ban đầu</i></b> ở khoa cấp cứu — với các đặc điểm của đảo điện cực LA-RA được ghi bên dưới bản ghi (<i>Xem bài</i>).</figcaption></figure>
+<p>Giờ hãy xem lại điện tâm đồ <i><u>ban đầu</u></i> ở khoa cấp cứu<b> ( = <u>điện tâm đồ #1A</u>)</b> trong ca này (<b><u>Hình-4</u></b>):</p>
+<ul><li>Để rõ ràng — tôi đã thêm, ngay bên dưới điện tâm đồ <i>ban đầu</i>, các tác động được liệt kê ở <u>Hình-3</u> mà <b><i>đảo điện cực</i></b> <b>LA-RA</b> gây ra.</li><li><b><u><span class="c-do">T</span></u></b><b><u>HỬ THÁCH</u></b><b><u><span class="c-do">:</span></u></b><b> </b>Bằng “con mắt tưởng tượng” của bạn — <i>HÃY THỬ HÌNH DUNG</i> <b><i>điện tâm đồ</i></b> <b>ban đầu</b> ở <u>Hình-4</u> <i>lẽ ra sẽ trông như thế nào</i> <u>NẾU</u> các chuyển đạo chi được đặt đúng.</li><li><b><i><u>Áp dụng</u></i></b><b><i> </i></b><b>Cách tiếp cận CỦA TÔI<i> </i></b>cho <u>điện tâm đồ #1A</u> — Dấu hiệu nổi bật nhất trên bản ghi này là <b><i>âm</i></b> <b>toàn bộ</b> của phức bộ QRS ở <b>chuyển đạo I (</b><i>với sóng P âm, sóng Q rất lớn và sóng T đảo ngược</i><b>)</b>. Điều này <i><u>ngay lập tức</u></i> cho bạn biết có gì đó không ổn! Kết hợp với sóng P dương ở <b>chuyển đạo aVR</b>, nhưng <i><u>không có</u></i> sóng P dương ở <b>chuyển đạo II</b> — cho bạn biết trong <i><u>chưa đến</u></i> 5 giây rằng nhiều khả năng có <i><u>hoặc</u></i> đảo điện cực <u>hoặc</u> tim sang phải. Việc xuất hiện sóng R dương rõ ở chuyển đạo V6 loại trừ tim sang phải — điều này về cơ bản <i>khẳng định </i><b><span class="c-do">đ</span>ảo <span class="c-do">đ</span>iện cực <span class="c-do">L</span>A-<span class="c-do">R</span>A</b>.</li></ul>
+<p><b><i><u>Điện tâm đồ ban đầu lẽ ra phải trông như thế nào: </u></i></b></p>
+<p>Tôi minh họa điện tâm đồ ban đầu trong ca hôm nay lẽ ra phải trông như thế nào ở <b><u>Hình-5</u></b> — trong đó tôi đã: <b>i<span class="c-do">)</span></b> <i>Đảo ngược</i> chuyển đạo I của <u>điện tâm đồ #1A</u>; <b>ii<span class="c-do">)</span> </b><i>Đổi</i> vị trí chuyển đạo II và III; <u>và</u>, <b>iii<span class="c-do">)</span></b> <i>Đổi</i> vị trí chuyển đạo aVL và aVR.</p>
+<ul><li><b><u><span class="c-do">Đ</span></u></b><b><u>iện tâm đồ </u></b><b><u><span class="c-do">#</span></u></b><b><u>1B</u></b> cho thấy <b><i>điện tâm đồ</i></b> <b>ban đầu</b> <i><u>lẽ</u></i> <i><u>ra</u></i> <i><u>đã</u></i> <i><u>trông như thế nào</u></i> NẾU tất cả các điện cực chi được đặt đúng! Lưu ý rằng các mối quan hệ bình thường <i>như mong đợi</i> đều đã được khôi phục (tức là <i>sóng P, phức bộ QRS và sóng T ở chuyển đạo I giờ đều dương — <u>và</u>, giờ có âm toàn bộ của sóng P, QRS và sóng T ở chuyển đạo aVR</i>).</li><li>Ngoài ra — giờ có <b>sóng P</b> <b><i>dương</i></b> ở <b>chuyển đạo II</b> của <u>điện tâm đồ #1B</u>, đúng như mong đợi khi có <b><i>nhịp </i></b><b>xoang!</b></li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-5-ECG-1-with-correction-2811-22.1-2021-29-USE-3b4f3cba6b0e.png"><img src="case-264_anh/Figure-5-ECG-1-with-correction-2811-22.1-2021-29-USE-3b4f3cba6b0e.png" alt="" width="1600" height="1469" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-5:</u></b> So sánh điện tâm đồ <i>ban đầu</i> ở khoa cấp cứu ( = <u>điện tâm đồ #1A</u>) — với hình ảnh điện tâm đồ này lẽ ra có (<i>như thấy ở</i> <b><u>điện tâm đồ #1B</u></b>) NẾU: <b>i</b><b><span class="c-do">)</span></b> Chuyển đạo I được đảo ngược; <b>ii</b><b><span class="c-do">)</span></b> Chuyển đạo II và III đổi chỗ; <u>và</u>, <b>iii</b><b><span class="c-do">)</span></b> Chuyển đạo aVR và aVL đổi chỗ (<i>Xem bài</i>).</figcaption></figure>
+<p>=================================</p>
+<p><b><i><u>Vượt ra ngoài phần cốt lõi:</u></i></b> Như một điểm <i><u>nâng cao</u></i> — tôi sẽ lưu ý những khác biệt tinh tế giữa điện tâm đồ #1A và điện tâm đồ #1B ở chuyển đạo aVR và aVL.</p>
+<ul><li>Ở <b><u>điện tâm đồ #1A</u></b> (<i>có đảo điện cực LA-RA</i>) — ở <b>chuyển đạo aVR</b> có sóng P dương (<i>dù nhỏ</i>) — <u>và</u> — một sóng lệch dương nhỏ ở đầu phức bộ QRS (<i>sóng r</i>). Cả hai dấu hiệu này đều không được mong đợi ở chuyển đạo aVR khi có nhịp xoang và điện cực đặt đúng. Bằng chứng xác nhận các bất thường hình thái tinh tế này là do đảo điện cực LA-RA đến từ hình ảnh PQRST ở chuyển đạo aVR của <b><u>điện tâm đồ #1B</u></b> — giờ cho thấy âm toàn bộ điển hình (<i>của sóng P, QRS và sóng T</i>) mà chúng ta mong đợi ở chuyển đạo aVR khi điện cực được đặt bình thường.</li><li>Hình ảnh PQRST ở <b>chuyển đạo aVL</b> của <b><u>điện tâm đồ #1B</u></b> — cũng phù hợp hơn nhiều với những gì chúng ta mong đợi ở một OMI thành dưới cấp (tức là <i>với ST chênh xuống tại điểm J là hình soi gương ngược chiều của ST chênh lên thấy ở chuyển đạo III</i>). Lưu ý rằng <i>không</i> có ST chênh xuống ở chuyển đạo aVL của <u>điện tâm đồ #1A</u>.</li></ul>
+<p>=================================</p>
+<p><b><u>Ca bệnh tiếp diễn:</u></b></p>
+<p>Giờ chúng ta đã biết <b>điện tâm đồ <i>ban đầu</i></b> trong ca hôm nay <i>lẽ-ra-phải-trông-như-thế-nào</i> — tôi nghĩ sẽ thú vị khi so sánh bản ghi đó với <b>điện tâm đồ</b> <b><i>ghi lại</i></b> 20 phút sau (<b><u>Hình-6</u></b>).</p>
+<ul><li><b><u>LƯU Ý:</u></b> Trước đó (<i>khi bàn về</i> <u>Hình-2</u>) chúng ta đã xem phần diễn giải điện tâm đồ #2. Giờ chúng ta đã dựng được ở <u>điện tâm đồ #1B</u> hình ảnh mà điện tâm đồ ban đầu trong ca hôm nay <i>lẽ-ra-phải-trông-như-thế-nào</i> — <b><i>Hãy xem lại 2 điện tâm đồ này cùng nhau!</i></b></li></ul>
+<p><b><u><span class="c-do">C</span></u></b><b><u>ÂU HỎI <span class="c-do">T</span>HỬ THÁCH<span class="c-do">:</span></u></b></p>
+<ul><li>Ở <u>Hình-6</u> — <b><i>Đã có <u>tiến triển</u></i></b> của OMI <i>cấp</i> trong 20 phút kể từ khi ghi điện tâm đồ <i>ban đầu</i> chưa?</li><li><b><u>GỢI Ý:</u></b> Hãy nhớ so sánh <i>từng chuyển đạo một</i> — và nhớ áp dụng khái niệm <b>"tính tương xứng" (</b><i>đã bàn ở trên trong</i> <u>Điểm then chốt #4</u><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-6-ECGs-1-2C2-correct-2811-22.1-2021-29-USE-53a2c323c446.png"><img src="case-264_anh/Figure-6-ECGs-1-2C2-correct-2811-22.1-2021-29-USE-53a2c323c446.png" alt="" width="1600" height="1422" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-6:</u></b> So sánh hình ảnh <b>điện tâm đồ <i>ban đầu</i></b> ở khoa cấp cứu lẽ-ra-phải-trông-như-thế-nào (tức là <i>nếu các điện cực được đặt đúng</i>) — với <b>điện tâm đồ</b> <b><i>ghi lại</i></b> 20 phút sau ( = <u>điện tâm đồ #2</u>). <i>Đã có tiến triển nào chưa?</i></figcaption></figure>
+<p><b><u><span class="c-do">T</span></u></b><b><u>RẢ LỜI <i><span class="c-do">C</span>âu hỏi</i> <span class="c-do">T</span>hử thách<span class="c-do">:</span></u></b></p>
+<p>Tầm quan trọng của việc nhận ra <b>thay đổi ST-T</b> <b><i>động</i></b> (dynamic) trên các <b>điện tâm đồ</b> <b><i><u>liên tiếp</u></i></b> — là ở một bệnh nhân đau ngực, việc thấy các thay đổi tiến triển cấp trên điện tâm đồ <i><u>xác nhận</u></i> cần thông tim sớm để xác định XEM có cần tái tưới máu cấp hay không. Tôi đã ôn lại các khái niệm này trong <b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-222-39-are-there-dynamic-st-t.html" rel="noopener" target="_blank">ECG Blog #222</a></b> và <b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-230-46-are-there-serial-ecg.html" rel="noopener" target="_blank">ECG Blog #230</a></b>. Đôi khi — <i>những thay đổi ST-T tiến triển này <u>có thể</u> rất tinh tế</i>. So sánh 2 điện tâm đồ đầu tiên trong ca hôm nay là một ví dụ tuyệt vời về những thay đổi như vậy:</p>
+<ul><li>Thoạt nhìn — thay đổi ST-T ở 2 bản ghi trong <u>Hình-6</u> trông giống nhau. Tuy nhiên, khi xem kỹ hơn — có những thay đổi rõ ràng (<i>dù tinh tế</i>), gợi ý rằng <b><i><u>đã có</u></i> sự tiến triển</b> của OMI cấp trong 20 phút này — qua đó khẳng định cần thông tim sớm.</li><li>Nhịp chậm xoang kèm loạn nhịp xoang thấy ở cả hai bản ghi.</li><li>Hình dạng QRS ở các chuyển đạo chi tương tự nhau ở cả hai điện tâm đồ — gợi ý trục mặt phẳng trán không thay đổi. Tuy nhiên, <b>tăng tiến sóng R <u>có</u> khác đôi chút</b> — với vùng chuyển tiếp (<i>nơi sóng R trở nên cao hơn độ sâu của sóng S</i>) xuất hiện sớm hơn một chút ở <u>điện tâm đồ #2</u>. Khác biệt về tăng tiến sóng R giữa 2 bản ghi này là nhỏ và có lẽ <i><u>không</u></i> quan trọng về mặt lâm sàng đối với kết cục cuối cùng của ca hôm nay. Nhưng khi so sánh các bản ghi liên tiếp, điều thiết yếu <u>là</u> luôn phải xem trục mặt phẳng trán và tăng tiến sóng R có tương tự nhau hay không — vì thay đổi đáng kể ở một trong hai thông số này đôi khi <i><u>có thể</u></i> làm giảm độ chính xác của đánh giá.</li><li><b>Sóng T</b> <b><i>tối cấp</i></b> ở các chuyển đạo dưới rõ hơn ở điện tâm đồ thứ 2. Điều này thấy rõ nhất khi áp dụng khái niệm <b><i>"tương xứng" (proportionality)</i></b> — ở chỗ sóng T trông <i>"béo hơn" ở đỉnh</i> <u>và</u> cao hơn một cách tương đối (<i>so với biên độ sóng R ở mỗi chuyển đạo dưới</i>) ở <u>điện tâm đồ #2</u>. Cụ thể — biên độ sóng T ở điện tâm đồ #1B rõ ràng <i><u>không</u></i> cao bằng sóng R ở các chuyển đạo II, III và aVF — trong khi biên độ sóng T ở điện tâm đồ #2 vượt biên độ sóng R ở các chuyển đạo III và aVF, và gần như vượt ở chuyển đạo II.</li><li>Tương tự — mức độ <b>sóng ST-T đảo ngược</b> <i>tương đối</i> <i><u>lớn hơn</u></i> ở chuyển đạo aVL và các chuyển đạo V1,V2,V3 của <u>điện tâm đồ #2</u> so với điện tâm đồ #1B.</li></ul>
+<p><b><u>Ca bệnh tiếp diễn:</u></b></p>
+<p>Dựa trên các thay đổi trên các điện tâm đồ liên tiếp giữa điện tâm đồ #1B và điện tâm đồ #2 như mô tả ở trên — bệnh nhân được đưa đi thông tim. Điện tâm đồ thứ 3 được ghi ngay trước khi thông tim (<b><u>Hình-7</u></b>).</p>
+<ul><li><b><u><span class="c-do">T</span>hông</u> <u><span class="c-do">t</span>im</u></b> cho thấy <b><i>tắc hoàn toàn</i></b> <b>ở</b> <b><i>đoạn gần</i></b> <b>RCA (</b><i><u>R</u>ight <u>C</u>oronary <u>A</u>rtery — động mạch vành phải</i><b>)</b> — và đã được điều trị.</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-7-ECGs-2-2C3-2811-22.1-2021-29-USE-9c77cfcc5841.png"><img src="case-264_anh/Figure-7-ECGs-2-2C3-2811-22.1-2021-29-USE-9c77cfcc5841.png" alt="" width="1600" height="1381" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-7:</u></b> So sánh điện tâm đồ thứ 2 và thứ 3 được ghi trong ca hôm nay.</figcaption></figure>
+<p><b><u>So sánh điện tâm đồ #2 và điện tâm đồ #3:</u></b></p>
+<p>Ca hôm nay khép lại với việc so sánh điện tâm đồ thứ 2 — với điện tâm đồ thứ 3 được ghi ngay trước khi thông tim. Đáng chú ý — cả trục mặt phẳng trán lẫn tăng tiến sóng R ở các chuyển đạo trước ngực đều trông tương tự nhau ở 2 bản ghi trong <u>Hình-7</u>. Điều này gợi ý rằng việc so sánh <i>từng chuyển đạo một</i> để đánh giá thay đổi ST-T <u>là</u> hợp lệ (tức là <i>chúng ta đang "so táo với táo"</i>). <b>Tôi ghi nhận những điểm sau:</b></p>
+<ul><li>Loạn nhịp xoang vẫn còn ở <u>điện tâm đồ #3</u> — nhưng tần số tim nhanh hơn một chút so với 2 điện tâm đồ đầu tiên của ca hôm nay.</li><li>Thay đổi ST-T cấp đã tiến triển rõ rệt ở hầu như <i><u>tất cả</u></i> 12 chuyển đạo của <u>điện tâm đồ #3</u> — phù hợp với <b>STEMI <i>dưới-sau-bên</i> cấp đang tiến triển</b>.</li></ul>
+<p><b><u>ĐIỂM THEN CHỐT (PEARL) #8:</u></b> Nhận ra <b><span class="c-do">S</span>óng <span class="c-do">T</span></b> <b><i>tối cấp</i></b> có giá trị vô cùng lớn trong việc xác định có OMI cấp đang diễn ra hay không ở bệnh nhân có triệu chứng mới <b>(</b><i>khái niệm này được bàn trong</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/04/ecg-blog-218-ecg-mp-35-what-is.html" rel="noopener" target="_blank">ECG Blog #218</a></b> — <i>với trọng tâm về chủ đề này trong phần</i> <b><i><u>Audio</u></i></b> <b>Pearl</b> <i>của bài đó</i><b>)</b>. So sánh 2 điện tâm đồ trong <u>Hình-7</u> giúp hiểu rõ <b><i><u>sự tiến triển</u></i></b> của <b>sóng T</b> <b><i>tối cấp:</i></b></p>
+<ul><li>Trong đánh giá <b><u>điện tâm đồ #2</u></b> — Chúng ta đã diễn giải sóng T ở mỗi chuyển đạo dưới là <b><i>"tối cấp"</i></b> — vì các sóng T này rõ ràng cao hơn dự kiến (<i>so với biên độ sóng R</i>) — đồng thời <i>"béo hơn" ở đỉnh</i> <u>và</u> <i>rộng hơn ở đáy</i> so với bình thường. Tương tự — ST-T chênh xuống soi gương ở chuyển đạo aVL của <u>điện tâm đồ #2</u> cũng được diễn giải là "tối cấp", ở chỗ nó rõ ràng không tương xứng về kích thước khi xét đến việc phức bộ QRS ở chuyển đạo này nhỏ bé đến mức nào.</li><li>Ở <b><u>điện tâm đồ #3</u></b> — <b><i>Hãy chú ý các thay đổi tối cấp này đã tiến triển ra sao!</i></b> Mức chênh lên của điểm J so với đường đẳng điện ở <i><u>mỗi</u></i> chuyển đạo dưới đã rõ hơn — điểm khởi đầu đoạn ST đã thẳng ra (<i>so với đoạn ST lõm hướng lên đã thấy ở điện tâm đồ #2</i>) — và đỉnh của các sóng T tối cấp ở chuyển đạo dưới này "béo" hơn nhiều so với trước.</li><li>Tiến triển tương tự của thay đổi sóng T tối cấp giờ thấy ở các chuyển đạo V5 và V6 (<i>so với thay đổi tối thiểu thấy trước đó ở các chuyển đạo này</i>).</li><li>Lưu ý rằng cũng có tiến triển nổi bật ở các chuyển đạo có sóng T đảo ngược ở <u>điện tâm đồ #3</u>. <b>Sóng T đảo ngược <i><u>tối cấp</u></i></b> này cho thấy thay đổi <i>hình ảnh soi gương</i> <u>ngược chiều</u> với ST-T chênh lên ở chuyển đạo dưới, với điểm J chênh xuống sâu hơn và phần sâu nhất của các sóng T đảo ngược này trở nên tròn hơn.</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-8---LA-RA-Reversal-ORIG-7-29.1-2024-778c61701a90.png"><img src="case-264_anh/Figure-8---LA-RA-Reversal-ORIG-7-29.1-2024-778c61701a90.png" alt="" width="1600" height="580" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-8:</u></b> Đây là <u>điện tâm đồ #1a</u> trong Phần bổ sung ngày 29 tháng 7 năm 2024 của tôi — một điện tâm đồ ghi tại phòng khám. <i>BẠN thấy gì?</i></figcaption></figure>
+<p>==============================</p>
+<p><b><u><span class="c-do">L</span></u></b><b><u>ời cảm ơn<span class="c-do">:</span></u></b> Xin cảm ơn Tsao Jian-Hsiung (<i>đến từ Đài Bắc, Đài Loan</i>) đã chia sẻ ca bệnh và bản ghi này.</p>
+<p>==================================</p>
+<p><u><span class="c-do">P</span>HẦN BỔ SUNG</u><span class="c-do"> (</span><i>ngày 29 tháng 7 năm 2024</i><span class="c-do">)</span>:</p>
+<p>Tôi được đề nghị bình luận về một <b><a href="https://www.facebook.com/groups/ivegotthethythm/posts/7313448662089585" rel="noopener" target="_blank">bài đăng ẩn danh</a></b> trên <b>12-Lead ECG Facebook Site</b> — có liên quan đến ca hôm nay <b>(</b><i>và điều mà cả kỹ thuật viên lẫn bác sĩ lâm sàng khám bệnh nhân này đều <u>không</u> nhận ra</i><b>)</b>.</p>
+<p><b><u>CÂU HỎI:</u></b></p>
+<ul><li><i>BẠN thấy gì trên điện tâm đồ ở </i><b><u>Hình-8</u>?</b></li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-8---LA-RA-Reversal-ORIG-7-29.1-2024-778c61701a90.png"><img src="case-264_anh/Figure-8---LA-RA-Reversal-ORIG-7-29.1-2024-778c61701a90.png" alt="" width="1600" height="580" loading="lazy" decoding="async"></a></figure>
+<p><b><u>Hình-8:</u></b> Đây là <u>điện tâm đồ #1a</u> trong Phần bổ sung ngày 29 tháng 7 năm 2024 của tôi — một điện tâm đồ ghi tại phòng khám. <i>BẠN thấy gì?</i></p>
+<p><b><u>TRẢ LỜI:</u></b></p>
+<p>Có <b>3 dấu hiệu điện tâm đồ</b> <b><i>ngay lập tức</i></b> <b>“lọt vào mắt tôi”</b> — trong đó <i>ít nhất </i>2 dấu hiệu là thật.</p>
+<ul><li>Bình thường <i><u>không bao giờ</u></i> có âm tính toàn bộ (global negativity) ở <b>chuyển đạo I</b>. Dù sóng T ở chuyển đạo I ở đây không âm — bạn <i><u>không bao giờ</u></i> gặp sóng P âm <u>và</u> QRS âm hoàn toàn (<i>hoặc gần như âm hoàn toàn</i>) ở chuyển đạo I. Tăng tiến sóng R bình thường ở các chuyển đạo chi trong <u>Hình-8</u> loại trừ tim sang phải (<i>vốn dĩ hiếm gặp</i>) — vì vậy chắc chắn phải có <b>đảo điện cực LA-RA</b>. Tôi trình bày bên dưới ở <b><u>Hình-9</u></b> điện tâm đồ này sẽ trông thế nào NẾU các điện cực được đặt đúng.</li><li>Ngoài ra — <b>các điện cực V1,V2</b> đã bị <b><i>đặt</i></b> <b>cao quá 1 hoặc 2 khoang liên sườn</b> trên ngực vì: <b>i<span class="c-do">)</span></b> Sóng P âm hoàn toàn ở các chuyển đạo V1,V2;<b> ii<span class="c-do">)</span></b> Chúng ta thấy dạng rSr’ ở các chuyển đạo V1,V2; <u>và</u>, <b>iii<span class="c-do">)</span></b> QRST ở các chuyển đạo V1,V2 trông giống QRST ở chuyển đạo aVR <i>sau khi </i>đã hiệu chỉnh đảo điện cực LA-RA <b>(</b><i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2022/01/ecg-blog-27477-new-or-old-septal.html" rel="noopener" target="_blank">ECG Blog #274</a></b><i> để biết thêm về đặt sai vị trí điện cực V1,V2</i><b>)</b>.</li><li>Dấu hiệu bất thường thứ 3 là <b>đường gần như <i>phẳng</i></b> ở <b>chuyển đạo II</b>. Nếu thực sự có một đường phẳng ở bất kỳ chuyển đạo chi chuẩn nào — điều này sẽ chỉ ra một kiểu đặt sai vị trí điện cực nào đó <b>(</b><i>Xem </i><b><a href="https://ecg-interpretation.blogspot.com/2023/09/ecg-blog-396-why-flat-line.html" rel="noopener" target="_blank">ECG Blog #396</a></b><i> để biết thêm về đặt sai vị trí điện cực gây đường phẳng</i><b>)</b>. — mà trong ca này có thể có nghĩa là một dạng đặt sai vị trí điện cực thứ 2 (<i>ngoài đảo điện cực LA-RA</i>). Hóa ra có lẽ không có dạng đặt sai điện cực thứ 2 — vì trên điện tâm đồ đã hiệu chỉnh ở <u>Hình-9</u> — trục mặt phẳng trán gần như vuông góc với chuyển đạo III — nên việc trục mặt phẳng trán chỉ dương <i>nhẹ</i> trên điện tâm đồ 1b đã hiệu chỉnh có thể là phù hợp. <u>LƯU Ý:</u> Tôi <i>không</i> quen nhìn thấy một điện tâm đồ “gần như phẳng” như vậy — nên tôi vẫn muốn ghi lại điện tâm đồ sau khi đã kiểm tra vị trí điện cực đúng, để xác định điện tâm đồ của bệnh nhân này <i>thực sự</i> trông như thế nào..</li><li><br></li><li><b><u>ĐIỀU CỐT LÕI:</u></b> Nhìn vào <b>điện tâm đồ</b> <a href="https://www.facebook.com/hashtag/1b?__eep__=6&amp;__cft__[0]=AZV32-qJdB-Bj969ojeoInJhVQRJD3D7TLx3CNh0rlarOOXKZ9RNvBJ9qbervWHztx6qwRPqLSHDi2B2YDuSr_pXGh9PtfhJu_R8bDRyoZ9GQEUWasFkZp1L7ie11phty3Lc5dGP0ZQac37lf99WquLfUTCPX2XYluUKQtcl1Djf5-yuVHC7hYAWSLYcKKrvDnTaIBG0zpNUZtSsOkPhWyufepL-S9knzpQ2mRCS-hRtXZEj-zwbVHZXLoMwkHuMQwM&amp;__tn__=R]-R" rel="noopener" target="_blank">#1b</a> đã hiệu chỉnh ở <u>Hình-9</u> — ngoài một vài bất thường ST-T không đặc hiệu, <b><i>đây có lẽ là một điện tâm đồ bình thường! </i>(</b><i>Tất nhiên tôi sẽ chưa kết luận cho đến <u>sau khi</u> ghi lại điện tâm đồ này</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-264_anh/Figure-9---LA-RA-Reversal-Corrected.-255f1b92ae5a.png"><img src="case-264_anh/Figure-9---LA-RA-Reversal-Corrected.-255f1b92ae5a.png" alt="" width="1600" height="1365" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-9:</u></b> Ở <b>điện tâm đồ #1b</b> — tôi trình bày các chuyển đạo chi có lẽ sẽ trông thế nào nếu không có đảo điện cực LA-RA.</figcaption></figure>
+<p>==================================</p>
+<p><b><i><u><span class="c-do">C</span></u></i></b><b><i><u>ác bài</u></i></b><b><u> <span class="c-do">E</span>CG <span class="c-do">B</span>log <span class="c-do">l</span>iên quan đến ca <i>hôm nay</i><span class="c-do">:</span></u></b></p>
+<ul><li><b><a href="https://ecg-interpretation.blogspot.com/2021/03/ecg-blog-205-ecg-mp-23-what-is.html" rel="noopener" target="_blank">ECG Blog #205</a> </b>— Ôn lại <b>Cách tiếp cận</b> <b><i>hệ thống</i></b> của tôi trong đọc điện tâm đồ 12 chuyển đạo.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/02/ecg-blog-193-ecg-mp-10-acute-omi.html" rel="noopener" target="_blank">ECG Blog #193</a></b> — minh họa cách dùng <b><i><span class="c-do">N</span>ghiệm pháp</i></b> <b><span class="c-do">s</span>oi gương (Mirror Test)</b> để dễ nhận ra <b>nhồi máu cơ tim <i>thành sau</i> cấp</b>. Bài này ôn lại những điều cơ bản để dự đoán "động mạch thủ phạm". <b><u>LƯU Ý:</u> </b>Phần <b><i><u>Audio</u></i></b> <b>Pearl</b> ôn lại khái niệm vì sao thuật ngữ <b>"<span class="c-do">O</span>MI" (</b> = <i><u>O</u>cclusion-based <u>MI</u> — nhồi máu cơ tim do tắc</i><b>)</b> nên thay thế thuật ngữ quen thuộc hơn là STEMI.</li><li> </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-184-audio-pearl-2-magical-lead.html" rel="noopener" target="_blank">ECG Blog #184</a></b> — minh họa <b><span class="c-do">m</span>ối quan hệ <span class="c-do">h</span>ình ảnh <span class="c-do">s</span>oi gương ngược chiều</b> <b><i>"<span class="c-do">k</span>ỳ diệu"</i></b> trong thiếu máu cục bộ cấp giữa <b>chuyển đạo <span class="c-do">I</span>II</b> <u>và</u> <b>chuyển đạo <span class="c-do">a</span>VL (</b><i>được trình bày trong Audio Pearl #2 của bài này</i><b>)</b>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-222-39-are-there-dynamic-st-t.html" rel="noopener" target="_blank">ECG Blog #222</a></b> — Ôn lại khái niệm <b><span class="c-do">T</span>hay đổi sóng <span class="c-do">S</span>T-<span class="c-do">T</span></b> <b><i><span class="c-do">đ</span>ộng</i> (</b><i>và cách dấu hiệu điện tâm đồ này có thể giúp xác định có chỉ định thông tim cấp hay không</i><b>)</b>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/06/ecg-blog-230-46-are-there-serial-ecg.html" rel="noopener" target="_blank">ECG Blog #230</a></b> — Ôn lại <i>CÁCH</i> <b><span class="c-do">s</span>o sánh các <span class="c-do">đ</span>iện tâm đồ <i><span class="c-do">l</span>iên tiếp</i> (</b>tức là <i>"Bạn đang so táo với táo hay với cam?"</i><b>)</b>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/04/ecg-blog-218-ecg-mp-35-what-is.html" rel="noopener" target="_blank">ECG Blog #218</a></b> — Ôn lại khi nào một <b><span class="c-do">s</span>óng <span class="c-do">T</span></b> trở thành <b><span class="c-do">t</span>ối cấp (</b><i>so với sóng T gặp trong các biến thể tái cực</i><b>)</b>.</li><li><b><a href="https://ecg-interpretation.blogspot.com/2013/12/ecg-interpretation-review-80-acute.html" rel="noopener" target="_blank">ECG Blog #80</a></b> — ôn lại cách dự đoán động mạch "thủ phạm" (<i>và đưa ra thêm một ca minh họa</i> <b><i><span class="c-do">N</span>ghiệm pháp </i></b><b><span class="c-do">s</span>oi gương</b> <i>để chẩn đoán</i> <b>nhồi máu cơ tim <i>thành sau</i> cấp</b>).</li><li> </li><li><b><a href="https://ecg-interpretation.blogspot.com/2020/03/ecg-blog-175-lead-reversal-lateral-mi.html" rel="noopener" target="_blank">ECG Blog #175</a></b> — trình bày một ca <i><u>đích thực</u></i> là <b><span class="c-do">t</span>im sang phải! (</b><i>và ôn lại những điều cơ bản về nhiều dạng khác nhau của tim sang phải!</i><b>)</b>.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/04/ecg-blog-375-at-least-3-major-findings.html" rel="noopener" target="_blank">ECG Blog #375</a> — Đảo điện cực LA-LL.</b></li><li><b><a href="https://ecg-interpretation.blogspot.com/2023/09/ecg-blog-396-why-flat-line.html" rel="noopener" target="_blank">ECG Blog #396</a> — <i>Vì sao có đường <u>phẳng</u>? </i>(</b><i>và một DANH SÁCH <b>các loại sự cố kỹ thuật khác!</b></i><b>)</b>.</li><li><br></li><li><b>Bài đăng <a href="https://hqmeded-ecg.blogspot.com/2020/11/anterior-st-elevation-and-finding-that.html" rel="noopener" target="_blank">ngày 19 tháng 11 năm 2020</a></b> trên Dr. Smith's ECG Blog — trong đó tôi trình bày một ca <i>dễ bị bỏ sót</i> nhưng quan trọng, trong đó <b><span class="c-do">đ</span>ảo <span class="c-do">đ</span>iện cực <span class="c-do">L</span>A-<span class="c-do">L</span>L</b> đã bị bỏ sót <b>(</b><i>với "manh mối" là nhận ra sóng P cao hơn ở chuyển đạo I &gt; chuyển đạo II</i><b>)</b>.</li><li><b>Bài đăng <a href="https://hqmeded-ecg.blogspot.com/2020/08/3-days-of-shoulder-and-chest-pain-and.html" rel="noopener" target="_blank">ngày 28 tháng 8 năm 2020</a></b> trên Dr. Smith's ECG Blog — Bình luận của tôi (<i>trong Phần bổ sung, ở tận cuối trang</i>) ôn lại các dấu hiệu dự kiến khi có <b><span class="c-do">đ</span>ảo <span class="c-do">đ</span>iện cực <span class="c-do">L</span>A-<span class="c-do">L</span>L (</b><i>Manh mối = sóng P ở chuyển đạo I lớn hơn sóng P ở chuyển đạo II</i><b>)</b>.</li><li><br></li><li><b>Bài đăng <a href="http://hqmeded-ecg.blogspot.com/2018/07/chest-pain-and-t-wave-inversion-in-lead.html" rel="noopener" target="_blank">ngày 29 tháng 7 năm 2018</a></b> trên Dr. Smith's ECG Blog — Bình luận của tôi (<i>ở cuối trang</i>) ôn lại ca này, trong đó có <b>2 lỗi <i><u>kỹ thuật</u></i></b> mà <i>nhiều</i> bác sĩ đều <i><u>không</u></i> nhận ra <b>(</b> = <b><span class="c-do">đ</span>ảo <span class="c-do">đ</span>iện cực <span class="c-do">L</span>A-<span class="c-do">R</span>A</b> <i><u>và</u></i> <b><i>đặt quá cao </i></b><i><b>các chuyển đạo V1, V2</b> trên ngực</i><b>)</b>. </li><li><b>Bài đăng <a href="https://hqmeded-ecg.blogspot.com/2020/02/st-elevation-in-avl-with-reciprocal-st.html" rel="noopener" target="_blank">ngày 11 tháng 2 năm 2020</a></b> trên Dr. Smith's ECG Blog — Bình luận của tôi (<i>ở cuối trang</i>) ôn lại ca này, trong đó có <b><span class="c-do">đ</span></b><b>ảo </b><b><span class="c-do">đ</span></b><b>iện cực </b><b><span class="c-do">L</span></b><b>A-</b><b><span class="c-do">R</span></b><b>A</b>.</li></ul>
+<figure><a class="o-anh" href="case-264_anh/0--RED-LINE--Use-in-Blogs-74ed5d0683ee.png"><img src="case-264_anh/0--RED-LINE--Use-in-Blogs-74ed5d0683ee.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
