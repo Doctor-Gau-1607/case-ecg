@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="vi" data-nen="sang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECG Blog #355 — Vì sao có các khoảng ngưng khi SVT?</title>
+<style>
+:root{
+ --nen:#f2f4f6; --giay:#ffffff; --chu:#172033; --nhat:#5b6675; --vien:#e3e7ec;
+ --do:#b30000; --xanh:#004b87; --diu:#f6f8fa; --danh:#fff3cd;
+}
+:root[data-nen="toi"]{
+ --nen:#12151b; --giay:#1b2029; --chu:#e6eaf0; --nhat:#9aa5b4; --vien:#2c333f;
+ --do:#ff8a8a; --xanh:#7fb6e6; --diu:#232a35; --danh:#5a4a12;
+}
+*{box-sizing:border-box}
+html{font-size:var(--co,16px)}
+body{margin:0;background:var(--nen);color:var(--chu);
+ font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;
+ font-size:1rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--xanh)}
+.bo-cuc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;
+ max-width:1500px;margin:0 auto;padding:22px}
+/* ---- cột mục lục ---- */
+.muc-luc{position:sticky;top:22px;align-self:start;height:calc(100vh - 44px);
+ background:var(--giay);border-radius:16px;padding:16px 10px;display:flex;
+ flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.ml-dau{display:flex;justify-content:space-between;align-items:center;
+ padding:2px 10px 10px;font-size:.78rem;font-weight:800;letter-spacing:.09em;
+ color:var(--do);border-bottom:1px solid var(--vien)}
+#phanTram{color:var(--nhat)}
+/* Thu gọn / mở lại cột mục lục. Trang nhớ lựa chọn, vì người đọc guideline
+   mở lại nhiều lần và không muốn mỗi lần lại phải thu tay. */
+.ml-dau .nut-thu{margin-left:8px;border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:1px 8px;cursor:pointer;font:inherit;
+ font-size:.9rem;line-height:1.4}
+@media(min-width:981px){
+ :root[data-ml="thu"] .bo-cuc{grid-template-columns:minmax(0,1fr)}
+ :root[data-ml="thu"] .muc-luc{display:none}
+ :root[data-ml="thu"] .hien-ml{display:block}
+}
+.o-tim{padding:10px 8px 6px}
+.o-tim input{width:100%;padding:8px 10px;border:1px solid var(--vien);
+ border-radius:9px;background:var(--diu);color:var(--chu);font:inherit;font-size:.85rem}
+.tim-dieu-khien{display:flex;gap:6px;align-items:center;margin-top:6px;
+ font-size:.76rem;color:var(--nhat)}
+.tim-dieu-khien button{border:1px solid var(--vien);background:var(--giay);
+ color:var(--chu);border-radius:7px;padding:2px 9px;cursor:pointer;font:inherit}
+.ml-cuon{overflow-y:auto;flex:1;margin-top:4px}
+#dsMuc{list-style:none;margin:0;padding:0}
+#dsMuc a{display:block;padding:7px 12px;border-radius:9px;text-decoration:none;
+ color:var(--chu);font-size:.87rem;line-height:1.4}
+#dsMuc a:hover{background:var(--diu)}
+#dsMuc a.dang-doc{background:var(--diu);color:var(--do);font-weight:700;
+ box-shadow:inset 3px 0 0 var(--do)}
+#dsMuc .cap-1>a{font-weight:700}
+#dsMuc .cap-2>a{padding-left:26px;font-size:.85rem}
+#dsMuc .cap-3>a{padding-left:40px;font-size:.82rem;color:var(--nhat)}
+#dsMuc .cap-4>a,#dsMuc .cap-5>a{padding-left:54px;font-size:.8rem;color:var(--nhat)}
+/* ---- thân bài ---- */
+.dau-bai,.to-giay{background:var(--giay);border-radius:16px;
+ box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dau-bai{padding:28px 34px;margin-bottom:22px}
+.nhan{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:var(--nhat)}
+.dau-bai h1{margin:.25em 0 .35em;font-size:2rem;line-height:1.25;color:var(--do)}
+.dich-gia{color:var(--nhat);font-size:.92rem;margin:0}
+.dich-gia b{color:var(--xanh)}
+.to-giay{padding:34px 40px 60px}
+.to-giay h2{color:var(--do);font-size:1.65rem;margin:1.7em 0 .5em;
+ padding-bottom:4px;border-bottom:2px solid var(--vien)}
+.to-giay h2:first-child{margin-top:0}
+.to-giay h3{color:var(--xanh);font-size:1.3rem;margin:1.5em 0 .4em}
+.to-giay h4{font-size:1.08rem;margin:1.3em 0 .3em}
+.to-giay h5,.to-giay h6{font-size:1rem;margin:1.2em 0 .3em;color:var(--nhat)}
+.to-giay p{margin:0 0 .85em;text-align:justify}
+.to-giay p.cham{padding-left:1.35em;text-indent:-1.1em;text-align:left}
+figure{margin:1.4em 0;text-align:center}
+figure img{max-width:100%;height:auto;border:1px solid var(--vien);border-radius:10px}
+/* ---- bảng ---- */
+.tham-chieu{color:var(--xanh);font-weight:600;text-decoration:none;
+ border-bottom:1px dotted currentColor}
+.tham-chieu:hover{border-bottom-style:solid}
+.chu-thich-float{font-weight:600;margin:0 0 .4em}
+.khung-bang{overflow-x:auto;margin:1.4em 0;border-radius:10px;
+ border:1px solid var(--vien)}
+.khung-bang table{border-collapse:collapse;width:100%;font-size:.88rem;
+ table-layout:fixed}
+.to-giay p,.to-giay li,.to-giay dd{overflow-wrap:break-word}
+.to-giay sup{overflow-wrap:anywhere}
+.khung-bang td{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;
+ line-height:1.5;word-wrap:break-word}
+.khung-bang td.sat{padding-left:0;padding-right:0}
+.khung-bang td.giua{text-align:center;vertical-align:middle}
+.khung-bang td.ky-hieu{font-weight:800;white-space:nowrap}
+.khung-bang td.nen-toi,.khung-bang td.nen-toi *{color:#fff}
+.khung-bang td.nen-sang,.khung-bang td.nen-sang *{color:#12151b}
+.khung-bang td span{display:block}
+.khung-bang td span.cham{padding-left:1.1em;text-indent:-1em}
+mark.danh{background:var(--danh);color:inherit;border-radius:3px}
+/* Ô có màu ép màu chữ cho cả con cháu, kể cả <mark> của phần tìm trong bài — chữ
+   trắng trên nền vàng nhạt là tìm thấy mà không nhìn thấy. Trả chữ về màu trang. */
+.khung-bang td.nen-toi mark.danh,.khung-bang td.nen-sang mark.danh,
+.khung-bang td.nen-toi mark.danh *,.khung-bang td.nen-sang mark.danh *{color:var(--chu)}
+mark.danh.dang{outline:2px solid var(--do)}
+/* ---- nút nổi ---- */
+.thanh-nut{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;z-index:9}
+.thanh-nut button{width:42px;height:42px;border-radius:50%;cursor:pointer;
+ border:1px solid var(--vien);background:var(--giay);color:var(--chu);
+ font-size:1rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.hien-ml{display:none}
+/* ---- màn hình hẹp ---- */
+@media(max-width:980px){
+ .bo-cuc{grid-template-columns:minmax(0,1fr);padding:12px}
+ .muc-luc{position:fixed;inset:0 auto 0 0;width:88%;max-width:340px;z-index:20;
+  border-radius:0;height:100vh;transform:translateX(-102%);transition:transform .2s}
+ .muc-luc.mo{transform:none}
+ .hien-ml{display:block}
+ .to-giay{padding:22px 18px 44px}
+ /* Màn hình điện thoại: giữ bề rộng tối thiểu cho bảng rồi cho cuộn ngang,
+    thay vì bóp cột hẹp tới mức "Trung bình" xuống dòng thành "Tr un g bì nh". */
+ .khung-bang table{min-width:620px}
+ .dau-bai{padding:20px}
+ .dau-bai h1{font-size:1.5rem}
+}
+/* ---- in ra giấy ---- */
+@media print{
+ /* Nền tối được nhớ trong localStorage: bật một lần là mọi lần in sau đều dính.
+    Giấy luôn trắng, nên trả bảng màu về bản sáng trước khi in — nếu không, chữ
+    #e6eaf0 in lên giấy trắng là mất hẳn. */
+ :root,:root[data-nen="toi"]{--nen:#fff;--giay:#fff;--chu:#172033;--nhat:#4a5462;
+  --vien:#c9ced5;--do:#b30000;--xanh:#004b87;--diu:#f6f8fa;--danh:#fff3cd}
+ body{background:#fff;font-size:11.5pt}
+ .muc-luc,.thanh-nut{display:none!important}
+ .bo-cuc{display:block;max-width:none;padding:0}
+ .dau-bai,.to-giay{box-shadow:none;border-radius:0;padding:0}
+ .to-giay h2,.to-giay h3{break-after:avoid}
+ .khung-bang,figure{break-inside:avoid}
+ .khung-bang td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.c-xanh{color:var(--xanh)} .c-do{color:var(--do)} .c-luc{color:var(--luc)}
+:root{--luc:#1d7a3a} :root[data-nen="toi"]{--luc:#7fd49a}
+.ban-quyen{display:inline-block;margin:.4em 0 1.2em!important;padding:6px 14px;border-radius:9px;
+ background:var(--diu);border:1px solid var(--vien);color:var(--nhat);font-size:.88rem}
+.note{background:var(--diu);border-left:4px solid var(--xanh);border-radius:0 10px 10px 0;padding:10px 16px;margin:1.1em 0}
+.note p:last-child{margin-bottom:0}
+.canh-bao{background:#fff4d6;border:1px solid #e8c97a;color:#4a3a10;border-radius:10px;padding:12px 16px;margin:0 0 18px;font-size:.93em}
+:root[data-nen="toi"] .canh-bao{background:#3a2f12;border-color:#6b5a1a;color:#f0e2bd}
+.to-giay blockquote{margin:1em 0;padding:.6em 1em;border-left:4px solid var(--vien);background:var(--diu);border-radius:0 10px 10px 0}
+.to-giay ul,.to-giay ol{padding-left:1.5em;margin:0 0 .9em}
+.to-giay li{margin:.2em 0}
+.to-giay hr{border:0;border-top:1px solid var(--vien);margin:1.6em 0}
+.khung-bang th{border:1px solid var(--vien);padding:9px 11px;vertical-align:top;background:var(--diu);text-align:left;line-height:1.5}
+.khung-bang td[style*="background"],.khung-bang th[style*="background"]{color:#12151b}
+.tk p,.tk li{font-size:.9em;color:var(--nhat);text-align:left}
+figcaption,.chu-thich-anh{font-size:.88rem;color:var(--nhat);margin-top:.45em;text-align:center;line-height:1.55}
+figcaption b{color:var(--chu)}
+figure.anh-dau img{width:100%;max-height:420px;object-fit:cover}
+figure video{width:100%;max-height:78vh;background:#000;border-radius:10px;display:block}
+.khung-video{position:relative;padding-top:56.25%;margin:0;border-radius:10px;overflow:hidden;background:#000}
+.khung-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border-radius:10px;overflow:hidden}
+.yt img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;border:0!important;border-radius:0!important;transition:opacity .2s}
+.yt:hover img{opacity:1}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.yt .play svg{width:58px;height:58px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.yt iframe{width:100%;height:100%;border:0;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:2px 8px;border-radius:20px;pointer-events:none}
+.ytlink{display:inline-block;margin-left:8px;font-size:.92em;color:var(--xanh);text-decoration:none;border:1px solid var(--vien);border-radius:20px;padding:1px 10px;white-space:nowrap}
+.bo-anh{display:grid;gap:8px;margin:1em 0 1.4em;align-items:start}
+.bo-anh.cot-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.bo-anh.cot-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bo-anh.cot-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bo-anh.cot-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bo-anh.cot-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.bo-anh.cot-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.o-anh{display:block;border-radius:8px;overflow:hidden;background:#000;
+ border:1px solid var(--vien);cursor:zoom-in;line-height:0}
+.o-anh img{display:block;width:100%;height:auto}
+figure .o-anh{display:inline-block;background:none;border:0}
+figure .o-anh img{border:1px solid var(--vien);border-radius:10px}
+@media(max-width:980px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .bo-anh.cot-3,.bo-anh.cot-4,.bo-anh.cot-5,.bo-anh.cot-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.xem-anh{position:fixed;inset:0;z-index:50;background:rgba(8,10,14,.94);display:none;
+ flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.xem-anh.mo{display:flex}
+.xem-anh img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;background:#000}
+.xem-anh .xa-chu{color:#dfe5ec;font-size:.85rem;max-width:1100px;margin-top:10px;text-align:center;
+ line-height:1.5;max-height:5.2em;overflow:auto}
+.xem-anh .xa-dem{position:absolute;top:14px;left:18px;color:#c4ccd6;font-size:.85rem}
+.xem-anh button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;
+ width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.xem-anh button:hover{background:rgba(255,255,255,.25)}
+.xem-anh .xa-dong{top:12px;right:14px}
+.xem-anh .xa-truoc{left:14px;top:50%;transform:translateY(-50%)}
+.xem-anh .xa-sau{right:14px;top:50%;transform:translateY(-50%)}
+@media print{
+ .xem-anh,.canh-bao,.ytlink{display:none!important}
+ .bo-anh{break-inside:avoid}
+ .o-anh{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bo-cuc">
+ <aside class="muc-luc" id="mucLuc">
+  <div class="ml-dau"><span>NỘI DUNG</span><span id="phanTram">0%</span><button
+    id="nutThu" class="nut-thu" type="button" title="Thu gọn mục lục">«</button></div>
+  <div class="o-tim">
+   <input id="oTim" type="search" placeholder="Tìm trong tài liệu…" autocomplete="off">
+   <div class="tim-dieu-khien">
+    <button id="timTruoc" type="button">↑</button>
+    <button id="timSau" type="button">↓</button>
+    <span id="demTim"></span>
+   </div>
+  </div>
+  <div class="ml-cuon"><ul id="dsMuc"></ul></div>
+ </aside>
+ <main>
+  <section class="dau-bai">
+   <div class="nhan">CASE ECG #355 · ECG BLOG (KEN GRAUER)</div>
+   <h1>ECG Blog #355 — Vì sao có các khoảng ngưng khi SVT?</h1>
+   <p class="dich-gia"><a href="../index.html">← Mục lục Case ECG</a></p>
+  </section>
+  <section class="to-giay" id="toGiay">
+<p>2 dải nhịp chuyển đạo II trong <b><u>Hình-1</u></b> — được ghi từ một phụ nữ 50 tuổi đến khám vì <b><i><u>hồi hộp đánh trống ngực (palpitations)</u></i></b>. Bệnh nhân ổn định huyết động vào thời điểm ghi cả hai dải nhịp.</p>
+<p><b><u>CÂU HỎI:</u></b></p>
+<ul><li><i>BẠN sẽ đọc nhịp này như thế nào?</i></li><li>Vì sao có các <i><u><b>khoảng ngưng</b></u></i> ở dải nhịp "B"?</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-1-Rhythms-A-B-12-20.21-2022--USE-701ced6bbee5.png"><img src="case-355_anh/Figure-1-Rhythms-A-B-12-20.21-2022--USE-701ced6bbee5.png" alt="" width="1600" height="598" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-1:</u></b> Cả 2 dải nhịp này đều được ghi từ một phụ nữ 50 tuổi bị hồi hộp đánh trống ngực. Thời gian giữa lúc ghi dải nhịp "A" và dải nhịp "B" không lâu.</figcaption></figure>
+<p><b><u><i>SUY NGHĨ CỦA TÔI</i> về nhịp trong Hình-1:</u></b></p>
+<p>Chúng ta được biết cả hai dải nhịp trong <u>Hình-1</u> đều được ghi từ <i>cùng một</i> bệnh nhân — với khoảng thời gian <i>ngắn</i> giữa 2 lần ghi này.</p>
+<ul><li>Dù vậy — chúng ta <i><u>không</u></i> được biết bệnh nhân này có được điều trị gì hay không. Điều này <i><u>có</u></i> ý nghĩa — <i>vì có sự khác biệt rõ ràng</i> giữa 2 bản ghi.</li></ul>
+<p><b><u>Dải nhịp A:</u></b></p>
+<p>Như mọi khi — tôi bắt đầu đánh giá nhịp bằng cách xem xét <b><u><span class="c-do">P</span></u></b><b>s</b>, <b><u><span class="c-do">Q</span></u></b><b>s</b> và <b>3</b><b><u><span class="c-do">R</span></u></b><b>s (</b><i>như đã bàn chi tiết trong</i> <b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-185-audio-pearl-3-ps-qs-3r.html" rel="noopener" target="_blank">ECG Blog #185</a>).</b></p>
+<ul><li>Xin nhấn mạnh — khi áp dụng hệ thống Ps, Qs, 3R — <b><i>bạn <u>không</u> cần đi theo thứ tự.</i></b> Thay vào đó — tôi thích xem xét những thông số nào dễ đánh giá nhất trước.</li><li>Nhịp ở <b>"A"</b> nhanh và đều. Tần số <b>~135/phút</b>. Dù chỉ thấy một chuyển đạo theo dõi duy nhất — QRS có vẻ hẹp. Dường như không có sóng P xoang (<i>ít nhất là không có sóng P với khoảng PR bình thường</i>) — không thấy "mối liên hệ" rõ ràng giữa hoạt động nhĩ và phức bộ QRS.</li><li><br></li><li><b><u>NHẬN ĐỊNH:</u></b> Nhịp ở "A" là một <b><span class="c-do">S</span>VT (</b><i>nhịp nhanh trên thất, <u>S</u>upra<u>V</u>entricular <u>T</u>achycardia</i><b>)</b> <b><i><u><span class="c-do">đ</span>ều</u></i></b> với tần số ~135/phút, <i><u>không</u></i> có dấu hiệu rõ ràng của sóng P xoang.</li></ul>
+<p><u>ĐIỂM THEN CHỐT (PEARL) <span class="c-do">#</span>1:</u> Việc nhận ra nhịp trong <u>Hình-1</u> là một <b>SVT</b> <b><i>đều</i></b> <i><u>không</u></i> có dấu hiệu rõ ràng của sóng P xoang (tức là <i>không có sóng P dương rõ ràng ở chuyển đạo II</i>) — phải gợi ý ta nghĩ tới DANH SÁCH <b><i><u>chẩn đoán</u></i></b> <b><u>phân biệt</u> sau:</b></p>
+<ul><li><b>i</b><b><span class="c-do">)</span></b><b> Nhịp nhanh xoang (</b><i>NẾU có khả năng sóng P xoang đang ẩn trong sóng ST-T đi trước</i><b>)</b>; </li><li><b>ii</b><b><span class="c-do">)</span></b><b> </b>Một<b> SVT <i>vào lại</i> (</b><i>hoặc </i><b>AVNRT</b><i> nếu vòng vào lại nằm <u>trong</u> nút AV — </i><u>hoặc</u><i> </i><b>AVRT</b><i> nếu có sự tham gia của một AP [đường phụ, <u>A</u>ccessory <u>P</u>athway] nằm ngoài nút AV</i><b>)</b>; </li><li><b>iii</b><b><span class="c-do">)</span></b> <b>Nhịp nhanh nhĩ (</b><i>ATach</i><b>)</b>;</li><li><b>iv</b><b><span class="c-do">)</span></b><b> Cuồng nhĩ (</b><i>AFlutter</i><b>)</b> với <b>dẫn truyền AV 2:1</b>.</li></ul>
+<p><b><u>Điểm </u></b><b><i><u>MẤU CHỐT:</u></i></b> Mặc dù <i>các</i> bệnh lý khác cũng có thể gây SVT đều (tức là <i>nhịp nhanh vào lại nút xoang nhĩ, nhịp nhanh bộ nối</i>) — chúng <i><u>ít</u></i> gặp hơn nhiều trong thực hành. Vì vậy, <b><i>nhớ nghĩ tới 4 bệnh lý</i></b> trong DANH SÁCH trên <i><u>mỗi khi</u></i> gặp một nhịp SVT đều không có dấu hiệu rõ ràng của sóng P xoang — sẽ giúp rất nhiều trong việc xác định chẩn đoán đúng.</p>
+<ul><li>Ở <b>Nhịp "<u>A</u>"</b> — <i><u>bất kỳ</u></i> bệnh lý nào trong 4 bệnh lý trên đều có thể có mặt. Thực tế lâm sàng — là <b>việc điều trị nhịp này sẽ phải bắt đầu <i><u>trước khi</u></i> chúng ta biết chắc bệnh lý nào là chẩn đoán thực sự</b>. Dù vậy — xử trí ban đầu cho bệnh nhân này sẽ tương tự nhau <i><u>bất kể</u></i> nhịp này là bệnh lý nào trong 4 bệnh lý trên <b>(</b>tức là <i>cân nhắc nghiệm pháp cường phế vị — và/hoặc dùng một thuốc ức chế nút AV như Adenosine, Verapamil-Diltiazem, hoặc thuốc chẹn ß</i><b>)</b>.</li></ul>
+<p>===============================</p>
+<p><b><u>ĐIỂM THEN CHỐT (PEARL) <span class="c-do">#</span>2:</u></b> <i>Đánh giá Nhịp "B" cho ta lời giải cho Nhịp "A"!</i> Đây là nguyên tắc: đánh giá thêm các đoạn theo dõi khác trên cùng bệnh nhân có thể mang lại thông tin sâu sắc giúp chẩn đoán.</p>
+<p><b><u>Dải nhịp B:</u></b></p>
+<p>Khác biệt rõ ràng nhất giữa Nhịp "A" và Nhịp "B" trong <u>Hình-1</u> — là nhịp ở "B" không còn đều nữa. Thay vào đó — chúng ta ghi nhận những điểm sau:</p>
+<ul><li>Có các <b><i>khoảng ngưng</i></b> ở Nhịp <u>B</u>.</li><li>Có <b><i>nhịp theo nhóm</i></b> (group beating) <b>(</b>tức là <i>các nhóm 2 nhát — và 3 nhát — mỗi nhóm cách nhau bởi các khoảng ngưng mà phần lớn có thời gian tương tự nhau</i><b>)</b>.</li><li><b>Sóng P</b> giờ đã hiện diện rõ ràng ở Nhịp B.</li><li><br></li><li><b><i><u>Vượt ra ngoài phần cốt lõi:</u></i></b> Một nhận xét nâng cao quan trọng có thể thực hiện nhờ dùng <b><i>compa đo (calipers)</i></b> — là <b>tần số của </b>các <b>sóng P</b> thấy được <b>ở B (</b><i>lấy khoảng P-P giữa 2 sóng P bất kỳ thấy liên tiếp nhau</i><b>) — hơi <i>chậm hơn</i> tần số thất ở Nhịp A</b>.</li><li>Dấu hiệu này <i><u>có</u></i> ý nghĩa — vì ta có thể nghi ngờ rằng có lẽ bệnh nhân này đã được bắt đầu dùng một loại thuốc ức chế nút AV nào đó ở A — dẫn đến tần số nhĩ chậm lại đôi chút, và xuất hiện một dạng blốc AV nào đó ... <i>Nhưng hãy đi dần tới điều này theo từng bước ...</i></li></ul>
+<p><b><i><u>Có dẫn truyền ở Nhịp B không?</u></i></b></p>
+<p>Phần dưới đây là đánh giá <b>Nhịp <u>B</u></b>. Như đã nêu ở trên — <i><u>có</u></i> sóng P — và có nhịp theo nhóm ở Nhịp B.</p>
+<ul><li><b><u>ĐIỂM THEN CHỐT (PEARL) <span class="c-do">#</span>3:</u></b> Lý do chúng ta <i><u>biết</u></i> rằng <u>có</u> dẫn truyền của ít nhất một số sóng P thấy ở Nhịp B — là <b>khoảng PR <i><u>giống hệt nhau</u></i> xuất hiện trước phần lớn các nhát kết thúc một khoảng ngưng! (</b><i>các mũi tên ĐỎ trong</i> <b><u>Hình-2</u>)</b>. <i>Điều này <u>không</u> phải ngẫu nhiên!</i> Thay vào đó — nó cho chúng ta biết nhát đầu tiên trong mỗi nhóm <i><u>đang</u></i> được dẫn truyền, dù với một <b>khoảng PR <i>dài</i></b> <b>(</b>tức là <i>~0.44 giây</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-2-Rhythm-B-1-12-20.21-2022--USE-2e565390cf17.png"><img src="case-355_anh/Figure-2-Rhythm-B-1-12-20.21-2022--USE-2e565390cf17.png" alt="" width="1600" height="306" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-2:</u></b> Nhát đầu tiên trong mỗi nhóm <u>đang</u> được dẫn truyền, dù với khoảng PR dài (<i>các mũi tên ĐỎ</i>).</figcaption></figure>
+<p><b><u>Nhịp nhĩ ở B <i>Thực Sự</i> Đều!</u></b></p>
+<p>Dùng compa đo giúp (<i>và giúp nhanh hơn rất nhiều!</i>) xác định rằng nhịp nhĩ ở B là đều <b>(</b><i>các mũi tên ĐỎ trong</i> <b><u>Hình-3</u>)</b>.</p>
+<ul><li><u><b>LƯU Ý:</b></u><i> Các mũi tên HỒNG</i> đánh dấu 2 sóng P trong dải nhịp này mà chúng ta không nhìn thấy — vì các sóng P này bị ẩn trong QRS của nhát #2 và 7. Nhưng xét việc tất cả các sóng P mũi tên <i>ĐỎ</i> khác đều đặn như thế nào — chúng ta <i><u>biết</u></i> rằng các sóng P <i>đúng lúc</i> gần như chắc chắn đang ẩn dưới các mũi tên <i>HỒNG</i> đó!</li><li>Điều này gợi ý rằng nhịp nền trong <u>Hình-3</u> — là <b>ATach (</b><i>nhịp nhanh nhĩ, <u>A</u>trial <u>T</u>achycardia</i><b>) với tần số ~130/phút (</b><i>các mũi tên ĐỎ và HỒNG cho thấy các sóng P đều đặn suốt dải nhịp</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-3-Rhythm-B-2-12-20.21-2022--USE-9f831a7588d5.png"><img src="case-355_anh/Figure-3-Rhythm-B-2-12-20.21-2022--USE-9f831a7588d5.png" alt="" width="1600" height="308" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-3:</u></b> Nhịp nhĩ ở B là đều (<i>các mũi tên ĐỎ và HỒNG</i>).</figcaption></figure>
+<p><b><u>ĐIỂM THEN CHỐT (PEARL) <span class="c-do">#</span>4:</u></b> <i>Khi bạn thấy <b>ATach</b> kèm </i><b><u>nhịp theo nhóm</u></b> <b>(group beating) </b>— <i>Hãy nghĩ tới Wenckebach<b>!</b></i> Như đã bàn trong <b><a href="https://ecg-interpretation.blogspot.com/2021/11/ecg-blog-261-51a-how-many-p-waves.html" rel="noopener" target="_blank">ECG Blog #261</a></b> — <i>"Cái gì thường gặp thì thường gặp"</i> — và nhịp nhanh nhĩ rất thường đi kèm dẫn truyền Wenckebach.</p>
+<ul><li>Việc nhận ra <b><i>nhịp theo nhóm</i></b> <b>(group beating)</b> trong <u>Hình-2</u> — trong đó có một nhịp nhĩ nền đều <b><span class="c-do">+</span></b> các khoảng PR <i>giống hệt nhau</i> lặp lại <b><span class="c-do">+</span></b> thời gian khoảng R-R tương tự nhau ở phần lớn các khoảng ngưng — gợi ý mạnh mẽ rằng có <b>dẫn truyền </b><b>Wenckebach AV</b>.</li></ul>
+<p>Để giúp nhận ra dẫn truyền Wenckebach này — tôi đã <i>mã hóa màu</i> các sóng P trong <b><u>Hình-4</u>:</b></p>
+<ul><li><b>Các mũi tên <i>ĐỎ</i></b> đánh dấu sóng P đầu tiên trong phần lớn các nhóm. Lưu ý rằng <b>khoảng PR của các sóng P này (</b>tức là <i>khoảng PR đi trước các nhát #4, 6, 9, 11 và 14</i><b>)</b> — <b>giống hệt nhau (</b>tức là <i>kéo dài tới ~0.44 giây</i><b>)</b>.</li><li><b>Các mũi tên <i>XANH</i> <i>đậm</i></b> đánh dấu sóng P thứ 2 ở 6 nhóm. Khoảng PR của các sóng P này (<i>đi trước các nhát #2, 5, 7, 10 và 12</i>) — <i><u>dài hơn</u></i> khoảng PR được đánh dấu bởi các mũi tên <i>ĐỎ</i> <b>(</b>tức là <i>~0.50 so với 0.44 giây</i><b>)</b>.</li><li><b>Các mũi tên <i>XANH nhạt</i></b> đánh dấu vị trí nơi sóng P thứ 3 bị ẩn ở 2 nhóm. Khoảng PR của các sóng P này còn dài hơn nữa <b>(</b>tức là ~0.54 giây<b>)</b>.</li><li><b>Các mũi tên <i>VÀNG</i></b> đánh dấu sóng P cuối cùng trong mỗi nhóm. Các sóng P <i>VÀNG</i> này <i><u>không</u></i> được dẫn truyền do blốc Wenckebach. Lưu ý rằng sau mỗi mũi tên <i>VÀNG</i> này — là một mũi tên <i>ĐỎ</i>, từ đó bắt đầu nhóm tiếp theo.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-4-Rhythm-B-3-12-20.21-2022--USE-dadb329a8707.png"><img src="case-355_anh/Figure-4-Rhythm-B-3-12-20.21-2022--USE-dadb329a8707.png" alt="" width="1600" height="305" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-4:</u></b> Để giúp nhận ra <b><i>dẫn truyền</i></b> <b>Wenckebach</b> — tôi đã mã hóa màu các sóng P trong nhịp này (<i>Xem bài</i>).</figcaption></figure>
+<p><b><u><i><span class="c-do">M</span>inh họa</i> bằng <span class="c-do">G</span>iản đồ bậc thang<span class="c-do">:</span></u></b></p>
+<p>Sẽ dễ nhận ra sự hiện diện của dẫn truyền <i>Wenckebach</i> cho nhịp ATach trong <u>Hình-4</u> hơn nhiều — bằng cách dùng <b><i><span class="c-do">G</span>iản đồ bậc thang (laddergram)</i></b> mà tôi đã vẽ trong <b><u>Hình-5</u>:</b></p>
+<ul><li>Tôi giữ nguyên cách mã hóa màu như trong <u>Hình-4</u>.</li><li>Cách dễ nhất để theo dõi các sự kiện trong giản đồ bậc thang — là chọn <i>bất kỳ</i> nhóm nhát nào, và bắt đầu bằng cách theo đường đi của sóng P mũi tên <i>ĐỎ</i> trong nhóm đó. Ví dụ — sóng P mũi tên <i>ĐỎ</i> trước nhát #6 cho thấy khoảng PR kéo dài dần đối với các mũi tên <i>XANH đậm</i> rồi <i>XANH nhạt</i> theo sau — cho tới khi sóng P mũi tên <i>VÀNG</i> (<i>xuất hiện ngay trước nhát #8</i>) <i><u>không</u></i> được dẫn truyền.</li><li>Nhóm Wenckebach tiếp theo sau đó bắt đầu với sóng P mũi tên <i>ĐỎ</i> đi trước nhát #9.</li><li>Dẫn truyền Wenckebach trong <u>Hình-5</u> biểu hiện <b>dẫn truyền AV 4:3</b> và <b>3:2</b>.</li><li><br></li><li><b><u>LƯU Ý:</u></b> Khoảng PR của sóng P mũi tên <i>HỒNG</i> hơi dài hơn khoảng PR của tất cả các sóng P mũi tên <i>ĐỎ</i>. <i>Tôi <u>không</u> chắc lắm vì sao</i>. Tôi vẽ giản đồ bậc thang thể hiện rằng sóng P mũi tên <i>HỒNG</i> này <u>có</u> được dẫn truyền xuống thất (<i>nhưng tôi thêm một dấu hỏi để thừa nhận rằng tôi không chắc chắn sóng P này được dẫn truyền</i>). Dù vậy — điều này <i><u>không</u></i> quan trọng về mặt lâm sàng, vì <b>"chủ đề" của nhịp này không thay đổi (</b>tức là <i>ATach với dẫn truyền Wenckebach</i><b>)</b>.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-5-Ladder-1-12-20.21-2022--USE-7a8251834f02.png"><img src="case-355_anh/Figure-5-Ladder-1-12-20.21-2022--USE-7a8251834f02.png" alt="" width="1600" height="696" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-5:</u></b> Giản đồ bậc thang mô tả bản ghi đã mã hóa màu trong <u>Hình-4</u>.</figcaption></figure>
+<p><b><u>Giản đồ bậc thang cuối cùng:</u></b></p>
+<p>Thông thường tôi không mã hóa màu các đường dùng để dựng giản đồ bậc thang. Vì vậy tôi đã làm cho tất cả các đường trong giản đồ bậc thang cùng một màu. Với Hình-5 làm nền tảng — giờ đây sẽ dễ dàng theo dõi giản đồ bậc thang cuối cùng trong <b><u>Hình-6</u></b>.</p>
+<figure><a class="o-anh" href="case-355_anh/Figure-6-Ladder-2-12-20.21-2022--USE-87dbd4fc7230.png"><img src="case-355_anh/Figure-6-Ladder-2-12-20.21-2022--USE-87dbd4fc7230.png" alt="" width="1600" height="693" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-6:</u></b> Giản đồ bậc thang cuối cùng cho Nhịp B.</figcaption></figure>
+<p><b><u><span class="c-do">Ô</span>N <span class="c-do">L</span>ẠI CA BỆNH<span class="c-do">:</span></u></b></p>
+<p><i>Hãy NHÌN lại một lần nữa</i> 2 nhịp gốc đã trình bày trong <u>Hình-1</u>. Lưu ý trong <b><u>Hình-7</u></b> — tôi đã thêm một số mũi tên <i>ĐỎ</i> chọn lọc để đánh dấu hoạt động nhĩ.</p>
+<ul><li>Giờ khi chúng ta đã xác định rằng <b>Nhịp <u>B</u></b> là ATach với dẫn truyền Wenckebach AV 4:3 và 3:2 — hẳn đã rõ rằng <b>Nhịp <u>A</u></b> là <b>ATach</b> với <b>dẫn truyền AV 1:1</b> và <b>khoảng PR</b> <b><i>dài</i></b> và <b><i>hằng định</i> (</b><i>khoảng ~0.32 giây</i><b>)</b>. Thứ từng được cho là sóng T "nhọn" ở Nhịp A — hóa ra lại là sóng P của một nhịp nhanh nhĩ lạc chỗ.</li><li><br></li><li><b><u><i><span class="c-do">T</span>ổng <span class="c-do">H</span>ợp <span class="c-do">L</span>ại <span class="c-do">T</span>ất cả<span class="c-do">:</span></i></u></b> Chúng ta <i><u>không</u></i> được biết bệnh nhân hôm nay có được điều trị gì trong khoảng thời gian giữa lúc ghi Nhịp A và Nhịp B hay không. Tôi<b> rất nghi ngờ rằng <i>một</i> dạng điều trị ức chế nút AV nào đó <i>đã</i> được dùng (</b>tức là <i>Adenosine, Verapamil-Diltiazem hoặc thuốc chẹn ß</i><b>) vì: i<span class="c-do">) </span></b>Tần số thất (<i>và do đó cả tần số nhĩ</i>) của Nhịp A hơi <i><u>nhanh hơn</u></i> tần số nhĩ ở Nhịp B <b>(</b>tức là <i>~135/phút <u>so với</u> 130/phút</i><b>); ii<span class="c-do">)</span></b> Khoảng PR của nhát dẫn truyền thứ 1 trong mỗi nhóm Wenckebach ở Nhịp B <i><u>dài hơn</u></i> khoảng PR trong lúc dẫn truyền AV 1:1 ở Nhịp A <b>(</b>tức là <i>0.44 giây — so với 0.32 giây</i><b>)</b>; <u>và</u>, <b>iii<span class="c-do">)</span></b> Có dẫn truyền Wenckebach ở Nhịp B, trong khi ở Nhịp A là dẫn truyền AV 1:1.</li><li><b>Kết luận hợp lý nhất là <i>một</i> thuốc ức chế nút AV nào đó đã được dùng</b> cho bệnh nhân khi bà đến viện với Nhịp A — và điều này dẫn đến tần số nhĩ chậm lại đôi chút, khoảng PR tăng lên — và dẫn truyền Wenckebach trong đó cứ mỗi nhát thứ 3 hoặc thứ 4 bị blốc.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/Figure-7-Final-Fig-A-B-12-25.1-2022--USE-2fccbf8a5af0.png"><img src="case-355_anh/Figure-7-Final-Fig-A-B-12-25.1-2022--USE-2fccbf8a5af0.png" alt="" width="1600" height="592" loading="lazy" decoding="async"></a><figcaption><b><u>Hình-7:</u></b> Tôi đã ghi nhãn một số sóng P chọn lọc trên các bản ghi gốc của ca hôm nay .</figcaption></figure>
+<p><b><u><span class="c-do">Đ</span>IỂM <span class="c-do">C</span>UỐI CÙNG<span class="c-do">:</span></u></b> Thay vì gọi Nhịp <u>B</u> là một dạng "blốc" AV độ 2 nào đó — tôi thích xem nhịp này là <b>ATach</b> <i><u>kèm</u></i> <b><i>dẫn truyền</i></b> <b>Wenckebach</b>. Dạng dẫn truyền Wenckebach này thường là sinh lý, do tần số nhĩ nhanh. Nó thường <i><u>không</u></i> phản ánh một khiếm khuyết dẫn truyền cụ thể nào — và dẫn truyền Wenckebach thường sẽ hết nếu ATach được kiểm soát.</p>
+<p>==================================</p>
+<p><b><u><span class="c-do">L</span></u></b><b><u>ỜI CẢM ƠN<span class="c-do">:</span></u></b> Xin cảm ơn Hafiz Abdul Mannan Shahid (<i>Lahore, Pakistan</i>) đã cung cấp ca bệnh và các bản ghi này.</p>
+<p>==================================</p>
+<p><b><u><span class="c-do">P</span></u></b><b><u>HẦN BỔ SUNG <span class="c-do">(</span></u></b><i><u>1/6/2023</u></i><b><u><span class="c-do">)</span></u></b><b><u>:</u></b></p>
+<ul><li>Các <b><i><u>Audio</u></i></b> <b>Pearl</b> dưới đây có thể hữu ích để đánh giá các nhịp trong ca hôm nay.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/ECG-MP-51a-28235-29-Rhythm-Pearls-2811-7.21-2021-29-USE-e012f5242687.png"><img src="case-355_anh/ECG-MP-51a-28235-29-Rhythm-Pearls-2811-7.21-2021-29-USE-e012f5242687.png" alt="" width="1600" height="1195" loading="lazy" decoding="async"></a></figure>
+<p><b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>EARL <span class="c-do">#</span>51a (</b><i>7:40 phút <b><u>Audio</u></b></i><b>)</b> — Ôn lại <i>"Một số bước đơn giản giúp đọc các nhịp phức tạp" </i><b>)</b>.</p>
+<figure><a class="o-anh" href="case-355_anh/ECG-MP-55-What-is-SVT-287-4.2-2021-29-USE-2afb702456ee.png"><img src="case-355_anh/ECG-MP-55-What-is-SVT-287-4.2-2021-29-USE-2afb702456ee.png" alt="" width="1600" height="1203" loading="lazy" decoding="async"></a></figure>
+<p><b><span class="c-do">E</span>CG <i><span class="c-do">M</span>edia</i> <span class="c-do">P</span>EARL <span class="c-do">#</span>55 (</b><i>4:20 phút</i> <b><i><u>Audio</u></i>)</b> — <b><span class="c-do">T</span>huật ngữ "<span class="c-do">S</span>VT"</b> nghĩa là gì? <i><u>Audio</u> </i>Pearl này ôn lại ngữ nghĩa và ứng dụng lâm sàng khi sử dụng thuật ngữ này.</p>
+<p>==================================</p>
+<p><b><i><u>Các bài</u></i></b><b><u> ECG liên quan đến ca <i>hôm nay</i>:</u></b></p>
+<ul><li><b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-185-audio-pearl-3-ps-qs-3r.html" rel="noopener" target="_blank">ECG Blog #185</a></b> — <b><i>Cách tiếp cận</i></b> <b>hệ thống</b> của tôi để đọc nhịp.<b> </b></li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/11/ecg-blog-261-51a-how-many-p-waves.html" rel="noopener" target="_blank">ECG Blog #261</a> </b>— Một ca <b>ATach</b> với <b><i>dẫn truyền</i></b> <b>Wenckebach</b>.</li><li><b><a href="https://ecg-interpretation.blogspot.com/2012/11/ecg-interpretation-review-55-mobitz-i.html" rel="noopener" target="_blank">ECG Blog #55</a></b> — MI <i>thành dưới</i> cấp + Wenckebach AV.</li><li><b><a href="https://ecg-interpretation.blogspot.com/2018/07/ecg-blog-154-stemi-inferior-mobitz.html" rel="noopener" target="_blank">ECG Blog #154</a></b> — MI <i>thành dưới</i> cấp + Wenckebach AV.<b> </b></li><li><b><a href="https://ecg-interpretation.blogspot.com/2019/09/ecg-blog-168-stemi-complex-av-block.html" rel="noopener" target="_blank">ECG Blog #168</a> </b>— MI <i>thành dưới</i> cấp + blốc Wenckebach (<i>hai tầng</i>). </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/05/the-12-lead-ecg-and-long-lead-ii-rhythm.html" rel="noopener" target="_blank">ECG Blog #224</a></b> — MI <i>thành dưới</i> cấp + Wenckebach AV.</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/07/ecg-blog-240-55-what-kind-of-regular-svt.html" rel="noopener" target="_blank">ECG Blog #240</a></b> — Ôn lại cách đánh giá <i><u>Chẩn đoán</u></i> <u>phân biệt</u> của <b>nhịp SVT <i>đều</i></b>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/11/ecg-blog-261-51a-how-many-p-waves.html" rel="noopener" target="_blank">ECG Blog #261</a></b> — Ôn lại cách đánh giá một ca <i>tương tự</i> Nhịp "B".</li><li><br></li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/05/ecg-blog-229-45-is-this-vt-or-something.html" rel="noopener" target="_blank">ECG Blog #229</a></b> — Vì sao <b>AFlutter</b> lại <i><u>thường</u></i> <u>bị bỏ sót</u> đến vậy? </li><li><b><a href="https://ecg-interpretation.blogspot.com/2016/12/ecg-blog-137-svt-av-block-atrial.html" rel="noopener" target="_blank">ECG Blog #137</a></b> — <b>AFlutter</b> với tỷ lệ dẫn truyền <i><u>bất thường</u></i>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2016/12/ecg-blog-138-svt-av-block-atrial.html" rel="noopener" target="_blank">ECG Blog #138</a></b> — <b>AFlutter </b><u>so với</u><b> nhịp nhanh nhĩ</b>. </li><li><b><a href="https://ecg-interpretation.blogspot.com/2012/03/ecg-interpretation-review-40-regular.html" rel="noopener" target="_blank">ECG Blog #40</a></b> — Thêm một <b>SVT</b> <b><i>đều</i></b> hóa ra là <b>AFlutter</b>.</li><li><br></li><li>González-Torrecilla và cs.: <b><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6932539/" rel="noopener" target="_blank">Ann Noninvasive Electrocardiol 16(1):85-95, 2011</a> </b>— Ôn lại cách phân biệt AVNRT <u>với</u> AVRT và các nhịp SVT đều khác ở bệnh nhân không có WPW.</li><li> </li><li><b><a href="https://ecg-interpretation.blogspot.com/2021/01/ecg-blog-188-how-to-read-laddergrams.html" rel="noopener" target="_blank">ECG Blog #188</a></b> — Cách đọc <b>(</b><i>và vẽ</i><b>) <span class="c-do">G</span>iản đồ bậc thang</b>.</li></ul>
+<figure><a class="o-anh" href="case-355_anh/0--RED-LINE--Use-in-Blogs-362d020ecf76.png"><img src="case-355_anh/0--RED-LINE--Use-in-Blogs-362d020ecf76.png" alt="" width="613" height="24" loading="lazy" decoding="async"></a></figure>
+  </section>
+ </main>
+</div>
+<div class="thanh-nut">
+ <button id="nutMl" class="hien-ml" type="button" title="Mục lục">≡</button>
+ <button id="nutGiam" type="button" title="Chữ nhỏ hơn">A-</button>
+ <button id="nutTang" type="button" title="Chữ lớn hơn">A+</button>
+ <button id="nutNen" type="button" title="Nền sáng/tối">◐</button>
+</div>
+<div class="xem-anh" id="xemAnh" role="dialog" aria-label="Xem ảnh">
+ <span class="xa-dem"></span>
+ <button class="xa-dong" type="button" title="Đóng (Esc)">✕</button>
+ <button class="xa-truoc" type="button" title="Ảnh trước (←)">‹</button>
+ <img alt="">
+ <button class="xa-sau" type="button" title="Ảnh sau (→)">›</button>
+ <div class="xa-chu"></div>
+</div>
+<script>
+(function(){
+ var goc=document.documentElement, ds=document.getElementById('dsMuc'),
+     giay=document.getElementById('toGiay'), pt=document.getElementById('phanTram'),
+     ml=document.getElementById('mucLuc');
+ var dau=[].slice.call(giay.querySelectorAll('h2,h3,h4,h5,h6'));
+
+ // mục lục
+ dau.forEach(function(h){
+  var li=document.createElement('li');
+  li.className='cap-'+(+h.tagName[1]-1);
+  var a=document.createElement('a');
+  a.href='#'+h.id; a.textContent=h.textContent;
+  a.addEventListener('click',function(){ ml.classList.remove('mo'); });
+  li.appendChild(a); ds.appendChild(li);
+ });
+ var neo=[].slice.call(ds.querySelectorAll('a'));
+
+ function capNhat(){
+  var i=0;
+  for(var k=0;k<dau.length;k++){ if(dau[k].getBoundingClientRect().top<140) i=k; }
+  neo.forEach(function(a,k){ a.classList.toggle('dang-doc',k===i); });
+  var a=neo[i];
+  if(a){ var cuon=a.closest('.ml-cuon');
+   if(cuon){ var h=a.getBoundingClientRect(), c=cuon.getBoundingClientRect();
+    if(h.top<c.top||h.bottom>c.bottom) cuon.scrollTop+=h.top-c.top-c.height/3; } }
+  var het=document.documentElement.scrollHeight-innerHeight;
+  pt.textContent=(het>0?Math.min(100,Math.round(scrollY/het*100)):100)+'%';
+ }
+ addEventListener('scroll',capNhat,{passive:true});
+ addEventListener('resize',capNhat); capNhat();
+
+ // cỡ chữ + nền tối, nhớ lựa chọn
+ function docNho(k,md){ try{ return localStorage.getItem(k)||md; }catch(e){ return md; } }
+ function ghiNho(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+ var co=parseInt(docNho('gl-co','16'),10);
+ function apCo(){ goc.style.setProperty('--co',co+'px'); ghiNho('gl-co',co); capNhat(); }
+ apCo();
+ goc.setAttribute('data-nen',docNho('gl-nen','sang'));
+ document.getElementById('nutTang').onclick=function(){ co=Math.min(24,co+1); apCo(); };
+ document.getElementById('nutGiam').onclick=function(){ co=Math.max(12,co-1); apCo(); };
+ document.getElementById('nutNen').onclick=function(){
+  var v=goc.getAttribute('data-nen')==='toi'?'sang':'toi';
+  goc.setAttribute('data-nen',v); ghiNho('gl-nen',v);
+ };
+ // thu gọn / mở lại cột mục lục (nhớ lựa chọn)
+ goc.setAttribute('data-ml',docNho('gl-ml',''));
+ function datMl(v){ goc.setAttribute('data-ml',v); ghiNho('gl-ml',v); capNhat(); }
+ document.getElementById('nutThu').onclick=function(){ datMl('thu'); };
+ document.getElementById('nutMl').onclick=function(){
+  // màn hình rộng: nút ≡ mở lại cột đã thu; màn hình hẹp: kéo cột ra/vào
+  if(innerWidth>980 && goc.getAttribute('data-ml')==='thu'){ datMl(''); return; }
+  ml.classList.toggle('mo');
+ };
+
+ // tìm trong bài
+ var o=document.getElementById('oTim'), dem=document.getElementById('demTim'), hit=[], vt=-1;
+ function xoaDanh(){
+  hit=[]; vt=-1;
+  var m=giay.querySelectorAll('mark.danh');
+  for(var i=0;i<m.length;i++){ var p=m[i].parentNode;
+   p.replaceChild(document.createTextNode(m[i].textContent),m[i]); p.normalize(); }
+ }
+ function danhDau(q){
+  xoaDanh();
+  if(q.length<2){ dem.textContent=''; return; }
+  var tw=document.createTreeWalker(giay,NodeFilter.SHOW_TEXT,null), nut=[], n;
+  while((n=tw.nextNode())) if(n.nodeValue.trim()) nut.push(n);
+  var kq=q.toLowerCase();
+  nut.forEach(function(n){
+   var s=n.nodeValue, l=s.toLowerCase(), i=l.indexOf(kq);
+   if(i<0) return;
+   var cha=n.parentNode, sau=n, dich=0;
+   while(i>=0){
+    var giua=sau.splitText(i-dich); dich=i+q.length;
+    sau=giua.splitText(q.length);
+    var mk=document.createElement('mark'); mk.className='danh';
+    cha.replaceChild(mk,giua); mk.appendChild(giua); hit.push(mk);
+    i=l.indexOf(kq,dich);
+   }
+  });
+  dem.textContent=hit.length?('1/'+hit.length):'0';
+  if(hit.length){ vt=0; toi(0); }
+ }
+ function toi(i){
+  if(!hit.length) return;
+  hit.forEach(function(m){ m.classList.remove('dang'); });
+  vt=(i+hit.length)%hit.length;
+  hit[vt].classList.add('dang');
+  hit[vt].scrollIntoView({block:'center',behavior:'smooth'});
+  dem.textContent=(vt+1)+'/'+hit.length;
+ }
+ var cho;
+ o.addEventListener('input',function(){ clearTimeout(cho);
+  cho=setTimeout(function(){ danhDau(o.value.trim()); },250); });
+ o.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault();
+  toi(vt+(e.shiftKey?-1:1)); } });
+ document.getElementById('timTruoc').onclick=function(){ toi(vt-1); };
+ document.getElementById('timSau').onclick=function(){ toi(vt+1); };
+ addEventListener('beforeprint',xoaDanh);
+})();
+// xem ảnh phóng to: bấm ảnh để mở, ←/→ chuyển ảnh trong cùng bộ, Esc để đóng
+(function(){
+ var hop=document.getElementById('xemAnh'), anh=hop.querySelector('img'),
+     chu=hop.querySelector('.xa-chu'), dem=hop.querySelector('.xa-dem'), bo=[], vt=0;
+ function hien(i){
+  vt=(i+bo.length)%bo.length; var a=bo[vt], im=a.querySelector('img');
+  anh.src=a.getAttribute('href'); anh.alt=im.alt; chu.textContent=im.alt;
+  chu.style.display=im.alt?'':'none';
+  dem.textContent=bo.length>1?(vt+1)+' / '+bo.length:'';
+  hop.querySelector('.xa-truoc').style.display=hop.querySelector('.xa-sau').style.display=bo.length>1?'':'none';
+ }
+ function dong(){ hop.classList.remove('mo'); anh.removeAttribute('src'); document.body.style.overflow=''; }
+ document.getElementById('toGiay').addEventListener('click',function(e){
+  var a=e.target.closest('a.o-anh'); if(!a) return;
+  e.preventDefault();
+  var cha=a.closest('.bo-anh');
+  bo=cha?[].slice.call(cha.querySelectorAll('a.o-anh')):[a];
+  hien(bo.indexOf(a)); hop.classList.add('mo'); document.body.style.overflow='hidden';
+ });
+ hop.querySelector('.xa-dong').onclick=dong;
+ hop.querySelector('.xa-truoc').onclick=function(e){ e.stopPropagation(); hien(vt-1); };
+ hop.querySelector('.xa-sau').onclick=function(e){ e.stopPropagation(); hien(vt+1); };
+ hop.addEventListener('click',function(e){ if(e.target===hop) dong(); });
+ addEventListener('keydown',function(e){
+  if(!hop.classList.contains('mo')) return;
+  if(e.key==='Escape') dong();
+  else if(e.key==='ArrowLeft') hien(vt-1);
+  else if(e.key==='ArrowRight') hien(vt+1);
+ });
+ var x0=null;
+ hop.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+ hop.addEventListener('touchend',function(e){ if(x0===null) return;
+  var dx=e.changedTouches[0].clientX-x0; x0=null;
+  if(Math.abs(dx)>50) hien(vt+(dx<0?1:-1)); });
+})();
+// video YouTube: chỉ tải khi bấm. YouTube trả "Lỗi 153" khi trang không gửi được referrer
+// (mở từ ổ đĩa file:// hoặc khung sandbox) — khi đó mở thẳng tab YouTube.
+(function(){
+ var giay=document.getElementById('toGiay'), ds=giay.querySelectorAll('.yt');
+ if(!ds.length) return;
+ var canEmbed=/^https?:$/.test(location.protocol) &&
+   (typeof window.origin==='undefined' || (window.origin && window.origin!=='null'));
+ var PLAY='<span class="play"><svg viewBox="0 0 68 48"><path fill="#f00" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></span>';
+ [].forEach.call(ds,function(b){
+  var id=b.getAttribute('data-id'), n=b.getAttribute('data-n')||'Video', watch='https://www.youtube.com/watch?v='+id;
+  b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="'+n+'">'+PLAY+'<span class="badge">▶ '+n+'</span>';
+  b.setAttribute('role','button'); b.setAttribute('tabindex','0');
+  var fig=b.closest('figure'), cap=fig&&fig.querySelector('figcaption');
+  if(!cap&&fig){ cap=document.createElement('figcaption'); fig.appendChild(cap); }
+  if(cap){ var a=document.createElement('a'); a.className='ytlink'; a.href=watch; a.target='_blank';
+   a.rel='noopener'; a.textContent='Mở trên YouTube ↗'; cap.appendChild(a); }
+  function load(){
+   if(!canEmbed){ window.open(watch,'_blank','noopener'); return; }
+   b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&autoplay=1" '+
+    'referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;'+
+    'encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="'+n+'"></iframe>';
+   b.style.cursor='default';
+  }
+  b.addEventListener('click',load);
+  b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); } });
+ });
+ if(!canEmbed){
+  var w=document.createElement('div'); w.className='canh-bao';
+  w.innerHTML='<b>Lưu ý:</b> trang đang mở trực tiếp từ ổ đĩa (hoặc trong khung xem trước) nên YouTube chặn phát nhúng '+
+   '(<i>Lỗi 153</i>). Bấm vào video sẽ mở tab YouTube. Đăng trang lên web (https) thì video phát ngay trong trang.';
+  giay.insertBefore(w, giay.firstChild);
+ }
+})();
+</script>
+</body>
+</html>
