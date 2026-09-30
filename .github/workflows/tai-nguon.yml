@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['tools/tai_nguon.py', 'du-lieu/danh-sach.json', '.github/workflows/tai-nguon.yml']
+    paths: ['tools/tai_nguon.py', '.github/workflows/tai-nguon.yml']
   schedule:
     - cron: '17 20 * * *'   # mỗi ngày một lần: tải bù case lỗi / case mới thêm vào danh sách
 permissions:
