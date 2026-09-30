@@ -1467,50 +1467,55 @@
 "nhan": "#136",
 "slug": "case-136",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-136-avnrt-vagal-maneuver-pvc.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775045
+"tieu_de_en": "ECG Blog #136 — Run of Narrow, then Wide Beats",
+"tieu_de_vi": "ECG Blog #136 — Loạt nhát QRS hẹp, rồi đến các nhát QRS rộng",
+"trang_thai": "xong",
+"tu_khoa": "AVNRT, SVT, nhịp nhanh trên thất, nhát hỗn hợp, fusion beat, cặp đôi thất, ventricular couplet, loạt nhịp nhanh thất, PVC khi chuyển nhịp, hồi hộp đánh trống ngực, palpitations, nhịp xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 135,
 "nhan": "#137",
 "slug": "case-137",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-137-svt-av-block-atrial.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775045
+"tieu_de_en": "ECG Blog #137 (SVT – AV Block – Atrial Flutter – Atrial Tachycardia – Atrial Fibrillation)",
+"tieu_de_vi": "ECG Blog #137 (SVT – Blốc AV – Cuồng nhĩ – Nhịp nhanh nhĩ – Rung nhĩ)",
+"trang_thai": "xong",
+"tu_khoa": "cuồng nhĩ, atrial flutter, AFlutter, dẫn truyền AV 3:1, tỷ lệ dẫn truyền lẻ, odd conduction ratio, nhịp nhanh nhĩ, atrial tachycardia, ATach, dẫn truyền 2:1, dẫn truyền 1:1, WPW, thuốc chống loạn nhịp, tần số nhĩ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 136,
 "nhan": "#138",
 "slug": "case-138",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-138-svt-av-block-atrial.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775045
+"tieu_de_en": "ECG Blog #138 (SVT – AV Block – Atrial Flutter – Atrial Tachycardia – Digoxin)",
+"tieu_de_vi": "ECG Blog #138 (SVT – Blốc AV – Cuồng nhĩ – Nhịp nhanh nhĩ – Digoxin)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh nhĩ kèm blốc, atrial tachycardia with block, ATach, cuồng nhĩ, atrial flutter, AFlutter, dẫn truyền AV 2:1, ngộ độc digitalis, digoxin toxicity, cuồng nhĩ không điển hình, atypical flutter, SVT, MCL-1, chuyển khám EP",
+"ngay": "2026-09-30"
 },
 {
 "stt": 137,
 "nhan": "#139",
 "slug": "case-139",
 "url": "https://www.ekgblog.com/2016/12/ecg-blog-139-atrial-flutter-av-block.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775045
+"tieu_de_en": "ECG Blog #139 (Atrial Flutter – AV Block – Artifact – Sinus Rhythm)",
+"tieu_de_vi": "ECG Blog #139 (Cuồng nhĩ – Blốc AV – Nhiễu – Nhịp xoang)",
+"trang_thai": "xong",
+"tu_khoa": "nhiễu, artifact, giả cuồng nhĩ, pseudo-flutter, run, tremor artifact, bệnh Parkinson, cuồng nhĩ, atrial flutter, dẫn truyền AV 4:1, compa đo, calipers, nhịp xoang, rối loạn nhịp do nhiễu",
+"ngay": "2026-09-30"
 },
 {
 "stt": 138,
 "nhan": "#140",
 "slug": "case-140",
 "url": "https://www.ekgblog.com/2017/06/ecg-blog-140-pvc-atrial-bigeminy-pac.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790775045
+"tieu_de_en": "ECG Blog #140 – (PVC – Atrial Bigeminy – PAC – LAHB – RBBB – LPHB – Aberration).",
+"tieu_de_vi": "ECG Blog #140 — (PVC – Nhịp đôi nhĩ – PAC – LAHB – RBBB – LPHB – Dẫn truyền lệch hướng).",
+"trang_thai": "xong",
+"tu_khoa": "nhịp đôi nhĩ, atrial bigeminy, ngoại tâm thu nhĩ, PAC, PVC, dẫn truyền lệch hướng, aberrant conduction, RBBB, LAHB, LPHB, blốc phân nhánh, sóng P đến sớm, premature P wave, PVC đa dạng, multiform PVCs",
+"ngay": "2026-09-30"
 },
 {
 "stt": 139,
