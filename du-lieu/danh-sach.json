@@ -420,10 +420,11 @@
 "nhan": "#39",
 "slug": "case-039",
 "url": "https://www.ekgblog.com/2012/03/ecg-interpretation-review-39-narrow-qrs.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #39 (Narrow-QRS Tachycardia - SVT - Evaluation - Management)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 39 (Nhịp nhanh QRS hẹp – SVT – Đánh giá – Xử trí)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS hẹp, SVT, nhịp nhanh QRS rộng, WCT, VT, nhịp nhanh thất, adenosine, độ rộng QRS, điện tâm đồ 12 chuyển đạo, huyết động ổn định, sốc điện chuyển nhịp đồng bộ, narrow-QRS tachycardia, wide complex tachycardia, 5 thông số chính",
+"ngay": "2026-09-30"
 },
 {
 "stt": 40,
@@ -439,10 +440,11 @@
 "nhan": "#41",
 "slug": "case-041",
 "url": "https://www.ekgblog.com/2012/04/ecg-interpretation-review-41-wct-wide.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #41 (WCT - Wide Complex Tachycardia - Evaluation - SVT - Aberrant Conduction)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 41 (WCT – Nhịp nhanh QRS rộng – Đánh giá – SVT – Dẫn truyền lệch hướng)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, wide complex tachycardia, WCT, nhịp nhanh thất, VT, SVT, dẫn truyền lệch hướng, aberrant conduction, LBBB, adenosine, amiodarone, 3 quy tắc đơn giản, chuyển đạo Lewis, Lewis lead",
+"ngay": "2026-09-30"
 },
 {
 "stt": 42,
@@ -458,30 +460,33 @@
 "nhan": "#42-bis",
 "slug": "case-042-bis",
 "url": "https://www.ekgblog.com/2012/05/ecg-interpretation-review-42-bis-tables.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #42-BIS (Tables and Figures for Blog #42)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 42-BIS (Các bảng và hình cho Blog #42)",
+"trang_thai": "xong",
+"tu_khoa": "nhịp nhanh QRS rộng, wide complex tachycardia, WCT, nhịp nhanh thất, VT, SVT, dẫn truyền lệch hướng, aberrant conduction, R-to-S nadir, sóng R aVR, Brugada algorithm, Vereckei, hình dạng QRS, rsR tai thỏ",
+"ngay": "2026-09-30"
 },
 {
 "stt": 44,
 "nhan": "#43",
 "slug": "case-043",
 "url": "https://www.ekgblog.com/2012/05/ecg-interpretation-review-43-afib-pacs.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #43 (AFib - PACs - Acute MI - STEMI - \"smiley\" - reciprocal changes)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 43 (AFib - PAC - MI cấp - STEMI - ST dạng \"mặt cười\" - thay đổi soi gương)",
+"trang_thai": "xong",
+"tu_khoa": "rung nhĩ, atrial fibrillation, AFib, ngoại tâm thu nhĩ, PAC, nhịp xoang, nhồi máu cơ tim cấp, acute MI, STEMI, MI thành dưới, inferior MI, MI thành sau, posterior MI, thay đổi soi gương, reciprocal changes, nghiệm pháp soi gương, mirror test, ST chênh lên, trôi đường nền",
+"ngay": "2026-09-30"
 },
 {
 "stt": 45,
 "nhan": "#44",
 "slug": "case-044",
 "url": "https://www.ekgblog.com/2012/06/ecg-interpretation-review-44-afib.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #44 (AFib - Flutter - Artifact - Parkinson - Tremor)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 44 (Rung nhĩ – Cuồng nhĩ – Nhiễu – Parkinson – Run)",
+"trang_thai": "xong",
+"tu_khoa": "cuồng nhĩ, atrial flutter, rung nhĩ, AFib, nhiễu, artifact, nhiễu do run, tremor artifact, run Parkinson, Parkinsonian tremor, sóng răng cưa, telemetry, dải nhịp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 46,
@@ -497,10 +502,11 @@
 "nhan": "#46",
 "slug": "case-046",
 "url": "https://www.ekgblog.com/2012/06/ecg-interpretation-review-46-inferior.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Blog #46 — STEMI or a Broken Heart?",
+"tieu_de_vi": "ECG Blog #46 — STEMI hay một trái tim tan vỡ?",
+"trang_thai": "xong",
+"tu_khoa": "bệnh cơ tim Takotsubo, Takotsubo cardiomyopathy, hội chứng trái tim tan vỡ, broken-heart syndrome, bệnh cơ tim do stress, stress cardiomyopathy, STEMI, ST chênh lên, ST elevation, sóng T đảo ngược, T wave inversion, phình mỏm thất trái, apical ballooning, động mạch vành bình thường, QT kéo dài",
+"ngay": "2026-09-30"
 },
 {
 "stt": 48,
@@ -516,40 +522,44 @@
 "nhan": "#48",
 "slug": "case-048",
 "url": "https://www.ekgblog.com/2012/07/ecg-interpretation-review-48-chest-pain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #48 (Chest Pain - STEMI - 1st Degree - 2nd Degree AV Block - Infero-lateral - 2-to-1 - Wraparound)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 48 (Đau ngực – STEMI – Blốc AV độ 1 – Blốc AV độ 2 – Thành dưới-bên – 2:1 – LAD vòng qua mỏm)",
+"trang_thai": "xong",
+"tu_khoa": "đau ngực, chest pain, STEMI, nhồi máu cơ tim cấp, blốc AV độ 1, blốc AV độ 2, 2:1 AV block, Mobitz I, Wenckebach, thành dưới, inferior MI, LAD vòng qua mỏm, wraparound LAD, sóng P ẩn, hidden P wave, thay đổi soi gương",
+"ngay": "2026-09-30"
 },
 {
 "stt": 50,
 "nhan": "#49",
 "slug": "case-049",
 "url": "https://www.ekgblog.com/2012/08/ecg-interpretation-review-49-chest-pain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #49 (Chest Pain - STEMI - Culprit Artery - LAD - RBBB - LAHB - AFib - Nodal)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 49 (Đau ngực – STEMI – Động mạch thủ phạm – LAD – RBBB – LAHB – AFib – Nhịp bộ nối)",
+"trang_thai": "xong",
+"tu_khoa": "đau ngực, chest pain, STEMI, tắc LAD đoạn gần, proximal LAD occlusion, động mạch thủ phạm, culprit artery, RBBB, LAHB, blốc hai phân nhánh, bifascicular block, rung nhĩ, AFib, nhịp bộ nối gia tốc, ST chênh lên aVR, sóng T tối cấp",
+"ngay": "2026-09-30"
 },
 {
 "stt": 51,
 "nhan": "#50",
 "slug": "case-050",
 "url": "https://www.ekgblog.com/2012/08/ecg-interpretation-review-50-syncope.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #50 (Syncope - STEMI - MI - Brugada - RBBB - Early Repolarization)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 50 (Ngất - STEMI - Nhồi máu cơ tim - Brugada - RBBB - Tái cực sớm)",
+"trang_thai": "xong",
+"tu_khoa": "hội chứng Brugada, Brugada syndrome, ngất, tiền ngất, syncope, presyncope, STEMI, RBBB, blốc nhánh phải, tái cực sớm, early repolarization, đột tử, sudden death, ICD, rSr', ST chênh lên V1 V2",
+"ngay": "2026-09-30"
 },
 {
 "stt": 52,
 "nhan": "#51",
 "slug": "case-051",
 "url": "https://www.ekgblog.com/2012/09/ecg-interpretation-review-51-chamber.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790770445
+"tieu_de_en": "ECG Interpretation Review #51 (Chamber Enlargement - LVH - Cardiomyopathy)",
+"tieu_de_vi": "Ôn tập đọc điện tâm đồ – Số 51 (Lớn các buồng tim - LVH - Bệnh cơ tim)",
+"trang_thai": "xong",
+"tu_khoa": "lớn các buồng tim, phì đại thất trái, LVH, bệnh cơ tim, cardiomyopathy, bất thường nhĩ phải, RAA, bất thường nhĩ trái, LAA, tăng gánh thất trái, LV strain, tương đương tăng gánh, strain equivalent, ST dạng vòm, chamber enlargement",
+"ngay": "2026-09-30"
 },
 {
 "stt": 53,
