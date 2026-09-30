@@ -1,12 +1,8 @@
 {
  "url": "https://www.ekgblog.com/2011/03/ecg-interpretation-review-16-23-yo.html",
- "loi": [],
- "trich": [
-  "URL gốc: https://www.ekgblog.com/2011/03/ecg-interpretation-review-16-23-yo.html",
-  "Khối: 35  p=24, list=6, fig=5",
-  "Media gốc cần có: 6 tệp khác nhau (ảnh 5 vị trí / 5 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
-  "Lô dịch: 3 tệp trong /tmp/tmpuf_xcvto/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
+ "loi": [
+  "trang: HTTP Error 429: Too Many Requests"
  ],
- "so_media": 6,
- "luc": "2026-09-30 07:23:33"
+ "phien": 2,
+ "luc": "2026-09-30 09:31:54"
 }
