@@ -19,3 +19,6 @@ hyperacute T waves → sóng T tối cấp | de Winter T waves → sóng T de Wi
 QTc prolongation → QTc kéo dài | hyperkalemia / hypokalemia → tăng / hạ kali máu
 electrical alternans → điện thế luân phiên | low voltage → điện thế thấp
 pearl → điểm then chốt (pearl) | take-home point → điều cần nhớ
+silent MI → nhồi máu cơ tim thầm lặng | tombstone ST elevation → ST chênh lên hình bia mộ | "frowny"/"smiley" ST → ST dạng "mặt mếu"/"mặt cười"
+LAHB / LPHB → blốc phân nhánh trái trước / trái sau (giữ viết tắt) | peaked T waves → sóng T nhọn | "Eiffel Tower" T → sóng T "tháp Eiffel"
+primary / secondary ST-T changes → thay đổi ST-T nguyên phát / thứ phát | computerized interpretation → kết quả đọc bằng máy tính | pericardial friction rub → tiếng cọ màng ngoài tim
