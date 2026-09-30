@@ -1632,100 +1632,110 @@
 "nhan": "#151",
 "slug": "case-151",
 "url": "https://www.ekgblog.com/2018/04/ecg-blog-151-wct-vt-svt-av-dissociation.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #151 — Is Ashman Overused?",
+"tieu_de_vi": "ECG Blog #151 — Hiện tượng Ashman có bị lạm dụng không?",
+"trang_thai": "xong",
+"tu_khoa": "hiện tượng Ashman, Ashman phenomenon, nhịp nhanh QRS rộng, WCT, nhịp nhanh thất, VT, VT phân nhánh, fascicular VT, phân ly nhĩ thất, AV dissociation, trục lệch cực độ, extreme axis deviation, dẫn truyền lệch hướng, aberrant conduction, nhồi máu thành dưới, compa đo",
+"ngay": "2026-09-30"
 },
 {
 "stt": 150,
 "nhan": "#152",
 "slug": "case-152",
 "url": "https://www.ekgblog.com/2018/06/ecg-blog-152-qtc-ecg-lists-sinus-rhythm.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #152 (QTc – ECG Lists – Sinus Rhythm)",
+"tieu_de_vi": "ECG Blog #152 (QTc – Danh sách tra cứu điện tâm đồ – Nhịp xoang)",
+"trang_thai": "xong",
+"tu_khoa": "QT kéo dài, QTc prolongation, long QT, nhịp nhanh xoang, sinus tachycardia, Drugs-Lytes-CNS, thuốc, rối loạn điện giải, electrolyte disorders, sóng U, U wave, hạ kali máu, hypokalemia, thay đổi ST-T không đặc hiệu, nonspecific ST-T changes, nhiễm khuẩn huyết, sepsis",
+"ngay": "2026-09-30"
 },
 {
 "stt": 151,
 "nhan": "#153",
 "slug": "case-153",
 "url": "https://www.ekgblog.com/2018/07/ecg-blog-153-lvh-rvh-wpw-rbbb.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #153 (LVH – RVH – WPW – RBBB)",
+"tieu_de_vi": "ECG Blog #153 (LVH – RVH – WPW – RBBB)",
+"trang_thai": "xong",
+"tu_khoa": "WPW, Wolff-Parkinson-White, tiền kích thích, preexcitation, sóng delta, delta wave, PR ngắn, short PR, QRS giãn rộng, đường phụ, accessory pathway, WPW không triệu chứng, asymptomatic WPW, phân tầng nguy cơ, risk stratification, sóng R cao V1, tall R wave V1, giả LVH, giả RVH, RFCA",
+"ngay": "2026-09-30"
 },
 {
 "stt": 152,
 "nhan": "#154",
 "slug": "case-154",
 "url": "https://www.ekgblog.com/2018/07/ecg-blog-154-stemi-inferior-mobitz.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #154 — Inf. MI and Group Beating ...",
+"tieu_de_vi": "ECG Blog #154 — Nhồi máu cơ tim thành dưới và nhịp theo nhóm ...",
+"trang_thai": "xong",
+"tu_khoa": "STEMI thành dưới, inferior STEMI, nhịp theo nhóm, group beating, blốc AV độ 2 Mobitz I, Wenckebach AV, AV Wenckebach, phì đại thất trái, LVH, tăng gánh thất trái, LV strain, nhồi máu thành sau, posterior MI, tắc RCA, RCA occlusion, giản đồ bậc thang, laddergram",
+"ngay": "2026-09-30"
 },
 {
 "stt": 153,
 "nhan": "#155",
 "slug": "case-155",
 "url": "https://www.ekgblog.com/2018/09/ecg-blog-155-arrhythmia-pacs-wandering.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #155 (PACs – Wandering – MAT )",
+"tieu_de_vi": "ECG Blog #155 (PAC – Ổ tạo nhịp lang thang – MAT)",
+"trang_thai": "xong",
+"tu_khoa": "ổ tạo nhịp nhĩ lang thang, wandering atrial pacemaker, wandering pacemaker, nhịp nhanh nhĩ đa ổ, MAT, ngoại tâm thu nhĩ, PAC, hình thái sóng P, P wave morphology, nhịp không đều, irregular rhythm, dải nhịp dài, rhythm strip, đau ngực",
+"ngay": "2026-09-30"
 },
 {
 "stt": 154,
 "nhan": "#156",
 "slug": "case-156",
 "url": "https://www.ekgblog.com/2018/11/ecg-blog-156-lvh-rvh-laa-raa-strain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #156 (LVH – RVH – LAA – RAA – Strain – Ischemia)",
+"tieu_de_vi": "ECG Blog #156 (LVH – RVH – LAA – RAA – Tăng gánh – Thiếu máu cục bộ)",
+"trang_thai": "xong",
+"tu_khoa": "phì đại thất phải, RVH, bất thường nhĩ phải, RAA, trục lệch phải, RAD, tăng gánh thất phải, RV strain, tăng áp động mạch phổi, pulmonary hypertension, tứ chứng Fallot, Tetralogy of Fallot, sóng P nhọn, qR V1, ST-T chênh xuống, ST depression",
+"ngay": "2026-09-30"
 },
 {
 "stt": 155,
 "nhan": "#157",
 "slug": "case-157",
 "url": "https://www.ekgblog.com/2018/12/ecg-blog-157-rbbb-wpw-st-depression.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #157 (RBBB - WPW - RVH - Post MI)",
+"tieu_de_vi": "ECG Blog #157 (RBBB - WPW - RVH - Sau nhồi máu cơ tim)",
+"trang_thai": "xong",
+"tu_khoa": "hội chứng WPW, Wolff-Parkinson-White, sóng delta, delta wave, tiền kích thích, preexcitation, giả RBBB, RBBB, đường phụ, accessory pathway, ST chênh xuống, ST depression, kẻ bắt chước vĩ đại, great ECG mimic, sóng delta âm, thông tim, đau ngực",
+"ngay": "2026-09-30"
 },
 {
 "stt": 156,
 "nhan": "#158",
 "slug": "case-158",
 "url": "https://www.ekgblog.com/2018/12/ecg-blog-158-stemi-omi-ischemia-st.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #158 — Acute \"Indigestion\" ...",
+"tieu_de_vi": "ECG Blog #158 — \"Khó tiêu\" cấp ...",
+"trang_thai": "xong",
+"tu_khoa": "nhồi máu cơ tim thành dưới, inferior MI, nhồi máu dưới-sau, infero-posterior MI, nhồi máu thất phải, RV MI, định tuổi nhồi máu, dating an infarct, thay đổi soi gương, reciprocal change, III và aVL, sóng Q, STEMI, OMI, khó tiêu, indigestion, tái tưới máu tự phát, spontaneous reperfusion",
+"ngay": "2026-09-30"
 },
 {
 "stt": 157,
 "nhan": "#159",
 "slug": "case-159",
 "url": "https://www.ekgblog.com/2018/12/ecg-blog-159-bradycardia-av-block-av.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #159 — Unrelated Ps & QRS Complexes?",
+"tieu_de_vi": "ECG Blog #159 — Sóng P và phức bộ QRS không liên quan nhau?",
+"trang_thai": "xong",
+"tu_khoa": "phân ly nhĩ thất, AV dissociation, phân ly nhĩ thất do mặc định, AV dissociation by default, chiếm quyền, usurpation, nhát thoát bộ nối, junctional escape beat, nhịp chậm xoang, sinus bradycardia, loạn nhịp xoang, sinus arrhythmia, blốc AV, AV block, compa đo, calipers, hội chứng suy nút xoang, sick sinus syndrome",
+"ngay": "2026-09-30"
 },
 {
 "stt": 158,
 "nhan": "#160",
 "slug": "case-160",
 "url": "https://www.ekgblog.com/2019/01/ecg-blog-160-av-block-av-dissociation.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790777462
+"tieu_de_en": "ECG Blog #160 (AV Block - AV Dissociation - Isorhythmic)",
+"tieu_de_vi": "ECG Blog #160 (Blốc AV - Phân ly nhĩ thất - Đồng nhịp)",
+"trang_thai": "xong",
+"tu_khoa": "phân ly nhĩ thất, AV dissociation, phân ly nhĩ thất đồng nhịp, isorhythmic AV dissociation, blốc AV, AV block, nhịp bộ nối, junctional rhythm, vận động viên, athlete, hồi hộp đánh trống ngực, tiền ngất, compa đo, calipers",
+"ngay": "2026-09-30"
 },
 {
 "stt": 159,
