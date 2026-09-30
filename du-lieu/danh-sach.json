@@ -2182,60 +2182,66 @@
 "nhan": "#202",
 "slug": "case-202",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-202-ecg-mp-19-do-any-p-waves.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #202 — Do Any P Waves Conduct?",
+"tieu_de_vi": "ECG Blog #202 — Có sóng P nào được dẫn truyền không?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2, 2nd-degree AV block, blốc AV hoàn toàn, complete AV block, phân ly nhĩ thất, AV dissociation, Mobitz I, Wenckebach AV, nhát thoát bộ nối, junctional escape, giản đồ bậc thang, laddergram, compa đo, calipers, ngất, syncope, dẫn truyền AV 2:1",
+"ngay": "2026-09-30"
 },
 {
 "stt": 200,
 "nhan": "#203",
 "slug": "case-203",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-203-ecg-mp-2021-axis.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #203 (ECG MP-20,21) — AXIS & Hemiblocks (LAHB-LPHB)",
+"tieu_de_vi": "ECG Blog #203 (ECG MP-20,21) — TRỤC & Blốc phân nhánh (LAHB-LPHB)",
+"trang_thai": "xong",
+"tu_khoa": "trục điện tim, axis, trục mặt phẳng trán, frontal plane axis, cách tiếp cận góc phần tư, quadrant approach, trục lệch trái, LAD, trục lệch phải, RAD, trục không xác định, indeterminate axis, blốc phân nhánh trái trước, LAHB, blốc phân nhánh trái sau, LPHB, blốc hai phân nhánh, bifascicular block, RVH, nhịp nhanh QRS rộng",
+"ngay": "2026-09-30"
 },
 {
 "stt": 201,
 "nhan": "#204",
 "slug": "case-204",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-204-ecg-mp-22-bundle-branch.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #204 — What is Bundle Branch Block?",
+"tieu_de_vi": "ECG Blog #204 — Blốc nhánh là gì?",
+"trang_thai": "xong",
+"tu_khoa": "blốc nhánh, bundle branch block, BBB, RBBB, LBBB, IVCD, chậm dẫn truyền trong thất, phân mảnh QRS, QRS fragmentation, phì đại thất trái, LVH, sóng S sâu, phức bộ QS, sẹo cơ tim, phình thất trái, left ventricular aneurysm, ECG Media Pearl 22",
+"ngay": "2026-09-30"
 },
 {
 "stt": 202,
 "nhan": "#205",
 "slug": "case-205",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-205-ecg-mp-23-what-is.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #205 — What is Trifascicular Block?",
+"tieu_de_vi": "ECG Blog #205 — Blốc ba phân nhánh là gì?",
+"trang_thai": "xong",
+"tu_khoa": "blốc ba phân nhánh, trifascicular block, blốc hai phân nhánh, bifascicular block, RBBB, LAHB, blốc AV độ 1, first-degree AV block, phì đại thất trái, LVH, tăng gánh thất trái, LV strain, thay đổi ST-T nguyên phát, primary ST-T changes, cách tiếp cận hệ thống, systematic approach, sóng Q bất thường aVL, nhịp chậm xoang",
+"ngay": "2026-09-30"
 },
 {
 "stt": 203,
 "nhan": "#206",
 "slug": "case-206",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-206-how-many-conduction-defects.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #206 — How Many Conduction Defects?",
+"tieu_de_vi": "ECG Blog #206 — Có bao nhiêu rối loạn dẫn truyền?",
+"trang_thai": "xong",
+"tu_khoa": "blốc AV độ 2, Mobitz I, Wenckebach AV, AV Wenckebach, dẫn truyền AV 3:2, RBBB, blốc phân nhánh luân phiên, alternating hemiblock, blốc hai phân nhánh, bifascicular block, LAHB, LPHB, loạn nhịp xoang theo pha thất, ventriculophasic sinus arrhythmia, nhịp theo nhóm, group beating, giản đồ bậc thang, laddergram, tiền ngất, máy tạo nhịp hai buồng",
+"ngay": "2026-09-30"
 },
 {
 "stt": 204,
 "nhan": "#207",
 "slug": "case-207",
 "url": "https://www.ekgblog.com/2021/03/ecg-blog-207-ecg-mp-24-ecg-computer.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790778853
+"tieu_de_en": "ECG Blog #207 (ECG MP-24) — The ECG Computer Report: Friend or Foe?",
+"tieu_de_vi": "ECG Blog #207 (ECG MP-24) — Kết quả đọc điện tâm đồ bằng máy tính: Bạn hay thù?",
+"trang_thai": "xong",
+"tu_khoa": "kết quả đọc bằng máy tính, computerized ECG interpretation, sóng T tối cấp, hyperacute T waves, nhồi máu cơ tim do tắc, OMI, thành dưới, inferior, thay đổi soi gương, reciprocal change, chuyển đạo III và aVL, mirror image, sóng T đảo ngược, bất thường sóng T không đặc hiệu, ECG Media Pearl",
+"ngay": "2026-09-30"
 },
 {
 "stt": 205,
