@@ -23,15 +23,23 @@ MG = os.path.join(A.main, 'tools', 'medguide.py')
 DS = json.load(open(os.path.join(A.main, 'du-lieu', 'danh-sach.json'), encoding='utf-8'))
 
 
-def tai(url, lan=4):
+PHIEN = 2   # đổi khi quy tắc đặt tên media đổi -> tải lại
+
+
+def tai(url, lan=6):
     for t in range(lan):
         try:
             req = urllib.request.Request(url, headers={'User-Agent': UA})
             with urllib.request.urlopen(req, timeout=60) as r:
                 return r.read(), r.geturl()
+        except urllib.error.HTTPError as e:
+            loi = e
+            if e.code == 404:
+                break
+            time.sleep((90 if e.code == 429 else 5) * (t + 1))   # 429: bị giới hạn tốc độ, chờ lâu
         except Exception as e:  # noqa
             loi = e
-            time.sleep(3 * (t + 1))
+            time.sleep(5 * (t + 1))
     raise loi
 
 
@@ -56,10 +64,14 @@ for c in DS:
         break
     d = os.path.join(A.nguon, c['slug'])
     nj = os.path.join(d, 'nguon.json')
-    if os.path.exists(nj) and not json.load(open(nj)).get('loi'):
-        continue
+    if os.path.exists(nj):
+        cu = json.load(open(nj))
+        if not cu.get('loi') and cu.get('phien') == PHIEN:
+            continue
+    import shutil
+    shutil.rmtree(os.path.join(d, 'goc'), ignore_errors=True)
     os.makedirs(os.path.join(d, 'goc'), exist_ok=True)
-    info = {'url': c['url'], 'loi': []}
+    info = {'url': c['url'], 'loi': [], 'phien': PHIEN}
     try:
         body, cuoi = tai(c['url'])
         html = body.decode('utf-8', 'replace')
@@ -89,7 +101,7 @@ for c in DS:
     json.dump(info, open(nj, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(c['slug'], 'media', info.get('so_media'), 'lỗi', len(info['loi']), flush=True)
     moi += 1; xong_lo += 1
-    time.sleep(1)
+    time.sleep(6)
     if xong_lo >= A.commit_moi:
         day_len(xong_lo); xong_lo = 0
 day_len(xong_lo)

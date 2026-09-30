@@ -56,7 +56,13 @@ REF_RE = re.compile(r'^\s*(references?|bibliography|t[àa]i li[ệe]u tham kh[�
 def url_name(u):
     p = unquote(urlparse(u).path)
     p = p.split('/uploads/', 1)[1] if '/uploads/' in p else p.lstrip('/')
-    return re.sub(r'[\\/:*?"<>|]+', '_', p)
+    n = re.sub(r'[\\/:*?"<>|]+', '_', p)
+    if len(n.encode('utf-8')) > 120:          # tên quá dài (Blogger): rút gọn + băm để không trùng
+        import hashlib
+        goc, duoi = os.path.splitext(n)
+        cuoi = re.sub(r'[^A-Za-z0-9._-]+', '-', p.rsplit('/', 1)[-1].rsplit('.', 1)[0])[:60].strip('-')
+        n = f"{cuoi}-{hashlib.sha1(p.encode('utf-8')).hexdigest()[:12]}{duoi[:6]}"
+    return n
 
 def slugify(s):
     s = unicodedata.normalize('NFD', s.replace('đ', 'd').replace('Đ', 'D'))
@@ -417,7 +423,7 @@ def trich():
 
     hero = None
     if ogi and ogi.get('content'):
-        u = ab(ogi['content'])
+        u = lon_blogger(ab(ogi['content']))
         if u.startswith('http'):
             hero = url_name(u); media[hero] = u
 
