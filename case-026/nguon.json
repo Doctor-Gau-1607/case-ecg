@@ -1,8 +1,6 @@
 {
  "url": "https://www.ekgblog.com/2011/08/ecg-interpretation-review-26-regular.html",
- "loi": [
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg92hg1AooTdIV3jcVW1e4dZ_vjxAJw7sssufnHjzI-TDCNW6MR2IlNiGJuLyRf5nAjJ67k86_oH3uMbTvZCS4Uz32IXugLuftEZlsGRjbzO59UUQ5njMONDkh3gCCSsqhgXRuNyZPNKq4/s1600/ECG+Blog+26-Table+1-List+1.jpg HTTP Error 404: Not Found"
- ],
+ "loi": [],
  "phien": 2,
  "trich": [
   "URL gốc: https://www.ekgblog.com/2011/08/ecg-interpretation-review-26-regular.html",
@@ -11,5 +9,12 @@
   "Lô dịch: 1 tệp trong /tmp/tmptoiol5fe/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
  ],
  "so_media": 3,
- "luc": "2026-09-30 10:46:14"
+ "luc": "2026-09-30 10:46:14",
+ "anh_bo_sung": [
+  {
+   "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg92hg1AooTdIV3jcVW1e4dZ_vjxAJw7sssufnHjzI-TDCNW6MR2IlNiGJuLyRf5nAjJ67k86_oH3uMbTvZCS4Uz32IXugLuftEZlsGRjbzO59UUQ5njMONDkh3gCCSsqhgXRuNyZPNKq4/s1600/ECG+Blog+26-Table+1-List+1.jpg",
+   "nguon": "người dùng gửi ảnh gốc (404 trên Blogger)",
+   "luc": "2026-09-30 11:25:36"
+  }
+ ]
 }
