@@ -22,3 +22,9 @@ pearl → điểm then chốt (pearl) | take-home point → điều cần nhớ
 silent MI → nhồi máu cơ tim thầm lặng | tombstone ST elevation → ST chênh lên hình bia mộ | "frowny"/"smiley" ST → ST dạng "mặt mếu"/"mặt cười"
 LAHB / LPHB → blốc phân nhánh trái trước / trái sau (giữ viết tắt) | peaked T waves → sóng T nhọn | "Eiffel Tower" T → sóng T "tháp Eiffel"
 primary / secondary ST-T changes → thay đổi ST-T nguyên phát / thứ phát | computerized interpretation → kết quả đọc bằng máy tính | pericardial friction rub → tiếng cọ màng ngoài tim
+## Đề mục cố định (dùng đúng như sau ở mọi case)
+QUESTION → CÂU HỎI | INTERPRETATION → DIỄN GIẢI | CLINICAL IMPRESSION → NHẬN ĐỊNH LÂM SÀNG
+COMMENT → BÌNH LUẬN | BOTTOM Line → ĐIỀU CỐT LÕI | NOTE → LƯU Ý | PEARL → ĐIỂM THEN CHỐT (PEARL) | P.S. → T.B. (P.S.)
+Chamber Enlargement → Lớn các buồng tim | Q-R-S-T Changes → Thay đổi Q-R-S-T | Returning to Our Systematic Approach → Quay lại với cách tiếp cận hệ thống của chúng tôi
+"ECG" trong câu văn → "điện tâm đồ"; giữ "ECG" trong tên riêng (ECG Blog #N, ECG-2014-ePub, ECG Video)
+Tiêu đề "ECG Interpretation Review - #N (…)" → "Ôn tập đọc điện tâm đồ – Số N (…)"; "ECG Blog #N — …" giữ "ECG Blog #N — " rồi dịch phần sau
