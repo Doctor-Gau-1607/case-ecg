@@ -1,14 +1,13 @@
 {
  "url": "https://www.ekgblog.com/2010/12/ecg-interpretation-review-2-st-segment.html",
- "loi": [
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9-h5PdrqX9ebrG4NB-xLs80J2BUYJA_F1z5BoGaiz_Gf7MGNsxJzmVyk8Znaj6FleGF-vQPbFbFlWMtOrPBjf-A_mDX68GT6d6X-JqEe4UfdYXxibKruaK3bSlU-Zv5XdeOfROs5T8TQ/w1200-h630-p-k-no-nu/ECG+Interpretation+Review+-+2+-+early+repolarization%252C+ST+elevation.jpg [Errno 36] File name too long: 'ng/case-002/goc/img_b_R29vZ2xl_AVvXsEg9-h5PdrqX9ebrG4NB-xLs80J2BUYJA_F1z5BoGaiz_Gf7MGNsxJzmVyk8Znaj6FleGF-vQPbFbFlWMtOrPBjf-A_mDX68GT6d6X-JqEe4UfdYXxibKruaK3bSlU-Zv5XdeOfROs5T8TQ_w1200-h630-p-k-no-nu_ECG+Interpretation+Review+-+2+-+early+repolarization%2C+ST+elevation.jpg'"
- ],
+ "loi": [],
+ "phien": 2,
  "trich": [
   "URL gốc: https://www.ekgblog.com/2010/12/ecg-interpretation-review-2-st-segment.html",
   "Khối: 14  p=10, list=2, fig=2",
-  "Media gốc cần có: 3 tệp khác nhau (ảnh 2 vị trí / 2 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
-  "Lô dịch: 1 tệp trong /tmp/tmpspm11x4z/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
+  "Media gốc cần có: 2 tệp khác nhau (ảnh 2 vị trí / 2 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
+  "Lô dịch: 1 tệp trong /tmp/tmp6qak66qv/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
  ],
- "so_media": 3,
- "luc": "2026-09-30 07:20:45"
+ "so_media": 2,
+ "luc": "2026-09-30 07:52:17"
 }
