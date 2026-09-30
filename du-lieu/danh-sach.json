@@ -1195,60 +1195,66 @@
 "nhan": "#116",
 "slug": "case-116",
 "url": "https://www.ekgblog.com/2015/08/ecg-blog-116-ecg-video-blog-13.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #116 (ECG Video-Blog-13) – Essentials of Axis/Hemiblocks",
+"tieu_de_vi": "ECG Blog #116 (ECG Video-Blog-13) – Những điều cốt yếu về trục/blốc phân nhánh",
+"trang_thai": "xong",
+"tu_khoa": "trục điện tim, xác định trục, axis, blốc phân nhánh, hemiblock, blốc phân nhánh trái trước, LAHB, blốc phân nhánh trái sau, LPHB, blốc nhánh phải, RBBB, trục lệch trái, LAD, trục lệch phải, RAD, blốc hai phân nhánh, bifascicular block, ECG video",
+"ngay": "2026-09-30"
 },
 {
 "stt": 115,
 "nhan": "#117",
 "slug": "case-117",
 "url": "https://www.ekgblog.com/2015/09/ecg-blog-117-ecg-video-blog-14-brugada.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #117 (ECG Video-14) — Brugada Syndrome",
+"tieu_de_vi": "ECG Blog #117 (ECG Video-14) — Hội chứng Brugada",
+"trang_thai": "xong",
+"tu_khoa": "hội chứng Brugada, Brugada syndrome, dạng Brugada loại 1, Brugada type 1, dạng Brugada loại 2, hình yên ngựa, saddleback, ST dạng vòm, coved ST, góc beta, beta angle, blốc nhánh phải, RBBB, rSr' V1, khám sàng lọc thể thao, đột tử",
+"ngay": "2026-09-30"
 },
 {
 "stt": 116,
 "nhan": "#118",
 "slug": "case-118",
 "url": "https://www.ekgblog.com/2015/09/ecg-blog-118-ecg-video-15-qrst-changes.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #118 (ECG Video-15) — QRST Changes (Applying a Systematic Approach)",
+"tieu_de_vi": "ECG Blog #118 (ECG Video-15) — Thay đổi QRST (Áp dụng cách tiếp cận hệ thống)",
+"trang_thai": "xong",
+"tu_khoa": "thay đổi QRST, QRST changes, cách tiếp cận hệ thống, systematic approach, sóng Q, Q waves, tăng tiến sóng R, R wave progression, vùng chuyển tiếp, transition, thay đổi ST-T, ST-T changes, ST chênh lên, ST elevation, ST chênh xuống, ST depression, đường nền PR TP, PR TP baseline, ECG Video Blog",
+"ngay": "2026-09-30"
 },
 {
 "stt": 117,
 "nhan": "#119",
 "slug": "case-119",
 "url": "https://www.ekgblog.com/2015/12/ecg-blog-119-anterior-t-wave-inversion.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #119 (Anterior T Wave Inversion – Ischemia – Long QT – Acute PE)",
+"tieu_de_vi": "ECG Blog #119 (Sóng T đảo ngược ở thành trước – Thiếu máu cục bộ – QT dài – PE cấp)",
+"trang_thai": "xong",
+"tu_khoa": "thuyên tắc phổi cấp, acute pulmonary embolism, PE, tăng gánh thất phải, RV strain, sóng T đảo ngược sâu đối xứng, anterior T wave inversion, QT kéo dài, long QT, S1Q3T3, bất thường nhĩ phải, RAA, ST chênh lên aVR, nhịp nhanh xoang, tụt huyết áp, bệnh cơ tim phì đại",
+"ngay": "2026-09-30"
 },
 {
 "stt": 118,
 "nhan": "#120",
 "slug": "case-120",
 "url": "https://www.ekgblog.com/2015/12/ecg-blog-120-ecg-video-16-chest-pain.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #120 (ECG Video-16) - Chest Pain with Giant T Waves",
+"tieu_de_vi": "ECG Blog #120 (ECG Video-16) - Đau ngực kèm sóng T khổng lồ",
+"trang_thai": "xong",
+"tu_khoa": "sóng T khổng lồ, giant T waves, sóng T đảo ngược khổng lồ, giant T wave inversion, đau ngực, chest pain, hội chứng sóng T khổng lồ, bệnh cơ tim mỏm, Yamaguchi, Wellens, thiếu máu cục bộ, ischemia, cách tiếp cận hệ thống, systematic approach, ECG Video Blog",
+"ngay": "2026-09-30"
 },
 {
 "stt": 119,
 "nhan": "#121",
 "slug": "case-121",
 "url": "https://www.ekgblog.com/2016/03/ecg-blog-121-arrhythmia-multiple-q.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790771753
+"tieu_de_en": "ECG Blog #121 — Concertina ...",
+"tieu_de_vi": "ECG Blog #121 — Hiệu ứng đàn xếp (concertina) ...",
+"trang_thai": "xong",
+"tu_khoa": "hiệu ứng đàn xếp, concertina effect, WPW, Wolff-Parkinson-White, tiền kích thích, preexcitation, đường phụ, accessory pathway, sóng delta âm, negative delta wave, hình ảnh giả nhồi máu, pseudo-infarction pattern, ổ tạo nhịp nhĩ lang thang, wandering atrial pacemaker, loạn nhịp xoang, khoảng PJ, sàng lọc vận động viên",
+"ngay": "2026-09-30"
 },
 {
 "stt": 120,
