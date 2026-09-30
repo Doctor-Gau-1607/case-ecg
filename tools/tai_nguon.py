@@ -14,7 +14,7 @@ import urllib.request, urllib.error
 ap = argparse.ArgumentParser()
 ap.add_argument('--main', required=True)
 ap.add_argument('--nguon', required=True)
-ap.add_argument('--commit-moi', type=int, default=20, help='commit + push sau mỗi N case')
+ap.add_argument('--commit-moi', type=int, default=3, help='commit + push sau mỗi N case')
 ap.add_argument('--gioi-han', type=int, default=0, help='chỉ tải N case (0 = tất cả)')
 A = ap.parse_args()
 
@@ -36,7 +36,7 @@ def tai(url, lan=6):
             loi = e
             if e.code == 404:
                 break
-            time.sleep((90 if e.code == 429 else 5) * (t + 1))   # 429: bị giới hạn tốc độ, chờ lâu
+            time.sleep((120 if e.code == 429 else 5) * (t + 1))   # 429: bị giới hạn tốc độ, chờ lâu
         except Exception as e:  # noqa
             loi = e
             time.sleep(5 * (t + 1))
@@ -101,7 +101,7 @@ for c in DS:
     json.dump(info, open(nj, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(c['slug'], 'media', info.get('so_media'), 'lỗi', len(info['loi']), flush=True)
     moi += 1; xong_lo += 1
-    time.sleep(6)
+    time.sleep(20)
     if xong_lo >= A.commit_moi:
         day_len(xong_lo); xong_lo = 0
 day_len(xong_lo)
