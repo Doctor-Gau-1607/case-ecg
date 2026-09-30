@@ -24,7 +24,18 @@ MG = os.path.join(A.main, 'tools', 'medguide.py')
 DS = json.load(open(os.path.join(A.main, 'du-lieu', 'danh-sach.json'), encoding='utf-8'))
 
 
-PHIEN = 2   # đổi khi quy tắc đặt tên media đổi -> tải lại
+PHIEN = 2
+
+
+def anh_mat(f):
+    from PIL import Image, ImageDraw
+    im = Image.new('RGB', (900, 160), (246, 248, 250))
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, 899, 159], outline=(200, 205, 212), width=2)
+    d.text((30, 60), 'Image no longer available on the original page (ekgblog.com) - anh goc khong con tren trang nguon',
+           fill=(90, 100, 115))
+    fmt = 'PNG' if f.lower().endswith('.png') else ('GIF' if f.lower().endswith('.gif') else 'JPEG')
+    im.save(f, fmt)   # đổi khi quy tắc đặt tên media đổi -> tải lại
 
 
 def tai(url, lan=6):
@@ -96,11 +107,22 @@ for c in DS:
             f = os.path.join(d, 'goc', m['name'])
             if os.path.exists(f) and os.path.getsize(f) > 0:
                 continue
-            try:
-                data, _ = tai(m['url'])
-                open(f, 'wb').write(data)
-            except Exception as e:  # noqa
-                info['loi'].append(f"{m['url']} {e}")
+            thu = [m['url'], m['url'].replace('/s1600/', '/s0/'), m['url'].replace('/s1600/', '/s1600-h/')]
+            xong = hong = False
+            for u in dict.fromkeys(thu):
+                try:
+                    data, _ = tai(u)
+                    open(f, 'wb').write(data); xong = True
+                    break
+                except urllib.error.HTTPError as e:
+                    if e.code != 404:
+                        info['loi'].append(f"{u} {e}"); hong = True; break
+                except Exception as e:  # noqa
+                    info['loi'].append(f"{u} {e}"); hong = True; break
+            if not xong and not hong:
+                # ảnh đã mất trên chính trang nguồn (404): thay bằng ảnh báo, không làm kẹt cả case
+                anh_mat(f)
+                info.setdefault('anh_mat', []).append(m['url'])
             time.sleep(0.2)
         info['so_media'] = len(media)
     except Exception as e:  # noqa
