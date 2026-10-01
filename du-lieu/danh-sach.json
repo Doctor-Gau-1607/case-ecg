@@ -3889,7 +3889,8 @@
 "url": "https://www.ekgblog.com/2023/10/medall-lecture-slides-blog-351.html",
 "tieu_de_en": "",
 "tieu_de_vi": "",
-"trang_thai": "chua"
+"trang_thai": "khong_ton_tai",
+"ly_do": "Tác giả đã gỡ bài: trang báo \"không tồn tại\" trên ekgblog.com và ecg-interpretation.blogspot.com (kiểm bằng Chrome ngày 1/10/2026); trang INDEX của tác giả vẫn còn link chết"
 },
 {
 "stt": 355,
@@ -4402,10 +4403,11 @@
 "nhan": "#398",
 "slug": "case-398",
 "url": "https://www.ekgblog.com/2023/10/ecg-blog-398-uncontrolled-graves-disease.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790823923
+"tieu_de_en": "ECG Blog #398 — Uncontrolled Graves Disease ...",
+"tieu_de_vi": "ECG Blog #398 — Bệnh Graves không được kiểm soát ...",
+"trang_thai": "xong",
+"tu_khoa": "cường giáp hyperthyroidism bệnh Graves Graves disease nhịp nhanh nhĩ ATach dẫn truyền Wenckebach Wenckebach conduction giản đồ bậc thang laddergram nhịp không đều hồi hộp palpitations thuốc chẹn beta",
+"ngay": "2026-10-01"
 },
 {
 "stt": 402,
@@ -4819,10 +4821,11 @@
 "nhan": "#436",
 "slug": "case-436",
 "url": "https://www.ekgblog.com/2024/06/ecg-blog-436-bigeminy-or-alternans.html",
-"tieu_de_en": "",
-"tieu_de_vi": "",
-"trang_thai": "dang",
-"giu_luc": 1790823923
+"tieu_de_en": "ECG Blog #436 — Bigeminy or Alternans?",
+"tieu_de_vi": "ECG Blog #436 — Nhịp đôi hay luân phiên?",
+"trang_thai": "xong",
+"tu_khoa": "VT hai chiều bidirectional VT ngộ độc Digoxin digoxin toxicity CPVT nhịp đôi bigeminy luân phiên alternans nhịp nhanh QRS rộng WCT phân ly nhĩ thất AV dissociation ngừng tim",
+"ngay": "2026-10-01"
 },
 {
 "stt": 440,
