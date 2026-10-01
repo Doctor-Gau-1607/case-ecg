@@ -1,15 +1,26 @@
 {
  "url": "https://www.ekgblog.com/2023/10/ecg-blog-398-uncontrolled-graves-disease.html",
- "loi": [
-  "trich lỗi"
- ],
+ "loi": [],
  "phien": 2,
  "trang_san": true,
  "trich": [
-  "    r, g, b = n",
-  "    ^^^^^^^",
-  "ValueError: not enough values to unpack (expected 3, got 0)"
+  "URL gốc: https://www.ekgblog.com/2023/10/ecg-blog-398-uncontrolled-graves-disease.html",
+  "Khối: 45  p=22, list=13, fig=10",
+  "Media gốc cần có: 9 tệp khác nhau (ảnh 10 vị trí / 10 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
+  "Lô dịch: 3 tệp trong /tmp/claude-0/-home-claude-case-ecg/fea6ba25-7708-50ed-a159-f97f112d8df5/scratchpad/trich2/case-398-x/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
  ],
- "so_media": 0,
- "luc": "2026-10-01 01:04:00"
+ "anh_chrome": [
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiSarZJmPjEKfXETBVVAepop5XSl9bAqGeUH733cBrHTzTvlFoNcgG-9adeFuj9688AHU2p9vIzB8O-wpzuN7pCxtYGb-F9wgVCvfPgs0ePP7OaUM5Vcl3xTyMuyKO4HJD1_vaB-gJYZBQardlWdQ0rCl87X-2baQoa47CB5IHSYOr5K1U31b_179YWKY/s1600/Figure-1%20ECG-1%20%20Lead%20II%20(8-18.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTTZDo4Km7fk3XOw7zTXRL_93JxD9FLahFl43dcwTA9zYLAYyL7L4lD58NtYAL9kj-UxuW_DAwJ2KR5zBd1SzyG7LdPyzGFekhTiufRgcK0WcGoAzuR3e2ge-SvrU4ppSc-QX2nvofbZXToVReIjMRwBXxozeYG8DjSZEIfEQmnSxTF8fRuYdO1PLieTM/s1600/Figure-2%20ECG-1%20%20Lead%20II%20P%20waves(10-2.24-2023)-USE%20copy.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDj5n05LQNd-hLc3nR4liXAhXizwBA6hfN6KiRM7gcxzfZRgHmr2j_r8GXh0033BNDmVHmv-WnRtoP3GD8DTJLvQ8mN_Hmh8jFKBhKFMmKGprUSX3Q2xoCb2SXIqedIX0GkcfwOy3ew_phhzsngHSLHgF0v38J3vDcr4PRn90NA9M5c9VRb_Ze-n4eos8/s1600/Figure-3%20%20Ladder-1%20(8-18.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLW5TkpjeX3tX00P6KvxXdpLvgAL5H4Ut8A8frtdESEVJw9NtnFK55pgf3Y51qQmtkQPO_zJurqCoS_dryBy9mBbpVvM1S83cLF6waT987Y0lg7XTo0loaHpiFpQuVFN0H-YN15AwZfnTDgxggDzP_yPYthYUh5oMGqKP_NrRAHLtAmyRZFXialdHsiu4/s1600/Figure-4%20%20Ladder-2%20(8-18.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpXRgRds9nlE_qEnJUIO_InPwfYNZuneX27Ss-ueI5aH7RfEJ4ZVuYosHT4hM7KHe0pW_fnXKH3extgzbulq95vdlLfE5MPOCVFjHzoX0oaW6WMwhXr_iCNMuKWCdwAsSSCu-z4Sdt4cIlaIJr0GO6fENr4ikhZgWVFMnU-C0iv58YiQ9PgeTZOqgE6nA/s1600/Figure-5%20%20Ladder-3%20(8-18.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiosLb_E22NEOyEeXhvLTMkSbDASqXM-3xFwbHiGZA9IXce-Hp5xaib0CFNZJ70sz0iCjm-BnAnIJi5uaK7NXEJN_TLe_NfzI7EePmRqwBgTly5j2lmtUBc-0yh8yjrLGceSo-w8X5Zp8nk8mEt7sSgCl4EjwhBcqLQSU3oAfQ0AQkUor4xrnR5RI2tzLg/s1600/Figure-6%20%20Ladder-4%20(8-18.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAXTD0w2LB1Df-5t3ChtUMIceXfoLJUbv07iw-9V5SJvoobOukrcEFo9Q1SqvYieRoOh__D-sIESlHtU7AbtOHD2cVeYEtkxpaWk_s5AKrcZISbov81q6BTHPAkBsZgZTubQ5JrlZwTNaGyRqM356hr7vkEZBlINRSuS0XT7Yw-46hJjwtVxgdYVyvTVU/s1600/Figure-7%20%20Ladder-5%20(8-25.21-2023)-USE.png",
+  "https://blogger.googleusercontent.com/img/a/AVvXsEhcUanPtyekRxG_NN3M6G7ixBWDiaFwP9HSTmmxsiAGLgKFyGGIePOLicsrDGS_HrTpJuFvbsUgWw_X6ZXKehXoAeVAyPHHXStk2lmG9uzuY33nE1KZQCLDvOH1VKIkbTzKmck2XR3I6_wmONnxXQmAen5uT-Ez0rJCH23wswN1g0uETqzQQugv30VE=s1600",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiz1NP-r26Zzy0ZXOmIde2karDNwZBfxE7X9AMCVfzOauZjBsp4wFj5F0c6mzHcVYIt6iB33pKVaSeI6ebgm6BCp0JOxnh12A2JF86FIhIjU8vzQ_4yKLTnSE61LPKIjl4EZIxAJmdgf1wCO3TkIAXUlX4gLzQE6ry2foq4gBM5DUyEWTrfAQHTsGEB22I/s1600/Figure-8%20-%20from%20H.S.%20Cho%20(10-7.1-2023)-USE.png"
+ ],
+ "ghi_chu": "trang.html: đổi rgba(0, 0, 0, 0.85) → rgb(0, 0, 0) ở 1 chỗ (medguide.py trích lỗi với rgba); ảnh lấy qua Chrome",
+ "so_media": 9,
+ "luc": "2026-10-01 03:05:07"
 }

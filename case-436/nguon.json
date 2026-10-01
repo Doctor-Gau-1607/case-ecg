@@ -1,15 +1,20 @@
 {
  "url": "https://www.ekgblog.com/2024/06/ecg-blog-436-bigeminy-or-alternans.html",
- "loi": [
-  "trich lỗi"
- ],
+ "loi": [],
  "phien": 2,
  "trang_san": true,
  "trich": [
-  "    r, g, b = n",
-  "    ^^^^^^^",
-  "ValueError: not enough values to unpack (expected 3, got 0)"
+  "URL gốc: https://www.ekgblog.com/2024/06/ecg-blog-436-bigeminy-or-alternans.html",
+  "Khối: 31  p=20, list=8, fig=3",
+  "Media gốc cần có: 3 tệp khác nhau (ảnh 3 vị trí / 3 <img> trong bản gốc; video tệp 0; YouTube 0; iframe khác 0)",
+  "Lô dịch: 2 tệp trong /tmp/claude-0/-home-claude-case-ecg/fea6ba25-7708-50ed-a159-f97f112d8df5/scratchpad/trich2/case-436-x/lo/  (khối Tài liệu tham khảo giữ nguyên: 0)"
  ],
- "so_media": 0,
- "luc": "2026-10-01 01:04:01"
+ "anh_chrome": [
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3L5JMsMMGcmDOvWpIfhM4QXuTEYTaWqEfwoqifabqaq8BWzkYNVSom14FEg6_CBxF4dBDk9BrLfUsKBw61Ef5axaOarhvNrt52gGNlAb8YGG0m0hf_IxYuWQ6hDTuixPXJycj7R3F8smNK00cpwd54wU5Aev4xh_8I7jbC83J37BWM1dFAErfctRt-o4/s1600/Figure-1%20%20ECG-1%20%20(5-13.1-2024)-USE.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgToTJ6lth3lK5od4oIJM19G0r2sow_0nRRUfJIWtbXsVgI9VRfD_2l6pDgP7KomUFRc9OxYFCdMVG557HCCvVB_1UBm2WrVZA2bq_4rZu3uIWAFGZUsD8V-_ZempjCZoodyin28DOEj7Y/s1600/0++++-RED+LINE-+Use+in+Blogs.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEleFtgNIpR8PHig56VQSgXLbyyi1gamyTHCjKq-871OEUGTBttKmdpWB4AXNTur7yYjJzgZ-ij6FpihTD-vga8kWFnXTWC0szm86NpngdH78zN1_j15tS3lFclGiZrOwymfz0HdA3hSoBDL-L-uxByzTOv55kWHzHKzNc6zXptDZjA2aCbf4GVceyB-I/s1600/Figure-2%20-%20ECG-1%20labeled%20(7-22.1-2024).png"
+ ],
+ "ghi_chu": "trang.html: đổi rgba(0, 0, 0, 0.85) → rgb(0, 0, 0) ở 1 chỗ (medguide.py trích lỗi với rgba); ảnh lấy qua Chrome",
+ "so_media": 3,
+ "luc": "2026-10-01 03:05:07"
 }
