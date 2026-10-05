@@ -2,6 +2,9 @@
 
 Mỗi lượt (tác vụ hẹn giờ) dịch các case kế tiếp (**làm liên tục khoảng 45–50 phút mỗi lượt, không giới hạn số case; nhận theo đợt `chuan-bi --so 10` — mỗi lần gọi là nhận thêm case mới; case đã nhận mà chưa kịp làm thì trả về "chua" cuối lượt**) của ECG Blog (Ken Grauer, ekgblog.com — tác giả đã cho phép) sang tiếng Việt, dựng trang theo khung MEDGUIDE và đẩy lên `main` của repo `Doctor-Gau-1607/case-ecg`. Trang công khai: `https://doctor-gau-1607.github.io/case-ecg/` (được nhúng trong MEDGUIDE, mục Cận lâm sàng → ECG → Case ECG).
 
+- **Kho trang (từ 05/10/2026):** trang công khai của repo này đã vượt 1 GB nên trang + ảnh của các case nằm ở các kho `Doctor-Gau-1607/case-ecg-2` … `case-ecg-6` (Pages bật sẵn; kho chưa tạo thì `lam_case.py` báo lỗi quyền/không có repo → báo người dùng). `lam_case.py` **tự chọn kho đầu tiên còn dưới 900 MB**, clone sparse vào `/home/claude/khoken/<kho>`, ghi `"kho"` + `"kb"` vào case; `day-len` đẩy mọi kho đã dùng rồi mới đẩy danh sách. Repo chính giữ `index.html`, `du-lieu/`, `tools/`, nhánh `nguon`, trang của 31 case cuối (#518–#548, không có khoá `kho`) và trang chuyển hướng cho link cũ của các case đã chuyển. Bị từ chối quyền với kho nào thì gọi `add_repo` (owner `Doctor-Gau-1607`, repo đó, access `push`).
+- **Bài mới:** workflow "Tải nguồn case ECG" (mỗi 6 giờ) chạy `tools/bai_moi.py` dò nguồn tin ekgblog.com, thêm case mới (tiêu đề có "#N") vào cuối danh sách với trạng thái `chua`, rồi tải nguồn. Lượt dịch hằng tuần (7:00 thứ Hai, giờ Việt Nam) dịch các case đó.
+
 Nguồn (trang + ảnh gốc) đã được GitHub Actions tải sẵn vào nhánh `nguon`. **Không tự tải từ ekgblog.com** (container không truy cập được, và không cần).
 
 ## 0. Chuẩn bị (mỗi lượt là một phiên mới)

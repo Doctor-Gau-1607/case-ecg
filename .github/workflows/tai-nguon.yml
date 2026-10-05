@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['tools/tai_nguon.py', 'tools/tai_trang.py', '.github/workflows/tai-nguon.yml']
+    paths: ['tools/tai_nguon.py', 'tools/tai_trang.py', 'tools/bai_moi.py', '.github/workflows/tai-nguon.yml']
   schedule:
     - cron: '17 */6 * * *'   # mỗi 6 giờ: tải tiếp phần còn lại / tải bù case lỗi
 permissions:
@@ -12,7 +12,34 @@ concurrency:
   group: tai-nguon-v2
   cancel-in-progress: false
 jobs:
+  moi:
+    # dò bài MỚI trên ekgblog.com (tools/bai_moi.py) → thêm vào danh sách với trạng thái "chua";
+    # lượt dịch hằng tuần (7:00 thứ Hai) sẽ dịch. Các job sau checkout ref main để thấy danh sách mới.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+          sparse-checkout: |
+            tools
+            du-lieu
+      - name: Tìm bài mới trên blog
+        run: |
+          cd main
+          git config user.name "case-ecg-bot"; git config user.email "actions@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q --depth 1 origin main && git reset -q --hard FETCH_HEAD
+            python3 tools/bai_moi.py --main . || break
+            git diff --quiet -- du-lieu && break
+            git add du-lieu && git commit -q -m "Bài mới từ ECG Blog (Ken Grauer)"
+            git push -q origin HEAD:main && break
+            sleep 20
+          done
   trang:
+    needs: moi
+    if: always()
     # 20 mảnh chạy song song trên 20 máy chủ (IP khác nhau) -> ít bị ekgblog giới hạn tốc độ
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -23,6 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           path: main
           sparse-checkout: |
             tools
@@ -42,6 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           path: main
           sparse-checkout: |
             tools
