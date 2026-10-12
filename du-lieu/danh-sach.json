@@ -7147,9 +7147,13 @@
 "tieu_de_en": "ECG Blog #549 — No Chest Pain",
 "nhan": "#549",
 "slug": "case-549",
-"trang_thai": "dang",
+"trang_thai": "xong",
 "ngay_dang": "2026-10-03",
-"giu_luc": 1791763834
+"tieu_de_vi": "ECG Blog #549 — Không đau ngực",
+"tu_khoa": "rung nhĩ đáp ứng thất nhanh, AFib, nhịp nhanh thất không bền bỉ, NSVT, dẫn truyền lệch hướng, aberrant conduction, khoảng ghép hằng định, coupling interval, khoảng ngưng sau ngoại tâm thu, hiện tượng Ashman, RVOT VT, ST chênh xuống tối đa V3-V5, OMI thành sau, posterior OMI, nhịp nhanh QRS rộng",
+"ngay": "2026-10-12",
+"kb": 2914,
+"kho": "case-ecg-2"
 },
 {
 "stt": 554,
