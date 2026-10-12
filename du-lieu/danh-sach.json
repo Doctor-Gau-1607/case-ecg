@@ -7161,8 +7161,12 @@
 "tieu_de_en": "ECG Blog #550 — Guess the Clinical Setting",
 "nhan": "#550",
 "slug": "case-550",
-"trang_thai": "dang",
+"trang_thai": "xong",
 "ngay_dang": "2026-10-10",
-"giu_luc": 1791763834
+"tieu_de_vi": "ECG Blog #550 — Đoán bối cảnh lâm sàng",
+"tu_khoa": "nhịp tự thất gia tốc, AIVR, nhát hỗn hợp, fusion beat, nhịp thoát thất, ventricular escape, dẫn truyền ngược dòng, retrograde conduction, rối loạn nhịp tái tưới máu, reperfusion arrhythmia, tái tưới máu tự phát, OMI, tắc LAD, xoáy trước tim, Precordial Swirl, giản đồ bậc thang, laddergram, điện thế thấp, choáng cơ tim",
+"ngay": "2026-10-12",
+"kb": 11568,
+"kho": "case-ecg-2"
 }
 ]
