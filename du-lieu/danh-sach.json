@@ -7189,8 +7189,12 @@
 "tieu_de_en": "ECG Blog #552 — The Leads were Not Misplaced!",
 "nhan": "#552",
 "slug": "case-552",
-"trang_thai": "dang",
+"trang_thai": "xong",
 "ngay_dang": "2026-10-24",
-"giu_luc": 1792973021
+"tieu_de_vi": "ECG Blog #552 — Các điện cực KHÔNG hề bị đặt sai!",
+"tu_khoa": "đặt sai vị trí điện cực, đảo điện cực, nối nhầm cáp, hộp nối cáp, sự cố kỹ thuật, technical misadventure, lead misplacement, lead reversal, cable misconnection, V1 và LL, cực trung tâm Wilson, Wilson Central Terminal, tăng gánh thất trái, LVH, LV strain",
+"ngay": "2026-10-26",
+"kb": 4096,
+"kho": "case-ecg-2"
 }
 ]
